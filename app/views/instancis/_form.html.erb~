@@ -1,0 +1,45 @@
+<%= form_for(@instanci) do |f| %>
+  <% if @instanci.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@instanci.errors.count, "error") %> prohibited this instanci from being saved:</h2>
+
+      <ul>
+      <% @instanci.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ins_cod %><br>
+    <%= f.number_field :ins_cod %>
+  </div>
+  <div class="field">
+    <%= f.label :ins_cod_prov %><br>
+    <%= f.text_field :ins_cod_prov %>
+  </div>
+  <div class="field">
+    <%= f.label :est_art_cod %><br>
+    <%= f.number_field :est_art_cod %>
+  </div>
+  <div class="field">
+    <%= f.label :art_cod %><br>
+    <%= f.number_field :art_cod %>
+  </div>
+  <div class="field">
+    <%= f.label :ins_stock %><br>
+    <%= f.number_field :ins_stock %>
+  </div>
+  <div class="field">
+    <%= f.label :ins_precio_lista %><br>
+    <%= f.number_field :ins_precio_lista %>
+  </div>
+  <div class="field">
+    <%= f.label :ins_precio_prov %><br>
+    <%= f.number_field :ins_precio_prov %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

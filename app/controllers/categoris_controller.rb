@@ -10,6 +10,14 @@ class CategorisController < ApplicationController
   # GET /categoris/1
   # GET /categoris/1.json
   def show
+    @articulos = Articulo.where(cat_cod: @categori.id)
+    @articulos.each do |articulo|
+      @imagenes=Imagen.where("LENGTH(imagen_uri) > ?",0)
+      @imagenes.each do |imagen|
+        @aux=Instanci.where(ins_cod: imagen.ins_cod, art_cod: articulo.art_cod)
+      end
+    end
+    @instancis=@aux
   end
 
   # GET /categoris/new

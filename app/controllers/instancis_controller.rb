@@ -69,6 +69,6 @@ class InstancisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def instanci_params
-      params.require(:instanci).permit(:ins_cod, :ins_cod_prov, :est_art_cod, :art_cod, :ins_stock, :ins_precio_lista, :ins_precio_prov)
+      params.require(:instanci).permit(:ins_cod_prov, :est_art_cod, :art_cod, :ins_stock, :ins_precio_lista, :ins_precio_prov)
     end
 end
