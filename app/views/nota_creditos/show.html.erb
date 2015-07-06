@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sol dev cod:</strong>
+  <%= @nota_credito.sol_dev_cod %>
+</p>
+
+<p>
+  <strong>Doc cob cod:</strong>
+  <%= @nota_credito.doc_cob_cod %>
+</p>
+
+<p>
+  <strong>Not cre monto:</strong>
+  <%= @nota_credito.not_cre_monto %>
+</p>
+
+<%= link_to 'Edit', edit_nota_credito_path(@nota_credito) %> |
+<%= link_to 'Back', nota_creditos_path %>

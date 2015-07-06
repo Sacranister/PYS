@@ -1,0 +1,41 @@
+<%= form_for(@detalle_sol_devolucion) do |f| %>
+  <% if @detalle_sol_devolucion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@detalle_sol_devolucion.errors.count, "error") %> prohibited this detalle_sol_devolucion from being saved:</h2>
+
+      <ul>
+      <% @detalle_sol_devolucion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :sol_dev_cod %><br>
+    <%= f.number_field :sol_dev_cod %>
+  </div>
+  <div class="field">
+    <%= f.label :det_sol_dev_linea %><br>
+    <%= f.number_field :det_sol_dev_linea %>
+  </div>
+  <div class="field">
+    <%= f.label :ins_cod %><br>
+    <%= f.number_field :ins_cod %>
+  </div>
+  <div class="field">
+    <%= f.label :ins_cod_prov %><br>
+    <%= f.text_field :ins_cod_prov %>
+  </div>
+  <div class="field">
+    <%= f.label :det_sol_dev_cant %><br>
+    <%= f.number_field :det_sol_dev_cant %>
+  </div>
+  <div class="field">
+    <%= f.label :det_sol_dev_precio %><br>
+    <%= f.number_field :det_sol_dev_precio %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

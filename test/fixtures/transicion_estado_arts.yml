@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  est_est_art_cod: 1
+  est_art_cod: 1
+  trans_est_art_cod: 1
+
+two:
+  est_est_art_cod: 1
+  est_art_cod: 1
+  trans_est_art_cod: 1

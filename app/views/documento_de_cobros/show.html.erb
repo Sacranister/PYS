@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Not cre cod:</strong>
+  <%= @documento_de_cobro.not_cre_cod %>
+</p>
+
+<p>
+  <strong>Doc com cod:</strong>
+  <%= @documento_de_cobro.doc_com_cod %>
+</p>
+
+<p>
+  <strong>Doc cob tipo:</strong>
+  <%= @documento_de_cobro.doc_cob_tipo %>
+</p>
+
+<%= link_to 'Edit', edit_documento_de_cobro_path(@documento_de_cobro) %> |
+<%= link_to 'Back', documento_de_cobros_path %>

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Auditoris</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Aud usuario</th>
+      <th>Aud fecha</th>
+      <th>Aud tabla modif</th>
+      <th>Aud operacion</th>
+      <th>Aud atri modif</th>
+      <th>Aud antes</th>
+      <th>Aud despues</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @auditoris.each do |auditori| %>
+      <tr>
+        <td><%= auditori.aud_usuario %></td>
+        <td><%= auditori.aud_fecha %></td>
+        <td><%= auditori.aud_tabla_modif %></td>
+        <td><%= auditori.aud_operacion %></td>
+        <td><%= auditori.aud_atri_modif %></td>
+        <td><%= auditori.aud_antes %></td>
+        <td><%= auditori.aud_despues %></td>
+        <td><%= link_to 'Show', auditori %></td>
+        <td><%= link_to 'Edit', edit_auditori_path(auditori) %></td>
+        <td><%= link_to 'Destroy', auditori, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Auditori', new_auditori_path %>

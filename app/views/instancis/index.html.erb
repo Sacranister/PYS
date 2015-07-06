@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Instancis</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ins cod</th>
+      <th>Ins cod prov</th>
+      <th>Est art cod</th>
+      <th>Art cod</th>
+      <th>Ins stock</th>
+      <th>Ins precio lista</th>
+      <th>Ins precio prov</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @instancis.each do |instanci| %>
+      <tr>
+        <td><%= instanci.ins_cod %></td>
+        <td><%= instanci.ins_cod_prov %></td>
+        <td><%= instanci.est_art_cod %></td>
+        <td><%= instanci.art_cod %></td>
+        <td><%= instanci.ins_stock %></td>
+        <td><%= instanci.ins_precio_lista %></td>
+        <td><%= instanci.ins_precio_prov %></td>
+        <td><%= link_to 'Show', instanci %></td>
+        <td><%= link_to 'Edit', edit_instanci_path(instanci) %></td>
+        <td><%= link_to 'Destroy', instanci, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Instanci', new_instanci_path %>

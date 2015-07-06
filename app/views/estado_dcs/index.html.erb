@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Estado Dcs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Est dc nom</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @estado_dcs.each do |estado_dc| %>
+      <tr>
+        <td><%= estado_dc.est_dc_nom %></td>
+        <td><%= link_to 'Show', estado_dc %></td>
+        <td><%= link_to 'Edit', edit_estado_dc_path(estado_dc) %></td>
+        <td><%= link_to 'Destroy', estado_dc, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Estado dc', new_estado_dc_path %>

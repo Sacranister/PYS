@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ins cod:</strong>
+  <%= @imagen.ins_cod %>
+</p>
+
+<p>
+  <strong>Ins cod prov:</strong>
+  <%= @imagen.ins_cod_prov %>
+</p>
+
+<p>
+  <strong>Imagen uri:</strong>
+  <%= @imagen.imagen_uri %>
+</p>
+
+<%= link_to 'Edit', edit_imagen_path(@imagen) %> |
+<%= link_to 'Back', imagens_path %>

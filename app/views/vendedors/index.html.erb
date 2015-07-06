@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Vendedors</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ven nom</th>
+      <th>Ven rut</th>
+      <th>Ven mail</th>
+      <th>Ven tel</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vendedors.each do |vendedor| %>
+      <tr>
+        <td><%= vendedor.ven_nom %></td>
+        <td><%= vendedor.ven_rut %></td>
+        <td><%= vendedor.ven_mail %></td>
+        <td><%= vendedor.ven_tel %></td>
+        <td><%= link_to 'Show', vendedor %></td>
+        <td><%= link_to 'Edit', edit_vendedor_path(vendedor) %></td>
+        <td><%= link_to 'Destroy', vendedor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vendedor', new_vendedor_path %>

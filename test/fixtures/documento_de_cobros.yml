@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  not_cre_cod: 1
+  doc_com_cod: 1
+  doc_cob_tipo: MyString
+
+two:
+  not_cre_cod: 1
+  doc_com_cod: 1
+  doc_cob_tipo: MyString

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Transicion Estado Dcs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Est est dc cod</th>
+      <th>Est dc cod</th>
+      <th>Trans est dc cod</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @transicion_estado_dcs.each do |transicion_estado_dc| %>
+      <tr>
+        <td><%= transicion_estado_dc.est_est_dc_cod %></td>
+        <td><%= transicion_estado_dc.est_dc_cod %></td>
+        <td><%= transicion_estado_dc.trans_est_dc_cod %></td>
+        <td><%= link_to 'Show', transicion_estado_dc %></td>
+        <td><%= link_to 'Edit', edit_transicion_estado_dc_path(transicion_estado_dc) %></td>
+        <td><%= link_to 'Destroy', transicion_estado_dc, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Transicion estado dc', new_transicion_estado_dc_path %>

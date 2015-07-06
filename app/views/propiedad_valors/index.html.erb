@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Propiedad Valors</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Val cod</th>
+      <th>Prop cod</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @propiedad_valors.each do |propiedad_valor| %>
+      <tr>
+        <td><%= propiedad_valor.val_cod %></td>
+        <td><%= propiedad_valor.prop_cod %></td>
+        <td><%= link_to 'Show', propiedad_valor %></td>
+        <td><%= link_to 'Edit', edit_propiedad_valor_path(propiedad_valor) %></td>
+        <td><%= link_to 'Destroy', propiedad_valor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Propiedad valor', new_propiedad_valor_path %>

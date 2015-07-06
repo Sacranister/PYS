@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Guia Despacho Pedidos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ped cod</th>
+      <th>Guia desp ped fecha</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @guia_despacho_pedidos.each do |guia_despacho_pedido| %>
+      <tr>
+        <td><%= guia_despacho_pedido.ped_cod %></td>
+        <td><%= guia_despacho_pedido.guia_desp_ped_fecha %></td>
+        <td><%= link_to 'Show', guia_despacho_pedido %></td>
+        <td><%= link_to 'Edit', edit_guia_despacho_pedido_path(guia_despacho_pedido) %></td>
+        <td><%= link_to 'Destroy', guia_despacho_pedido, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Guia despacho pedido', new_guia_despacho_pedido_path %>

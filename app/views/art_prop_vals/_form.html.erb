@@ -1,0 +1,29 @@
+<%= form_for(@art_prop_val) do |f| %>
+  <% if @art_prop_val.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@art_prop_val.errors.count, "error") %> prohibited this art_prop_val from being saved:</h2>
+
+      <ul>
+      <% @art_prop_val.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :val_cod %><br>
+    <%= f.number_field :val_cod %>
+  </div>
+  <div class="field">
+    <%= f.label :art_cod %><br>
+    <%= f.number_field :art_cod %>
+  </div>
+  <div class="field">
+    <%= f.label :prop_cod %><br>
+    <%= f.number_field :prop_cod %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

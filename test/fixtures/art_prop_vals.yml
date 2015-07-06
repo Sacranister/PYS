@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  val_cod: 1
+  art_cod: 1
+  prop_cod: 1
+
+two:
+  val_cod: 1
+  art_cod: 1
+  prop_cod: 1

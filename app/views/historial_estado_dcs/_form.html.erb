@@ -1,0 +1,33 @@
+<%= form_for(@historial_estado_dc) do |f| %>
+  <% if @historial_estado_dc.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@historial_estado_dc.errors.count, "error") %> prohibited this historial_estado_dc from being saved:</h2>
+
+      <ul>
+      <% @historial_estado_dc.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :doc_com_cod %><br>
+    <%= f.number_field :doc_com_cod %>
+  </div>
+  <div class="field">
+    <%= f.label :est_dc_cod %><br>
+    <%= f.number_field :est_dc_cod %>
+  </div>
+  <div class="field">
+    <%= f.label :hist_est_dc_cod %><br>
+    <%= f.number_field :hist_est_dc_cod %>
+  </div>
+  <div class="field">
+    <%= f.label :hist_est_dc_fecha %><br>
+    <%= f.date_select :hist_est_dc_fecha %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

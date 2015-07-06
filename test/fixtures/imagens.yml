@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ins_cod: 1
+  ins_cod_prov: MyString
+  imagen_uri: MyString
+
+two:
+  ins_cod: 1
+  ins_cod_prov: MyString
+  imagen_uri: MyString

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ped cod:</strong>
+  <%= @historial_estado_pedido.ped_cod %>
+</p>
+
+<p>
+  <strong>Estado ped cod:</strong>
+  <%= @historial_estado_pedido.estado_ped_cod %>
+</p>
+
+<p>
+  <strong>Hist est ped cod:</strong>
+  <%= @historial_estado_pedido.hist_est_ped_cod %>
+</p>
+
+<p>
+  <strong>Hist est ped fecha:</strong>
+  <%= @historial_estado_pedido.hist_est_ped_fecha %>
+</p>
+
+<%= link_to 'Edit', edit_historial_estado_pedido_path(@historial_estado_pedido) %> |
+<%= link_to 'Back', historial_estado_pedidos_path %>

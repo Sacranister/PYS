@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  est_estado_ped_cod: 1
+  estado_ped_cod: 1
+  trans_est_ped_cod: 1
+
+two:
+  est_estado_ped_cod: 1
+  estado_ped_cod: 1
+  trans_est_ped_cod: 1

@@ -1,0 +1,29 @@
+<%= form_for(@transicion_estado_dc) do |f| %>
+  <% if @transicion_estado_dc.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@transicion_estado_dc.errors.count, "error") %> prohibited this transicion_estado_dc from being saved:</h2>
+
+      <ul>
+      <% @transicion_estado_dc.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :est_est_dc_cod %><br>
+    <%= f.number_field :est_est_dc_cod %>
+  </div>
+  <div class="field">
+    <%= f.label :est_dc_cod %><br>
+    <%= f.number_field :est_dc_cod %>
+  </div>
+  <div class="field">
+    <%= f.label :trans_est_dc_cod %><br>
+    <%= f.number_field :trans_est_dc_cod %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

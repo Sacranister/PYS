@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Ins Apvs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Apv cod</th>
+      <th>Ins cod</th>
+      <th>Ins cod prov</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ins_apvs.each do |ins_apv| %>
+      <tr>
+        <td><%= ins_apv.apv_cod %></td>
+        <td><%= ins_apv.ins_cod %></td>
+        <td><%= ins_apv.ins_cod_prov %></td>
+        <td><%= link_to 'Show', ins_apv %></td>
+        <td><%= link_to 'Edit', edit_ins_apv_path(ins_apv) %></td>
+        <td><%= link_to 'Destroy', ins_apv, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ins apv', new_ins_apv_path %>

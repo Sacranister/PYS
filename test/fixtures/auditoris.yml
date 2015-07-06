@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  aud_usuario: MyString
+  aud_fecha: 2015-07-06
+  aud_tabla_modif: MyString
+  aud_operacion: MyString
+  aud_atri_modif: MyString
+  aud_antes: MyString
+  aud_despues: MyString
+
+two:
+  aud_usuario: MyString
+  aud_fecha: 2015-07-06
+  aud_tabla_modif: MyString
+  aud_operacion: MyString
+  aud_atri_modif: MyString
+  aud_antes: MyString
+  aud_despues: MyString

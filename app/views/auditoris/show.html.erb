@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Aud usuario:</strong>
+  <%= @auditori.aud_usuario %>
+</p>
+
+<p>
+  <strong>Aud fecha:</strong>
+  <%= @auditori.aud_fecha %>
+</p>
+
+<p>
+  <strong>Aud tabla modif:</strong>
+  <%= @auditori.aud_tabla_modif %>
+</p>
+
+<p>
+  <strong>Aud operacion:</strong>
+  <%= @auditori.aud_operacion %>
+</p>
+
+<p>
+  <strong>Aud atri modif:</strong>
+  <%= @auditori.aud_atri_modif %>
+</p>
+
+<p>
+  <strong>Aud antes:</strong>
+  <%= @auditori.aud_antes %>
+</p>
+
+<p>
+  <strong>Aud despues:</strong>
+  <%= @auditori.aud_despues %>
+</p>
+
+<%= link_to 'Edit', edit_auditori_path(@auditori) %> |
+<%= link_to 'Back', auditoris_path %>

@@ -1,0 +1,29 @@
+<%= form_for(@ins_apv) do |f| %>
+  <% if @ins_apv.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ins_apv.errors.count, "error") %> prohibited this ins_apv from being saved:</h2>
+
+      <ul>
+      <% @ins_apv.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :apv_cod %><br>
+    <%= f.number_field :apv_cod %>
+  </div>
+  <div class="field">
+    <%= f.label :ins_cod %><br>
+    <%= f.number_field :ins_cod %>
+  </div>
+  <div class="field">
+    <%= f.label :ins_cod_prov %><br>
+    <%= f.text_field :ins_cod_prov %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Detalle Documento De Compras</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Doc com cod</th>
+      <th>Det doc com linea</th>
+      <th>Ins cod</th>
+      <th>Ins cod prov</th>
+      <th>Det doc com cant</th>
+      <th>Det doc com precio</th>
+      <th>Det doc com precio uni</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @detalle_documento_de_compras.each do |detalle_documento_de_compra| %>
+      <tr>
+        <td><%= detalle_documento_de_compra.doc_com_cod %></td>
+        <td><%= detalle_documento_de_compra.det_doc_com_linea %></td>
+        <td><%= detalle_documento_de_compra.ins_cod %></td>
+        <td><%= detalle_documento_de_compra.ins_cod_prov %></td>
+        <td><%= detalle_documento_de_compra.det_doc_com_cant %></td>
+        <td><%= detalle_documento_de_compra.det_doc_com_precio %></td>
+        <td><%= detalle_documento_de_compra.det_doc_com_precio_uni %></td>
+        <td><%= link_to 'Show', detalle_documento_de_compra %></td>
+        <td><%= link_to 'Edit', edit_detalle_documento_de_compra_path(detalle_documento_de_compra) %></td>
+        <td><%= link_to 'Destroy', detalle_documento_de_compra, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Detalle documento de compra', new_detalle_documento_de_compra_path %>

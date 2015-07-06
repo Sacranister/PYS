@@ -1,0 +1,2 @@
+module DetalleSolDevolucionsHelper
+end

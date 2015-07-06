@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Pro nom:</strong>
+  <%= @proveedor.pro_nom %>
+</p>
+
+<p>
+  <strong>Pro mail:</strong>
+  <%= @proveedor.pro_mail %>
+</p>
+
+<p>
+  <strong>Pro desc:</strong>
+  <%= @proveedor.pro_desc %>
+</p>
+
+<p>
+  <strong>Pro web:</strong>
+  <%= @proveedor.pro_web %>
+</p>
+
+<%= link_to 'Edit', edit_proveedor_path(@proveedor) %> |
+<%= link_to 'Back', proveedors_path %>

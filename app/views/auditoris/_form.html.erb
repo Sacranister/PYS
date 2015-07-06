@@ -1,0 +1,45 @@
+<%= form_for(@auditori) do |f| %>
+  <% if @auditori.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@auditori.errors.count, "error") %> prohibited this auditori from being saved:</h2>
+
+      <ul>
+      <% @auditori.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :aud_usuario %><br>
+    <%= f.text_field :aud_usuario %>
+  </div>
+  <div class="field">
+    <%= f.label :aud_fecha %><br>
+    <%= f.date_select :aud_fecha %>
+  </div>
+  <div class="field">
+    <%= f.label :aud_tabla_modif %><br>
+    <%= f.text_field :aud_tabla_modif %>
+  </div>
+  <div class="field">
+    <%= f.label :aud_operacion %><br>
+    <%= f.text_field :aud_operacion %>
+  </div>
+  <div class="field">
+    <%= f.label :aud_atri_modif %><br>
+    <%= f.text_field :aud_atri_modif %>
+  </div>
+  <div class="field">
+    <%= f.label :aud_antes %><br>
+    <%= f.text_field :aud_antes %>
+  </div>
+  <div class="field">
+    <%= f.label :aud_despues %><br>
+    <%= f.text_field :aud_despues %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

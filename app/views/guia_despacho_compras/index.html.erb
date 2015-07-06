@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Guia Despacho Compras</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Doc com cod</th>
+      <th>Dir cod</th>
+      <th>Guia desp fecha</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @guia_despacho_compras.each do |guia_despacho_compra| %>
+      <tr>
+        <td><%= guia_despacho_compra.doc_com_cod %></td>
+        <td><%= guia_despacho_compra.dir_cod %></td>
+        <td><%= guia_despacho_compra.guia_desp_fecha %></td>
+        <td><%= link_to 'Show', guia_despacho_compra %></td>
+        <td><%= link_to 'Edit', edit_guia_despacho_compra_path(guia_despacho_compra) %></td>
+        <td><%= link_to 'Destroy', guia_despacho_compra, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Guia despacho compra', new_guia_despacho_compra_path %>

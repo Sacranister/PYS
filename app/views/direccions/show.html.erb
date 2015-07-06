@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cli cod:</strong>
+  <%= @direccion.cli_cod %>
+</p>
+
+<p>
+  <strong>Guia desp cod:</strong>
+  <%= @direccion.guia_desp_cod %>
+</p>
+
+<p>
+  <strong>Dir calle:</strong>
+  <%= @direccion.dir_calle %>
+</p>
+
+<p>
+  <strong>Dir numero:</strong>
+  <%= @direccion.dir_numero %>
+</p>
+
+<p>
+  <strong>Dir comuna:</strong>
+  <%= @direccion.dir_comuna %>
+</p>
+
+<p>
+  <strong>Dir ciudad:</strong>
+  <%= @direccion.dir_ciudad %>
+</p>
+
+<p>
+  <strong>Dir tipo:</strong>
+  <%= @direccion.dir_tipo %>
+</p>
+
+<%= link_to 'Edit', edit_direccion_path(@direccion) %> |
+<%= link_to 'Back', direccions_path %>

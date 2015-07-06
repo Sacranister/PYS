@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sol_dev_cod: 1
+  det_sol_dev_linea: 1
+  ins_cod: 1
+  ins_cod_prov: MyString
+  det_sol_dev_cant: 1
+  det_sol_dev_precio: 1
+
+two:
+  sol_dev_cod: 1
+  det_sol_dev_linea: 1
+  ins_cod: 1
+  ins_cod_prov: MyString
+  det_sol_dev_cant: 1
+  det_sol_dev_precio: 1

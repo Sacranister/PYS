@@ -1,0 +1,29 @@
+<%= form_for(@documento_de_cobro) do |f| %>
+  <% if @documento_de_cobro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@documento_de_cobro.errors.count, "error") %> prohibited this documento_de_cobro from being saved:</h2>
+
+      <ul>
+      <% @documento_de_cobro.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :not_cre_cod %><br>
+    <%= f.number_field :not_cre_cod %>
+  </div>
+  <div class="field">
+    <%= f.label :doc_com_cod %><br>
+    <%= f.number_field :doc_com_cod %>
+  </div>
+  <div class="field">
+    <%= f.label :doc_cob_tipo %><br>
+    <%= f.text_field :doc_cob_tipo %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

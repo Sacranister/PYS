@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  est_dc_cod: 1
+  ven_cod: 1
+  guia_desp_cod: 1
+  cli_cod: 1
+  doc_cob_cod: 1
+  doc_com_fecha: 2015-07-06
+  doc_com_met_ent: MyString
+  doc_com_met_pago: MyString
+  doc_com_tipo: MyString
+
+two:
+  est_dc_cod: 1
+  ven_cod: 1
+  guia_desp_cod: 1
+  cli_cod: 1
+  doc_cob_cod: 1
+  doc_com_fecha: 2015-07-06
+  doc_com_met_ent: MyString
+  doc_com_met_pago: MyString
+  doc_com_tipo: MyString

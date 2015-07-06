@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ped_cod: 1
+  det_ped_linea: 1
+  ins_cod: 1
+  ins_cod_prov: MyString
+  det_ped_cant: 1
+  det_ped_precio: 1
+
+two:
+  ped_cod: 1
+  det_ped_linea: 1
+  ins_cod: 1
+  ins_cod_prov: MyString
+  det_ped_cant: 1
+  det_ped_precio: 1

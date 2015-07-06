@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cli_cod: 1
+  guia_desp_cod: 1
+  dir_calle: MyString
+  dir_numero: 1
+  dir_comuna: MyString
+  dir_ciudad: MyString
+  dir_tipo: MyString
+
+two:
+  cli_cod: 1
+  guia_desp_cod: 1
+  dir_calle: MyString
+  dir_numero: 1
+  dir_comuna: MyString
+  dir_ciudad: MyString
+  dir_tipo: MyString

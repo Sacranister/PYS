@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Apv cod:</strong>
+  <%= @ins_apv.apv_cod %>
+</p>
+
+<p>
+  <strong>Ins cod:</strong>
+  <%= @ins_apv.ins_cod %>
+</p>
+
+<p>
+  <strong>Ins cod prov:</strong>
+  <%= @ins_apv.ins_cod_prov %>
+</p>
+
+<%= link_to 'Edit', edit_ins_apv_path(@ins_apv) %> |
+<%= link_to 'Back', ins_apvs_path %>

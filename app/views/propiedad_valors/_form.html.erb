@@ -1,0 +1,25 @@
+<%= form_for(@propiedad_valor) do |f| %>
+  <% if @propiedad_valor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@propiedad_valor.errors.count, "error") %> prohibited this propiedad_valor from being saved:</h2>
+
+      <ul>
+      <% @propiedad_valor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :val_cod %><br>
+    <%= f.number_field :val_cod %>
+  </div>
+  <div class="field">
+    <%= f.label :prop_cod %><br>
+    <%= f.number_field :prop_cod %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

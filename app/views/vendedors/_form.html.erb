@@ -1,0 +1,33 @@
+<%= form_for(@vendedor) do |f| %>
+  <% if @vendedor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vendedor.errors.count, "error") %> prohibited this vendedor from being saved:</h2>
+
+      <ul>
+      <% @vendedor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ven_nom %><br>
+    <%= f.text_field :ven_nom %>
+  </div>
+  <div class="field">
+    <%= f.label :ven_rut %><br>
+    <%= f.text_field :ven_rut %>
+  </div>
+  <div class="field">
+    <%= f.label :ven_mail %><br>
+    <%= f.text_field :ven_mail %>
+  </div>
+  <div class="field">
+    <%= f.label :ven_tel %><br>
+    <%= f.number_field :ven_tel %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

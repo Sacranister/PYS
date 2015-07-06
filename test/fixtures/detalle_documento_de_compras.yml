@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  doc_com_cod: 1
+  det_doc_com_linea: 1
+  ins_cod: 1
+  ins_cod_prov: MyString
+  det_doc_com_cant: 1
+  det_doc_com_precio: 1
+  det_doc_com_precio_uni: 1
+
+two:
+  doc_com_cod: 1
+  det_doc_com_linea: 1
+  ins_cod: 1
+  ins_cod_prov: MyString
+  det_doc_com_cant: 1
+  det_doc_com_precio: 1
+  det_doc_com_precio_uni: 1

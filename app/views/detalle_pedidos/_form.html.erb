@@ -1,0 +1,41 @@
+<%= form_for(@detalle_pedido) do |f| %>
+  <% if @detalle_pedido.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@detalle_pedido.errors.count, "error") %> prohibited this detalle_pedido from being saved:</h2>
+
+      <ul>
+      <% @detalle_pedido.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ped_cod %><br>
+    <%= f.number_field :ped_cod %>
+  </div>
+  <div class="field">
+    <%= f.label :det_ped_linea %><br>
+    <%= f.number_field :det_ped_linea %>
+  </div>
+  <div class="field">
+    <%= f.label :ins_cod %><br>
+    <%= f.number_field :ins_cod %>
+  </div>
+  <div class="field">
+    <%= f.label :ins_cod_prov %><br>
+    <%= f.text_field :ins_cod_prov %>
+  </div>
+  <div class="field">
+    <%= f.label :det_ped_cant %><br>
+    <%= f.number_field :det_ped_cant %>
+  </div>
+  <div class="field">
+    <%= f.label :det_ped_precio %><br>
+    <%= f.number_field :det_ped_precio %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

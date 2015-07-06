@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Art Props</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Prop cod</th>
+      <th>Art cod</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @art_props.each do |art_prop| %>
+      <tr>
+        <td><%= art_prop.prop_cod %></td>
+        <td><%= art_prop.art_cod %></td>
+        <td><%= link_to 'Show', art_prop %></td>
+        <td><%= link_to 'Edit', edit_art_prop_path(art_prop) %></td>
+        <td><%= link_to 'Destroy', art_prop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Art prop', new_art_prop_path %>

@@ -1,0 +1,29 @@
+<%= form_for(@guia_despacho_compra) do |f| %>
+  <% if @guia_despacho_compra.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@guia_despacho_compra.errors.count, "error") %> prohibited this guia_despacho_compra from being saved:</h2>
+
+      <ul>
+      <% @guia_despacho_compra.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :doc_com_cod %><br>
+    <%= f.number_field :doc_com_cod %>
+  </div>
+  <div class="field">
+    <%= f.label :dir_cod %><br>
+    <%= f.number_field :dir_cod %>
+  </div>
+  <div class="field">
+    <%= f.label :guia_desp_fecha %><br>
+    <%= f.date_select :guia_desp_fecha %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

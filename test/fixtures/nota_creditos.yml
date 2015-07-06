@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sol_dev_cod: 1
+  doc_cob_cod: 1
+  not_cre_monto: 1
+
+two:
+  sol_dev_cod: 1
+  doc_cob_cod: 1
+  not_cre_monto: 1

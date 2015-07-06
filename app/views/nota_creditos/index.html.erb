@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Nota Creditos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sol dev cod</th>
+      <th>Doc cob cod</th>
+      <th>Not cre monto</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @nota_creditos.each do |nota_credito| %>
+      <tr>
+        <td><%= nota_credito.sol_dev_cod %></td>
+        <td><%= nota_credito.doc_cob_cod %></td>
+        <td><%= nota_credito.not_cre_monto %></td>
+        <td><%= link_to 'Show', nota_credito %></td>
+        <td><%= link_to 'Edit', edit_nota_credito_path(nota_credito) %></td>
+        <td><%= link_to 'Destroy', nota_credito, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Nota credito', new_nota_credito_path %>

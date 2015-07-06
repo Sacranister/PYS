@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Documento De Compras</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Est dc cod</th>
+      <th>Ven cod</th>
+      <th>Guia desp cod</th>
+      <th>Cli cod</th>
+      <th>Doc cob cod</th>
+      <th>Doc com fecha</th>
+      <th>Doc com met ent</th>
+      <th>Doc com met pago</th>
+      <th>Doc com tipo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @documento_de_compras.each do |documento_de_compra| %>
+      <tr>
+        <td><%= documento_de_compra.est_dc_cod %></td>
+        <td><%= documento_de_compra.ven_cod %></td>
+        <td><%= documento_de_compra.guia_desp_cod %></td>
+        <td><%= documento_de_compra.cli_cod %></td>
+        <td><%= documento_de_compra.doc_cob_cod %></td>
+        <td><%= documento_de_compra.doc_com_fecha %></td>
+        <td><%= documento_de_compra.doc_com_met_ent %></td>
+        <td><%= documento_de_compra.doc_com_met_pago %></td>
+        <td><%= documento_de_compra.doc_com_tipo %></td>
+        <td><%= link_to 'Show', documento_de_compra %></td>
+        <td><%= link_to 'Edit', edit_documento_de_compra_path(documento_de_compra) %></td>
+        <td><%= link_to 'Destroy', documento_de_compra, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Documento de compra', new_documento_de_compra_path %>

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  not_cre_cod: 1
+  doc_com_cod: 1
+  ven_cod: 1
+  cli_cod: 1
+  sol_dev_comentario: MyString
+  sol_dev_est: MyString
+
+two:
+  not_cre_cod: 1
+  doc_com_cod: 1
+  ven_cod: 1
+  cli_cod: 1
+  sol_dev_comentario: MyString
+  sol_dev_est: MyString

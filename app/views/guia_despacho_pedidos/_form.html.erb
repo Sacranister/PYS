@@ -1,0 +1,25 @@
+<%= form_for(@guia_despacho_pedido) do |f| %>
+  <% if @guia_despacho_pedido.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@guia_despacho_pedido.errors.count, "error") %> prohibited this guia_despacho_pedido from being saved:</h2>
+
+      <ul>
+      <% @guia_despacho_pedido.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ped_cod %><br>
+    <%= f.number_field :ped_cod %>
+  </div>
+  <div class="field">
+    <%= f.label :guia_desp_ped_fecha %><br>
+    <%= f.date_select :guia_desp_ped_fecha %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

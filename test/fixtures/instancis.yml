@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ins_cod: 1
+  ins_cod_prov: MyString
+  est_art_cod: 1
+  art_cod: 1
+  ins_stock: 1
+  ins_precio_lista: 1
+  ins_precio_prov: 1
+
+two:
+  ins_cod: 1
+  ins_cod_prov: MyString
+  est_art_cod: 1
+  art_cod: 1
+  ins_stock: 1
+  ins_precio_lista: 1
+  ins_precio_prov: 1

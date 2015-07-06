@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Estado ped cod:</strong>
+  <%= @pedido.estado_ped_cod %>
+</p>
+
+<p>
+  <strong>Guia desp ped cod:</strong>
+  <%= @pedido.guia_desp_ped_cod %>
+</p>
+
+<p>
+  <strong>Pro cod:</strong>
+  <%= @pedido.pro_cod %>
+</p>
+
+<p>
+  <strong>Ped fecha:</strong>
+  <%= @pedido.ped_fecha %>
+</p>
+
+<%= link_to 'Edit', edit_pedido_path(@pedido) %> |
+<%= link_to 'Back', pedidos_path %>

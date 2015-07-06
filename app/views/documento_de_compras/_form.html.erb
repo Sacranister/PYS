@@ -1,0 +1,53 @@
+<%= form_for(@documento_de_compra) do |f| %>
+  <% if @documento_de_compra.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@documento_de_compra.errors.count, "error") %> prohibited this documento_de_compra from being saved:</h2>
+
+      <ul>
+      <% @documento_de_compra.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :est_dc_cod %><br>
+    <%= f.number_field :est_dc_cod %>
+  </div>
+  <div class="field">
+    <%= f.label :ven_cod %><br>
+    <%= f.number_field :ven_cod %>
+  </div>
+  <div class="field">
+    <%= f.label :guia_desp_cod %><br>
+    <%= f.number_field :guia_desp_cod %>
+  </div>
+  <div class="field">
+    <%= f.label :cli_cod %><br>
+    <%= f.number_field :cli_cod %>
+  </div>
+  <div class="field">
+    <%= f.label :doc_cob_cod %><br>
+    <%= f.number_field :doc_cob_cod %>
+  </div>
+  <div class="field">
+    <%= f.label :doc_com_fecha %><br>
+    <%= f.date_select :doc_com_fecha %>
+  </div>
+  <div class="field">
+    <%= f.label :doc_com_met_ent %><br>
+    <%= f.text_field :doc_com_met_ent %>
+  </div>
+  <div class="field">
+    <%= f.label :doc_com_met_pago %><br>
+    <%= f.text_field :doc_com_met_pago %>
+  </div>
+  <div class="field">
+    <%= f.label :doc_com_tipo %><br>
+    <%= f.text_field :doc_com_tipo %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

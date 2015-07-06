@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  estado_ped_cod: 1
+  guia_desp_ped_cod: 1
+  pro_cod: 1
+  ped_fecha: 2015-07-06
+
+two:
+  estado_ped_cod: 1
+  guia_desp_ped_cod: 1
+  pro_cod: 1
+  ped_fecha: 2015-07-06
