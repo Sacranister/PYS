@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     protected
 
         def configure_permitted_parameters
-            devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:cli_nom,:email,:password,:cli_tel,:cli_rut) }
+            devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:cli_nom,:email,:password,:cli_tel,:cli_rut, :role) }
             devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:cli_nom, :email, :password,:cli_tel,:cli_rut, :current_password, :is_female, :date_of_birth) }
         end
 end

@@ -5,3 +5,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+	#user = User.new
+	#user.email = 'PYS@gmail.com'
+	#user.password = '12345678'
+	#user.password_confirmation ='12345678'
+	#user.cli_nom = 'Admin PYS'
+	#user.role = 'admin'
+	#user.save!
+	User.create(email:'PYS@gmail.com',password:'12345678',password_confirmation:'12345678',cli_nom:'PYS Admin',role: 'admin')
+	@users = User.all
+	@users.update(1,role: 'admin')
+	Categori.create(cat_nom:'Vestuarios')
+	Categori.create(cat_nom:'Calzados')
+	Categori.create(cat_nom:'Accesorios')
