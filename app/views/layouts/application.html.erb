@@ -78,6 +78,7 @@
                 <li> <%= link_to 'Salir', destroy_user_session_path, method: :delete %></li>
                 <li><%= link_to 'Mi Cuenta', edit_user_registration_path %></li>            
             <% else %>
+                <li><a href="http://localhost:3000/users/sign_up">Registrarse</a></li>
                 <li><%= link_to 'Entrar', new_user_session_path %></li>
             <% end %>
           </ul>
