@@ -75,6 +75,7 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <% if current_user %>
+                <li><a>Bienvenido, <%=current_user.cli_nom%></a></li>
                 <li> <%= link_to 'Salir', destroy_user_session_path, method: :delete %></li>
                 <li><%= link_to 'Mi Cuenta', edit_user_registration_path %></li>            
             <% else %>
