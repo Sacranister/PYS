@@ -28033,3 +28033,2366 @@ Started GET "/" for 127.0.0.1 at 2015-07-08 13:03:09 -0300
 Processing by PrincipalController#index as HTML
   Rendered principal/index.html.erb within layouts/application (0.0ms)
 Completed 200 OK in 571ms (Views: 570.7ms | ActiveRecord: 0.0ms)
+  [1m[36m (5031.3ms)[0m  [1mDROP DATABASE IF EXISTS "pys1_development"[0m
+PG::ObjectInUse: ERROR:  la base de datos «pys1_development» está siendo utilizada por otros usuarios
+DETAIL:  Hay otras 2 sesiones usando la base de datos.
+: DROP DATABASE IF EXISTS "pys1_development"
+  [1m[35m (105.9ms)[0m  DROP DATABASE IF EXISTS "pys1_test"
+  [1m[36m (0.5ms)[0m  [1mCREATE DATABASE "pys1_development" ENCODING = 'unicode'[0m
+PG::DuplicateDatabase: ERROR:  la base de datos «pys1_development» ya existe
+: CREATE DATABASE "pys1_development" ENCODING = 'unicode'
+  [1m[35m (830.7ms)[0m  CREATE DATABASE "pys1_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.6ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (61.6ms)[0m  DROP TABLE "art_prop_vals" CASCADE
+  [1m[36m (8.1ms)[0m  [1mCREATE TABLE "art_prop_vals" ("apv_cod" serial primary key, "val_cod" integer NOT NULL, "art_cod" integer NOT NULL, "prop_cod" integer NOT NULL) [0m
+  [1m[35m (3.8ms)[0m  CREATE UNIQUE INDEX  "art_prop_vals_pk" ON "art_prop_vals" USING btree ("apv_cod")
+  [1m[36m (8.2ms)[0m  [1mCREATE  INDEX  "relationship_58_fk" ON "art_prop_vals" USING btree ("art_cod")[0m
+  [1m[35m (6.7ms)[0m  CREATE  INDEX  "relationship_33_fk" ON "art_prop_vals" USING btree ("prop_cod")
+  [1m[36m (6.1ms)[0m  [1mCREATE  INDEX  "relationship_34_fk" ON "art_prop_vals" USING btree ("val_cod")[0m
+  [1m[35m (2.3ms)[0m  DROP TABLE "art_props" CASCADE
+  [1m[36m (7.5ms)[0m  [1mCREATE TABLE "art_props" ("art_prop_cod" serial primary key, "prop_cod" integer NOT NULL, "art_cod" integer NOT NULL) [0m
+  [1m[35m (9.2ms)[0m  CREATE  INDEX  "relationship_31_fk" ON "art_props" USING btree ("art_cod")
+  [1m[36m (5.0ms)[0m  [1mCREATE UNIQUE INDEX  "art_props_pk" ON "art_props" USING btree ("art_prop_cod")[0m
+  [1m[35m (5.6ms)[0m  CREATE  INDEX  "relationship_30_fk" ON "art_props" USING btree ("prop_cod")
+  [1m[36m (2.8ms)[0m  [1mDROP TABLE "articulos" CASCADE[0m
+  [1m[35m (9.3ms)[0m  CREATE TABLE "articulos" ("art_cod" serial primary key, "cat_cod" integer NOT NULL, "art_nom" character varying(40)) 
+  [1m[36m (5.9ms)[0m  [1mCREATE UNIQUE INDEX  "articulos_pk" ON "articulos" USING btree ("art_cod")[0m
+  [1m[35m (4.9ms)[0m  CREATE  INDEX  "relationship_53_fk" ON "articulos" USING btree ("cat_cod")
+  [1m[36m (15.7ms)[0m  [1mDROP TABLE "auditoris" CASCADE[0m
+  [1m[35m (20.8ms)[0m  CREATE TABLE "auditoris" ("aud_cod" serial primary key, "aud_usuario" character varying(128), "aud_fecha" date, "aud_tabla_modif" character varying(128), "aud_operacion" character varying(128), "aud_atri_modif" character varying(128), "aud_antes" character varying(128), "aud_despues" character varying(128)) 
+  [1m[36m (7.7ms)[0m  [1mCREATE UNIQUE INDEX  "auditorias_pk" ON "auditoris" USING btree ("aud_cod")[0m
+  [1m[35m (2.0ms)[0m  DROP TABLE "categoris" CASCADE
+  [1m[36m (9.5ms)[0m  [1mCREATE TABLE "categoris" ("cat_cod" serial primary key, "cat_cat_cod" integer, "cat_nom" character varying(40)) [0m
+  [1m[35m (6.8ms)[0m  CREATE  INDEX  "relationship_54_fk" ON "categoris" USING btree ("cat_cat_cod")
+  [1m[36m (6.0ms)[0m  [1mCREATE UNIQUE INDEX  "categorias_pk" ON "categoris" USING btree ("cat_cod")[0m
+  [1m[35m (2.4ms)[0m  DROP TABLE "clientes" CASCADE
+  [1m[36m (5.9ms)[0m  [1mCREATE TABLE "clientes" ("cli_cod" serial primary key, "cli_nom" character varying(40), "cli_tel" character varying(40), "cli_mail" character varying(40), "cli_rut" character varying(12)) [0m
+  [1m[35m (5.3ms)[0m  CREATE UNIQUE INDEX  "clientes_pk" ON "clientes" USING btree ("cli_cod")
+  [1m[36m (2.6ms)[0m  [1mDROP TABLE "detalle_documento_de_compras" CASCADE[0m
+  [1m[35m (3.5ms)[0m  CREATE TABLE "detalle_documento_de_compras" ("doc_com_cod" integer NOT NULL, "det_doc_com_linea" integer NOT NULL, "ins_cod" integer NOT NULL, "ins_cod_prov" character varying(20) NOT NULL, "det_doc_com_cant" integer, "det_doc_com_precio" integer, "det_doc_com_precio_uni" integer) 
+  [1m[36m (7.6ms)[0m  [1mCREATE UNIQUE INDEX  "detalle_documento_de_compras_pk" ON "detalle_documento_de_compras" USING btree ("doc_com_cod", "det_doc_com_linea")[0m
+  [1m[35m (6.5ms)[0m  CREATE  INDEX  "relationship_12_fk" ON "detalle_documento_de_compras" USING btree ("doc_com_cod")
+  [1m[36m (6.9ms)[0m  [1mCREATE  INDEX  "relationship_7_fk" ON "detalle_documento_de_compras" USING btree ("ins_cod", "ins_cod_prov")[0m
+  [1m[35m (2.4ms)[0m  DROP TABLE "detalle_pedidos" CASCADE
+  [1m[36m (2.5ms)[0m  [1mCREATE TABLE "detalle_pedidos" ("ped_cod" integer NOT NULL, "det_ped_linea" integer NOT NULL, "ins_cod" integer NOT NULL, "ins_cod_prov" character varying(20) NOT NULL, "det_ped_cant" integer, "det_ped_precio" integer) [0m
+  [1m[35m (6.7ms)[0m  CREATE  INDEX  "relationship_4_fk" ON "detalle_pedidos" USING btree ("ins_cod", "ins_cod_prov")
+  [1m[36m (7.7ms)[0m  [1mCREATE UNIQUE INDEX  "detalle_pedidos_pk" ON "detalle_pedidos" USING btree ("ped_cod", "det_ped_linea")[0m
+  [1m[35m (4.6ms)[0m  CREATE  INDEX  "relationship_45_fk" ON "detalle_pedidos" USING btree ("ped_cod")
+  [1m[36m (1.8ms)[0m  [1mDROP TABLE "detalle_sol_devolucions" CASCADE[0m
+  [1m[35m (12.1ms)[0m  CREATE TABLE "detalle_sol_devolucions" ("sol_dev_cod" integer NOT NULL, "det_sol_dev_linea" integer NOT NULL, "ins_cod" integer NOT NULL, "ins_cod_prov" character varying(20) NOT NULL, "det_sol_dev_cant" integer, "det_sol_dev_precio" integer) 
+  [1m[36m (3.7ms)[0m  [1mCREATE  INDEX  "relationship_22_fk" ON "detalle_sol_devolucions" USING btree ("ins_cod", "ins_cod_prov")[0m
+  [1m[35m (7.0ms)[0m  CREATE UNIQUE INDEX  "detalle_sol_devolucions_pk" ON "detalle_sol_devolucions" USING btree ("sol_dev_cod", "det_sol_dev_linea")
+  [1m[36m (5.6ms)[0m  [1mCREATE  INDEX  "relationship_21_fk" ON "detalle_sol_devolucions" USING btree ("sol_dev_cod")[0m
+  [1m[35m (15.4ms)[0m  DROP TABLE "direccions" CASCADE
+  [1m[36m (6.4ms)[0m  [1mCREATE TABLE "direccions" ("dir_cod" serial primary key, "cli_cod" integer NOT NULL, "guia_desp_cod" integer, "dir_calle" character varying(40), "dir_numero" integer, "dir_comuna" character varying(40), "dir_ciudad" character varying(40), "dir_tipo" character varying(40)) [0m
+  [1m[35m (6.5ms)[0m  CREATE  INDEX  "relationship_16_fk" ON "direccions" USING btree ("cli_cod")
+  [1m[36m (5.0ms)[0m  [1mCREATE UNIQUE INDEX  "direccions_pk" ON "direccions" USING btree ("dir_cod")[0m
+  [1m[35m (5.2ms)[0m  CREATE  INDEX  "relationship_61_fk" ON "direccions" USING btree ("guia_desp_cod")
+  [1m[36m (3.0ms)[0m  [1mDROP TABLE "documento_de_cobros" CASCADE[0m
+  [1m[35m (13.5ms)[0m  CREATE TABLE "documento_de_cobros" ("doc_cob_cod" serial primary key, "not_cre_cod" integer, "doc_com_cod" integer, "doc_cob_tipo" character varying) 
+  [1m[36m (19.9ms)[0m  [1mCREATE UNIQUE INDEX  "documento_de_cobros_pk" ON "documento_de_cobros" USING btree ("doc_cob_cod")[0m
+  [1m[35m (6.6ms)[0m  CREATE  INDEX  "relationship_41_fk" ON "documento_de_cobros" USING btree ("doc_com_cod")
+  [1m[36m (6.1ms)[0m  [1mCREATE  INDEX  "relationship_44_fk" ON "documento_de_cobros" USING btree ("not_cre_cod")[0m
+  [1m[35m (2.7ms)[0m  DROP TABLE "documento_de_compras" CASCADE
+  [1m[36m (9.0ms)[0m  [1mCREATE TABLE "documento_de_compras" ("doc_com_cod" serial primary key, "est_dc_cod" integer NOT NULL, "ven_cod" integer, "guia_desp_cod" integer, "cli_cod" integer NOT NULL, "doc_cob_cod" integer NOT NULL, "doc_com_fecha" date, "doc_com_met_ent" character varying, "doc_com_met_pago" character varying, "doc_com_tipo" character varying) [0m
+  [1m[35m (7.2ms)[0m  CREATE  INDEX  "relationship_11_fk" ON "documento_de_compras" USING btree ("cli_cod")
+  [1m[36m (5.6ms)[0m  [1mCREATE  INDEX  "relationship_40_fk" ON "documento_de_compras" USING btree ("doc_cob_cod")[0m
+  [1m[35m (5.5ms)[0m  CREATE UNIQUE INDEX  "documento_de_compras_pk" ON "documento_de_compras" USING btree ("doc_com_cod")
+  [1m[36m (7.5ms)[0m  [1mCREATE  INDEX  "relationship_17_fk" ON "documento_de_compras" USING btree ("est_dc_cod")[0m
+  [1m[35m (7.4ms)[0m  CREATE  INDEX  "relationship_10_fk" ON "documento_de_compras" USING btree ("guia_desp_cod")
+  [1m[36m (5.6ms)[0m  [1mCREATE  INDEX  "relationship_59_fk" ON "documento_de_compras" USING btree ("ven_cod")[0m
+  [1m[35m (2.8ms)[0m  DROP TABLE "estado_articulos" CASCADE
+  [1m[36m (6.3ms)[0m  [1mCREATE TABLE "estado_articulos" ("est_art_cod" serial primary key, "est_art_nom" character varying(40)) [0m
+  [1m[35m (8.6ms)[0m  CREATE UNIQUE INDEX  "estado_articulos_pk" ON "estado_articulos" USING btree ("est_art_cod")
+  [1m[36m (2.5ms)[0m  [1mDROP TABLE "estado_dcs" CASCADE[0m
+  [1m[35m (30.5ms)[0m  CREATE TABLE "estado_dcs" ("est_dc_cod" serial primary key, "est_dc_nom" character varying(40)) 
+  [1m[36m (7.9ms)[0m  [1mCREATE UNIQUE INDEX  "estado_dcs_pk" ON "estado_dcs" USING btree ("est_dc_cod")[0m
+  [1m[35m (2.8ms)[0m  DROP TABLE "estado_pedidos" CASCADE
+  [1m[36m (9.5ms)[0m  [1mCREATE TABLE "estado_pedidos" ("estado_ped_cod" serial primary key, "estado_ped_nom" character varying(40)) [0m
+  [1m[35m (7.7ms)[0m  CREATE UNIQUE INDEX  "estado_pedidos_pk" ON "estado_pedidos" USING btree ("estado_ped_cod")
+  [1m[36m (2.4ms)[0m  [1mDROP TABLE "guia_despacho_compras" CASCADE[0m
+  [1m[35m (9.9ms)[0m  CREATE TABLE "guia_despacho_compras" ("guia_desp_cod" serial primary key, "doc_com_cod" integer NOT NULL, "dir_cod" integer NOT NULL, "guia_desp_fecha" date) 
+  [1m[36m (8.5ms)[0m  [1mCREATE  INDEX  "relationship_60_fk" ON "guia_despacho_compras" USING btree ("dir_cod")[0m
+  [1m[35m (6.5ms)[0m  CREATE  INDEX  "relationship_9_fk" ON "guia_despacho_compras" USING btree ("doc_com_cod")
+  [1m[36m (5.7ms)[0m  [1mCREATE UNIQUE INDEX  "guia_despacho_compras_pk" ON "guia_despacho_compras" USING btree ("guia_desp_cod")[0m
+  [1m[35m (3.0ms)[0m  DROP TABLE "guia_despacho_pedidos" CASCADE
+  [1m[36m (7.8ms)[0m  [1mCREATE TABLE "guia_despacho_pedidos" ("guia_desp_ped_cod" serial primary key, "ped_cod" integer NOT NULL, "guia_desp_ped_fecha" date) [0m
+  [1m[35m (5.0ms)[0m  CREATE UNIQUE INDEX  "guia_despacho_pedidos_pk" ON "guia_despacho_pedidos" USING btree ("guia_desp_ped_cod")
+  [1m[36m (7.8ms)[0m  [1mCREATE  INDEX  "relationship_19_fk" ON "guia_despacho_pedidos" USING btree ("ped_cod")[0m
+  [1m[35m (1.9ms)[0m  DROP TABLE "historial_estado_dcs" CASCADE
+  [1m[36m (4.1ms)[0m  [1mCREATE TABLE "historial_estado_dcs" ("doc_com_cod" integer NOT NULL, "est_dc_cod" integer NOT NULL, "hist_est_dc_cod" integer DEFAULT 0 NOT NULL, "hist_est_dc_fecha" date) [0m
+  [1m[35m (7.4ms)[0m  CREATE UNIQUE INDEX  "historial_estado_dcs_pk" ON "historial_estado_dcs" USING btree ("doc_com_cod", "est_dc_cod", "hist_est_dc_cod")
+  [1m[36m (5.8ms)[0m  [1mCREATE  INDEX  "relationship_38_fk" ON "historial_estado_dcs" USING btree ("doc_com_cod")[0m
+  [1m[35m (4.8ms)[0m  CREATE  INDEX  "relationship_39_fk" ON "historial_estado_dcs" USING btree ("est_dc_cod")
+  [1m[36m (3.2ms)[0m  [1mDROP TABLE "historial_estado_pedidos" CASCADE[0m
+  [1m[35m (2.2ms)[0m  CREATE TABLE "historial_estado_pedidos" ("ped_cod" integer NOT NULL, "estado_ped_cod" integer NOT NULL, "hist_est_ped_cod" integer DEFAULT 0 NOT NULL, "hist_est_ped_fecha" date) 
+  [1m[36m (5.1ms)[0m  [1mCREATE  INDEX  "relationship_49_fk" ON "historial_estado_pedidos" USING btree ("estado_ped_cod")[0m
+  [1m[35m (7.5ms)[0m  CREATE UNIQUE INDEX  "historial_estado_pedidos_pk" ON "historial_estado_pedidos" USING btree ("ped_cod", "estado_ped_cod", "hist_est_ped_cod")
+  [1m[36m (4.4ms)[0m  [1mCREATE  INDEX  "relationship_48_fk" ON "historial_estado_pedidos" USING btree ("ped_cod")[0m
+  [1m[35m (5.4ms)[0m  DROP TABLE "imagens" CASCADE
+  [1m[36m (7.4ms)[0m  [1mCREATE TABLE "imagens" ("imagen_cod" serial primary key, "ins_cod" integer NOT NULL, "ins_cod_prov" character varying(20) NOT NULL, "imagen_uri" character varying(140)) [0m
+  [1m[35m (6.4ms)[0m  CREATE UNIQUE INDEX  "imagens_pk" ON "imagens" USING btree ("imagen_cod")
+  [1m[36m (6.5ms)[0m  [1mCREATE  INDEX  "relationship_27_fk" ON "imagens" USING btree ("ins_cod", "ins_cod_prov")[0m
+  [1m[35m (2.3ms)[0m  DROP TABLE "ins_apvs" CASCADE
+  [1m[36m (8.4ms)[0m  [1mCREATE TABLE "ins_apvs" ("ins_apvs_cod" serial primary key, "apv_cod" integer NOT NULL, "ins_cod" integer NOT NULL, "ins_cod_prov" character varying(20) NOT NULL) [0m
+  [1m[35m (7.0ms)[0m  CREATE  INDEX  "relationship_57_fk" ON "ins_apvs" USING btree ("apv_cod")
+  [1m[36m (6.4ms)[0m  [1mCREATE UNIQUE INDEX  "ins_apvs_pk" ON "ins_apvs" USING btree ("ins_apvs_cod")[0m
+  [1m[35m (8.9ms)[0m  CREATE  INDEX  "relationship_56_fk" ON "ins_apvs" USING btree ("ins_cod", "ins_cod_prov")
+  [1m[36m (3.1ms)[0m  [1mDROP TABLE "instancis" CASCADE[0m
+  [1m[35m (2.5ms)[0m  CREATE TABLE "instancis" ("ins_cod" integer DEFAULT 0 NOT NULL, "ins_cod_prov" character varying(20) NOT NULL, "est_art_cod" integer NOT NULL, "art_cod" integer NOT NULL, "ins_stock" integer, "ins_precio_lista" integer, "ins_precio_prov" integer) 
+  [1m[36m (7.0ms)[0m  [1mCREATE  INDEX  "relationship_62_fk" ON "instancis" USING btree ("art_cod")[0m
+  [1m[35m (5.4ms)[0m  CREATE  INDEX  "relationship_42_fk" ON "instancis" USING btree ("est_art_cod")
+  [1m[36m (5.8ms)[0m  [1mCREATE UNIQUE INDEX  "instancias_pk" ON "instancis" USING btree ("ins_cod", "ins_cod_prov")[0m
+  [1m[35m (3.5ms)[0m  DROP TABLE "nota_creditos" CASCADE
+  [1m[36m (10.3ms)[0m  [1mCREATE TABLE "nota_creditos" ("not_cre_cod" serial primary key, "sol_dev_cod" integer NOT NULL, "doc_cob_cod" integer NOT NULL, "not_cre_monto" integer) [0m
+  [1m[35m (5.8ms)[0m  CREATE  INDEX  "relationship_43_fk" ON "nota_creditos" USING btree ("doc_cob_cod")
+  [1m[36m (6.5ms)[0m  [1mCREATE UNIQUE INDEX  "nota_creditos_pk" ON "nota_creditos" USING btree ("not_cre_cod")[0m
+  [1m[35m (6.6ms)[0m  CREATE  INDEX  "relationship_15_fk" ON "nota_creditos" USING btree ("sol_dev_cod")
+  [1m[36m (1.8ms)[0m  [1mDROP TABLE "pedidos" CASCADE[0m
+  [1m[35m (6.5ms)[0m  CREATE TABLE "pedidos" ("ped_cod" serial primary key, "estado_ped_cod" integer NOT NULL, "guia_desp_ped_cod" integer, "pro_cod" integer, "ped_fecha" date) 
+  [1m[36m (6.6ms)[0m  [1mCREATE  INDEX  "relationship_20_fk" ON "pedidos" USING btree ("estado_ped_cod")[0m
+  [1m[35m (6.5ms)[0m  CREATE  INDEX  "relationship_18_fk" ON "pedidos" USING btree ("guia_desp_ped_cod")
+  [1m[36m (7.7ms)[0m  [1mCREATE UNIQUE INDEX  "pedidos_pk" ON "pedidos" USING btree ("ped_cod")[0m
+  [1m[35m (6.6ms)[0m  CREATE  INDEX  "relationship_6_fk" ON "pedidos" USING btree ("pro_cod")
+  [1m[36m (47.0ms)[0m  [1mDROP TABLE "propiedad_valors" CASCADE[0m
+  [1m[35m (7.4ms)[0m  CREATE TABLE "propiedad_valors" ("prop_val_cod" serial primary key, "val_cod" integer NOT NULL, "prop_cod" integer NOT NULL) 
+  [1m[36m (5.3ms)[0m  [1mCREATE  INDEX  "relationship_52_fk" ON "propiedad_valors" USING btree ("prop_cod")[0m
+  [1m[35m (3.4ms)[0m  CREATE UNIQUE INDEX  "propiedad_valors_pk" ON "propiedad_valors" USING btree ("prop_val_cod")
+  [1m[36m (5.8ms)[0m  [1mCREATE  INDEX  "relationship_51_fk" ON "propiedad_valors" USING btree ("val_cod")[0m
+  [1m[35m (2.2ms)[0m  DROP TABLE "propiedads" CASCADE
+  [1m[36m (6.7ms)[0m  [1mCREATE TABLE "propiedads" ("prop_cod" serial primary key, "prop_nom" character varying(40)) [0m
+  [1m[35m (6.6ms)[0m  CREATE UNIQUE INDEX  "propiedads_pk" ON "propiedads" USING btree ("prop_cod")
+  [1m[36m (2.8ms)[0m  [1mDROP TABLE "proveedors" CASCADE[0m
+  [1m[35m (11.5ms)[0m  CREATE TABLE "proveedors" ("pro_cod" serial primary key, "pro_nom" character varying(40), "pro_mail" character varying(40), "pro_desc" text, "pro_web" character varying(40)) 
+  [1m[36m (6.2ms)[0m  [1mCREATE UNIQUE INDEX  "proveedors_pk" ON "proveedors" USING btree ("pro_cod")[0m
+  [1m[35m (2.5ms)[0m  DROP TABLE "solicitud_devolucions" CASCADE
+  [1m[36m (12.4ms)[0m  [1mCREATE TABLE "solicitud_devolucions" ("sol_dev_cod" serial primary key, "not_cre_cod" integer, "doc_com_cod" integer, "ven_cod" integer, "cli_cod" integer NOT NULL, "sol_dev_comentario" character varying(140), "sol_dev_est" character varying) [0m
+  [1m[35m (5.9ms)[0m  CREATE  INDEX  "relationship_13_fk" ON "solicitud_devolucions" USING btree ("cli_cod")
+  [1m[36m (6.5ms)[0m  [1mCREATE  INDEX  "relationship_55_fk" ON "solicitud_devolucions" USING btree ("doc_com_cod")[0m
+  [1m[35m (9.9ms)[0m  CREATE  INDEX  "relationship_14_fk" ON "solicitud_devolucions" USING btree ("not_cre_cod")
+  [1m[36m (7.6ms)[0m  [1mCREATE UNIQUE INDEX  "solicitud_devolucions_pk" ON "solicitud_devolucions" USING btree ("sol_dev_cod")[0m
+  [1m[35m (6.1ms)[0m  CREATE  INDEX  "relationship_25_fk" ON "solicitud_devolucions" USING btree ("ven_cod")
+  [1m[36m (2.5ms)[0m  [1mDROP TABLE "transicion_estado_arts" CASCADE[0m
+  [1m[35m (1.7ms)[0m  CREATE TABLE "transicion_estado_arts" ("est_est_art_cod" integer NOT NULL, "est_art_cod" integer NOT NULL, "trans_est_art_cod" integer DEFAULT 0 NOT NULL) 
+  [1m[36m (5.7ms)[0m  [1mCREATE  INDEX  "relationship_50_fk" ON "transicion_estado_arts" USING btree ("est_art_cod")[0m
+  [1m[35m (5.7ms)[0m  CREATE UNIQUE INDEX  "transicion_estado_arts_pk" ON "transicion_estado_arts" USING btree ("est_est_art_cod", "est_art_cod", "trans_est_art_cod")
+  [1m[36m (9.9ms)[0m  [1mCREATE  INDEX  "relationship_35_fk" ON "transicion_estado_arts" USING btree ("est_est_art_cod")[0m
+  [1m[35m (2.7ms)[0m  DROP TABLE "transicion_estado_dcs" CASCADE
+  [1m[36m (2.3ms)[0m  [1mCREATE TABLE "transicion_estado_dcs" ("est_est_dc_cod" integer NOT NULL, "est_dc_cod" integer NOT NULL, "trans_est_dc_cod" integer DEFAULT 0 NOT NULL) [0m
+  [1m[35m (7.9ms)[0m  CREATE  INDEX  "relationship_37_fk" ON "transicion_estado_dcs" USING btree ("est_dc_cod")
+  [1m[36m (4.6ms)[0m  [1mCREATE UNIQUE INDEX  "transicion_estado_dcs_pk" ON "transicion_estado_dcs" USING btree ("est_est_dc_cod", "est_dc_cod", "trans_est_dc_cod")[0m
+  [1m[35m (6.5ms)[0m  CREATE  INDEX  "relationship_36_fk" ON "transicion_estado_dcs" USING btree ("est_est_dc_cod")
+  [1m[36m (2.1ms)[0m  [1mDROP TABLE "transicion_estado_pedidos" CASCADE[0m
+  [1m[35m (2.5ms)[0m  CREATE TABLE "transicion_estado_pedidos" ("est_estado_ped_cod" integer NOT NULL, "estado_ped_cod" integer NOT NULL, "trans_est_ped_cod" integer DEFAULT 0 NOT NULL) 
+  [1m[36m (6.7ms)[0m  [1mCREATE UNIQUE INDEX  "transicion_estado_pedidos_pk" ON "transicion_estado_pedidos" USING btree ("est_estado_ped_cod", "estado_ped_cod", "trans_est_ped_cod")[0m
+  [1m[35m (7.5ms)[0m  CREATE  INDEX  "relationship_46_fk" ON "transicion_estado_pedidos" USING btree ("est_estado_ped_cod")
+  [1m[36m (6.7ms)[0m  [1mCREATE  INDEX  "relationship_47_fk" ON "transicion_estado_pedidos" USING btree ("estado_ped_cod")[0m
+  [1m[35m (3.7ms)[0m  DROP TABLE "users" CASCADE
+  [1m[36m (10.7ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (5.6ms)[0m  CREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")
+  [1m[36m (6.6ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users" USING btree ("reset_password_token")[0m
+  [1m[35m (2.4ms)[0m  DROP TABLE "valors" CASCADE
+  [1m[36m (7.3ms)[0m  [1mCREATE TABLE "valors" ("val_cod" serial primary key, "val_nom" character varying(40)) [0m
+  [1m[35m (6.6ms)[0m  CREATE UNIQUE INDEX  "valors_pk" ON "valors" USING btree ("val_cod")
+  [1m[36m (2.4ms)[0m  [1mDROP TABLE "vendedors" CASCADE[0m
+  [1m[35m (8.8ms)[0m  CREATE TABLE "vendedors" ("ven_cod" serial primary key, "ven_nom" character varying(40), "ven_rut" character varying(12), "ven_mail" character varying(40), "ven_tel" integer) 
+  [1m[36m (5.8ms)[0m  [1mCREATE UNIQUE INDEX  "vendedors_pk" ON "vendedors" USING btree ("ven_cod")[0m
+  [1m[35m (4.5ms)[0m  ALTER TABLE "art_prop_vals" ADD CONSTRAINT "fk_art_prop_relations_articulo"
+FOREIGN KEY ("art_cod")
+  REFERENCES "articulos" ("art_cod")
+ ON DELETE RESTRICT ON UPDATE RESTRICT
+  [1m[36m (2.6ms)[0m  [1mALTER TABLE "art_prop_vals" ADD CONSTRAINT "fk_art_prop_relations_propieda"
+FOREIGN KEY ("prop_cod")
+  REFERENCES "propiedads" ("prop_cod")
+ ON DELETE RESTRICT ON UPDATE RESTRICT[0m
+  [1m[35m (2.2ms)[0m  ALTER TABLE "art_prop_vals" ADD CONSTRAINT "fk_art_prop_relations_valors"
+FOREIGN KEY ("val_cod")
+  REFERENCES "valors" ("val_cod")
+ ON DELETE RESTRICT ON UPDATE RESTRICT
+  [1m[36m (3.4ms)[0m  [1mALTER TABLE "art_props" ADD CONSTRAINT "fk_art_prop_relations_articulo"
+FOREIGN KEY ("art_cod")
+  REFERENCES "articulos" ("art_cod")
+ ON DELETE RESTRICT ON UPDATE RESTRICT[0m
+  [1m[35m (3.6ms)[0m  ALTER TABLE "art_props" ADD CONSTRAINT "fk_art_prop_relations_propieda"
+FOREIGN KEY ("prop_cod")
+  REFERENCES "propiedads" ("prop_cod")
+ ON DELETE RESTRICT ON UPDATE RESTRICT
+  [1m[36m (2.5ms)[0m  [1mALTER TABLE "articulos" ADD CONSTRAINT "fk_articulo_relations_categori"
+FOREIGN KEY ("cat_cod")
+  REFERENCES "categoris" ("cat_cod")
+ ON DELETE RESTRICT ON UPDATE RESTRICT[0m
+  [1m[35m (1.7ms)[0m  ALTER TABLE "categoris" ADD CONSTRAINT "fk_categori_relations_categori"
+FOREIGN KEY ("cat_cat_cod")
+  REFERENCES "categoris" ("cat_cod")
+ ON DELETE RESTRICT ON UPDATE RESTRICT
+  [1m[36m (2.6ms)[0m  [1mALTER TABLE "detalle_documento_de_compras" ADD CONSTRAINT "fk_detalle__relations_document"
+FOREIGN KEY ("doc_com_cod")
+  REFERENCES "documento_de_compras" ("doc_com_cod")
+ ON DELETE RESTRICT ON UPDATE RESTRICT[0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (31.1ms)[0m  CREATE TABLE "art_prop_vals" ("apv_cod" serial primary key, "val_cod" integer NOT NULL, "art_cod" integer NOT NULL, "prop_cod" integer NOT NULL) 
+  [1m[36m (4.9ms)[0m  [1mCREATE UNIQUE INDEX  "art_prop_vals_pk" ON "art_prop_vals" USING btree ("apv_cod")[0m
+  [1m[35m (6.4ms)[0m  CREATE  INDEX  "relationship_58_fk" ON "art_prop_vals" USING btree ("art_cod")
+  [1m[36m (6.0ms)[0m  [1mCREATE  INDEX  "relationship_33_fk" ON "art_prop_vals" USING btree ("prop_cod")[0m
+  [1m[35m (7.1ms)[0m  CREATE  INDEX  "relationship_34_fk" ON "art_prop_vals" USING btree ("val_cod")
+  [1m[36m (7.1ms)[0m  [1mCREATE TABLE "art_props" ("art_prop_cod" serial primary key, "prop_cod" integer NOT NULL, "art_cod" integer NOT NULL) [0m
+  [1m[35m (6.7ms)[0m  CREATE  INDEX  "relationship_31_fk" ON "art_props" USING btree ("art_cod")
+  [1m[36m (6.3ms)[0m  [1mCREATE UNIQUE INDEX  "art_props_pk" ON "art_props" USING btree ("art_prop_cod")[0m
+  [1m[35m (6.8ms)[0m  CREATE  INDEX  "relationship_30_fk" ON "art_props" USING btree ("prop_cod")
+  [1m[36m (6.5ms)[0m  [1mCREATE TABLE "articulos" ("art_cod" serial primary key, "cat_cod" integer NOT NULL, "art_nom" character varying(40)) [0m
+  [1m[35m (5.5ms)[0m  CREATE UNIQUE INDEX  "articulos_pk" ON "articulos" USING btree ("art_cod")
+  [1m[36m (7.8ms)[0m  [1mCREATE  INDEX  "relationship_53_fk" ON "articulos" USING btree ("cat_cod")[0m
+  [1m[35m (10.2ms)[0m  CREATE TABLE "auditoris" ("aud_cod" serial primary key, "aud_usuario" character varying(128), "aud_fecha" date, "aud_tabla_modif" character varying(128), "aud_operacion" character varying(128), "aud_atri_modif" character varying(128), "aud_antes" character varying(128), "aud_despues" character varying(128)) 
+  [1m[36m (5.5ms)[0m  [1mCREATE UNIQUE INDEX  "auditorias_pk" ON "auditoris" USING btree ("aud_cod")[0m
+  [1m[35m (5.5ms)[0m  CREATE TABLE "categoris" ("cat_cod" serial primary key, "cat_cat_cod" integer, "cat_nom" character varying(40)) 
+  [1m[36m (5.1ms)[0m  [1mCREATE  INDEX  "relationship_54_fk" ON "categoris" USING btree ("cat_cat_cod")[0m
+  [1m[35m (6.4ms)[0m  CREATE UNIQUE INDEX  "categorias_pk" ON "categoris" USING btree ("cat_cod")
+  [1m[36m (6.6ms)[0m  [1mCREATE TABLE "clientes" ("cli_cod" serial primary key, "cli_nom" character varying(40), "cli_tel" character varying(40), "cli_mail" character varying(40), "cli_rut" character varying(12)) [0m
+  [1m[35m (3.9ms)[0m  CREATE UNIQUE INDEX  "clientes_pk" ON "clientes" USING btree ("cli_cod")
+  [1m[36m (3.4ms)[0m  [1mCREATE TABLE "detalle_documento_de_compras" ("doc_com_cod" integer NOT NULL, "det_doc_com_linea" integer NOT NULL, "ins_cod" integer NOT NULL, "ins_cod_prov" character varying(20) NOT NULL, "det_doc_com_cant" integer, "det_doc_com_precio" integer, "det_doc_com_precio_uni" integer) [0m
+  [1m[35m (4.4ms)[0m  CREATE UNIQUE INDEX  "detalle_documento_de_compras_pk" ON "detalle_documento_de_compras" USING btree ("doc_com_cod", "det_doc_com_linea")
+  [1m[36m (6.2ms)[0m  [1mCREATE  INDEX  "relationship_12_fk" ON "detalle_documento_de_compras" USING btree ("doc_com_cod")[0m
+  [1m[35m (5.1ms)[0m  CREATE  INDEX  "relationship_7_fk" ON "detalle_documento_de_compras" USING btree ("ins_cod", "ins_cod_prov")
+  [1m[36m (1.8ms)[0m  [1mCREATE TABLE "detalle_pedidos" ("ped_cod" integer NOT NULL, "det_ped_linea" integer NOT NULL, "ins_cod" integer NOT NULL, "ins_cod_prov" character varying(20) NOT NULL, "det_ped_cant" integer, "det_ped_precio" integer) [0m
+  [1m[35m (6.5ms)[0m  CREATE  INDEX  "relationship_4_fk" ON "detalle_pedidos" USING btree ("ins_cod", "ins_cod_prov")
+  [1m[36m (7.6ms)[0m  [1mCREATE UNIQUE INDEX  "detalle_pedidos_pk" ON "detalle_pedidos" USING btree ("ped_cod", "det_ped_linea")[0m
+  [1m[35m (6.6ms)[0m  CREATE  INDEX  "relationship_45_fk" ON "detalle_pedidos" USING btree ("ped_cod")
+  [1m[36m (2.0ms)[0m  [1mCREATE TABLE "detalle_sol_devolucions" ("sol_dev_cod" integer NOT NULL, "det_sol_dev_linea" integer NOT NULL, "ins_cod" integer NOT NULL, "ins_cod_prov" character varying(20) NOT NULL, "det_sol_dev_cant" integer, "det_sol_dev_precio" integer) [0m
+  [1m[35m (5.9ms)[0m  CREATE  INDEX  "relationship_22_fk" ON "detalle_sol_devolucions" USING btree ("ins_cod", "ins_cod_prov")
+  [1m[36m (6.7ms)[0m  [1mCREATE UNIQUE INDEX  "detalle_sol_devolucions_pk" ON "detalle_sol_devolucions" USING btree ("sol_dev_cod", "det_sol_dev_linea")[0m
+  [1m[35m (7.1ms)[0m  CREATE  INDEX  "relationship_21_fk" ON "detalle_sol_devolucions" USING btree ("sol_dev_cod")
+  [1m[36m (9.6ms)[0m  [1mCREATE TABLE "direccions" ("dir_cod" serial primary key, "cli_cod" integer NOT NULL, "guia_desp_cod" integer, "dir_calle" character varying(40), "dir_numero" integer, "dir_comuna" character varying(40), "dir_ciudad" character varying(40), "dir_tipo" character varying(40)) [0m
+  [1m[35m (6.6ms)[0m  CREATE  INDEX  "relationship_16_fk" ON "direccions" USING btree ("cli_cod")
+  [1m[36m (6.8ms)[0m  [1mCREATE UNIQUE INDEX  "direccions_pk" ON "direccions" USING btree ("dir_cod")[0m
+  [1m[35m (7.4ms)[0m  CREATE  INDEX  "relationship_61_fk" ON "direccions" USING btree ("guia_desp_cod")
+  [1m[36m (11.3ms)[0m  [1mCREATE TABLE "documento_de_cobros" ("doc_cob_cod" serial primary key, "not_cre_cod" integer, "doc_com_cod" integer, "doc_cob_tipo" character varying) [0m
+  [1m[35m (8.4ms)[0m  CREATE UNIQUE INDEX  "documento_de_cobros_pk" ON "documento_de_cobros" USING btree ("doc_cob_cod")
+  [1m[36m (5.8ms)[0m  [1mCREATE  INDEX  "relationship_41_fk" ON "documento_de_cobros" USING btree ("doc_com_cod")[0m
+  [1m[35m (5.9ms)[0m  CREATE  INDEX  "relationship_44_fk" ON "documento_de_cobros" USING btree ("not_cre_cod")
+  [1m[36m (56.7ms)[0m  [1mCREATE TABLE "documento_de_compras" ("doc_com_cod" serial primary key, "est_dc_cod" integer NOT NULL, "ven_cod" integer, "guia_desp_cod" integer, "cli_cod" integer NOT NULL, "doc_cob_cod" integer NOT NULL, "doc_com_fecha" date, "doc_com_met_ent" character varying, "doc_com_met_pago" character varying, "doc_com_tipo" character varying) [0m
+  [1m[35m (6.3ms)[0m  CREATE  INDEX  "relationship_11_fk" ON "documento_de_compras" USING btree ("cli_cod")
+  [1m[36m (5.1ms)[0m  [1mCREATE  INDEX  "relationship_40_fk" ON "documento_de_compras" USING btree ("doc_cob_cod")[0m
+  [1m[35m (52.7ms)[0m  CREATE UNIQUE INDEX  "documento_de_compras_pk" ON "documento_de_compras" USING btree ("doc_com_cod")
+  [1m[36m (4.3ms)[0m  [1mCREATE  INDEX  "relationship_17_fk" ON "documento_de_compras" USING btree ("est_dc_cod")[0m
+  [1m[35m (2.7ms)[0m  CREATE  INDEX  "relationship_10_fk" ON "documento_de_compras" USING btree ("guia_desp_cod")
+  [1m[36m (9.4ms)[0m  [1mCREATE  INDEX  "relationship_59_fk" ON "documento_de_compras" USING btree ("ven_cod")[0m
+  [1m[35m (5.1ms)[0m  CREATE TABLE "estado_articulos" ("est_art_cod" serial primary key, "est_art_nom" character varying(40)) 
+  [1m[36m (8.6ms)[0m  [1mCREATE UNIQUE INDEX  "estado_articulos_pk" ON "estado_articulos" USING btree ("est_art_cod")[0m
+  [1m[35m (51.1ms)[0m  CREATE TABLE "estado_dcs" ("est_dc_cod" serial primary key, "est_dc_nom" character varying(40)) 
+  [1m[36m (6.2ms)[0m  [1mCREATE UNIQUE INDEX  "estado_dcs_pk" ON "estado_dcs" USING btree ("est_dc_cod")[0m
+  [1m[35m (5.3ms)[0m  CREATE TABLE "estado_pedidos" ("estado_ped_cod" serial primary key, "estado_ped_nom" character varying(40)) 
+  [1m[36m (7.8ms)[0m  [1mCREATE UNIQUE INDEX  "estado_pedidos_pk" ON "estado_pedidos" USING btree ("estado_ped_cod")[0m
+  [1m[35m (7.9ms)[0m  CREATE TABLE "guia_despacho_compras" ("guia_desp_cod" serial primary key, "doc_com_cod" integer NOT NULL, "dir_cod" integer NOT NULL, "guia_desp_fecha" date) 
+  [1m[36m (5.8ms)[0m  [1mCREATE  INDEX  "relationship_60_fk" ON "guia_despacho_compras" USING btree ("dir_cod")[0m
+  [1m[35m (6.6ms)[0m  CREATE  INDEX  "relationship_9_fk" ON "guia_despacho_compras" USING btree ("doc_com_cod")
+  [1m[36m (3.3ms)[0m  [1mCREATE UNIQUE INDEX  "guia_despacho_compras_pk" ON "guia_despacho_compras" USING btree ("guia_desp_cod")[0m
+  [1m[35m (7.8ms)[0m  CREATE TABLE "guia_despacho_pedidos" ("guia_desp_ped_cod" serial primary key, "ped_cod" integer NOT NULL, "guia_desp_ped_fecha" date) 
+  [1m[36m (6.6ms)[0m  [1mCREATE UNIQUE INDEX  "guia_despacho_pedidos_pk" ON "guia_despacho_pedidos" USING btree ("guia_desp_ped_cod")[0m
+  [1m[35m (6.1ms)[0m  CREATE  INDEX  "relationship_19_fk" ON "guia_despacho_pedidos" USING btree ("ped_cod")
+  [1m[36m (1.9ms)[0m  [1mCREATE TABLE "historial_estado_dcs" ("doc_com_cod" integer NOT NULL, "est_dc_cod" integer NOT NULL, "hist_est_dc_cod" integer DEFAULT 0 NOT NULL, "hist_est_dc_fecha" date) [0m
+  [1m[35m (8.2ms)[0m  CREATE UNIQUE INDEX  "historial_estado_dcs_pk" ON "historial_estado_dcs" USING btree ("doc_com_cod", "est_dc_cod", "hist_est_dc_cod")
+  [1m[36m (4.7ms)[0m  [1mCREATE  INDEX  "relationship_38_fk" ON "historial_estado_dcs" USING btree ("doc_com_cod")[0m
+  [1m[35m (10.8ms)[0m  CREATE  INDEX  "relationship_39_fk" ON "historial_estado_dcs" USING btree ("est_dc_cod")
+  [1m[36m (3.8ms)[0m  [1mCREATE TABLE "historial_estado_pedidos" ("ped_cod" integer NOT NULL, "estado_ped_cod" integer NOT NULL, "hist_est_ped_cod" integer DEFAULT 0 NOT NULL, "hist_est_ped_fecha" date) [0m
+  [1m[35m (9.9ms)[0m  CREATE  INDEX  "relationship_49_fk" ON "historial_estado_pedidos" USING btree ("estado_ped_cod")
+  [1m[36m (6.4ms)[0m  [1mCREATE UNIQUE INDEX  "historial_estado_pedidos_pk" ON "historial_estado_pedidos" USING btree ("ped_cod", "estado_ped_cod", "hist_est_ped_cod")[0m
+  [1m[35m (4.9ms)[0m  CREATE  INDEX  "relationship_48_fk" ON "historial_estado_pedidos" USING btree ("ped_cod")
+  [1m[36m (8.1ms)[0m  [1mCREATE TABLE "imagens" ("imagen_cod" serial primary key, "ins_cod" integer NOT NULL, "ins_cod_prov" character varying(20) NOT NULL, "imagen_uri" character varying(140)) [0m
+  [1m[35m (6.7ms)[0m  CREATE UNIQUE INDEX  "imagens_pk" ON "imagens" USING btree ("imagen_cod")
+  [1m[36m (6.8ms)[0m  [1mCREATE  INDEX  "relationship_27_fk" ON "imagens" USING btree ("ins_cod", "ins_cod_prov")[0m
+  [1m[35m (8.2ms)[0m  CREATE TABLE "ins_apvs" ("ins_apvs_cod" serial primary key, "apv_cod" integer NOT NULL, "ins_cod" integer NOT NULL, "ins_cod_prov" character varying(20) NOT NULL) 
+  [1m[36m (7.7ms)[0m  [1mCREATE  INDEX  "relationship_57_fk" ON "ins_apvs" USING btree ("apv_cod")[0m
+  [1m[35m (5.9ms)[0m  CREATE UNIQUE INDEX  "ins_apvs_pk" ON "ins_apvs" USING btree ("ins_apvs_cod")
+  [1m[36m (5.4ms)[0m  [1mCREATE  INDEX  "relationship_56_fk" ON "ins_apvs" USING btree ("ins_cod", "ins_cod_prov")[0m
+  [1m[35m (1.9ms)[0m  CREATE TABLE "instancis" ("ins_cod" integer DEFAULT 0 NOT NULL, "ins_cod_prov" character varying(20) NOT NULL, "est_art_cod" integer NOT NULL, "art_cod" integer NOT NULL, "ins_stock" integer, "ins_precio_lista" integer, "ins_precio_prov" integer) 
+  [1m[36m (5.4ms)[0m  [1mCREATE  INDEX  "relationship_62_fk" ON "instancis" USING btree ("art_cod")[0m
+  [1m[35m (6.5ms)[0m  CREATE  INDEX  "relationship_42_fk" ON "instancis" USING btree ("est_art_cod")
+  [1m[36m (6.0ms)[0m  [1mCREATE UNIQUE INDEX  "instancias_pk" ON "instancis" USING btree ("ins_cod", "ins_cod_prov")[0m
+  [1m[35m (7.8ms)[0m  CREATE TABLE "nota_creditos" ("not_cre_cod" serial primary key, "sol_dev_cod" integer NOT NULL, "doc_cob_cod" integer NOT NULL, "not_cre_monto" integer) 
+  [1m[36m (6.2ms)[0m  [1mCREATE  INDEX  "relationship_43_fk" ON "nota_creditos" USING btree ("doc_cob_cod")[0m
+  [1m[35m (6.5ms)[0m  CREATE UNIQUE INDEX  "nota_creditos_pk" ON "nota_creditos" USING btree ("not_cre_cod")
+  [1m[36m (7.3ms)[0m  [1mCREATE  INDEX  "relationship_15_fk" ON "nota_creditos" USING btree ("sol_dev_cod")[0m
+  [1m[35m (10.4ms)[0m  CREATE TABLE "pedidos" ("ped_cod" serial primary key, "estado_ped_cod" integer NOT NULL, "guia_desp_ped_cod" integer, "pro_cod" integer, "ped_fecha" date) 
+  [1m[36m (7.4ms)[0m  [1mCREATE  INDEX  "relationship_20_fk" ON "pedidos" USING btree ("estado_ped_cod")[0m
+  [1m[35m (5.9ms)[0m  CREATE  INDEX  "relationship_18_fk" ON "pedidos" USING btree ("guia_desp_ped_cod")
+  [1m[36m (7.8ms)[0m  [1mCREATE UNIQUE INDEX  "pedidos_pk" ON "pedidos" USING btree ("ped_cod")[0m
+  [1m[35m (6.1ms)[0m  CREATE  INDEX  "relationship_6_fk" ON "pedidos" USING btree ("pro_cod")
+  [1m[36m (7.4ms)[0m  [1mCREATE TABLE "propiedad_valors" ("prop_val_cod" serial primary key, "val_cod" integer NOT NULL, "prop_cod" integer NOT NULL) [0m
+  [1m[35m (7.6ms)[0m  CREATE  INDEX  "relationship_52_fk" ON "propiedad_valors" USING btree ("prop_cod")
+  [1m[36m (5.8ms)[0m  [1mCREATE UNIQUE INDEX  "propiedad_valors_pk" ON "propiedad_valors" USING btree ("prop_val_cod")[0m
+  [1m[35m (5.6ms)[0m  CREATE  INDEX  "relationship_51_fk" ON "propiedad_valors" USING btree ("val_cod")
+  [1m[36m (7.1ms)[0m  [1mCREATE TABLE "propiedads" ("prop_cod" serial primary key, "prop_nom" character varying(40)) [0m
+  [1m[35m (5.2ms)[0m  CREATE UNIQUE INDEX  "propiedads_pk" ON "propiedads" USING btree ("prop_cod")
+  [1m[36m (13.2ms)[0m  [1mCREATE TABLE "proveedors" ("pro_cod" serial primary key, "pro_nom" character varying(40), "pro_mail" character varying(40), "pro_desc" text, "pro_web" character varying(40)) [0m
+  [1m[35m (10.4ms)[0m  CREATE UNIQUE INDEX  "proveedors_pk" ON "proveedors" USING btree ("pro_cod")
+  [1m[36m (9.5ms)[0m  [1mCREATE TABLE "solicitud_devolucions" ("sol_dev_cod" serial primary key, "not_cre_cod" integer, "doc_com_cod" integer, "ven_cod" integer, "cli_cod" integer NOT NULL, "sol_dev_comentario" character varying(140), "sol_dev_est" character varying) [0m
+  [1m[35m (5.9ms)[0m  CREATE  INDEX  "relationship_13_fk" ON "solicitud_devolucions" USING btree ("cli_cod")
+  [1m[36m (6.7ms)[0m  [1mCREATE  INDEX  "relationship_55_fk" ON "solicitud_devolucions" USING btree ("doc_com_cod")[0m
+  [1m[35m (7.6ms)[0m  CREATE  INDEX  "relationship_14_fk" ON "solicitud_devolucions" USING btree ("not_cre_cod")
+  [1m[36m (8.1ms)[0m  [1mCREATE UNIQUE INDEX  "solicitud_devolucions_pk" ON "solicitud_devolucions" USING btree ("sol_dev_cod")[0m
+  [1m[35m (6.9ms)[0m  CREATE  INDEX  "relationship_25_fk" ON "solicitud_devolucions" USING btree ("ven_cod")
+  [1m[36m (2.0ms)[0m  [1mCREATE TABLE "transicion_estado_arts" ("est_est_art_cod" integer NOT NULL, "est_art_cod" integer NOT NULL, "trans_est_art_cod" integer DEFAULT 0 NOT NULL) [0m
+  [1m[35m (7.8ms)[0m  CREATE  INDEX  "relationship_50_fk" ON "transicion_estado_arts" USING btree ("est_art_cod")
+  [1m[36m (5.5ms)[0m  [1mCREATE UNIQUE INDEX  "transicion_estado_arts_pk" ON "transicion_estado_arts" USING btree ("est_est_art_cod", "est_art_cod", "trans_est_art_cod")[0m
+  [1m[35m (7.4ms)[0m  CREATE  INDEX  "relationship_35_fk" ON "transicion_estado_arts" USING btree ("est_est_art_cod")
+  [1m[36m (3.9ms)[0m  [1mCREATE TABLE "transicion_estado_dcs" ("est_est_dc_cod" integer NOT NULL, "est_dc_cod" integer NOT NULL, "trans_est_dc_cod" integer DEFAULT 0 NOT NULL) [0m
+  [1m[35m (6.2ms)[0m  CREATE  INDEX  "relationship_37_fk" ON "transicion_estado_dcs" USING btree ("est_dc_cod")
+  [1m[36m (8.6ms)[0m  [1mCREATE UNIQUE INDEX  "transicion_estado_dcs_pk" ON "transicion_estado_dcs" USING btree ("est_est_dc_cod", "est_dc_cod", "trans_est_dc_cod")[0m
+  [1m[35m (6.4ms)[0m  CREATE  INDEX  "relationship_36_fk" ON "transicion_estado_dcs" USING btree ("est_est_dc_cod")
+  [1m[36m (1.8ms)[0m  [1mCREATE TABLE "transicion_estado_pedidos" ("est_estado_ped_cod" integer NOT NULL, "estado_ped_cod" integer NOT NULL, "trans_est_ped_cod" integer DEFAULT 0 NOT NULL) [0m
+  [1m[35m (6.8ms)[0m  CREATE UNIQUE INDEX  "transicion_estado_pedidos_pk" ON "transicion_estado_pedidos" USING btree ("est_estado_ped_cod", "estado_ped_cod", "trans_est_ped_cod")
+  [1m[36m (7.0ms)[0m  [1mCREATE  INDEX  "relationship_46_fk" ON "transicion_estado_pedidos" USING btree ("est_estado_ped_cod")[0m
+  [1m[35m (7.5ms)[0m  CREATE  INDEX  "relationship_47_fk" ON "transicion_estado_pedidos" USING btree ("estado_ped_cod")
+  [1m[36m (10.3ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (5.1ms)[0m  CREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")
+  [1m[36m (6.9ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users" USING btree ("reset_password_token")[0m
+  [1m[35m (6.7ms)[0m  CREATE TABLE "valors" ("val_cod" serial primary key, "val_nom" character varying(40)) 
+  [1m[36m (6.4ms)[0m  [1mCREATE UNIQUE INDEX  "valors_pk" ON "valors" USING btree ("val_cod")[0m
+  [1m[35m (10.0ms)[0m  CREATE TABLE "vendedors" ("ven_cod" serial primary key, "ven_nom" character varying(40), "ven_rut" character varying(12), "ven_mail" character varying(40), "ven_tel" integer) 
+  [1m[36m (6.6ms)[0m  [1mCREATE UNIQUE INDEX  "vendedors_pk" ON "vendedors" USING btree ("ven_cod")[0m
+  [1m[35m (2.4ms)[0m  ALTER TABLE "art_prop_vals" ADD CONSTRAINT "fk_art_prop_relations_articulo"
+FOREIGN KEY ("art_cod")
+  REFERENCES "articulos" ("art_cod")
+ ON DELETE RESTRICT ON UPDATE RESTRICT
+  [1m[36m (1.4ms)[0m  [1mALTER TABLE "art_prop_vals" ADD CONSTRAINT "fk_art_prop_relations_propieda"
+FOREIGN KEY ("prop_cod")
+  REFERENCES "propiedads" ("prop_cod")
+ ON DELETE RESTRICT ON UPDATE RESTRICT[0m
+  [1m[35m (2.6ms)[0m  ALTER TABLE "art_prop_vals" ADD CONSTRAINT "fk_art_prop_relations_valors"
+FOREIGN KEY ("val_cod")
+  REFERENCES "valors" ("val_cod")
+ ON DELETE RESTRICT ON UPDATE RESTRICT
+  [1m[36m (3.2ms)[0m  [1mALTER TABLE "art_props" ADD CONSTRAINT "fk_art_prop_relations_articulo"
+FOREIGN KEY ("art_cod")
+  REFERENCES "articulos" ("art_cod")
+ ON DELETE RESTRICT ON UPDATE RESTRICT[0m
+  [1m[35m (2.0ms)[0m  ALTER TABLE "art_props" ADD CONSTRAINT "fk_art_prop_relations_propieda"
+FOREIGN KEY ("prop_cod")
+  REFERENCES "propiedads" ("prop_cod")
+ ON DELETE RESTRICT ON UPDATE RESTRICT
+  [1m[36m (2.1ms)[0m  [1mALTER TABLE "articulos" ADD CONSTRAINT "fk_articulo_relations_categori"
+FOREIGN KEY ("cat_cod")
+  REFERENCES "categoris" ("cat_cod")
+ ON DELETE RESTRICT ON UPDATE RESTRICT[0m
+  [1m[35m (2.5ms)[0m  ALTER TABLE "categoris" ADD CONSTRAINT "fk_categori_relations_categori"
+FOREIGN KEY ("cat_cat_cod")
+  REFERENCES "categoris" ("cat_cod")
+ ON DELETE RESTRICT ON UPDATE RESTRICT
+  [1m[36m (3.4ms)[0m  [1mALTER TABLE "detalle_documento_de_compras" ADD CONSTRAINT "fk_detalle__relations_document"
+FOREIGN KEY ("doc_com_cod")
+  REFERENCES "documento_de_compras" ("doc_com_cod")
+ ON DELETE RESTRICT ON UPDATE RESTRICT[0m
+  [1m[35m (8.9ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (5.4ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (1.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150708150545')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.0ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'art_prop_vals'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'art_props'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'articulos'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.6ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'auditoris'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'categoris'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'clientes'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (10.0ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'detalle_documento_de_compras'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.9ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'detalle_pedidos'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'detalle_sol_devolucions'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'direccions'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (6.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'documento_de_cobros'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'documento_de_compras'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'estado_articulos'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (8.1ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'estado_dcs'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'estado_pedidos'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'guia_despacho_compras'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'guia_despacho_pedidos'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (6.3ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'historial_estado_dcs'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'historial_estado_pedidos'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'imagens'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (8.0ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'ins_apvs'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.3ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'instancis'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.9ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'nota_creditos'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.9ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'pedidos'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'propiedad_valors'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.6ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'propiedads'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'proveedors'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'solicitud_devolucions'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'transicion_estado_arts'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.0ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'transicion_estado_dcs'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'transicion_estado_pedidos'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.3ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'valors'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'vendedors'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddNameToUsers (20150708161530)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddNameToUsers (20150708161530)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "users" ADD "cli_nom" character varying[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "cli_rut" character varying
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "cli_tel" integer[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150708161530"]]
+  [1m[36m (30.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (1.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'art_prop_vals'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.9ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'art_props'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (7.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'articulos'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'auditoris'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'categoris'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'clientes'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'detalle_documento_de_compras'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'detalle_pedidos'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'detalle_sol_devolucions'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (7.3ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'direccions'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'documento_de_cobros'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.9ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'documento_de_compras'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'estado_articulos'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (6.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'estado_dcs'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'estado_pedidos'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.6ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'guia_despacho_compras'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (4.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'guia_despacho_pedidos'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'historial_estado_dcs'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (6.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'historial_estado_pedidos'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (6.8ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'imagens'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (4.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'ins_apvs'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (9.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'instancis'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (6.0ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'nota_creditos'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'pedidos'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (4.9ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'propiedad_valors'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.6ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'propiedads'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (6.0ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'proveedors'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'solicitud_devolucions'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (5.9ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'transicion_estado_arts'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'transicion_estado_dcs'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'transicion_estado_pedidos'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (5.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'valors'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'vendedors'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-08 13:18:53 -0300
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by PrincipalController#index as HTML
+  Rendered principal/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 235ms (Views: 234.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-07-08 13:18:57 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered users/shared/_links.html.erb (0.2ms)
+  Rendered users/sessions/new.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 435ms (Views: 426.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-07-08 13:22:11 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered users/shared/_links.html.erb (0.2ms)
+  Rendered users/registrations/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 304ms (Views: 303.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-07-08 13:23:18 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered users/shared/_links.html.erb (0.1ms)
+  Rendered users/registrations/new.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 492ms (Views: 491.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/art_prop_vals.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:19 -0300
+
+
+Started GET "/assets/clientes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:19 -0300
+
+
+Started GET "/assets/categoris.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:19 -0300
+
+
+Started GET "/assets/auditoris.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:19 -0300
+
+
+Started GET "/assets/articulos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:19 -0300
+
+
+Started GET "/assets/contacto.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:19 -0300
+
+
+Started GET "/assets/art_props.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:19 -0300
+
+
+Started GET "/assets/detalle_pedidos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:19 -0300
+
+
+Started GET "/assets/detalle_documento_de_compras.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:19 -0300
+
+
+Started GET "/assets/detalle_sol_devolucions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:19 -0300
+
+
+Started GET "/assets/direccions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:19 -0300
+
+
+Started GET "/assets/documento_de_cobros.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:19 -0300
+
+
+Started GET "/assets/documento_de_compras.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:19 -0300
+
+
+Started GET "/assets/estado_dcs.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:19 -0300
+
+
+Started GET "/assets/estado_pedidos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:19 -0300
+
+
+Started GET "/assets/guia_despacho_compras.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:19 -0300
+
+
+Started GET "/assets/estado_articulos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:19 -0300
+
+
+Started GET "/assets/guia_despacho_pedidos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:19 -0300
+
+
+Started GET "/assets/historial_estado_pedidos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:19 -0300
+
+
+Started GET "/assets/historial_estado_dcs.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:19 -0300
+
+
+Started GET "/assets/imagens.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:19 -0300
+
+
+Started GET "/assets/ins_apvs.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:19 -0300
+
+
+Started GET "/assets/instancis.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:19 -0300
+
+
+Started GET "/assets/pedidos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:19 -0300
+
+
+Started GET "/assets/politicas.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:19 -0300
+
+
+Started GET "/assets/nota_creditos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:19 -0300
+
+
+Started GET "/assets/preguntas_frecuentes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:19 -0300
+
+
+Started GET "/assets/principal.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:19 -0300
+
+
+Started GET "/assets/propiedad_valors.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/quien_somos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/scaffolds.self-a015e8eb91dab5ca44e7b0ee5ee79feb5a516a1cc605da238620565a3ef913ee.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/propiedads.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/solicitud_devolucions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/proveedors.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/transicion_estado_arts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/transicion_estado_dcs.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/valors.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/transicion_estado_pedidos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/vendedors.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/art_prop_vals.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/art_props.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/articulos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/auditoris.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/clientes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/categoris.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/contacto.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/detalle_documento_de_compras.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/detalle_sol_devolucions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/detalle_pedidos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/documento_de_cobros.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/documento_de_compras.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/estado_articulos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/direccions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/estado_pedidos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/estado_dcs.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/guia_despacho_compras.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/guia_despacho_pedidos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/historial_estado_dcs.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/historial_estado_pedidos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/imagens.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/ins_apvs.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/instancis.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/nota_creditos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/politicas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/pedidos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/principal.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/preguntas_frecuentes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/propiedads.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/propiedad_valors.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/quien_somos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/proveedors.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/solicitud_devolucions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/transicion_estado_arts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/transicion_estado_dcs.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/valors.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/transicion_estado_pedidos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/assets/vendedors.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/users/css1.css" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+ActionController::RoutingError (No route matches [GET] "/users/css1.css"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/alexis/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/alexis/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/alexis/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.7ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (28.8ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (213.6ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (2.1ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (33.6ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (4.6ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (63.1ms)
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:20 -0300
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-07-08 13:23:40 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered users/registrations/new.html.erb within layouts/application (61.9ms)
+Completed 500 Internal Server Error in 76ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (undefined local variable or method `nombre' for #<#<Class:0x007f02f033c418>:0x007f02ef93c440>):
+     7:     <%= f.label :email %><br />
+     8:     <%= f.email_field :email, autofocus: true %>
+     9:   </div>
+    10:     <div><%= f.label nombre %><br />
+    11:         <%= f.text_field :cli_nom, autofocus: true %></div>
+    12:   <div class="field">
+    13:     <%= f.label :password %>
+  app/views/users/registrations/new.html.erb:10:in `block in _app_views_users_registrations_new_html_erb__606293671275679881_69825293015360'
+  app/views/users/registrations/new.html.erb:3:in `_app_views_users_registrations_new_html_erb__606293671275679881_69825293015360'
+
+
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (12.3ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.1ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (44.8ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (31.4ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (64.5ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-07-08 13:23:47 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered users/shared/_links.html.erb (0.5ms)
+  Rendered users/registrations/new.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 503ms (Views: 501.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/css1.css" for 127.0.0.1 at 2015-07-08 13:23:48 -0300
+
+ActionController::RoutingError (No route matches [GET] "/users/css1.css"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/alexis/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/alexis/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/alexis/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (33.0ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (236.0ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (31.9ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (63.9ms)
+
+
+Started GET "/assets/categoris.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:48 -0300
+
+
+Started GET "/assets/art_prop_vals.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:48 -0300
+
+
+Started GET "/assets/art_props.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:48 -0300
+
+
+Started GET "/assets/articulos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:48 -0300
+
+
+Started GET "/assets/auditoris.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:48 -0300
+
+
+Started GET "/assets/clientes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:48 -0300
+
+
+Started GET "/assets/detalle_documento_de_compras.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:48 -0300
+
+
+Started GET "/assets/contacto.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:48 -0300
+
+
+Started GET "/assets/detalle_pedidos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:48 -0300
+
+
+Started GET "/assets/detalle_sol_devolucions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:48 -0300
+
+
+Started GET "/assets/documento_de_cobros.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:48 -0300
+
+
+Started GET "/assets/direccions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:48 -0300
+
+
+Started GET "/assets/documento_de_compras.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:48 -0300
+
+
+Started GET "/assets/estado_articulos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:48 -0300
+
+
+Started GET "/assets/estado_pedidos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:48 -0300
+
+
+Started GET "/assets/estado_dcs.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:48 -0300
+
+
+Started GET "/assets/guia_despacho_compras.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:48 -0300
+
+
+Started GET "/assets/guia_despacho_pedidos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:48 -0300
+
+
+Started GET "/assets/historial_estado_dcs.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:48 -0300
+
+
+Started GET "/assets/historial_estado_pedidos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:48 -0300
+
+
+Started GET "/assets/imagens.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:48 -0300
+
+
+Started GET "/assets/ins_apvs.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:48 -0300
+
+
+Started GET "/assets/instancis.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:48 -0300
+
+
+Started GET "/assets/nota_creditos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:48 -0300
+
+
+Started GET "/assets/politicas.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:48 -0300
+
+
+Started GET "/assets/pedidos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/preguntas_frecuentes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/principal.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/propiedad_valors.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/propiedads.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/proveedors.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/scaffolds.self-a015e8eb91dab5ca44e7b0ee5ee79feb5a516a1cc605da238620565a3ef913ee.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/quien_somos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/solicitud_devolucions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/transicion_estado_arts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/transicion_estado_dcs.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/valors.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/transicion_estado_pedidos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/vendedors.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/art_props.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/art_prop_vals.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/articulos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/auditoris.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/categoris.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/contacto.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/detalle_pedidos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/clientes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/detalle_documento_de_compras.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/detalle_sol_devolucions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/direccions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/documento_de_cobros.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/documento_de_compras.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/estado_articulos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/estado_dcs.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/estado_pedidos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/guia_despacho_compras.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/guia_despacho_pedidos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/imagens.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/historial_estado_pedidos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/historial_estado_dcs.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/instancis.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/ins_apvs.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/nota_creditos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/pedidos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/politicas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/preguntas_frecuentes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/principal.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/propiedad_valors.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/propiedads.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/quien_somos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/solicitud_devolucions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/transicion_estado_arts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/proveedors.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/transicion_estado_dcs.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/transicion_estado_pedidos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/valors.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/vendedors.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-07-08 13:23:49 -0300
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-07-08 13:25:19 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered users/shared/_links.html.erb (0.3ms)
+  Rendered users/registrations/new.html.erb within layouts/application (22.8ms)
+Completed 200 OK in 485ms (Views: 483.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/css1.css" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+ActionController::RoutingError (No route matches [GET] "/users/css1.css"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/alexis/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/alexis/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/alexis/.rbenv/versions/2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (18.4ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.8ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (255.8ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (3.8ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.1ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (36.2ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (69.5ms)
+
+
+Started GET "/assets/articulos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/art_props.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/art_prop_vals.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/categoris.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/auditoris.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/contacto.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/clientes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/detalle_documento_de_compras.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/detalle_pedidos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/detalle_sol_devolucions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/direccions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/documento_de_cobros.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/documento_de_compras.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/estado_articulos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/estado_dcs.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/estado_pedidos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/guia_despacho_compras.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/guia_despacho_pedidos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/historial_estado_dcs.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/historial_estado_pedidos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/imagens.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/ins_apvs.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/instancis.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/nota_creditos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/pedidos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/politicas.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/preguntas_frecuentes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/principal.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/propiedad_valors.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/propiedads.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/proveedors.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/scaffolds.self-a015e8eb91dab5ca44e7b0ee5ee79feb5a516a1cc605da238620565a3ef913ee.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/solicitud_devolucions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/transicion_estado_arts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/quien_somos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/transicion_estado_dcs.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/transicion_estado_pedidos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/valors.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/vendedors.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/art_props.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/art_prop_vals.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/articulos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/auditoris.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/categoris.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/clientes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/contacto.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/detalle_documento_de_compras.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/detalle_pedidos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/detalle_sol_devolucions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/direccions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/documento_de_cobros.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:20 -0300
+
+
+Started GET "/assets/documento_de_compras.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:21 -0300
+
+
+Started GET "/assets/estado_articulos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:21 -0300
+
+
+Started GET "/assets/estado_dcs.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:21 -0300
+
+
+Started GET "/assets/estado_pedidos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:21 -0300
+
+
+Started GET "/assets/guia_despacho_compras.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:21 -0300
+
+
+Started GET "/assets/historial_estado_dcs.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:21 -0300
+
+
+Started GET "/assets/historial_estado_pedidos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:21 -0300
+
+
+Started GET "/assets/guia_despacho_pedidos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:21 -0300
+
+
+Started GET "/assets/imagens.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:21 -0300
+
+
+Started GET "/assets/ins_apvs.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:21 -0300
+
+
+Started GET "/assets/instancis.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:21 -0300
+
+
+Started GET "/assets/nota_creditos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:21 -0300
+
+
+Started GET "/assets/pedidos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:21 -0300
+
+
+Started GET "/assets/politicas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:21 -0300
+
+
+Started GET "/assets/preguntas_frecuentes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:21 -0300
+
+
+Started GET "/assets/propiedad_valors.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:21 -0300
+
+
+Started GET "/assets/principal.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:21 -0300
+
+
+Started GET "/assets/propiedads.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:21 -0300
+
+
+Started GET "/assets/quien_somos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:21 -0300
+
+
+Started GET "/assets/proveedors.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:21 -0300
+
+
+Started GET "/assets/solicitud_devolucions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:21 -0300
+
+
+Started GET "/assets/transicion_estado_dcs.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:21 -0300
+
+
+Started GET "/assets/transicion_estado_arts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:21 -0300
+
+
+Started GET "/assets/transicion_estado_pedidos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:21 -0300
+
+
+Started GET "/assets/valors.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:21 -0300
+
+
+Started GET "/assets/vendedors.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:21 -0300
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-07-08 13:25:21 -0300
+
+
+Started POST "/users" for 127.0.0.1 at 2015-07-08 13:25:46 -0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dL1rOfbkECJiq19BMA8oVKlXPzcwW7QP9NLG0WtW4Ip77xV9bkilgNx0EkIos2Qvk+LVEm/LSS8CqImM+lg/SA==", "user"=>{"cli_nom"=>"Alexis Casanueva", "cli_rut"=>"182044695", "cli_tel"=>"82245854", "email"=>"alexis.casanueva@usach.cl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Registrarse"}
+Unpermitted parameters: cli_nom, cli_rut, cli_tel
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'alexis.casanueva@usach.cl' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "alexis.casanueva@usach.cl"], ["encrypted_password", "$2a$10$SSh3/Lkar8ccZeXdHXEl5O.hRBuHm3J5/xoMbmd9MOUMbc8ahofnq"], ["created_at", "2015-07-08 16:25:46.996678"], ["updated_at", "2015-07-08 16:25:46.996678"]]
+  [1m[35m (1.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = 1  [["last_sign_in_at", "2015-07-08 16:25:47.002676"], ["current_sign_in_at", "2015-07-08 16:25:47.002676"], ["last_sign_in_ip", "127.0.0.1/32"], ["current_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2015-07-08 16:25:47.003162"]]
+  [1m[36m (1.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 185ms (ActiveRecord: 4.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-08 13:25:47 -0300
+Processing by PrincipalController#index as HTML
+  Rendered principal/index.html.erb within layouts/application (0.0ms)
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+PG::FeatureNotSupported: ERROR:  el plan almacenado no debe cambiar el tipo de resultado
+: SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 473ms (Views: 471.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2015-07-08 13:25:52 -0300
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered users/registrations/edit.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 218ms (Views: 216.6ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/users" for 127.0.0.1 at 2015-07-08 13:27:37 -0300
+Processing by Devise::RegistrationsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"hFP9V+nJ1P8HDgRDkmna4mlJlLHD8cumLzbyAQYtRr6LAYMTcWVhXbnRSUCK1ZaZU/x+lJxhNobZTL1clyOZfA=="}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  [1m[35m (2.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 22ms (ActiveRecord: 4.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-08 13:27:38 -0300
+Processing by PrincipalController#index as HTML
+  Rendered principal/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 737ms (Views: 736.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-07-08 13:27:41 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered users/shared/_links.html.erb (0.2ms)
+  Rendered users/sessions/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 245ms (Views: 243.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-07-08 13:27:47 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered users/shared/_links.html.erb (0.7ms)
+  Rendered users/registrations/new.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 234ms (Views: 233.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2015-07-08 13:28:06 -0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"n6HykW9u5xM0F+4mVGby8MD7YlUHDChuQ0x6ou4hkLHSGLMpFAQohkbAZnZ6Zz1LqFbObhhX+T/WmK3LwurRlA==", "user"=>{"cli_nom"=>"alexis casanueva", "cli_rut"=>"182044695", "cli_tel"=>"82245854", "email"=>"alexis.casanueva@usach.cl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Registrarse"}
+Unpermitted parameters: cli_nom, cli_rut, cli_tel, password_confirmation
+  [1m[36m (2.0ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'alexis.casanueva@usach.cl' LIMIT 1
+  [1m[36mSQL (2.5ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "alexis.casanueva@usach.cl"], ["encrypted_password", "$2a$10$CvNx.Z2nZ.jEVsFbMgCdLe//MHYXrs5TcWO.geT1oLM0N8AE3S7XC"], ["created_at", "2015-07-08 16:28:07.071561"], ["updated_at", "2015-07-08 16:28:07.071561"]]
+  [1m[35m (1.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = 2  [["last_sign_in_at", "2015-07-08 16:28:07.077092"], ["current_sign_in_at", "2015-07-08 16:28:07.077092"], ["last_sign_in_ip", "127.0.0.1/32"], ["current_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2015-07-08 16:28:07.077559"]]
+  [1m[36m (1.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 201ms (ActiveRecord: 8.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-08 13:28:07 -0300
+Processing by PrincipalController#index as HTML
+  Rendered principal/index.html.erb within layouts/application (0.0ms)
+  [1m[35mUser Load (3.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+Completed 200 OK in 494ms (Views: 490.0ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-08 13:28:48 -0300
+Processing by PrincipalController#index as HTML
+  Rendered principal/index.html.erb within layouts/application (0.0ms)
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 459ms (Views: 458.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2015-07-08 13:31:14 -0300
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  Rendered users/registrations/edit.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 316ms (Views: 306.7ms | ActiveRecord: 1.5ms)
+
+
+Started DELETE "/users" for 127.0.0.1 at 2015-07-08 13:31:18 -0300
+Processing by Devise::RegistrationsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"BSJqAvZP0Ac3L7MB/dxY1iNA/SDHE8dlq2Iu0c3R+FpImyu6jSUfkkX4O1HT3ZdtS+1RG9hIFjQ+tvm44Rq5fw=="}
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  [1m[35m (3.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 12ms (ActiveRecord: 5.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-08 13:31:18 -0300
+Processing by PrincipalController#index as HTML
+  Rendered principal/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 514ms (Views: 513.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-07-08 13:31:21 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered users/shared/_links.html.erb (0.2ms)
+  Rendered users/sessions/new.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 367ms (Views: 365.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-07-08 13:31:26 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered users/shared/_links.html.erb (0.2ms)
+  Rendered users/registrations/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 280ms (Views: 279.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2015-07-08 13:31:38 -0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fydj40s/7DEuZLxDeE0f8Z0uT0TyWTG22PNiIIVve4Z1gloJ/C1uBUzpH8DRfbgdGOUVXNo5t8ypnFxef+ajTw==", "user"=>{"cli_nom"=>"Alexis Casanueva", "cli_rut"=>"182044695", "cli_tel"=>"82245854", "email"=>"alexis.casanueva@usach.cl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Registrarse"}
+Unpermitted parameter: password_confirmation
+  [1m[36m (3.6ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'alexis.casanueva@usach.cl' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("cli_nom", "email", "encrypted_password", "cli_tel", "cli_rut", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["cli_nom", "Alexis Casanueva"], ["email", "alexis.casanueva@usach.cl"], ["encrypted_password", "$2a$10$qMZUbQLywwd.V4BfCCkUJeVyECqu.Y/DMxV5IfzEZ9RkwMQfEVndC"], ["cli_tel", 82245854], ["cli_rut", "182044695"], ["created_at", "2015-07-08 16:31:38.541728"], ["updated_at", "2015-07-08 16:31:38.541728"]]
+  [1m[35m (2.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = 3  [["last_sign_in_at", "2015-07-08 16:31:38.545656"], ["current_sign_in_at", "2015-07-08 16:31:38.545656"], ["last_sign_in_ip", "127.0.0.1/32"], ["current_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2015-07-08 16:31:38.546248"]]
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 185ms (ActiveRecord: 8.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-08 13:31:38 -0300
+Processing by PrincipalController#index as HTML
+  Rendered principal/index.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (2.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+Completed 200 OK in 507ms (Views: 504.6ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2015-07-08 13:32:17 -0300
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  Rendered users/registrations/edit.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 661ms (Views: 659.8ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/users" for 127.0.0.1 at 2015-07-08 13:32:22 -0300
+Processing by Devise::RegistrationsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"r6tTFnSLDPuiS6WrxFz7SY5SLdTndbt2Exq9jUvEjJmlDmr8w5mOz8DGBihtbFylC5l3zM8VPQxidYPzsU1UUA=="}
+  [1m[35mUser Load (2.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "users" WHERE "users"."id" = $1  [["id", 3]]
+  [1m[36m (3.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 12ms (ActiveRecord: 6.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-08 13:32:22 -0300
+Processing by PrincipalController#index as HTML
+  Rendered principal/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 527ms (Views: 526.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-07-08 13:33:06 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered users/shared/_links.html.erb (0.2ms)
+  Rendered users/sessions/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 437ms (Views: 431.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-07-08 13:33:11 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered users/shared/_links.html.erb (0.1ms)
+  Rendered users/registrations/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 233ms (Views: 231.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2015-07-08 13:33:22 -0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xZ0C7V5xs7CYMm80RKSkmrE3xbmFh1IBSuMB0iKoRpQC6rRezdWZhV5+qjCTjbYm2kiNsaRAxz7cPXjQo/CRlQ==", "user"=>{"cli_nom"=>"Alexis Casanueva", "cli_rut"=>"182044695", "cli_tel"=>"82245854", "email"=>"alexis.casanueva@usach.cl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Registrarse"}
+Unpermitted parameter: password_confirmation
+  [1m[35m (4.7ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'alexis.casanueva@usach.cl' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("cli_nom", "email", "encrypted_password", "cli_tel", "cli_rut", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["cli_nom", "Alexis Casanueva"], ["email", "alexis.casanueva@usach.cl"], ["encrypted_password", "$2a$10$3VenTFQGCy4zCK9kSOsQquaI4AYuDg6cGeVzYPS7.M/M5PZBoM8L2"], ["cli_tel", 82245854], ["cli_rut", "182044695"], ["created_at", "2015-07-08 16:33:22.835385"], ["updated_at", "2015-07-08 16:33:22.835385"]]
+  [1m[36m (2.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = 4[0m  [["last_sign_in_at", "2015-07-08 16:33:22.839047"], ["current_sign_in_at", "2015-07-08 16:33:22.839047"], ["last_sign_in_ip", "127.0.0.1/32"], ["current_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2015-07-08 16:33:22.839623"]]
+  [1m[35m (1.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 190ms (ActiveRecord: 8.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-08 13:33:22 -0300
+Processing by PrincipalController#index as HTML
+  Rendered principal/index.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (3.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 4]]
+Completed 200 OK in 524ms (Views: 520.2ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2015-07-08 13:33:26 -0300
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[35mUser Load (2.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 4]]
+  Rendered users/registrations/edit.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 403ms (Views: 399.2ms | ActiveRecord: 2.8ms)
+
+
+Started DELETE "/users" for 127.0.0.1 at 2015-07-08 13:33:35 -0300
+Processing by Devise::RegistrationsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"i3DfEzf3pIoCkia8qONz8TiYix2OZgRVjvVEKcgbthtMB2mgpFOOv8Te47h/ymFNU+fDFa+hkWoYKz0rSUNhGg=="}
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 4]]
+  [1m[35m (48.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 56ms (ActiveRecord: 50.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-08 13:33:35 -0300
+Processing by PrincipalController#index as HTML
+  Rendered principal/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 524ms (Views: 524.0ms | ActiveRecord: 0.0ms)
