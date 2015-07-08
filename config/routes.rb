@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   resources :vendedors
   resources :valors
   resources :transicion_estado_pedidos

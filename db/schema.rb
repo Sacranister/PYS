@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20150708150545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -193,9 +193,9 @@ ActiveRecord::Schema.define(version: 0) do
   add_index "guia_despacho_pedidos", ["ped_cod"], name: "relationship_19_fk", using: :btree
 
   create_table "historial_estado_dcs", id: false, force: :cascade do |t|
-    t.integer "doc_com_cod",                                                                                 null: false
-    t.integer "est_dc_cod",                                                                                  null: false
-    t.integer "hist_est_dc_cod",   default: "nextval('historial_estado_dcs_hist_est_dc_cod_seq'::regclass)", null: false
+    t.integer "doc_com_cod",                   null: false
+    t.integer "est_dc_cod",                    null: false
+    t.integer "hist_est_dc_cod",   default: 0, null: false
     t.date    "hist_est_dc_fecha"
   end
 
@@ -204,9 +204,9 @@ ActiveRecord::Schema.define(version: 0) do
   add_index "historial_estado_dcs", ["est_dc_cod"], name: "relationship_39_fk", using: :btree
 
   create_table "historial_estado_pedidos", id: false, force: :cascade do |t|
-    t.integer "ped_cod",                                                                                           null: false
-    t.integer "estado_ped_cod",                                                                                    null: false
-    t.integer "hist_est_ped_cod",   default: "nextval('historial_estado_pedidos_hist_est_ped_cod_seq'::regclass)", null: false
+    t.integer "ped_cod",                        null: false
+    t.integer "estado_ped_cod",                 null: false
+    t.integer "hist_est_ped_cod",   default: 0, null: false
     t.date    "hist_est_ped_fecha"
   end
 
@@ -234,10 +234,10 @@ ActiveRecord::Schema.define(version: 0) do
   add_index "ins_apvs", ["ins_cod", "ins_cod_prov"], name: "relationship_56_fk", using: :btree
 
   create_table "instancis", id: false, force: :cascade do |t|
-    t.integer "ins_cod",                     default: "nextval('instancis_ins_cod_seq'::regclass)", null: false
-    t.string  "ins_cod_prov",     limit: 20,                                                        null: false
-    t.integer "est_art_cod",                                                                        null: false
-    t.integer "art_cod",                                                                            null: false
+    t.integer "ins_cod",                     default: 0, null: false
+    t.string  "ins_cod_prov",     limit: 20,             null: false
+    t.integer "est_art_cod",                             null: false
+    t.integer "art_cod",                                 null: false
     t.integer "ins_stock"
     t.integer "ins_precio_lista"
     t.integer "ins_precio_prov"
@@ -309,9 +309,9 @@ ActiveRecord::Schema.define(version: 0) do
   add_index "solicitud_devolucions", ["ven_cod"], name: "relationship_25_fk", using: :btree
 
   create_table "transicion_estado_arts", id: false, force: :cascade do |t|
-    t.integer "est_est_art_cod",                                                                                 null: false
-    t.integer "est_art_cod",                                                                                     null: false
-    t.integer "trans_est_art_cod", default: "nextval('transicion_estado_arts_trans_est_art_cod_seq'::regclass)", null: false
+    t.integer "est_est_art_cod",               null: false
+    t.integer "est_art_cod",                   null: false
+    t.integer "trans_est_art_cod", default: 0, null: false
   end
 
   add_index "transicion_estado_arts", ["est_art_cod"], name: "relationship_50_fk", using: :btree
@@ -319,9 +319,9 @@ ActiveRecord::Schema.define(version: 0) do
   add_index "transicion_estado_arts", ["est_est_art_cod"], name: "relationship_35_fk", using: :btree
 
   create_table "transicion_estado_dcs", id: false, force: :cascade do |t|
-    t.integer "est_est_dc_cod",                                                                               null: false
-    t.integer "est_dc_cod",                                                                                   null: false
-    t.integer "trans_est_dc_cod", default: "nextval('transicion_estado_dcs_trans_est_dc_cod_seq'::regclass)", null: false
+    t.integer "est_est_dc_cod",               null: false
+    t.integer "est_dc_cod",                   null: false
+    t.integer "trans_est_dc_cod", default: 0, null: false
   end
 
   add_index "transicion_estado_dcs", ["est_dc_cod"], name: "relationship_37_fk", using: :btree
@@ -329,14 +329,32 @@ ActiveRecord::Schema.define(version: 0) do
   add_index "transicion_estado_dcs", ["est_est_dc_cod"], name: "relationship_36_fk", using: :btree
 
   create_table "transicion_estado_pedidos", id: false, force: :cascade do |t|
-    t.integer "est_estado_ped_cod",                                                                                  null: false
-    t.integer "estado_ped_cod",                                                                                      null: false
-    t.integer "trans_est_ped_cod",  default: "nextval('transicion_estado_pedidos_trans_est_ped_cod_seq'::regclass)", null: false
+    t.integer "est_estado_ped_cod",             null: false
+    t.integer "estado_ped_cod",                 null: false
+    t.integer "trans_est_ped_cod",  default: 0, null: false
   end
 
   add_index "transicion_estado_pedidos", ["est_estado_ped_cod", "estado_ped_cod", "trans_est_ped_cod"], name: "transicion_estado_pedidos_pk", unique: true, using: :btree
   add_index "transicion_estado_pedidos", ["est_estado_ped_cod"], name: "relationship_46_fk", using: :btree
   add_index "transicion_estado_pedidos", ["estado_ped_cod"], name: "relationship_47_fk", using: :btree
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "valors", primary_key: "val_cod", force: :cascade do |t|
     t.string "val_nom", limit: 40
@@ -361,47 +379,4 @@ ActiveRecord::Schema.define(version: 0) do
   add_foreign_key "articulos", "categoris", column: "cat_cod", primary_key: "cat_cod", name: "fk_articulo_relations_categori", on_update: :restrict, on_delete: :restrict
   add_foreign_key "categoris", "categoris", column: "cat_cat_cod", primary_key: "cat_cod", name: "fk_categori_relations_categori", on_update: :restrict, on_delete: :restrict
   add_foreign_key "detalle_documento_de_compras", "documento_de_compras", column: "doc_com_cod", primary_key: "doc_com_cod", name: "fk_detalle__relations_document", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "detalle_documento_de_compras", "instancis", column: "ins_cod", primary_key: "ins_cod", name: "fk_detalle__relations_instanci", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "detalle_pedidos", "instancis", column: "ins_cod", primary_key: "ins_cod", name: "fk_detalle__relations_instanci", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "detalle_pedidos", "pedidos", column: "ped_cod", primary_key: "ped_cod", name: "fk_detalle__relations_pedidos", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "detalle_sol_devolucions", "instancis", column: "ins_cod", primary_key: "ins_cod", name: "fk_detalle__relations_instanci", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "detalle_sol_devolucions", "solicitud_devolucions", column: "sol_dev_cod", primary_key: "sol_dev_cod", name: "fk_detalle__relations_solicitu", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "direccions", "clientes", column: "cli_cod", primary_key: "cli_cod", name: "fk_direccio_relations_clientes", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "direccions", "guia_despacho_compras", column: "guia_desp_cod", primary_key: "guia_desp_cod", name: "fk_direccio_relations_guia_des", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "documento_de_cobros", "documento_de_compras", column: "doc_com_cod", primary_key: "doc_com_cod", name: "fk_document_relations_document", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "documento_de_cobros", "nota_creditos", column: "not_cre_cod", primary_key: "not_cre_cod", name: "fk_document_relations_nota_cre", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "documento_de_compras", "clientes", column: "cli_cod", primary_key: "cli_cod", name: "fk_document_relations_clientes", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "documento_de_compras", "documento_de_cobros", column: "doc_cob_cod", primary_key: "doc_cob_cod", name: "fk_document_relations_document", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "documento_de_compras", "estado_dcs", column: "est_dc_cod", primary_key: "est_dc_cod", name: "fk_document_relations_estado_d", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "documento_de_compras", "guia_despacho_compras", column: "guia_desp_cod", primary_key: "guia_desp_cod", name: "fk_document_relations_guia_des", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "documento_de_compras", "vendedors", column: "ven_cod", primary_key: "ven_cod", name: "fk_document_relations_vendedor", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "guia_despacho_compras", "direccions", column: "dir_cod", primary_key: "dir_cod", name: "fk_guia_des_relations_direccio", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "guia_despacho_compras", "documento_de_compras", column: "doc_com_cod", primary_key: "doc_com_cod", name: "fk_guia_des_relations_document", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "guia_despacho_pedidos", "pedidos", column: "ped_cod", primary_key: "ped_cod", name: "fk_guia_des_relations_pedidos", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "historial_estado_dcs", "documento_de_compras", column: "doc_com_cod", primary_key: "doc_com_cod", name: "fk_historia_relations_document", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "historial_estado_dcs", "estado_dcs", column: "est_dc_cod", primary_key: "est_dc_cod", name: "fk_historia_relations_estado_d", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "historial_estado_pedidos", "estado_pedidos", column: "estado_ped_cod", primary_key: "estado_ped_cod", name: "fk_historia_relations_estado_p", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "historial_estado_pedidos", "pedidos", column: "ped_cod", primary_key: "ped_cod", name: "fk_historia_relations_pedidos", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "imagens", "instancis", column: "ins_cod", primary_key: "ins_cod", name: "fk_imagens_relations_instanci", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "ins_apvs", "art_prop_vals", column: "apv_cod", primary_key: "apv_cod", name: "fk_ins_apvs_relations_art_prop", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "ins_apvs", "instancis", column: "ins_cod", primary_key: "ins_cod", name: "fk_ins_apvs_relations_instanci", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "instancis", "articulos", column: "art_cod", primary_key: "art_cod", name: "fk_instanci_relations_articulo", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "instancis", "estado_articulos", column: "est_art_cod", primary_key: "est_art_cod", name: "fk_instanci_relations_estado_a", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "nota_creditos", "documento_de_cobros", column: "doc_cob_cod", primary_key: "doc_cob_cod", name: "fk_nota_cre_relations_document", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "nota_creditos", "solicitud_devolucions", column: "sol_dev_cod", primary_key: "sol_dev_cod", name: "fk_nota_cre_relations_solicitu", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "pedidos", "estado_pedidos", column: "estado_ped_cod", primary_key: "estado_ped_cod", name: "fk_pedidos_relations_estado_p", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "pedidos", "guia_despacho_pedidos", column: "guia_desp_ped_cod", primary_key: "guia_desp_ped_cod", name: "fk_pedidos_relations_guia_des", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "pedidos", "proveedors", column: "pro_cod", primary_key: "pro_cod", name: "fk_pedidos_relations_proveedo", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "propiedad_valors", "propiedads", column: "prop_cod", primary_key: "prop_cod", name: "fk_propieda_relations_propieda", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "propiedad_valors", "valors", column: "val_cod", primary_key: "val_cod", name: "fk_propieda_relations_valors", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "solicitud_devolucions", "clientes", column: "cli_cod", primary_key: "cli_cod", name: "fk_solicitu_relations_clientes", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "solicitud_devolucions", "documento_de_compras", column: "doc_com_cod", primary_key: "doc_com_cod", name: "fk_solicitu_relations_document", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "solicitud_devolucions", "nota_creditos", column: "not_cre_cod", primary_key: "not_cre_cod", name: "fk_solicitu_relations_nota_cre", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "solicitud_devolucions", "vendedors", column: "ven_cod", primary_key: "ven_cod", name: "fk_solicitu_relations_vendedor", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "transicion_estado_arts", "estado_articulos", column: "est_art_cod", primary_key: "est_art_cod", name: "fk_transici_relations_estado_a", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "transicion_estado_arts", "estado_articulos", column: "est_est_art_cod", primary_key: "est_art_cod", name: "fk_transici_relations_estado_a1", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "transicion_estado_dcs", "estado_dcs", column: "est_dc_cod", primary_key: "est_dc_cod", name: "fk_transici_relations_estado_d", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "transicion_estado_dcs", "estado_dcs", column: "est_est_dc_cod", primary_key: "est_dc_cod", name: "fk_transici_relations_estado_d1", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "transicion_estado_pedidos", "estado_pedidos", column: "est_estado_ped_cod", primary_key: "estado_ped_cod", name: "fk_transici_relations_estado_p1", on_update: :restrict, on_delete: :restrict
-  add_foreign_key "transicion_estado_pedidos", "estado_pedidos", column: "estado_ped_cod", primary_key: "estado_ped_cod", name: "fk_transici_relations_estado_p", on_update: :restrict, on_delete: :restrict
 end
