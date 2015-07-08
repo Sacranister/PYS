@@ -59,6 +59,15 @@
           <ul class="nav navbar-nav">
             <li><a href="http://localhost:3000/">Inicio <span class="sr-only">(current)</span></a></li>
             <li><a href="http://localhost:3000/Quienes_somos">Quienes somos</a></li>
+            <% def subcat(cat)
+              @subcats=Categori.where(cat_cat_cod: cat.cat_cod)%>
+              <ul class="dropdown-submenu" role="submenu">
+              <%@subcats.each do |subcat|%>
+                <li><a href="http://localhost:3000/categoris/<%=subcat.cat_cod%>"><%=subcat.cat_nom%></a></li>
+                <% subcat(subcat)%>
+              <%end%>
+              </ul>
+            <%end%>
             <% @categoris=Categori.all
             @categoris.each do |categori|
               if categori.cat_cat_cod.nil? %>
@@ -71,7 +80,7 @@
                       if @cont!=0%><li class="divider"></li><%end%>
                       <li><a href="http://localhost:3000/categoris/<%=cat.cat_cod%>"><%=cat.cat_nom%></a></li>
                       <%@cont=@cont+1
-                      #subcat(cat)
+                      subcat(cat)
                       %>
                     <%end%>
                   <%end%>
@@ -79,15 +88,6 @@
               </li>
               <%end%>
             <% end%>
-            <% def subcat(cat)
-              @subcats=Categori.where(cat_cat_cod: cat.cat_cod)%>
-              <ul class="dropdown-submenu" role="submenu">
-              <%@subcats.each do |subcat|%>
-                <li><a href="http://localhost:3000/categoris/<%=subcat.cat_cod%>"><%=subcat.cat_nom%></a></li>
-                <% subcat(subcat)%>
-              <%end%>
-              </ul>
-            <%end%>
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Políticas <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
