@@ -14,37 +14,47 @@
 <%= link_to 'Back', categoris_path %> -->
 <p id="notice"><%= notice %></p>
 <style>
-  .articulo 
-  {
-    float: right;
-    margin:50px;
-    background-color: white; 
-    box-shadow: 7px 7px 20px -4px rgba(128,128,128,1);
-    padding: 10px;
-    width: 200px;
-    height: 300px;
-  }
   article{
     font-size: 50px;
     background-color: white;
     background-repeat:no-repeat;
     margin-bottom: auto;
     padding: 10px 20px;
+    height: auto;
   }
+
+  .articulo{
+    float: right;
+    margin:2px;
+    background-color: white; 
+    box-shadow: 0px 0px 0px 0px rgba(128,128,128,1);
+    padding: 10px;
+    width: 300px;
+    height: 300px;
+    border: solid #D7D7D7 1px;
+    text-align: center;
+        position: relative;
+-webkit-transition: box-shadow 0.1s; /* For Safari 3.1 to 6.0 */
+    transition: box-shadow 0.1s;
+  }
+  .articulo:hover {
+    box-shadow: 7px 7px 20px -4px rgba(128,128,128,1);
+}
 </style>
 <article>
-<h1><%= @categori.cat_nom %></h1>
+<h1><%= @categori.cat_nom %></h1><p>
 <% @aux=[]
 @instancis.each do |instanci|
   if  @aux.include?(instanci.ins_cod_prov)==false
-    @aux.push(instanci.ins_cod_prov)%> <div class="articulo">
+    @aux.push(instanci.ins_cod_prov)%> <div class ="articulo">
    <% @imagen=Imagen.select("imagen_uri").where(ins_cod_prov: instanci.ins_cod_prov).take %>
-    <p align="center"><a href="#"><img src="<%=@imagen.imagen_uri%>" height="200px" width="124px"> </p>
-      <p align="center"><%= instanci.ins_precio_lista %>$</p></a>
-       <p align="center"> <a href="#" class="btn btn-default btn-sm">
-          <span class="glyphicon glyphicon-shopping-cart"></span> Agregar al carro</a></p></div>
+    <a href="#"><img src="<%=@imagen.imagen_uri%>" height="200px" width="124px">
+      <p><%= instanci.ins_precio_lista %>$</p></a>
+        <button type="button" class="btn btn-primary" href="#">
+          <span class="glyphicon glyphicon-shopping-cart"></span> Agregar al carro</button></div>
   <% end %>
 <% end %>
+
 </article>
 <br>
 <br>
