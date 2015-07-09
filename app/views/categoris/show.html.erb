@@ -38,7 +38,7 @@
     <a href="#"><img src="<%=@imagen.imagen_uri%>" height="200px" width="124px">
       <% @articulo=Articulo.where(art_cod: instanci.art_cod).take%>
       <p><font color="black"><%=@articulo.art_nom%></font></p>
-      <p><font color="black"><%= instanci.ins_precio_lista %> $</font></p></a>
+      <p><font color="black"><%=number_with_delimiter(instanci.ins_precio_lista, :delimiter => '.')%> $</font></p></a>
         <button type="button" class="btn btn-primary" href="#">
           <span class="glyphicon glyphicon-shopping-cart"></span> Agregar al carro</button></div>
   <% end %>
