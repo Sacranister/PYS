@@ -16,36 +16,35 @@
 <style>
   .articulo 
   {
-    float: left;
-    margin-right:10px;
+    float: right;
+    margin:50px;
     background-color: white; 
     box-shadow: 7px 7px 20px -4px rgba(128,128,128,1);
     padding: 10px;
+    width: 200px;
+    height: 300px;
   }
-  article
-  {
+  article{
     font-size: 50px;
     background-color: white;
-    background-size: 800px 600px; 
+    background-repeat:no-repeat;
     margin-bottom: auto;
-    background-size: cover;
+    padding: 10px 20px;
   }
 </style>
 <article>
 <h1><%= @categori.cat_nom %></h1>
-<body>
 <% @aux=[]
 @instancis.each do |instanci|
   if  @aux.include?(instanci.ins_cod_prov)==false
     @aux.push(instanci.ins_cod_prov)%> <div class="articulo">
    <% @imagen=Imagen.select("imagen_uri").where(ins_cod_prov: instanci.ins_cod_prov).take %>
-    <a href="#"><img src="<%=@imagen.imagen_uri%>" eight="200px" width="124px"> 
-      <p><%= instanci.ins_precio_lista %>$</p></a>
-        <a href="#" class="btn btn-default btn-sm">
-          <span class="glyphicon glyphicon-shopping-cart"></span> Agregar al carro</a></div>
+    <p align="center"><a href="#"><img src="<%=@imagen.imagen_uri%>" height="200px" width="124px"> </p>
+      <p align="center"><%= instanci.ins_precio_lista %>$</p></a>
+       <p align="center"> <a href="#" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-shopping-cart"></span> Agregar al carro</a></p></div>
   <% end %>
 <% end %>
-</body>
-<br>
-<br>
 </article>
+<br>
+<br>
