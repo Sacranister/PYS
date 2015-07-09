@@ -1,46 +1,34 @@
-<!-- <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Cat cat cod:</strong>
-  <%= @categori.cat_cat_cod %>
-</p>
-
-<p>
-  <strong>Cat nom:</strong>
-  <%= @categori.cat_nom %>
-</p>
-
-<%= link_to 'Edit', edit_categori_path(@categori) %> |
-<%= link_to 'Back', categoris_path %> -->
 <p id="notice"><%= notice %></p>
+<head>
+  <title><%= @categori.cat_nom %> - PyS Designs</title> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="htts//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css1.css">
+</head>
 <style>
-  article{
-    font-size: 50px;
-    background-color: white;
-    background-repeat:no-repeat;
-    margin-bottom: auto;
-    padding: 10px 20px;
-    height: auto;
-  }
-
   .articulo{
     float: right;
     margin:2px;
     background-color: white; 
+    background: rgba(255,255,255,0.3);
     box-shadow: 0px 0px 0px 0px rgba(128,128,128,1);
     padding: 10px;
     width: 300px;
-    height: 300px;
+    height: 320px;
     border: solid #D7D7D7 1px;
     text-align: center;
-        position: relative;
--webkit-transition: box-shadow 0.1s; /* For Safari 3.1 to 6.0 */
+    position: relative;
+    -webkit-transition: box-shadow 0.1s; /* For Safari 3.1 to 6.0 */
     transition: box-shadow 0.1s;
   }
+  .articulo:visited{color: black;text-decoration: none;}
   .articulo:hover {
     box-shadow: 7px 7px 20px -4px rgba(128,128,128,1);
-}
+  }
+  .articulo:link{color: black; text-decoration: none;}
 </style>
+<div class="box">
 <article>
 <h1><%= @categori.cat_nom %></h1><p>
 <% @aux=[]
@@ -49,12 +37,15 @@
     @aux.push(instanci.ins_cod_prov)%> <div class ="articulo">
    <% @imagen=Imagen.select("imagen_uri").where(ins_cod_prov: instanci.ins_cod_prov).take %>
     <a href="#"><img src="<%=@imagen.imagen_uri%>" height="200px" width="124px">
-      <p><%= instanci.ins_precio_lista %>$</p></a>
+      <% @articulo=Articulo.where(art_cod: instanci.art_cod).take%>
+      <p><font color="black"><%=@articulo.art_nom%></font></p>
+      <p><font color="black"><%= instanci.ins_precio_lista %> $</font></p></a>
         <button type="button" class="btn btn-primary" href="#">
           <span class="glyphicon glyphicon-shopping-cart"></span> Agregar al carro</button></div>
   <% end %>
 <% end %>
 
 </article>
+</div>
 <br>
 <br>

@@ -66,12 +66,6 @@ body{
         border-top:0 none;
     }
 }
-.articulo {
-    float: left;
-    margin-right:10px;
-    box-shadow: 7px 7px 20px -4px rgba(128,128,128,1);
-    padding: 10px;
-}
 article{
     font-size: 50px;
     /*margin-bottom: auto;*/

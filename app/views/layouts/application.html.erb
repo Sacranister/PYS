@@ -32,14 +32,10 @@
 </head>
   <body>
 	<div id="logo">
-	<a class="brand">
 		<img src="http://localhost:3000/Imagenes/logo-parte1.gif" height="100px" width="62px" alt="">
-	</a>
 	</div>
 	<div id="logo2">
-		  <a class="brand">
 			<img src="http://localhost:3000/Imagenes/logo-parte2.gif" height="59px" width="145px" alt="">
-			</a>
 	</div>
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
@@ -72,7 +68,7 @@
             @categoris.each do |categori|
               if categori.cat_cat_cod.nil? %>
               <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" href="http://localhost:3000/categoris/<%=categori.cat_cod%>"><%=categori.cat_nom%> <span class="caret"></span></a>
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%=categori.cat_nom%> <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                   <%@categoris.each do |cat|
                     @cont=0

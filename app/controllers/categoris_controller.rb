@@ -9,6 +9,18 @@ class CategorisController < ApplicationController
 
   # GET /categoris/1
   # GET /categoris/1.json
+def buscarart(cat_id)
+    @categoris=Categori.where(cat_cat_cod: cat_id)
+      @categoris.each do |cat|
+      @articulos = Articulo.where(cat_cod: cat.cat_cod)
+      @articulos.each do |articulo|    
+        @imagenes.each do |imagen|
+          @instancis=@instancis+(Instanci.where(ins_cod_prov: imagen.ins_cod_prov, art_cod: articulo.art_cod))
+        end
+      end
+      buscarart(cat.cat_cod)
+    end
+  end
   def show
     @instancis=[]
     @articulos = Articulo.where(cat_cod: @categori.id)
@@ -18,7 +30,7 @@ class CategorisController < ApplicationController
         @instancis=@instancis+(Instanci.where(ins_cod_prov: imagen.ins_cod_prov, art_cod: articulo.art_cod))
       end
     end
-    #@instancis=@aux
+    buscarart(@categori.id)
   end
 
   # GET /categoris/new
