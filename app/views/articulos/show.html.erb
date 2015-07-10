@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p>
 
 <p>
   <strong>Cat cod:</strong>
@@ -11,4 +11,94 @@
 </p>
 
 <%= link_to 'Edit', edit_articulo_path(@articulo) %> |
-<%= link_to 'Back', articulos_path %>
+<%= link_to 'Back', articulos_path %> -->
+
+<p id="notice"><%= notice %></p>
+<head>
+	<title><%= @articulo.art_nom %> - PyS Designs</title> 
+</head>
+<style>
+.descripcion{
+	position: relative;
+    float: left;
+    border: solid #D7D7D7 1px;
+    padding: 10px;
+    left: 20px;
+    width: 200px;
+    background-color: white;   
+    background: rgba(255,255,255,0.3);
+}
+#imagen{
+	position: relative;
+	float: left;
+	padding-bottom: 10px
+}
+</style>
+<div class="box">
+	<article>
+		<h1><%= @articulo.art_nom %></h1>
+		<%
+		@instancia=Instanci.where(art_cod: @articulo.art_cod).take
+		@imagen=Imagen.where(ins_cod: @instancia.ins_cod).take
+		%>
+		<img id="imagen"src="<%=@imagen.imagen_uri%>"height="474px" width="316px">
+	</article>
+	<div class="descripcion">
+		<h4>Descripción</h4>
+		<%@aux=[]%>
+		<% @aps=ArtProp.where(art_cod: @articulo.art_cod)
+		@aps.each do|ap|
+			@propiedades=Propiedad.where(prop_cod: ap.prop_cod)
+			@propiedades.each do |propiedad|%>
+			<p><%=propiedad.prop_nom%>:
+			<%if propiedad.prop_nom=="Talla" || propiedad.prop_nom=="Color"%>
+			  <form>
+			    <p><select class="form-control input-sm" name="topping" onChange="">
+			      <option value="todos" selected="selected">Seleccionar opción
+			      	<%@instancias=Instanci.where(art_cod: @articulo.art_cod)
+			      	@instancias.each do |ins|
+			      		if ins.ins_stock>0
+			      			@insapvs=InsApv.where(ins_cod: ins.ins_cod)
+			      			@insapvs.each do |iapv|
+			      				@apvs=ArtPropVal.where(apv_cod: iapv.apv_cod, prop_cod: propiedad.prop_cod)
+			      				@apvs.each do |apv|
+			      					@valores=Valor.where(val_cod: apv.val_cod)
+			      					@valores.each do |valor|
+			      					if @aux.include?(valor.val_nom)==false
+			      					@aux.push(valor.val_nom)%>
+			      					<option value="<%=valor.val_nom%>"><%=valor.val_nom%>
+			      						<%end%>
+			      					<%end%>
+			      				<%end%>
+			      			<%end%>
+			      		<%end%>
+			      <%end%>
+			      </select></p>
+			  </form>
+			  <%else%>
+			  			      	<%@instancias=Instanci.where(art_cod: @articulo.art_cod)
+			      	@instancias.each do |ins|
+			      		if ins.ins_stock>0
+			      			@insapvs=InsApv.where(ins_cod: ins.ins_cod)
+			      			@insapvs.each do |iapv|
+			      				@apvs=ArtPropVal.where(apv_cod: iapv.apv_cod, prop_cod: propiedad.prop_cod)
+			      				@apvs.each do |apv|
+			      					@valores=Valor.select("val_nom").where(val_cod: apv.val_cod)
+			      					@valores.each do |valor|
+			      					if @aux.include?(valor.val_nom)==false
+			      					@aux.push(valor.val_nom)%>
+			      					<%=valor.val_nom%></p>
+			      					<%end%>
+			      					<%end%>
+			      				<%end%>
+			      			<%end%>
+			      		<%end%>
+			      <%end%>
+			  <%end%>
+			<%end%>
+		<%end%>
+		         <button type="button" class="btn btn-primary" href="#">
+           <span class="glyphicon glyphicon-shopping-cart"></span> Agregar al carro</button>
+	</div>
+</div>
+
