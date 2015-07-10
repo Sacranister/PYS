@@ -45,7 +45,6 @@ Rails.application.routes.draw do
   
   get 'quien_somos/index'
   get 'Quienes_somos' , to: 'quien_somos#index'
-  
   get "contacto/index"
   get "Contacto", to: 'contacto#index'
  
