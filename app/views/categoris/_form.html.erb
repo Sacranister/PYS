@@ -1,7 +1,7 @@
 <%= form_for(@categori) do |f| %>
   <% if @categori.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@categori.errors.count, "error") %> prohibited this categori from being saved:</h2>
+      <h2><%= pluralize(@categori.errors.count, "error") %> prohibited this categoria from being saved:</h2>
 
       <ul>
       <% @categori.errors.full_messages.each do |message| %>
@@ -12,11 +12,24 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :cat_cat_cod %><br>
-    <%= f.number_field :cat_cat_cod %>
+    <%= f.label 'Categoría padre' %><br>
+    <%@categorias=Categori.all
+    @aux=[]
+    @aux1=[["Ninguna",""]]
+    @categorias.each do |cat|
+      @aux.push(cat.cat_nom)
+      @aux.push(cat.cat_cod)
+      @aux1.push(@aux)
+      @aux=[]
+      end%>
+    <%= f.select(:cat_cat_cod) do %></i>
+  <% @aux1.each do |c| %>
+    <%= content_tag(:option, c.first, value: c.last) %>
+  <% end %>
+<% end %>
   </div>
   <div class="field">
-    <%= f.label :cat_nom %><br>
+    <%= f.label 'Nombre categoría' %><br>
     <%= f.text_field :cat_nom %>
   </div>
   <div class="actions">

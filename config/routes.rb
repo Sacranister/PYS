@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   resources :art_prop_vals
   get 'preguntas_frecuentes/index'
   get "Preguntas" , to: 'preguntas_frecuentes#index'
- 
+   get "MiCuenta" , to: 'clientes#index'
   get 'politicas/despacho'
   get 'Despacho', to: 'politicas#despacho'
 
@@ -47,7 +47,7 @@ Rails.application.routes.draw do
   get 'Quienes_somos' , to: 'quien_somos#index'
   get "contacto/index"
   get "Contacto", to: 'contacto#index'
- 
+  
   get 'principal/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
