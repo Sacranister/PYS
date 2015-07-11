@@ -49,7 +49,7 @@ def buscarart(cat_id)
 
     respond_to do |format|
       if @categori.save
-        format.html { redirect_to @categori, notice: 'Categori was successfully created.' }
+        format.html { redirect_to @categori, notice: 'La categoría se creo correctamente' }
         format.json { render :show, status: :created, location: @categori }
       else
         format.html { render :new }
@@ -63,7 +63,7 @@ def buscarart(cat_id)
   def update
     respond_to do |format|
       if @categori.update(categori_params)
-        format.html { redirect_to @categori, notice: 'Categori was successfully updated.' }
+        format.html { redirect_to @categori, notice: 'La categoría se actualizo correctamente' }
         format.json { render :show, status: :ok, location: @categori }
       else
         format.html { render :edit }
@@ -77,7 +77,7 @@ def buscarart(cat_id)
   def destroy
     @categori.destroy
     respond_to do |format|
-      format.html { redirect_to categoris_url, notice: 'Categori was successfully destroyed.' }
+      format.html { redirect_to categoris_url, notice: 'La categoría se elimino correctamente' }
       format.json { head :no_content }
     end
   end

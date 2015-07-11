@@ -25,7 +25,8 @@ class DireccionsController < ApplicationController
   # POST /direccions.json
   def create
     @direccion = Direccion.new(direccion_params)
-
+    @client=Cliente.where(cli_mail: current_user.email).take
+    @direccion.cli_cod=@client.cli_cod 
     respond_to do |format|
       if @direccion.save
         format.html { redirect_to @direccion, notice: 'Direccion was successfully created.' }

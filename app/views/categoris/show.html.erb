@@ -1,6 +1,15 @@
 <p id="notice"><%= notice %></p>
 <head>
   <title><%= @categori.cat_nom %> - PyS Designs</title> 
+<%= javascript_tag do %>
+  function fcolor(){
+    selIdx = document.forms["fcolor"].topping.selectedIndex;
+    newSel = document.forms["fcolor"].topping.options[selIdx].text;
+    if (newSel=="Blanco"){
+      document.getElementById("demo").innerHTML='Blanco';
+    }
+  }
+<%end%>
 </head>
 <style>
   .articulo{
@@ -25,24 +34,83 @@
   a:hover   
   {   
    text-decoration:none;   
-  }  
+  } 
+  .filtros{
+    position: relative;
+    float: top;
+    right: 15px;
+    border: solid #D7D7D7 1px;
+    padding: 10px;
+    left: 0px;
+    width: 200px;
+    background-color: white;   
+    background: rgba(255,255,255,0.3);
+  }
 </style>
 <div class="box">
 <article>
-<h1><%= @categori.cat_nom %></h1><p>
-<% @aux=[]
-@instancis.each do |instanci|
-  if  @aux.include?(instanci.ins_cod_prov)==false
-    @aux.push(instanci.ins_cod_prov)%> <div class ="articulo">
-   <% @imagen=Imagen.select("imagen_uri").where(ins_cod_prov: instanci.ins_cod_prov).take %>
-    <a href="#"><img src="<%=@imagen.imagen_uri%>" height="200px" width="124px">
-      <% @articulo=Articulo.where(art_cod: instanci.art_cod).take%>
-      <p><font color="black"><%=@articulo.art_nom%></font></p>
-      <p><font color="black"><%=number_with_delimiter(instanci.ins_precio_lista, :delimiter => '.')%> $</font></p></a>
-        <button type="button" class="btn btn-primary" href="#">
-          <span class="glyphicon glyphicon-shopping-cart"></span> Agregar al carro</button></div>
-  <% end %>
-<% end %>
-
+<h1><%= @categori.cat_nom%></h1><p>
+<div id="demo">        
+ <div><% @aux=[]
+ @instancis.each do |instanci|
+   if  @aux.include?(instanci.ins_cod_prov)==false
+     @aux.push(instanci.ins_cod_prov)%> <div class ="articulo">
+    <% @imagen=Imagen.select("imagen_uri").where(ins_cod_prov: instanci.ins_cod_prov).take %>
+     <a href="http://localhost:3000/articulos/<%=instanci.art_cod%>"><img src="<%=@imagen.imagen_uri%>" height="200px" width="124px">
+       <% @articulo=Articulo.where(art_cod: instanci.art_cod).take%>
+       <p><font color="black"><%=@articulo.art_nom%></font></p>
+       <p><font color="black">$<%=number_with_delimiter(instanci.ins_precio_lista, :delimiter => '.')%></font></p></a>
+         <button type="button" class="btn btn-primary" href="#">
+           <span class="glyphicon glyphicon-shopping-cart"></span> Agregar al carro</button></div>
+   <% end %>
+ <% end %></div>
+</div>
+  <div class="filtros"><h4>Filtrar por:</h4>
+  <p>Color</p>
+  <form id="fcolor">
+    <p><select class="form-control input-sm" name="topping" onChange="fcolor()">
+      <option value="todos" selected="selected">Todos
+      <% @colorid=Propiedad.where(prop_nom: "Color").take
+      @valores=PropiedadValor.where(prop_cod: @colorid.prop_cod)
+      @colores=[]
+      @valores.each do |valor|
+        @colores=@colores+Valor.where(val_cod: valor.val_cod)
+      end
+      @colores.each do |color|%>
+      <option value="<%=color.val_nom%>"><%=color.val_nom%>
+      <%end%>
+      </select></p>
+  </form>
+  <p>Material</p>
+  <form id="fmat">
+    <p><select class="form-control input-sm" name="topping" onChange="">
+      <option value="todos" selected="selected">Todos
+      <% @matid=Propiedad.where(prop_nom: "Material").take
+      @valores=PropiedadValor.where(prop_cod: @matid.prop_cod)
+      @materiales=[]
+      @valores.each do |valor|
+        @materiales=@materiales+Valor.where(val_cod: valor.val_cod)
+      end
+      @materiales.each do |material|%>
+      <option value="<%=material.val_nom%>"><%=material.val_nom%>
+      <%end%>
+      </select></p>
+  </form>
+  <p>Marca</p>
+  <form id="fmar">
+    <p><select class="form-control input-sm" name="topping" onChange="">
+      <option value="todos" selected="selected">Todas
+      <% @marid=Propiedad.where(prop_nom: "Marca").take
+      @valores=PropiedadValor.where(prop_cod: @marid.prop_cod)
+      @marcas=[]
+      @valores.each do |valor|
+        @marcas=@marcas+Valor.where(val_cod: valor.val_cod)
+      end
+      @marcas.each do |marca|%>
+      <option value="<%=marca.val_nom%>"><%=marca.val_nom%>
+      <%end%>
+      </select></p>
+  </form>
+  </div>
 </article>
 </div>

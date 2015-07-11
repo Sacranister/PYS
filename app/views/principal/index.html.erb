@@ -2,6 +2,19 @@
   <title>Inicio - PyS Designs</title> 
 </head>
   <body>
+    <% if current_user &&current_user.role=='cliente' %> 
+                <%@prueba=Cliente.where(cli_mail: current_user.email) 
+                if @prueba.present?%>  
+                <%else
+                    @clientes=Cliente.new
+                    @clientes.cli_nom=current_user.cli_nom
+                    @clientes.cli_tel=current_user.cli_tel
+                    @clientes.cli_mail=current_user.email
+                    @clientes.cli_rut=current_user.cli_rut
+                    @clientes.save
+                    %>
+                <%end%>
+    <%end%>
     <div id="mycarousel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">

@@ -1,11 +1,19 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Listing Propiedads</h1>
-
-<table>
+<style>
+.tabla{
+  background-color: #ececec; 
+}
+.boton{
+  float:right;
+}
+</style>
+<div class="box">
+<h1>Propiedades</h1>
+<div class="tabla">
+<table class="table table-hover">
   <thead>
-    <tr>
-      <th>Prop nom</th>
+    <tr bgcolor="d7d7d7">
+      <th>Nombre propiedad</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,14 +22,18 @@
     <% @propiedads.each do |propiedad| %>
       <tr>
         <td><%= propiedad.prop_nom %></td>
-        <td><%= link_to 'Show', propiedad %></td>
-        <td><%= link_to 'Edit', edit_propiedad_path(propiedad) %></td>
-        <td><%= link_to 'Destroy', propiedad, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to propiedad do %><i class="glyphicon glyphicon-eye-open"></i>
+<% end %></td>
+        <td><%= link_to edit_propiedad_path(propiedad) do %><i class="glyphicon glyphicon-pencil"></i>
+<% end %></td>
+        <td><%= link_to propiedad, method: :delete, data: { confirm: '¿Está seguro?' } do %><i class="glyphicon glyphicon-trash"></i>
+<% end %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Propiedad', new_propiedad_path %>
+</div>
+<div class="boton"><%= button_to new_propiedad_path, {method: :get, class: "btn btn-primary"} do %><i class="glyphicon glyphicon-plus"></i> Agregar Propiedad
+<% end %></div>
+</div>
+</div>
