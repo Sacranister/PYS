@@ -5,6 +5,7 @@ class ArticulosController < ApplicationController
   # GET /articulos.json
   def index
     @articulos = Articulo.all
+    
   end
 
   # GET /articulos/1

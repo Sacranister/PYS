@@ -31,11 +31,7 @@
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
     <div class="actions">
-      <%=@clientes=Cliente.new
-          @clientes.cli_tel=resource.cli_tel
-          @clientes.save 
-      f.submit "Registrarse"
-       %>
+      <%=f.submit "Registrarse"%>
     </div>
   <% end %>
 
