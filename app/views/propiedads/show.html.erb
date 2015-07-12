@@ -1,9 +1,17 @@
 <p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Prop nom:</strong>
-  <%= @propiedad.prop_nom %>
+<strong>Name:</strong>
+<%= @propiedad.prop_nom %>
 </p>
-
+<h2>Valores</h2>
+<% if @propiedad.propiedad_valors.any? %>
+<ul>
+<% @propiedad.propiedad_valors.each do |pv| %>
+<li><%= link_to pv.prop_val_cod, pv %></li>
+<% end %>
+</ul>
+<% else %>
+<p>none available</p>
+<% end %>
 <%= link_to 'Edit', edit_propiedad_path(@propiedad) %> |
 <%= link_to 'Back', propiedads_path %>

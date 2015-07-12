@@ -15,7 +15,17 @@
     <%= f.label :prop_nom %><br>
     <%= f.text_field :prop_nom %>
   </div>
+ <h2>Valores</h2>
+ <%= f.fields_for :propiedad_valors do |pval| %>
+ <%= pval.fields_for :valor do |val| %>
+ <div class="field">
+ <%= val.label :val_nom %><br>
+
+ <%= val.text_field :val_nom%>
+ </div>
+ <% end %>
+ <% end %>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :value => 'Guardar', :class => 'btn btn-primary'%>
   </div>
 <% end %>

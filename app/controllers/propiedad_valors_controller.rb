@@ -64,7 +64,7 @@ class PropiedadValorsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_propiedad_valor
-      @propiedad_valor = PropiedadValor.find(params[:id])
+      @propiedad_valor = PropiedadValor.find(params[:prop_val_cod])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

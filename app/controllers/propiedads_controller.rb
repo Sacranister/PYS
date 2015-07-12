@@ -15,6 +15,7 @@ class PropiedadsController < ApplicationController
   # GET /propiedads/new
   def new
     @propiedad = Propiedad.new
+    @propiedad.propiedad_valors.build.build_valor
   end
 
   # GET /propiedads/1/edit
@@ -25,7 +26,6 @@ class PropiedadsController < ApplicationController
   # POST /propiedads.json
   def create
     @propiedad = Propiedad.new(propiedad_params)
-
     respond_to do |format|
       if @propiedad.save
         format.html { redirect_to @propiedad, notice: 'Propiedad was successfully created.' }
@@ -60,6 +60,9 @@ class PropiedadsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def valor_attributes=(attributes)
+   self.valor << Valor.where(attributes).first_or_initialize
+ end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -69,6 +72,6 @@ class PropiedadsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def propiedad_params
-      params.require(:propiedad).permit(:prop_nom)
+      params.require(:propiedad).permit(:prop_nom, propiedad_valors_attributes: [:prop_val_cod, valor_attributes:[:val_cod, :val_nom]])
     end
 end
