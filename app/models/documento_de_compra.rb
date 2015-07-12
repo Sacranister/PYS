@@ -5,7 +5,7 @@ class DocumentoDeCompra < ActiveRecord::Base
 	belongs_to :vendedor, foreign_key: 'ven_cod'
 	has_one :guia_despacho_compra, foreign_key: 'guia_desp_cod'
 	has_one :documento_de_cobro, foreign_key: 'doc_cob_cod'
-	has_many :detalle_documento_de_compras
-	has_many :historial_estado_dcs
-	has_many :solicitud_devolucions
+	has_many :detalle_documento_de_compras, :dependent => :destroy 
+	has_many :historial_estado_dcs, :dependent => :destroy 
+	has_many :solicitud_devolucions, :dependent => :destroy 
 end
