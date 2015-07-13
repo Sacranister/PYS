@@ -1,13 +1,14 @@
+<div class="box">
 <p id="notice"><%= notice %></p>
-<p>
-<strong>Name:</strong>
-<%= @propiedad.prop_nom %>
-</p>
-<h2>Valores</h2>
+<h1><%= @propiedad.prop_nom %></h1>
+<h4>Valores</h4>
 <% if @propiedad.propiedad_valors.any? %>
 <ul>
-<% @propiedad.propiedad_valors.each do |pv| %>
-<li><%= link_to pv.prop_val_cod, pv %></li>
+<% @propiedad.propiedad_valors.each do |pv|
+@valores=Valor.where(val_cod: pv.val_cod) 
+@valores.each do |valor|%>
+<p><%=valor.val_nom%></p>
+<%end%>
 <% end %>
 </ul>
 <% else %>
@@ -15,3 +16,4 @@
 <% end %>
 <%= link_to 'Edit', edit_propiedad_path(@propiedad) %> |
 <%= link_to 'Back', propiedads_path %>
+</div>

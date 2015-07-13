@@ -2,5 +2,5 @@ class PropiedadValor < ActiveRecord::Base
 	self.primary_key = :prop_val_cod
 	belongs_to :valor, foreign_key: 'val_cod'
 	belongs_to :propiedad,foreign_key: 'prop_cod'
-	accepts_nested_attributes_for :valor
+	accepts_nested_attributes_for :valor, :reject_if => :all_blank, :allow_destroy => true
 end
