@@ -76,7 +76,7 @@
         <div  id='Pedidos'  class="box-account box-recent">
         <div class="box-head">
             
-           <div class="boton"><a href="#"><div class="btn btn-primary">Ver Todo</div></a></div>    
+           <div class="boton"><a href="http://localhost:3000/documento_de_compras/"><div class="btn btn-primary">Ver Todo</div></a></div>    
         </div>
     <div class='tabla'>
         <table class="table table-hover">
@@ -101,7 +101,8 @@
                 @compras=DocumentoDeCompra.where(cli_cod: @client.cli_cod).limit(3)
                 @contador = 1
                 if @compras.present?
-                    @compras.each do |compra|%> 
+                    @compras.each do |compra|%>
+                    <tr> 
                         <td><%=@contador%></td>
                         <td><%=compra.doc_com_fecha%></td>
                         <td><%=current_user.cli_nom%></td>
@@ -109,7 +110,7 @@
                             if @detalles.present?%>
                              <%= number_to_currency(@detalles.sum(:det_doc_com_precio), precision:0)%>
                             <%else%> 
-                                <td>$0</td>
+                                $0
                             <%end%>                             
                         </td>
                         <td>
@@ -118,6 +119,7 @@
                         </td>
                         <td><%= link_to compra do %><i class="glyphicon glyphicon-eye-open"></i>
                         <% end %></td>
+                        </tr>
                         <%@contador+=1%>
                     <% end %>
 

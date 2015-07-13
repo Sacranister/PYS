@@ -1,49 +1,141 @@
 <p id="notice"><%= notice %></p>
+<style>
 
-<p>
-  <strong>Est dc cod:</strong>
-  <%= @documento_de_compra.est_dc_cod %>
-</p>
+</style>
+<div class='box'>
 
-<p>
-  <strong>Ven cod:</strong>
-  <%= @documento_de_compra.ven_cod %>
-</p>
+<%
+  if current_user
+    @clientes=Cliente.where(cli_mail: current_user.email ).take 
+    if (current_user && current_user.role=='admin') || (current_user && @clientes.cli_cod == @documento_de_compra.cli_cod)%>
+    <h2>Documento</h2>
+        <div class='tabla'>
+             
+          <table class="table table-hover">
+            <colgroup><col width="80">
+          <col width="1">
+          <col width="1">
+          <col width="150">
+          <col width="100">
+          <col width="1">
+              </colgroup>
+              <thead>
+                  <tr bgcolor="d7d7d7">
+                      <th>Codigo doc</th>
+                      <th>Fecha</th>
+                      <th>Estado</th>
+                   </tr>
+              </thead>
+              <tbody bgcolor='ececec'>
+                 
+                <td><%=@documento_de_compra.doc_com_cod %></td>
+                <td><%=@documento_de_compra.doc_com_fecha%></td>
+                <td>
+                    <%@estado=EstadoDc.where(est_dc_cod: @documento_de_compra.est_dc_cod).take%>
+                    <%=@estado.est_dc_nom %>
+                </td>
+            
+            
+            </tbody>
+          
+          </table>
+        </div>
+          <h2>Detalle Documento</h2>
+        <div class='tabla'>
+             
+          <table class="table table-hover">
+            <colgroup><col width="80">
+          <col width="180">
+          <col width="1">
+          <col width="150">
+          <col width="100">
+          <col width="1">
+              </colgroup>
+              <thead>
+                  <tr bgcolor="d7d7d7">
+                      <th>Linea</th>
+                      <th>Articulo</th>
+                      <th>Cantidad</th>
+                      <th>Precio Unidad</th>
+                      <th>Precio Total</th>
+                   </tr>
+              </thead>
+              <tbody bgcolor='ececec'>
+                 <%@detalles=DetalleDocumentoDeCompra.where(doc_com_cod: @documento_de_compra.doc_com_cod)
+                 if @detalles.present?
+                  @detalles.each do |linea|%>
+                  <tr>
+                  <td><%=linea.det_doc_com_linea %></td>
+                  <%@instancia=Instanci.where(ins_cod: linea.ins_cod).take
+                    @articulo=Articulo.where(art_cod: @instancia.art_cod).take
+                  %>
+                  <td><%=@articulo.art_nom%></td>
+                <td><%=linea.det_doc_com_cant %></td>
+                <td><%=number_to_currency(linea.det_doc_com_precio_uni, precision:0)%></td>
+                <td><%=number_to_currency(linea.det_doc_com_precio, precision:0)%></td>
+                    </tr>
+                    <%end%>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><%=number_to_currency(@detalles.sum(:det_doc_com_precio), precision:0)%></td>
+                    <%else%>
+                        <td>No existe detalle</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    <% end %>
+            
+            </tbody>
+          
+          </table>
+        </div>
+    <h2>Forma de pago y envio</h2>
+        <div class='tabla'>
+             
+          <table class="table table-hover">
+            <colgroup><col width="80">
+          <col width="150">
+          <col width="100">
+          <col width="1">
+              </colgroup>
+              <thead>
+                  <tr bgcolor="d7d7d7">
+                      <th>Tipo</th>
+                      <th>Metodo de pago</th>
+                      <th>Metodo de envio</th>
+                   </tr>
+              </thead>
+              <tbody bgcolor='ececec'>
+                <%@estado=EstadoDc.where(est_dc_cod: @documento_de_compra.est_dc_cod).take%>
+                <%if @estado.est_dc_nom != 'Borrador'%>              
+                <td><%=@documento_de_compra.doc_com_tipo %></td>
+                <td><%=@documento_de_compra.doc_com_met_pago%></td>
+                <td><%=@documento_de_compra.doc_com_met_ent%></td>
+            <%else%>
+              <td>Todavia no se compra</td>
+              <td></td>
+              <td></td>
+              <%end%>
+            
+            </tbody>
+          
+          </table>
 
-<p>
-  <strong>Guia desp cod:</strong>
-  <%= @documento_de_compra.guia_desp_cod %>
-</p>
 
-<p>
-  <strong>Cli cod:</strong>
-  <%= @documento_de_compra.cli_cod %>
-</p>
+  <%= link_to 'Atras', :back %>
 
-<p>
-  <strong>Doc cob cod:</strong>
-  <%= @documento_de_compra.doc_cob_cod %>
-</p>
+  <%else
+      end
+  %>
+<%else 
+ end%>
 
-<p>
-  <strong>Doc com fecha:</strong>
-  <%= @documento_de_compra.doc_com_fecha %>
-</p>
 
-<p>
-  <strong>Doc com met ent:</strong>
-  <%= @documento_de_compra.doc_com_met_ent %>
-</p>
 
-<p>
-  <strong>Doc com met pago:</strong>
-  <%= @documento_de_compra.doc_com_met_pago %>
-</p>
 
-<p>
-  <strong>Doc com tipo:</strong>
-  <%= @documento_de_compra.doc_com_tipo %>
-</p>
 
-<%= link_to 'Edit', edit_documento_de_compra_path(@documento_de_compra) %> |
-<%= link_to 'Back', documento_de_compras_path %>
+
+</div>

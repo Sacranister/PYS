@@ -1,43 +1,115 @@
-<p id="notice"><%= notice %></p>
+<h1>Documento De Compras</h1>
+<%if current_user
+    if current_user.role=='admin'%>
+    <div class='tabla'>
+        <table class="table table-hover">
+        <colgroup><col width="80">
+        <col width="1">
+        <col>
+        <col width="150">
+        <col width="100">
+        <col width="1">
+            </colgroup><thead>
+                <tr bgcolor="d7d7d7">
+                    <th>#</th>
+                    <th>Fecha</th>
+                    <th>Nombre Cliente</th>
+                    <th><span class="nobr">Total</span></th>
+                    <th>Estado</th>
+                    <th>Accion</th>
+                </tr>
+            </thead>
+            <tbody bgcolor='ececec'>
+                <%@compras=DocumentoDeCompra.all
+                @contador = 1
+                if @compras.present?
+                    @compras.each do |compra|%> 
+                    <tr>
+                        <td><%=@contador%></td>
+                        <td><%=compra.doc_com_fecha%></td>
+                        <%@cliente=Cliente.where(cli_cod: compra.cli_cod).take%>
+                        <td><%=@cliente.cli_nom%></td>
+                        <td><%@detalles=DetalleDocumentoDeCompra.where(doc_com_cod: compra.doc_com_cod)
+                            if @detalles.present?%>
+                             <%= number_to_currency(@detalles.sum(:det_doc_com_precio), precision:0)%>
+                            <%else%> 
+                                $0
+                            <%end%>                             
+                        </td>
+                        <td>
+                            <%@estado=EstadoDc.where(est_dc_cod: compra.est_dc_cod).take%>
+                            <%=@estado.est_dc_nom %>
+                        </td>
+                        <td><%= link_to compra do %><i class="glyphicon glyphicon-eye-open"></i>
+                        <% end %>
+                      <%= link_to compra, method: :delete, data: { confirm: '¿Está seguro?' } do %><i class="glyphicon glyphicon-trash"></i>
+                      <% end %></td>
+                        <%@contador+=1%>
+                  </tr>
+                    <% end %>
 
-<h1>Listing Documento De Compras</h1>
+                <%else%> 
+                    <td>Ninguna</td>
+                <%end%>
+          </tbody>
+        </table>
+    </div>
+  <br>
 
-<table>
-  <thead>
-    <tr>
-      <th>Est dc cod</th>
-      <th>Ven cod</th>
-      <th>Guia desp cod</th>
-      <th>Cli cod</th>
-      <th>Doc cob cod</th>
-      <th>Doc com fecha</th>
-      <th>Doc com met ent</th>
-      <th>Doc com met pago</th>
-      <th>Doc com tipo</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <%= link_to 'New Documento de compra', new_documento_de_compra_path %>
+    <%elsif current_user.role=='cliente'%>
+       <div class='tabla'>
+              <table class="table table-hover">
+              <colgroup><col width="80">
+              <col width="1">
+              <col>
+              <col width="150">
+              <col width="100">
+              <col width="1">
+                  </colgroup><thead>
+                      <tr bgcolor="d7d7d7">
+                          <th>#</th>
+                          <th>Fecha</th>
+                          <th>Nombre</th>
+                          <th><span class="nobr">Total</span></th>
+                          <th>Estado</th>
+                          <th>Accion</th>
+                      </tr>
+                  </thead>
+                  <tbody bgcolor='ececec'>
+                      <%@client=Cliente.where(cli_mail: current_user.email).take
+                      @compras=DocumentoDeCompra.where(cli_cod: @client.cli_cod).limit(3)
+                      @contador = 1
+                      if @compras.present?
+                          @compras.each do |compra|%>
+                          <tr> 
+                              <td><%=@contador%></td>
+                              <td><%=compra.doc_com_fecha%></td>
+                              <td><%=current_user.cli_nom%></td>
+                              <td><%@detalles=DetalleDocumentoDeCompra.where(doc_com_cod: compra.doc_com_cod)
+                                  if @detalles.present?%>
+                                   <%= number_to_currency(@detalles.sum(:det_doc_com_precio), precision:0)%>
+                                  <%else%> 
+                                      $0
+                                  <%end%>                             
+                              </td>
+                              <td>
+                                  <%@estado=EstadoDc.where(est_dc_cod: compra.est_dc_cod).take%>
+                                  <%=@estado.est_dc_nom %>
+                              </td>
+                              <td><%= link_to compra do %><i class="glyphicon glyphicon-eye-open"></i>
+                              <% end %></td>
+                              </tr>
+                              <%@contador+=1%>
+                          <% end %>
 
-  <tbody>
-    <% @documento_de_compras.each do |documento_de_compra| %>
-      <tr>
-        <td><%= documento_de_compra.est_dc_cod %></td>
-        <td><%= documento_de_compra.ven_cod %></td>
-        <td><%= documento_de_compra.guia_desp_cod %></td>
-        <td><%= documento_de_compra.cli_cod %></td>
-        <td><%= documento_de_compra.doc_cob_cod %></td>
-        <td><%= documento_de_compra.doc_com_fecha %></td>
-        <td><%= documento_de_compra.doc_com_met_ent %></td>
-        <td><%= documento_de_compra.doc_com_met_pago %></td>
-        <td><%= documento_de_compra.doc_com_tipo %></td>
-        <td><%= link_to 'Show', documento_de_compra %></td>
-        <td><%= link_to 'Edit', edit_documento_de_compra_path(documento_de_compra) %></td>
-        <td><%= link_to 'Destroy', documento_de_compra, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+                      <%else%> 
+                          <td>Ninguna</td>
+                      <%end%>
+                </tbody>
+              </table>
+          
 
-<br>
-
-<%= link_to 'New Documento de compra', new_documento_de_compra_path %>
+    
+    <%end%>
+<%end%>
