@@ -15,6 +15,7 @@ class InstancisController < ApplicationController
   # GET /instancis/new
   def new
     @instanci = Instanci.new
+    @instanci.build_articulo
   end
 
   # GET /instancis/1/edit
@@ -28,7 +29,7 @@ class InstancisController < ApplicationController
 
     respond_to do |format|
       if @instanci.save
-        format.html { redirect_to @instanci, notice: 'Instanci was successfully created.' }
+        format.html { redirect_to instancis_path, notice: 'Instanci was successfully created.' }
         format.json { render :show, status: :created, location: @instanci }
       else
         format.html { render :new }
@@ -69,6 +70,6 @@ class InstancisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def instanci_params
-      params.require(:instanci).permit(:ins_cod_prov, :est_art_cod, :art_cod, :ins_stock, :ins_precio_lista, :ins_precio_prov)
+      params.require(:instanci).permit(:ins_cod_prov, :est_art_cod, :ins_stock, :ins_precio_lista, :ins_precio_prov, :_destroy, articulo_attributes:[:art_cod, :art_nom, :cat_cod, :_destroy])
     end
 end

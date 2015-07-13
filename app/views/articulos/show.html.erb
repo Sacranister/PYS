@@ -39,7 +39,7 @@
 		<h1><%= @articulo.art_nom %></h1>
 		<%
 		@instancia=Instanci.where(art_cod: @articulo.art_cod).take
-		@imagen=Imagen.where(ins_cod: @instancia.ins_cod).take
+		@imagen=Imagen.where(ins_cod_prov: @instancia.ins_cod_prov).take
 		%>
 		<img id="imagen"src="<%=@imagen.imagen_uri%>"height="474px" width="316px">
 	</article>

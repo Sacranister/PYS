@@ -11,5 +11,7 @@ class Instanci < ActiveRecord::Base
 	has_many :detalle_documento_de_compras, foreign_key: 'ins_cod_prov' 
 	has_many :detalle_sol_devolucions, foreign_key: 'ins_cod_prov'
 	has_many :imagens, :dependent => :destroy, foreign_key: 'ins_cod_prov'
-	has_many :ins_apvs, :dependent => :destroy, foreign_key: 'ins_cod_prov' 
+	has_many :ins_apvs, :dependent => :destroy, foreign_key: 'ins_cod_prov'
+	accepts_nested_attributes_for :articulo, :reject_if => :all_blank, :allow_destroy => true
+	validates :est_art_cod, presence: true
 end
