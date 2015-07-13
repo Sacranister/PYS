@@ -1,39 +1,68 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Listing Instancis</h1>
-
-<table>
+<style>
+.tabla{
+  background-color: #ececec; 
+}
+.boton{
+  float:right;
+}
+</style>
+<h1>Artículos</h1>
+<div class="tabla">
+<table class="table table-hover">
   <thead>
-    <tr>
-      <th>Ins cod</th>
-      <th>Ins cod prov</th>
-      <th>Est art cod</th>
-      <th>Art cod</th>
-      <th>Ins stock</th>
+    <tr bgcolor="d7d7d7">
+      <th>Nombre</th>
+      <th>Código</th>
+      <th>Código proveedor</th>
+      <th>Categoría padre</th>
+      <th>Categoría</th>
+      <th>Talla</th>
+      <th>Stock</th>
       <th>Ins precio lista</th>
-      <th>Ins precio prov</th>
-      <th colspan="3"></th>
+      <th>Estado</th>
+      <th>Otras propiedades</th>
+      <th>Imagen</th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @instancis.each do |instanci| %>
+    <% @instancis.each do |instanci| @propiedad=nil%>
       <tr>
+        <% @articulo=Articulo.where(art_cod: instanci.art_cod).take %>
+        <td><%=@articulo.art_nom%></td>
         <td><%= instanci.ins_cod %></td>
         <td><%= instanci.ins_cod_prov %></td>
-        <td><%= instanci.est_art_cod %></td>
-        <td><%= instanci.art_cod %></td>
+        <%@cat=Categori.where(cat_cod: @articulo.cat_cod).take
+        @catp=Categori.where(cat_cod: @cat.cat_cat_cod).take%>
+        <td><%= @catp.cat_nom %></td>
+        <td><%= @cat.cat_nom %></td>
+        <%@iapvs=InsApv.where(ins_cod: instanci.ins_cod)
+        @iapvs.each do |iapv|
+          @apv=ArtPropVal.where(apv_cod: iapv.apv_cod).take
+            @propiedad=Propiedad.where(prop_cod: @apv.prop_cod, prop_nom: "Talla").take
+            if @propiedad != nil
+              @valor=Valor.where(val_cod: @apv.val_cod).take%>
+              <td><%=@valor.val_nom%></td>
+              <%break%>
+            <%end%>
+        <%end%>
+        <%if @propiedad==nil%>
+        <td>--</td>
+        <%end%>
         <td><%= instanci.ins_stock %></td>
-        <td><%= instanci.ins_precio_lista %></td>
-        <td><%= instanci.ins_precio_prov %></td>
+        <td><%= number_with_delimiter(instanci.ins_precio_lista, :delimiter => '.') %></td>
+        <td><%= instanci.est_art_cod %></td>
         <td><%= link_to 'Show', instanci %></td>
+        <td>imagen</td>
         <td><%= link_to 'Edit', edit_instanci_path(instanci) %></td>
         <td><%= link_to 'Destroy', instanci, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+</div>
 <br>
 
 <%= link_to 'New Instanci', new_instanci_path %>
