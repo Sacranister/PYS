@@ -22,6 +22,12 @@ class InstancisController < ApplicationController
   def edit
   end
 
+   def copy
+        @source = Instanci.find(params[:id])
+        @instanci = @source.dup
+        render 'copy'
+      end
+
   # POST /instancis
   # POST /instancis.json
   def create
@@ -70,6 +76,6 @@ class InstancisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def instanci_params
-      params.require(:instanci).permit(:ins_cod_prov, :est_art_cod, :ins_stock, :ins_precio_lista, :ins_precio_prov, :_destroy, articulo_attributes:[:art_cod, :art_nom, :cat_cod, :_destroy])
+      params.require(:instanci).permit(:art_cod, :ins_cod_prov, :est_art_cod, :ins_stock, :ins_precio_lista, :ins_precio_prov, :_destroy, articulo_attributes:[:art_cod, :art_nom, :cat_cod, :_destroy])
     end
 end

@@ -55,6 +55,8 @@ GEM
     composite_primary_keys (8.1.0)
       activerecord (~> 4.2.0)
     debug_inspector (0.0.2)
+    deep_cloneable (2.1.1)
+      activerecord (>= 3.1.0, < 5.0.0)
     devise (3.5.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -161,6 +163,7 @@ DEPENDENCIES
   cocoon (>= 1.2.0)
   coffee-rails (~> 4.1.0)
   composite_primary_keys (= 8.1.0)
+  deep_cloneable
   devise
   jbuilder (~> 2.0)
   jquery-rails
