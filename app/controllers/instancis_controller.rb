@@ -15,7 +15,7 @@ class InstancisController < ApplicationController
   # GET /instancis/new
   def new
     @instanci = Instanci.new
-    @instanci.build_articulo
+    @instanci.build_articulo.art_prop_vals.build.ins_apvs.build
   end
 
   # GET /instancis/1/edit
@@ -76,6 +76,10 @@ class InstancisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def instanci_params
-      params.require(:instanci).permit(:art_cod, :ins_cod_prov, :est_art_cod, :ins_stock, :ins_precio_lista, :ins_precio_prov, :_destroy, articulo_attributes:[:art_cod, :art_nom, :cat_cod, :_destroy])
+      params.require(:instanci).permit(:art_cod, :ins_cod_prov, :est_art_cod, :ins_stock, 
+        :ins_precio_lista, :ins_precio_prov, :_destroy, 
+        articulo_attributes:[:art_cod, :art_nom, :cat_cod, :_destroy, 
+          art_prop_vals_attributes: [:apv_cod, :val_cod, :prop_cod, :_destroy, 
+            ins_apvs_attributes:[:ins_apvs_cod, :ins_cod_prov]]])
     end
 end
