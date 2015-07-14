@@ -1,0 +1,67 @@
+<h2>Tu carro de compras</h1>
+<%if(current_user && current_user.role =='cliente')%>
+<div class='tabla'>
+	 
+	<table class="table table-hover">
+	<colgroup><col width="80">
+	<col width="180">
+	<col width="1">
+	<col width="150">
+	<col width="100">
+	<col width="1">
+	  </colgroup>
+	  <thead>
+	      <tr bgcolor="d7d7d7">
+	          <th>Linea</th>
+	          <th>Articulo</th>
+	          <th>Cantidad</th>
+	          <th>Precio Unidad</th>
+	          <th>Precio Total</th>
+	          <th>Accion</th>
+	       </tr>
+	  </thead>
+	  <tbody bgcolor='ececec'>
+	  	<% @clientes=Cliente.where(cli_mail: current_user.email ).take
+	  	@documento_de_compra=DocumentoDeCompra.where(cli_cod: @clientes.cli_cod, est_dc_cod: 1).take
+	  	if(@documento_de_compra.blank?)
+	  		@dcob=DocumentoDeCobro.create
+            @cliente=Cliente.where(cli_mail: current_user.email,).take
+            @documento_de_compra = DocumentoDeCompra.create(est_dc_cod: 1,cli_cod: @cliente.cli_cod,doc_cob_cod: @dcob.doc_cob_cod)
+            @dcob.update(doc_com_cod: @documento_de_compra.doc_com_cod)
+        end
+
+	     @detalles=DetalleDocumentoDeCompra.where(doc_com_cod: @documento_de_compra.doc_com_cod)
+	     if @detalles.present?
+	      @detalles.each do |linea|%>
+	      <tr>
+	      <td><%=linea.det_doc_com_linea %></td>
+	      <%@instancia=Instanci.where(ins_cod: linea.ins_cod).take
+	        @articulo=Articulo.where(art_cod: @instancia.art_cod).take
+	      %>
+	      <td><%=@articulo.art_nom%></td>
+	    <td><%=linea.det_doc_com_cant %></td>
+	    <td><%=number_to_currency(linea.det_doc_com_precio_uni, precision:0)%></td>
+	    <td><%=number_to_currency(linea.det_doc_com_precio, precision:0)%></td>
+	    <td><%= link_to linea, method: :delete, data: { confirm: '¿Está seguro?' } do %><i class="glyphicon glyphicon-trash"></i><% end %></td>
+	        </tr>
+	        <%end%>
+	        <td></td>
+	        <td></td>
+	        <td></td>
+	        <td></td>
+	        <td><%=number_to_currency(@detalles.sum(:det_doc_com_precio), precision:0)%></td>
+	        <td></td>
+	        <%else%>
+	            <td>No existe detalle</td>
+	            <td></td>
+	            <td></td>
+	            <td></td>
+	            <td></td>
+	            <td></td>
+	        <% end %>
+
+	</tbody>
+
+	</table>
+	</div>
+<%end%>

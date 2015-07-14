@@ -37,6 +37,15 @@
 	<div id="logo2">
 			<img src="http://localhost:3000/Imagenes/logo-parte2.gif" height="59px" width="145px" alt="">
 	</div>
+  <button id='carrito' type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Mi carrito</button>
+<%= javascript_include_tag :defaults %>
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <%= render partial: "documento_de_compras/micarrito" %>
+    </div>
+  </div>
+</div>
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->

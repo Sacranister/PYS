@@ -56,7 +56,7 @@ class DetalleDocumentoDeComprasController < ApplicationController
   def destroy
     @detalle_documento_de_compra.destroy
     respond_to do |format|
-      format.html { redirect_to detalle_documento_de_compras_url, notice: 'Detalle documento de compra was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Detalle documento de compra was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

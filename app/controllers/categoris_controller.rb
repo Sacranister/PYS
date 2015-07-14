@@ -58,6 +58,36 @@ def buscarart(cat_id)
     end
   end
 
+def add
+  @val=params[:val]
+  if current_user && current_user.role=='cliente'
+    @instanci=Instanci.where(ins_cod: @val).take
+    @clientes=Cliente.where(cli_mail: current_user.email ).take
+    @documento_de_compra=DocumentoDeCompra.where(cli_cod: @clientes.cli_cod, est_dc_cod: 1).take
+    if(@documento_de_compra.blank?)
+      @dcob=DocumentoDeCobro.create
+      @cliente=Cliente.where(cli_mail: current_user.email,).take
+      @documento_de_compra = DocumentoDeCompra.create(est_dc_cod: 1,cli_cod: @cliente.cli_cod,doc_cob_cod: @dcob.doc_cob_cod)
+      @dcob.update(doc_com_cod: @documento_de_compra.doc_com_cod)
+    end
+    @det=DetalleDocumentoDeCompra.where(doc_com_cod: @documento_de_compra.doc_com_cod)
+    if @det.blank?
+      DetalleDocumentoDeCompra.create(doc_com_cod: @documento_de_compra.doc_com_cod,det_doc_com_linea: 1, ins_cod: @val,det_doc_com_cant:1, ins_cod_prov: @instanci.ins_cod_prov,det_doc_com_precio: @instanci.ins_precio_lista, det_doc_com_precio_uni:@instanci.ins_precio_lista )
+    else
+      @inst=@det.where(ins_cod: @val).take
+      @detlin=@det.last
+      if @inst.blank?
+        DetalleDocumentoDeCompra.create(doc_com_cod: @documento_de_compra.doc_com_cod,det_doc_com_linea: @detlin.det_doc_com_linea+1,det_doc_com_cant:1, ins_cod: @val, ins_cod_prov: @instanci.ins_cod_prov,det_doc_com_precio: @instanci.ins_precio_lista, det_doc_com_precio_uni:@instanci.ins_precio_lista )
+      else
+        @asd=@inst.det_doc_com_cant+1
+        @inst.update(det_doc_com_cant:@asd,det_doc_com_precio:(@asd*@inst.det_doc_com_precio_uni))
+      end
+    end
+      respond_to do |format|
+        format.html { redirect_to :back, notice: 'Se ha agregado al carro' }
+      end
+  end
+end
   # PATCH/PUT /categoris/1
   # PATCH/PUT /categoris/1.json
   def update

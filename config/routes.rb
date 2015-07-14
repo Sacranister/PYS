@@ -56,6 +56,12 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 root "principal#index"
+resources :instancis do
+    member do
+      get 'copy'
+    end
+  end
+post 'categoris/add'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

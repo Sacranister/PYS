@@ -60,8 +60,9 @@
        <% @articulo=Articulo.where(art_cod: instanci.art_cod).take%>
        <p><font color="black"><%=@articulo.art_nom%></font></p>
        <p><font color="black">$<%=number_with_delimiter(instanci.ins_precio_lista, :delimiter => '.')%></font></p></a>
-         <button type="button" class="btn btn-primary" href="#">
-           <span class="glyphicon glyphicon-shopping-cart"></span> Agregar al carro</button></div>
+           <%= button_to :controller => :categoris,
+      :action => 'add',:val =>  instanci.ins_cod , :method => :post do%><div class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span> Agregar al carro</div><% end %>
+   </div>
    <% end %>
  <% end %></div>
 </div>

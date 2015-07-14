@@ -56,7 +56,7 @@ class DetalleSolDevolucionsController < ApplicationController
   def destroy
     @detalle_sol_devolucion.destroy
     respond_to do |format|
-      format.html { redirect_to detalle_sol_devolucions_url, notice: 'Detalle sol devolucion was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Detalle sol devolucion was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
