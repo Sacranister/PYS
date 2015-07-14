@@ -15,7 +15,7 @@ class InstancisController < ApplicationController
   # GET /instancis/new
   def new
     @instanci = Instanci.new
-    @instanci.build_articulo.art_prop_vals.build.ins_apvs.build
+    @instanci.build_articulo.art_prop_vals.build
   end
 
   # GET /instancis/1/edit
@@ -35,6 +35,19 @@ class InstancisController < ApplicationController
 
     respond_to do |format|
       if @instanci.save
+        @ins_cod_prov=@instanci.ins_cod_prov
+        @ins_cod=@instanci.ins_cod
+        @instanci.articulo.art_prop_vals.each do |apv|
+          @insapv=InsApv.new
+          @insapv.ins_cod=@ins_cod
+          @insapv.ins_cod_prov=@ins_cod_prov
+          @insapv.apv_cod=apv.apv_cod
+          @insapv.save
+          @ap=ArtProp.new
+          @ap.art_cod=apv.art_cod
+          @ap.prop_cod=apv.prop_cod
+          @ap.save
+        end
         format.html { redirect_to instancis_path, notice: 'Instanci was successfully created.' }
         format.json { render :show, status: :created, location: @instanci }
       else
@@ -76,10 +89,9 @@ class InstancisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def instanci_params
-      params.require(:instanci).permit(:art_cod, :ins_cod_prov, :est_art_cod, :ins_stock, 
+      params.require(:instanci).permit(:ins_cod,:art_cod, :ins_cod_prov, :est_art_cod, :ins_stock, 
         :ins_precio_lista, :ins_precio_prov, :_destroy, 
         articulo_attributes:[:art_cod, :art_nom, :cat_cod, :_destroy, 
-          art_prop_vals_attributes: [:apv_cod, :val_cod, :prop_cod, :_destroy, 
-            ins_apvs_attributes:[:ins_apvs_cod, :ins_cod_prov]]])
+          art_prop_vals_attributes: [:apv_cod, :val_cod, :prop_cod, :_destroy]])
     end
 end
