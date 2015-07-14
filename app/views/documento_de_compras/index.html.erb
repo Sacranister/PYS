@@ -78,7 +78,7 @@
                   </thead>
                   <tbody bgcolor='ececec'>
                       <%@client=Cliente.where(cli_mail: current_user.email).take
-                      @compras=DocumentoDeCompra.where(cli_cod: @client.cli_cod).limit(3)
+                      @compras=DocumentoDeCompra.where(cli_cod: @client.cli_cod)
                       @contador = 1
                       if @compras.present?
                           @compras.each do |compra|%>

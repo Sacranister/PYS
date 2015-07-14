@@ -1,0 +1,23 @@
+<style>
+#Monto{
+	font-size: 22px;
+}
+</style>
+<%= form_for @documento_de_comprass , :url =>{:controller => 'documento_de_compras',:action => 'pagar_cuenta'},:method=> :post  do |f| %>
+  <div class="field">
+    <%= f.date_select :doc_com_fecha, { :discard_day => true, :discard_month => true, :discard_year => true }	%>
+  </div>
+  <div class="field">
+    <%= f.label 'Metodo de entrega' %><br>
+    <%= f.select(:doc_com_met_ent,options_for_select([['Retiro en tienda','Retiro en tienda'],['Despacho domicilio','Despacho domicilio']],1))%>
+  </div>
+    <div id='Monto'>
+    	Monto a Pagar:
+    <%@detalles=DetalleDocumentoDeCompra.where(doc_com_cod: @documento_de_comprass.doc_com_cod)%>$
+    <%=number_to_currency(@detalles.sum(:det_doc_com_precio), precision:0)%><br><br>
+    Metodo de pago:<%=@documento_de_comprass.doc_com_met_pago%><br>
+  </div>
+  <div class="actions">
+    <%= f.submit :value => 'Pagar', :class => 'btn btn-primary'%>
+  </div>
+<% end %>

@@ -11,7 +11,20 @@ class DocumentoDeComprasController < ApplicationController
   # GET /documento_de_compras/1.json
   def show
   end
+def pagar 
+  if (current_user && current_user.role=='cliente')
+    @cliente=Cliente.where(cli_mail: current_user.email).take
+    @documento_de_comprass=DocumentoDeCompra.where(cli_cod: @cliente.cli_cod, est_dc_cod:1).take
+    @documento_de_comprass.doc_com_met_pago='Transferencia bancaria'
+    @documento_de_comprass.doc_com_tipo='Orden de compra'
+    @documento_de_comprass.save
+  else
+    respond_to do |format|
+        format.html { redirect_to :root , notice: 'Debes ingresar con tu cuenta primero' }
 
+    end
+  end
+end
   # GET /documento_de_compras/new
   def new
     @documento_de_compra = DocumentoDeCompra.new
@@ -21,6 +34,24 @@ class DocumentoDeComprasController < ApplicationController
   def edit
   end
 
+
+def pagar_cuenta
+  @cliente=Cliente.where(cli_mail: current_user.email).take
+  @documento_de_comprass=DocumentoDeCompra.where(cli_cod: @cliente.cli_cod, est_dc_cod:1).take
+  @documento_de_comprass.update(documento_de_compra_params)
+  @documento_de_comprass.est_dc_cod=2
+
+  if @documento_de_comprass.save
+    @detalles=DetalleDocumentoDeCompra.where(doc_com_cod: @documento_de_comprass.doc_com_cod)
+    @detalles.each do |linea|
+      @instancia=Instanci.where(ins_cod: linea.ins_cod).take
+      @instancia.update(ins_stock: @instancia.ins_stock-linea.det_doc_com_cant)
+    end
+    respond_to do |format|
+        format.html { redirect_to @documento_de_comprass, notice: '' }
+      end
+    end
+end
   # POST /documento_de_compras
   # POST /documento_de_compras.json
   def create
@@ -42,7 +73,7 @@ class DocumentoDeComprasController < ApplicationController
   def update
     respond_to do |format|
       if @documento_de_compra.update(documento_de_compra_params)
-        format.html { redirect_to @documento_de_compra, notice: 'Documento de compra was successfully updated.' }
+        format.html { redirect_to @documento_de_compra, notice: '' }
         format.json { render :show, status: :ok, location: @documento_de_compra }
       else
         format.html { render :edit }

@@ -1,3 +1,8 @@
+<style>
+	#Pagar{
+		float:right;
+	}
+</style>
 <h2>Tu carro de compras</h1>
 <%if(current_user && current_user.role =='cliente')%>
 <div class='tabla'>
@@ -63,5 +68,8 @@
 	</tbody>
 
 	</table>
+	<%if @detalles.present?%>
+	<div id='Pagar' class="boton"><a href="http://localhost:3000/pagar"><div class="btn btn-primary">Pagar</div></a></div>
+	<%end%> 
 	</div>
 <%end%>
