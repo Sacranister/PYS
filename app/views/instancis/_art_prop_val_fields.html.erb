@@ -1,0 +1,6 @@
+
+<li class="control-group nested-fields">
+    <%= f.select(:prop_cod, Propiedad.all.collect {|prop| [ prop.prop_nom, prop.prop_cod ]}, { :include_blank => "Seleccionar" })%>
+    <%= f.select(:val_cod, Valor.all.collect {|val| [ val.val_nom, val.val_cod ]}, { :include_blank => "Seleccionar" })%>
+    <%= link_to_remove_association "remove", f %>
+  </li>

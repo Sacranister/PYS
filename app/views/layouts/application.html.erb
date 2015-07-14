@@ -32,15 +32,17 @@
 	</div>
   <%if current_user %>
   <button id='carrito' type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Mi carrito</button>
-<%= javascript_include_tag :defaults %>
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-        <%= render partial: "documento_de_compras/micarrito" %>
+  <%= javascript_include_tag :defaults %>
+  <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+          <%= render partial: "documento_de_compras/micarrito" %>
+      </div>
     </div>
   </div>
 </div>
 <%end%>
+
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -112,17 +114,14 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-<% flash.each do |key, value| %>
-<div class="alert alert-<%= key %> alert-dismissable">
+  <% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %> alert-dismissable">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
     <%= value %>
-</div>
-<% end %>
+  </div>
+  <% end %>
    <section>
    <%= yield %>
    </section> 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-
   </body>
 </html>

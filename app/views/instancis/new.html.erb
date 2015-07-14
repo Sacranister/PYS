@@ -1,4 +1,10 @@
-<h1>New Instanci</h1>
+<div class="box"><h1>New Instanci</h1>
+<style>
+.propiedades{
+	float:top;
+	padding-right: 20%;
+}
+</style>
 
 <%= form_for(@instanci) do |f| %>
   <% if @instanci.errors.any? %>
@@ -35,7 +41,14 @@
     <%= content_tag(:option, c.first, value: c.last) %>
   <% end %>
 <% end %></div>
-<% end %>
+ <p><strong>Propiedades</strong></p> 
+<div class="propiedades">
+
+    <%= a.fields_for :art_prop_vals do |apv| %>
+	<%= render 'art_prop_val_fields', f: apv %>
+    <%= link_to_add_association 'Agregar propiedad', a, :art_prop_vals %>
+	<%end%></div>
+<% end %></br>
    <div class="field">
     <%= f.label :ins_cod_prov, "Código proveedor" %><br>
     <%= f.text_field :ins_cod_prov %>
@@ -69,10 +82,9 @@
     <%= f.label :ins_precio_prov, "Precio de proveedor" %><br>
     <%= f.number_field :ins_precio_prov %>
   </div>
-  </div> 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :value => 'Guardar', :class => 'btn btn-primary'%> <%= link_to 'Back', instancis_path %>
   </div>
 <% end %>
 
-<%= link_to 'Back', instancis_path %>
+</div>
