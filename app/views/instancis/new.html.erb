@@ -82,6 +82,12 @@
     <%= f.label :ins_precio_prov, "Precio de proveedor" %><br>
     <%= f.number_field :ins_precio_prov %>
   </div>
+  <%=f.fields_for :imagens do |im|%>
+  <div class="field">
+    <%= im.label :imagen_uri, "Imagen" %><br>
+    <%= im.text_field :imagen_uri %>
+  </div>
+  <%end%>
   <div class="actions">
     <%= f.submit :value => 'Guardar', :class => 'btn btn-primary'%> <%= link_to 'Back', instancis_path %>
   </div>
