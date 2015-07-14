@@ -1,0 +1,77 @@
+<h1>Copiando Instancia</h1>
+
+<%= form_for(@instanci) do |f| %>
+  <% if @instanci.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@instanci.errors.count, "error") %> prohibited this instanci from being saved:</h2>
+
+      <ul>
+      <% @instanci.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <!--  <div class="field">
+    <%= f.label :ins_cod %><br>
+    <%= f.number_field :ins_cod %>
+  </div> -->
+  <%@articulo=Articulo.where(art_cod: @instanci.art_cod).take%>
+  <%@instancia=Instanci.where(art_cod: @instanci.art_cod).take%>
+   <div class="field">
+    <label>Nombre Artículo</label></br>
+    <input placeholder="<%=@articulo.art_nom%>" disabled>
+  </div>
+  <div class="field">
+    <label>Código proveedor</label></br>
+    <input placeholder="<%=@instancia.ins_cod_prov%>" disabled>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :ins_cod_prov, :value => @instancia.ins_cod_prov%>
+  </div>
+  <div class="field">
+    <%= f.label :est_art_cod, "Estado artículo" %><br>
+    <%@estados=EstadoArticulo.all
+    @aux2=[]
+    @aux3=[["Seleccionar",""]]
+    @estados.each do |es|
+      @aux2.push(es.est_art_nom)
+      @aux2.push(es.est_art_cod)
+      @aux3.push(@aux2)
+      @aux2=[]
+      end%>
+    <%= f.select(:est_art_cod) do %></i>
+  <% @aux3.each do |c| %>
+    <%= content_tag(:option, c.first, value: c.last) %>
+  <% end %>
+<% end %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :art_cod, default: @instanci.art_cod%>
+  </div>
+  <div class="field">
+    <%= f.label :ins_stock %><br>
+    <%= f.number_field :ins_stock %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :ins_precio_lista, default: @instanci.ins_precio_lista %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :ins_precio_prov, default: @instanci.ins_precio_prov %>
+  </div>
+  <div class="field">
+    <label>Precio de venta</label></br>
+    <input type="number" placeholder="<%=@instanci.ins_precio_lista%>" disabled>
+  </div>
+  <div class="field">
+    <label>Precio de proveedor</label></br>
+    <input type="number" placeholder="<%=@instanci.ins_precio_prov%>" disabled>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Show', @instanci %> |
+<%= link_to 'Back', instancis_path %>
