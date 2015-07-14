@@ -37,9 +37,10 @@
 
 	     @detalles=DetalleDocumentoDeCompra.where(doc_com_cod: @documento_de_compra.doc_com_cod)
 	     if @detalles.present?
+	     	@contador = 1
 	      @detalles.each do |linea|%>
 	      <tr>
-	      <td><%=linea.det_doc_com_linea %></td>
+	      <td><%=@contador %></td>
 	      <%@instancia=Instanci.where(ins_cod: linea.ins_cod).take
 	        @articulo=Articulo.where(art_cod: @instancia.art_cod).take
 	      %>
@@ -49,7 +50,8 @@
 	    <td><%=number_to_currency(linea.det_doc_com_precio, precision:0)%></td>
 	    <td><%= link_to linea, method: :delete, data: { confirm: '¿Está seguro?' } do %><i class="glyphicon glyphicon-trash"></i><% end %></td>
 	        </tr>
-	        <%end%>
+	        <%@contador+=1
+	        end%>
 	        <td></td>
 	        <td></td>
 	        <td></td>

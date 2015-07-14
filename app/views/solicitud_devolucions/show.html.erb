@@ -1,34 +1,79 @@
  
-
-<p>
-  <strong>Not cre cod:</strong>
-  <%= @solicitud_devolucion.not_cre_cod %>
-</p>
-
-<p>
-  <strong>Doc com cod:</strong>
-  <%= @solicitud_devolucion.doc_com_cod %>
-</p>
-
-<p>
-  <strong>Ven cod:</strong>
-  <%= @solicitud_devolucion.ven_cod %>
-</p>
-
-<p>
-  <strong>Cli cod:</strong>
-  <%= @solicitud_devolucion.cli_cod %>
-</p>
-
-<p>
-  <strong>Sol dev comentario:</strong>
-  <%= @solicitud_devolucion.sol_dev_comentario %>
-</p>
-
-<p>
-  <strong>Sol dev est:</strong>
-  <%= @solicitud_devolucion.sol_dev_est %>
-</p>
-
-<%= link_to 'Edit', edit_solicitud_devolucion_path(@solicitud_devolucion) %> |
-<%= link_to 'Back', solicitud_devolucions_path %>
+<h2>Solicitud</h2>
+<div class='tabla'>
+     
+  <table class="table table-hover">
+    <colgroup><col width="80">
+  <col width="1">
+  <col width="1">
+  <col width="150">
+  <col width="100">
+  <col width="1">
+      </colgroup>
+      <thead>
+          <tr bgcolor="d7d7d7">
+              <th>Codigo</th>
+              <th>Fecha</th>
+              <th>Estado</th>
+           </tr>
+      </thead>
+      <tbody bgcolor='ececec'>
+         
+        <td><%=@solicitud_devolucion.sol_dev_cod %></td>
+        <td><%=@solicitud_devolucion.sol_dev_fecha%></td>
+        <td><%=@solicitud_devolucion.sol_dev_est%></td>
+      </tbody>
+  
+  </table>
+</div>
+<h2>Detalle Solicitud</h2>
+<div class='tabla'>
+     
+  <table class="table table-hover">
+    <colgroup><col width="80">
+  <col width="180">
+  <col width="1">
+  <col width="150">
+  <col width="100">
+  <col width="1">
+      </colgroup>
+      <thead>
+          <tr bgcolor="d7d7d7">
+              <th>Linea</th>
+              <th>Articulo</th>
+              <th>Cantidad</th>
+              <th>Precio</th>
+           </tr>
+      </thead>
+      <tbody bgcolor='ececec'>
+         <%@detalles=DetalleSolDevolucion.where(sol_dev_cod: @solicitud_devolucion.sol_dev_cod)
+         if @detalles.present?
+          @contador=1
+          @detalles.each do |linea|%>
+          <tr>
+          <td><%=@contador %></td>
+          <%@instancia=Instanci.where(ins_cod: linea.ins_cod).take
+            @articulo=Articulo.where(art_cod: @instancia.art_cod).take
+          %>
+          <td><%=@articulo.art_nom%></td>
+        <td><%=linea.det_sol_dev_cant %></td>
+        <td><%=number_to_currency(linea.det_sol_dev_precio, precision:0)%></td>
+            </tr>
+            <%@contador+=1
+            end%>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><%=number_to_currency(@detalles.sum(:det_sol_dev_precio), precision:0)%></td>
+            <%else%>
+                <td>No existe detalle</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            <% end %>
+    
+    </tbody>
+  
+  </table>
+</div>
+  <%= link_to 'Atras', :back %>

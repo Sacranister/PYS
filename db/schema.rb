@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150708180030) do
+ActiveRecord::Schema.define(version: 20150714201803) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -300,6 +300,7 @@ ActiveRecord::Schema.define(version: 20150708180030) do
     t.integer "cli_cod",                        null: false
     t.string  "sol_dev_comentario", limit: 140
     t.string  "sol_dev_est"
+    t.date    "sol_dev_fecha"
   end
 
   add_index "solicitud_devolucions", ["cli_cod"], name: "relationship_13_fk", using: :btree
