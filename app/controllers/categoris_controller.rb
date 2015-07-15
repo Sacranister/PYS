@@ -78,7 +78,8 @@ def add
     @clientes=Cliente.where(cli_mail: current_user.email ).take
     @documento_de_compra=DocumentoDeCompra.where(cli_cod: @clientes.cli_cod, est_dc_cod: 1).take
     if(@documento_de_compra.blank?)
-      @dcob=DocumentoDeCobro.create
+      @dcob=DocumentoDeCobro.create()
+      @dcob.save
       @cliente=Cliente.where(cli_mail: current_user.email,).take
       @documento_de_compra = DocumentoDeCompra.create(est_dc_cod: 1,cli_cod: @cliente.cli_cod,doc_cob_cod: @dcob.doc_cob_cod)
       @dcob.update(doc_com_cod: @documento_de_compra.doc_com_cod)
@@ -122,12 +123,13 @@ def add
       end
   elsif current_user && current_user.role=='vendedor'
     @instanci=Instanci.where(ins_cod: @val).take
-    @vendedor=Vendedor.where(cli_mail: current_user.email ).take
-    @documento_de_compra=DocumentoDeCompra.where(ven_cod: @vendedor.cli_cod, est_dc_cod: 1).take
+    @vendedor=Vendedor.where(ven_mail: current_user.email ).take
+    @documento_de_compra=DocumentoDeCompra.where(ven_cod: @vendedor.ven_cod, est_dc_cod: 1).take
     if(@documento_de_compra.blank?)
-      @dcob=DocumentoDeCobro.create
-      @vendedor=Vendedor.where(cli_mail: current_user.email,).take
-      @documento_de_compra = DocumentoDeCompra.create(est_dc_cod: 1,ven_cod: @vendedor.cli_cod,doc_cob_cod: @dcob.doc_cob_cod)
+      @dcob=DocumentoDeCobro.create()
+      @dcob.save
+      @vendedor=Vendedor.where(ven_mail: current_user.email,).take
+      @documento_de_compra = DocumentoDeCompra.create(est_dc_cod: 1,ven_cod: @vendedor.ven_cod,doc_cob_cod: @dcob.doc_cob_cod)
       @dcob.update(doc_com_cod: @documento_de_compra.doc_com_cod)
     end
     @det=DetalleDocumentoDeCompra.where(doc_com_cod: @documento_de_compra.doc_com_cod)

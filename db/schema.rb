@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150714201803) do
+ActiveRecord::Schema.define(version: 20150715212236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -141,7 +141,7 @@ ActiveRecord::Schema.define(version: 20150714201803) do
     t.integer "est_dc_cod",       null: false
     t.integer "ven_cod"
     t.integer "guia_desp_cod"
-    t.integer "cli_cod",          null: false
+    t.integer "cli_cod"
     t.integer "doc_cob_cod",      null: false
     t.date    "doc_com_fecha"
     t.string  "doc_com_met_ent"

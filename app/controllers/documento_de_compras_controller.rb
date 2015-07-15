@@ -77,7 +77,6 @@ def pagar_cuenta
   @documento_de_comprass=DocumentoDeCompra.where(cli_cod: @cliente.cli_cod, est_dc_cod:1).take
   @documento_de_comprass.update(documento_de_compra_params)
   @documento_de_comprass.est_dc_cod=2
-
   if @documento_de_comprass.save
     @detalles=DetalleDocumentoDeCompra.where(doc_com_cod: @documento_de_comprass.doc_com_cod)
     @detalles.each do |linea|
@@ -97,6 +96,8 @@ elsif (current_user && current_user.role=='vendedor')
 
   if @documento_de_comprass.save
     @detalles=DetalleDocumentoDeCompra.where(doc_com_cod: @documento_de_comprass.doc_com_cod)
+    @docpago=DocumentoDeCobro.where(doc_com_cod: @documento_de_comprass.doc_com_cod).take
+    @docpago.update(doc_cob_tipo: 'Boleta')
     @detalles.each do |linea|
       @instancia=Instanci.where(ins_cod: linea.ins_cod).take
       @instancia.update(ins_stock: @instancia.ins_stock-linea.det_doc_com_cant)

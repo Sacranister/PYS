@@ -1,39 +1,73 @@
 <div class="box">
-  <p>
-    <strong>Ins cod:</strong>
-    <%= @instanci.ins_cod %>
-  </p>
+ <style>
+.descripcion{
+  position: relative;
+    float: left;
+    border: solid #D7D7D7 1px;
+    padding: 10px;
+    left: 20px;
+    width: 200px;
+    background-color: white;   
+    background: rgba(255,255,255,0.3);
+}
+#imagen{
+  position: relative;
+  float: left;
+  padding-bottom: 10px
+}
+</style>
+ <div class="box">
+  <%@articulo=Articulo.where(art_cod: @instanci.art_cod).take%>
+ <h1><%=@articulo.art_nom%></h1>
+<%@imagen=Imagen.where(ins_cod_prov: @instanci.ins_cod_prov).take%>
+<img id="imagen"src="<%=@imagen.imagen_uri%>"height="474px" width="316px">
+<div class="descripcion">
+<p>
+  <strong>Categoría:</strong>
+  <%@categoria=Categori.where(cat_cod: @articulo.cat_cod).take%>
+  <%= @categoria.cat_nom %>
+</p>
+<p>
+  <strong>Código:</strong>
+  <%= @instanci.ins_cod %>
+</p>
 
-  <p>
-    <strong>Ins cod prov:</strong>
-    <%= @instanci.ins_cod_prov %>
-  </p>
+<p>
+  <strong>Código proveedor:</strong>
+  <%= @instanci.ins_cod_prov %>
+</p>
 
-  <p>
-    <strong>Est art cod:</strong>
-    <%= @instanci.est_art_cod %>
-  </p>
+<p>
+  <strong>Estado:</strong>
+  <%@estado=EstadoArticulo.where(est_art_cod: @instanci.est_art_cod).take%>
+  <%= @estado.est_art_nom %>
+</p>
 
-  <p>
-    <strong>Art cod:</strong>
-    <%= @instanci.art_cod %>
-  </p>
+<p>
+  <strong>Stock:</strong>
+  <%= @instanci.ins_stock %>
+</p>
 
-  <p>
-    <strong>Ins stock:</strong>
-    <%= @instanci.ins_stock %>
-  </p>
+<p>
+  <strong>Precio lista:</strong>
+  <%= @instanci.ins_precio_lista %>
+</p>
 
-  <p>
-    <strong>Ins precio lista:</strong>
-    <%= @instanci.ins_precio_lista %>
-  </p>
-
-  <p>
-    <strong>Ins precio prov:</strong>
-    <%= @instanci.ins_precio_prov %>
-  </p>
-  <%= link_to "Copiar", copy_instanci_path(params[:id]) %> |
-  <%= link_to 'Editar', edit_instanci_path(@instanci) %> |
-  <%= link_to 'Atras', instancis_path %>
-</div> 
+<p>
+  <strong>Precio proveedor:</strong>
+  <%= @instanci.ins_precio_prov %>
+</p>
+<%@insapvs=InsApv.where(ins_cod: @instanci.ins_cod)
+@insapvs.each do |insapv|
+  @apvs=ArtPropVal.where(apv_cod: insapv.apv_cod)
+  @apvs.each do |apv|
+    @propiedad=Propiedad.where(prop_cod: apv.prop_cod).take%>
+   <p> <strong><%=@propiedad.prop_nom%>:</strong>
+    <%@valor=Valor.where(val_cod: apv.val_cod).take%>
+    <%=@valor.val_nom%></p>
+  <%end%>
+<%end%>
+<%= link_to "Copiar", copy_instanci_path(params[:id]) %> |
+<%= link_to 'Editar', edit_instanci_path(@instanci) %> |
+<%= link_to 'Atrás', instancis_path %></div>
+</div>
