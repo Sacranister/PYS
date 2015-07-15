@@ -50,6 +50,7 @@ Rails.application.routes.draw do
  
   get 'principal/index'
 get 'pagar', to: 'documento_de_compras#pagar'
+get 'CrearSolDev', to: 'solicitud_devolucions#crearsolicitud'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -63,7 +64,10 @@ resources :instancis do
   end
 post 'categoris/add'
 post 'documento_de_compras/pagar_cuenta'
-
+post 'solicitud_devolucions/paso2'
+post 'solicitud_devolucions/agregarlinea'
+post 'solicitud_devolucions/terminarcreacion'
+get 'agregardetalle', to: 'solicitud_devolucions#agregardetalle'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -1,8 +1,8 @@
 <div class="box"><h1>New Instanci</h1>
 <style>
 .propiedades{
-	float:top;
-	padding-right: 20%;
+  float:top;
+  padding-right: 20%;
 }
 </style>
 
@@ -45,9 +45,9 @@
 <div class="propiedades">
 
     <%= a.fields_for :art_prop_vals do |apv| %>
-	<%= render 'art_prop_val_fields', f: apv %>
+  <%= render 'art_prop_val_fields', f: apv %>
     <%= link_to_add_association 'Agregar propiedad', a, :art_prop_vals %>
-	<%end%></div>
+  <%end%></div>
 <% end %></br>
    <div class="field">
     <%= f.label :ins_cod_prov, "Código proveedor" %><br>
@@ -55,20 +55,7 @@
   </div>
   <div class="field">
     <%= f.label :est_art_cod, "Estado artículo" %><br>
-    <%@estados=EstadoArticulo.all
-    @aux2=[]
-    @aux3=[["Seleccionar",""]]
-    @estados.each do |es|
-      @aux2.push(es.est_art_nom)
-      @aux2.push(es.est_art_cod)
-      @aux3.push(@aux2)
-      @aux2=[]
-      end%>
-    <%= f.select(:est_art_cod) do %></i>
-  <% @aux3.each do |c| %>
-    <%= content_tag(:option, c.first, value: c.last) %>
-  <% end %>
-<% end %>
+    <%= f.select(:est_art_cod, EstadoArticulo.all.collect {|es| [ es.est_art_nom, es.est_art_cod ]}, { :include_blank => "Seleccionar" })%>
   </div>
   <div class="field">
     <%= f.label :ins_stock, "Stock" %><br>
@@ -82,6 +69,12 @@
     <%= f.label :ins_precio_prov, "Precio de proveedor" %><br>
     <%= f.number_field :ins_precio_prov %>
   </div>
+  <%=f.fields_for @instanci.imagens.build do |im|%>
+  <div class="field">
+    <%= im.label :imagen_uri, "Imagen" %>
+    <%= im.text_field :imagen_uri %>
+  </div>
+  <%end%>
   <div class="actions">
     <%= f.submit :value => 'Guardar', :class => 'btn btn-primary'%> <%= link_to 'Back', instancis_path %>
   </div>

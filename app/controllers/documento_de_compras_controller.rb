@@ -10,20 +10,43 @@ class DocumentoDeComprasController < ApplicationController
   # GET /documento_de_compras/1
   # GET /documento_de_compras/1.json
   def show
+    if current_user
+       
+      @clientess=Cliente.where(cli_mail: current_user.email).take
+      if ((current_user && current_user.role=='admin') || (current_user && (@clientess.cli_cod == @documento_de_compra.cli_cod)))
+      else
+          respond_to do |format|
+            format.html { redirect_to :root, notice: 'No estas autorizado para ver esta pagina' }
+          end
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to :root, notice: 'No estas autorizado para ver esta pagina.' }
+      end
+    end 
+
   end
 def pagar 
-  if (current_user && current_user.role=='cliente')
-    @cliente=Cliente.where(cli_mail: current_user.email).take
-    @documento_de_comprass=DocumentoDeCompra.where(cli_cod: @cliente.cli_cod, est_dc_cod:1).take
-    @documento_de_comprass.doc_com_met_pago='Transferencia bancaria'
-    @documento_de_comprass.doc_com_tipo='Orden de compra'
-    @documento_de_comprass.save
-  else
-    respond_to do |format|
-        format.html { redirect_to :root , notice: 'Debes ingresar con tu cuenta primero' }
+    if (current_user && current_user.role=='cliente')
+      @cliente=Cliente.where(cli_mail: current_user.email).take
+      @documento_de_comprass=DocumentoDeCompra.where(cli_cod: @cliente.cli_cod, est_dc_cod:1).take
+      @detalledocumento=DetalleDocumentoDeCompra.where(doc_com_cod: @documento_de_comprass.doc_com_cod)
+      if @detalledocumento.blank?
+        respond_to do |format|
+          format.html { redirect_to :root , notice: 'Tu carro esta vacio' }
 
+        end
+        
+      end
+      @documento_de_comprass.doc_com_met_pago='Transferencia bancaria'
+      @documento_de_comprass.doc_com_tipo='Orden de compra'
+      @documento_de_comprass.save
+    else
+      respond_to do |format|
+          format.html { redirect_to :root , notice: 'Debes ingresar con tu cuenta Cliente primero' }
+
+      end
     end
-  end
 end
   # GET /documento_de_compras/new
   def new

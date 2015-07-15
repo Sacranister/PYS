@@ -1,0 +1,63 @@
+<h1>Nueva Solicitud de Devolucion</h1>
+
+<h2>Elije el Documento que contiene el articulo</h2>
+
+<%if (current_user && current_user.role=='cliente')%>
+<%if @dev.present?%>
+<%= link_to @dev , method: :delete, data: { confirm: '¿Está seguro?' } do %><div class="btn btn-primary">Descartar Solicitud</div>
+ <% end %>
+ <% end %>
+<div class='tabla'>
+              <table class="table table-hover">
+              <colgroup><col width="80">
+              <col width="1">
+              <col>
+              <col width="150">
+              <col width="100">
+              <col width="1">
+                  </colgroup><thead>
+                      <tr bgcolor="d7d7d7">
+                          <th>#</th>
+                          <th>Fecha</th>
+                          <th>Nombre</th>
+                          <th><span class="nobr">Total</span></th>
+                          <th>Estado</th>
+                          <th>Accion</th>
+                      </tr>
+                  </thead>
+                  <tbody bgcolor='ececec'>
+                      <%@client=Cliente.where(cli_mail: current_user.email).take
+                      @comprass=DocumentoDeCompra.where(cli_cod: @client.cli_cod)
+                      @compras=@comprass.where('est_dc_cod > 1')
+                      @contador = 1
+                      if @compras.present?
+                          @compras.each do |compra|%>
+                          <tr> 
+                              <td><%=@contador%></td>
+                              <td><%=compra.doc_com_fecha%></td>
+                              <td><%=current_user.cli_nom%></td>
+                              <td><%@detalles=DetalleDocumentoDeCompra.where(doc_com_cod: compra.doc_com_cod)
+                                  if @detalles.present?%>
+                                   <%= number_to_currency(@detalles.sum(:det_doc_com_precio), precision:0)%>
+                                  <%else%> 
+                                      $0
+                                  <%end%>                             
+                              </td>
+                              <td>
+                                  <%@estado=EstadoDc.where(est_dc_cod: compra.est_dc_cod).take%>
+                                  <%=@estado.est_dc_nom %>
+                              </td>
+                              <td><%= button_to :controller => :solicitud_devolucions,:action => 'paso2',:val =>  compra.doc_com_cod , :method => :post do%>
+                              	<span class="glyphicon glyphicon-asterisk"></span><% end %></td>
+                              </tr>
+                              <%@contador+=1%>
+                          <% end %>
+
+                      <%else%> 
+                          <td>Ninguna</td>
+                      <%end%>
+                </tbody>
+              </table></div>
+
+<%end%>
+<!--%= render 'form1' %>

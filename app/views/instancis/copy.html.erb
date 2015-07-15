@@ -1,4 +1,10 @@
-<h1>Copiando Instancia</h1>
+<div class="box"><h1>New Instanci</h1>
+<style>
+.propiedades{
+  float:top;
+  padding-right: 20%;
+}
+</style>
 
 <%= form_for(@instanci) do |f| %>
   <% if @instanci.errors.any? %>
@@ -12,66 +18,69 @@
       </ul>
     </div>
   <% end %>
-
- <!--  <div class="field">
-    <%= f.label :ins_cod %><br>
-    <%= f.number_field :ins_cod %>
-  </div> -->
-  <%@articulo=Articulo.where(art_cod: @instanci.art_cod).take%>
-  <%@instancia=Instanci.where(art_cod: @instanci.art_cod).take%>
+    <%= f.fields_for :articulo do |a| %>
+    <div class="field">
+    <%= a.label :art_nom, "Nombre artículo" %><br>
+    <%= a.text_field :art_nom %>
+  </div>
+    <div class="field">
+    <%= a.label :cat_cod, "Categoría" %><br>
+    <%@categorias=Categori.all
+    @aux=[]
+    @aux1=[["Seleccionar",""]]
+    @categorias.each do |cat|
+      if cat.cat_cat_cod !=nil
+      @aux.push(cat.cat_nom)
+      @aux.push(cat.cat_cod)
+      @aux1.push(@aux)
+      @aux=[]
+    end
+      end%>
+    <%= a.select(:cat_cod) do %></i>
+  <% @aux1.each do |c| %>
+    <%= content_tag(:option, c.first, value: c.last) %>
+  <% end %>
+<% end %></div>
+ <p><strong>Propiedades</strong></p> 
+ <%@arrayaux=[]%>
+<div class="propiedades">
+  <%= a.fields_for :art_prop_vals do |apv| %>
+  <%if @arrayaux.include?(apv.object.prop_cod)==false
+    @arrayaux.push(apv.object.prop_cod)
+  %>
+  <%= apv.select(:prop_cod, Propiedad.all.collect {|prop| [ prop.prop_nom, prop.prop_cod ]}, { :include_blank => "Seleccionar" })%>
+    <%= apv.select(:val_cod, Valor.all.collect {|val| [ val.val_nom, val.val_cod ]}, { :include_blank => "Seleccionar" })%></br><%end%>
+  <%end%></div>
+<% end %>
    <div class="field">
-    <label>Nombre Artículo</label></br>
-    <input placeholder="<%=@articulo.art_nom%>" disabled>
-  </div>
-  <div class="field">
-    <label>Código proveedor</label></br>
-    <input placeholder="<%=@instancia.ins_cod_prov%>" disabled>
-  </div>
-  <div class="field">
-    <%= f.hidden_field :ins_cod_prov, :value => @instancia.ins_cod_prov%>
+    <%= f.label :ins_cod_prov, "Código proveedor" %><br>
+    <%= f.text_field :ins_cod_prov %>
   </div>
   <div class="field">
     <%= f.label :est_art_cod, "Estado artículo" %><br>
-    <%@estados=EstadoArticulo.all
-    @aux2=[]
-    @aux3=[["Seleccionar",""]]
-    @estados.each do |es|
-      @aux2.push(es.est_art_nom)
-      @aux2.push(es.est_art_cod)
-      @aux3.push(@aux2)
-      @aux2=[]
-      end%>
-    <%= f.select(:est_art_cod) do %></i>
-  <% @aux3.each do |c| %>
-    <%= content_tag(:option, c.first, value: c.last) %>
-  <% end %>
-<% end %>
+    <%= f.select(:est_art_cod, EstadoArticulo.all.collect {|es| [ es.est_art_nom, es.est_art_cod ]}, { :include_blank => "Seleccionar" })%>
   </div>
   <div class="field">
-    <%= f.hidden_field :art_cod, default: @instanci.art_cod%>
-  </div>
-  <div class="field">
-    <%= f.label :ins_stock %><br>
+    <%= f.label :ins_stock, "Stock" %><br>
     <%= f.number_field :ins_stock %>
   </div>
   <div class="field">
-    <%= f.hidden_field :ins_precio_lista, default: @instanci.ins_precio_lista %>
+    <%= f.label :ins_precio_lista, "Precio de venta" %><br>
+    <%= f.number_field :ins_precio_lista %>
   </div>
   <div class="field">
-    <%= f.hidden_field :ins_precio_prov, default: @instanci.ins_precio_prov %>
+    <%= f.label :ins_precio_prov, "Precio de proveedor" %><br>
+    <%= f.number_field :ins_precio_prov %>
   </div>
+  <%=f.fields_for @instanci.imagens.build do |im|%>
   <div class="field">
-    <label>Precio de venta</label></br>
-    <input type="number" placeholder="<%=@instanci.ins_precio_lista%>" disabled>
+    <%= im.label :imagen_uri, "Imagen" %>
+    <%= im.text_field :imagen_uri %>
   </div>
-  <div class="field">
-    <label>Precio de proveedor</label></br>
-    <input type="number" placeholder="<%=@instanci.ins_precio_prov%>" disabled>
-  </div>
+  <%end%>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :value => 'Guardar', :class => 'btn btn-primary'%> <%= link_to 'Back', instancis_path %>
   </div>
 <% end %>
 
-<%= link_to 'Show', @instanci %> |
-<%= link_to 'Back', instancis_path %>
+</div>

@@ -40,9 +40,11 @@
     .tabla{
   background-color: #ececec; 
 }
+#botoncito{
+
+}
     </style>
 </head>
-    <p id="notice"><%= notice %></p>
     <% if current_user.role=='cliente' %> 
     <div class="box">
     <!-- <div id='Panel' class="col-left sidebar grid12-3 grid-col2-sidebar no-gutter">
@@ -134,18 +136,21 @@
         <div  id='Pedidos'  class="box-account box-recent">
         <div class="box-head">
             
-           <div class="boton"><a href="#"><div class="btn btn-primary">Ver Todo</div></a></div>    
+           <div class="boton"><a href="http://localhost:3000/solicitud_devolucions"><div class="btn btn-primary">Ver Todo</div></a></div>   
+            
         </div>
     <div class='tabla'>
         <table class="table table-hover">
         <colgroup><col width="100">
         <col width="1">
-        <col>
-        <col width="100">
+        <col width='150'>
+        <col >
+        <col width="1">
         <col width="1">
             </colgroup><thead>
                 <tr bgcolor="d7d7d7">
                     <th>Solicitud #</th>
+                    <th>Fecha</th>
                     <th>Nombre</th>
                     <th>Comentario</th>
                     <th>Estado</th>
@@ -157,13 +162,16 @@
                 @contador = 1
                 if @devoluciones.present?
                     @devoluciones.each do |devolucion|%> 
+                        <tr>
                         <td><%=@contador%></td>
+                        <td><%=devolucion.sol_dev_fecha%></td>
                         <td><%=current_user.cli_nom%></td>
                         <td><%=devolucion.sol_dev_comentario%></td>
                         <td><%=devolucion.sol_dev_est%>
                         </td>
                         <td><%= link_to devolucion do %><i class="glyphicon glyphicon-eye-open"></i>
                         <% end %></td>
+                    </tr>
                         <%@contador+=1%>
                     <% end %>
 
@@ -172,7 +180,13 @@
                 <%end%>
           </tbody>
         </table>
-    </div>
+
+   </div>
+                <div class="box-head">
+            
+           <div class="boton"><a href="http://localhost:3000/CrearSolDev"><div class="btn btn-primary">Crear Solicitud</div></a></div>   
+            
+        </div>
     </div>
         <div class="">
             <div id='Titulo'class="">

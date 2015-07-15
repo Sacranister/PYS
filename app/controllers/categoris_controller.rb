@@ -5,6 +5,19 @@ class CategorisController < ApplicationController
   # GET /categoris.json
   def index
     @categoris = Categori.all
+    if current_user
+      if current_user.role=='admin'
+      else
+          respond_to do |format|
+            format.html { redirect_to :root, notice: 'Tu cuenta debe ser de tipo administrador.' }
+          end
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to :root, notice: 'Debes ser administrador.' }
+      end
+    end 
+
   end
 
   # GET /categoris/1
@@ -82,16 +95,16 @@ def add
         end
     else
       @inst=@det.where(ins_cod: @val).take
-      @detlin=@det.last
+      @detlin=@det.order(det_doc_com_linea: :desc).take
       if @inst.blank?
         if(@instanci.ins_stock<1)
           respond_to do |format|
             format.html { redirect_to :back, notice: 'no hay suficiente stock' }
           end
           return
-      else
-        DetalleDocumentoDeCompra.create(doc_com_cod: @documento_de_compra.doc_com_cod,det_doc_com_linea: @detlin.det_doc_com_linea+1,det_doc_com_cant:1, ins_cod: @val, ins_cod_prov: @instanci.ins_cod_prov,det_doc_com_precio: @instanci.ins_precio_lista, det_doc_com_precio_uni:@instanci.ins_precio_lista )
-        end
+        else
+          DetalleDocumentoDeCompra.create(doc_com_cod: @documento_de_compra.doc_com_cod,det_doc_com_linea: @detlin.det_doc_com_linea+1,det_doc_com_cant:1, ins_cod: @val, ins_cod_prov: @instanci.ins_cod_prov,det_doc_com_precio: @instanci.ins_precio_lista, det_doc_com_precio_uni:@instanci.ins_precio_lista )
+          end
       else
         if(@instanci.ins_stock)<(@inst.det_doc_com_cant+1)
             respond_to do |format|
