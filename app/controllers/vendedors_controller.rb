@@ -44,7 +44,7 @@ class VendedorsController < ApplicationController
             User.create(email:@vendedor.ven_mail,password:'pysdesign',password_confirmation:'pysdesign',cli_nom:@vendedor.ven_nom,role: 'vendedor')
             @user=User.where(email:@vendedor.ven_mail).take
             @user.update(role: 'vendedor')
-            format.html { redirect_to @vendedor, notice: 'Vendedor was successfully created.' }
+            format.html { redirect_to vendedors_url, notice: 'Vendedor was successfully created.' }
             format.json { render :show, status: :created, location: @vendedor }
           else
             format.html { render :new }

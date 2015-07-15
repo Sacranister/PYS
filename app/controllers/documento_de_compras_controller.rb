@@ -41,9 +41,22 @@ def pagar
       @documento_de_comprass.doc_com_met_pago='Transferencia bancaria'
       @documento_de_comprass.doc_com_tipo='Orden de compra'
       @documento_de_comprass.save
+    elsif (current_user && current_user.role=='vendedor')
+      @vendedor=Vendedor.where(ven_mail: current_user.email).take
+      @documento_de_comprass=DocumentoDeCompra.where(ven_cod: @vendedor.ven_cod, est_dc_cod:1).take
+      @detalledocumento=DetalleDocumentoDeCompra.where(doc_com_cod: @documento_de_comprass.doc_com_cod)
+      if @detalledocumento.blank?
+        respond_to do |format|
+          format.html { redirect_to :root , notice: 'Tu carro esta vacio' }
+
+        end
+        
+      end
+      @documento_de_comprass.doc_com_tipo='Nota de venta'
+      @documento_de_comprass.save
     else
       respond_to do |format|
-          format.html { redirect_to :root , notice: 'Debes ingresar con tu cuenta Cliente primero' }
+          format.html { redirect_to :root , notice: 'Debes ingresar con tu cuenta Cliente o Vendedor primero' }
 
       end
     end
@@ -59,6 +72,7 @@ end
 
 
 def pagar_cuenta
+  if (current_user && current_user.role=='cliente')
   @cliente=Cliente.where(cli_mail: current_user.email).take
   @documento_de_comprass=DocumentoDeCompra.where(cli_cod: @cliente.cli_cod, est_dc_cod:1).take
   @documento_de_comprass.update(documento_de_compra_params)
@@ -72,8 +86,27 @@ def pagar_cuenta
     end
     respond_to do |format|
         format.html { redirect_to @documento_de_comprass, notice: '' }
-      end
     end
+  end
+
+elsif (current_user && current_user.role=='vendedor')
+  @vendedor=Vendedor.where(ven_mail: current_user.email).take
+  @documento_de_comprass=DocumentoDeCompra.where(ven_cod: @vendedor.ven_cod, est_dc_cod:1).take
+  @documento_de_comprass.update(documento_de_compra_params)
+  @documento_de_comprass.est_dc_cod=2
+
+  if @documento_de_comprass.save
+    @detalles=DetalleDocumentoDeCompra.where(doc_com_cod: @documento_de_comprass.doc_com_cod)
+    @detalles.each do |linea|
+      @instancia=Instanci.where(ins_cod: linea.ins_cod).take
+      @instancia.update(ins_stock: @instancia.ins_stock-linea.det_doc_com_cant)
+    end
+    respond_to do |format|
+        format.html { redirect_to @documento_de_comprass, notice: '' }
+      end
+  end
+else
+  end
 end
   # POST /documento_de_compras
   # POST /documento_de_compras.json

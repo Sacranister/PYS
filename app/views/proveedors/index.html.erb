@@ -20,7 +20,6 @@
                       <th>web</th>
                       <th></th>
                       <th></th>
-                      <th></th>
                    </tr>
               </thead>
               <tbody bgcolor='ececec'>
@@ -31,14 +30,12 @@
                 <td><%=proveedor.pro_mail%></td>
                 <td><%=proveedor.pro_desc%></td>
                 <td><%=proveedor.pro_web%></td>
-                <td><%= link_to proveedor do %><i class="glyphicon glyphicon-eye-open"></i><% end %></td>
                 <td><%= link_to edit_proveedor_path(proveedor) do %><i class="glyphicon glyphicon-pencil"></i><% end %></td>
                 <td><%= link_to proveedor, method: :delete, data: { confirm: '¿Está seguro?' } do %><i class="glyphicon glyphicon-trash"></i><% end %></td>
                 </tr>
                 <%end%>
             <%else%>
               <td>No existen proveedores</td>
-              <td></td>
               <td></td>
               <td></td>
               <td></td>

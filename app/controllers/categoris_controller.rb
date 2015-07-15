@@ -120,9 +120,56 @@ def add
       respond_to do |format|
         format.html { redirect_to :back, notice: 'Se ha agregado al carro' }
       end
+  elsif current_user && current_user.role=='vendedor'
+    @instanci=Instanci.where(ins_cod: @val).take
+    @vendedor=Vendedor.where(cli_mail: current_user.email ).take
+    @documento_de_compra=DocumentoDeCompra.where(ven_cod: @vendedor.cli_cod, est_dc_cod: 1).take
+    if(@documento_de_compra.blank?)
+      @dcob=DocumentoDeCobro.create
+      @vendedor=Vendedor.where(cli_mail: current_user.email,).take
+      @documento_de_compra = DocumentoDeCompra.create(est_dc_cod: 1,ven_cod: @vendedor.cli_cod,doc_cob_cod: @dcob.doc_cob_cod)
+      @dcob.update(doc_com_cod: @documento_de_compra.doc_com_cod)
+    end
+    @det=DetalleDocumentoDeCompra.where(doc_com_cod: @documento_de_compra.doc_com_cod)
+    if @det.blank?
+        if(@instanci.ins_stock<1)
+          respond_to do |format|
+            format.html { redirect_to :back, notice: 'no hay suficiente stock' }
+          end
+          return
+        else
+          DetalleDocumentoDeCompra.create(doc_com_cod: @documento_de_compra.doc_com_cod,det_doc_com_linea: 1, ins_cod: @val,det_doc_com_cant:1, ins_cod_prov: @instanci.ins_cod_prov,det_doc_com_precio: @instanci.ins_precio_lista, det_doc_com_precio_uni:@instanci.ins_precio_lista )
+        end
+    else
+      @inst=@det.where(ins_cod: @val).take
+      @detlin=@det.order(det_doc_com_linea: :desc).take
+      if @inst.blank?
+        if(@instanci.ins_stock<1)
+          respond_to do |format|
+            format.html { redirect_to :back, notice: 'no hay suficiente stock' }
+          end
+          return
+        else
+          DetalleDocumentoDeCompra.create(doc_com_cod: @documento_de_compra.doc_com_cod,det_doc_com_linea: @detlin.det_doc_com_linea+1,det_doc_com_cant:1, ins_cod: @val, ins_cod_prov: @instanci.ins_cod_prov,det_doc_com_precio: @instanci.ins_precio_lista, det_doc_com_precio_uni:@instanci.ins_precio_lista )
+          end
+      else
+        if(@instanci.ins_stock)<(@inst.det_doc_com_cant+1)
+            respond_to do |format|
+              format.html { redirect_to :back, notice: 'no hay suficiente stock' }
+            end
+            return
+        else
+          @asd=@inst.det_doc_com_cant+1
+          @inst.update(det_doc_com_cant:@asd,det_doc_com_precio:(@asd*@inst.det_doc_com_precio_uni))
+        end
+      end
+    end
+      respond_to do |format|
+        format.html { redirect_to :back, notice: 'Se ha agregado al carro' }
+      end
   else
     respond_to do |format|
-        format.html { redirect_to :back, notice: 'Nesecitas ser cliente' }
+        format.html { redirect_to :back, notice: 'Nesecitas ser cliente o vendedor' }
       end
   end
 end
