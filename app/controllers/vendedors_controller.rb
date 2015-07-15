@@ -37,17 +37,24 @@ class VendedorsController < ApplicationController
   # POST /vendedors.json
   def create
     @vendedor = Vendedor.new(vendedor_params)
-    respond_to do |format|
-      if @vendedor.save
-        User.create(email:@vendedor.ven_mail,password:'pysdesign',password_confirmation:'pysdesign',cli_nom:@vendedor.ven_nom,role: 'vendedor')
-        @user=User.where(email:@vendedor.ven_mail).take
-        @user.update(role: 'vendedor')
-        format.html { redirect_to @vendedor, notice: 'Vendedor was successfully created.' }
-        format.json { render :show, status: :created, location: @vendedor }
-      else
-        format.html { render :new }
-        format.json { render json: @vendedor.errors, status: :unprocessable_entity }
-      end
+    @user=User.where(email:@vendedor.ven_mail).take
+    if @user.blank?
+        respond_to do |format|
+          if @vendedor.save
+            User.create(email:@vendedor.ven_mail,password:'pysdesign',password_confirmation:'pysdesign',cli_nom:@vendedor.ven_nom,role: 'vendedor')
+            @user=User.where(email:@vendedor.ven_mail).take
+            @user.update(role: 'vendedor')
+            format.html { redirect_to @vendedor, notice: 'Vendedor was successfully created.' }
+            format.json { render :show, status: :created, location: @vendedor }
+          else
+            format.html { render :new }
+            format.json { render json: @vendedor.errors, status: :unprocessable_entity }
+          end
+        end
+    else
+        respond_to do |format|
+          format.html { redirect_to new_vendedor_path, notice: 'El correo ya se encuentra en nuestra base de datos'}
+        end
     end
   end
 
