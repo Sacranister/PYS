@@ -5,4 +5,8 @@ class Pedido < ActiveRecord::Base
 	has_one :guia_despacho_pedido, foreign_key: 'guia_desp_ped_cod'
 	has_many :detalle_pedidos, :dependent => :destroy, foreign_key: 'ped_cod'
 	has_many :historial_estado_pedidos, :dependent => :destroy, foreign_key: 'ped_cod'
+	validates :pro_cod, presence: {message: "es requerido"}, format: {with: /\A[0-9]+\z/, message:"debe ser mayor o igual a 0"}
+	validates :estado_ped_cod, presence: {message: "es requerido"}, format: {with: /\A[0-9]+\z/, message:"debe ser mayor o igual a 0"}
+	validates :guia_desp_ped_cod, presence: {message: "es requerido"}, format: {with: /\A[0-9]+\z/, message:"debe ser mayor o igual a 0"}
+	validates :ped_fecha, presence: {message: "es requerido"}
 end

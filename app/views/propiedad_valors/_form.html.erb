@@ -1,7 +1,7 @@
 <%= form_for(@propiedad_valor) do |f| %>
   <% if @propiedad_valor.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@propiedad_valor.errors.count, "error") %> prohibited this propiedad_valor from being saved:</h2>
+      <h2><%= pluralize(@propiedad_valor.errors.count, "error") %>antes de guardar:</h2>
 
       <ul>
       <% @propiedad_valor.errors.full_messages.each do |message| %>

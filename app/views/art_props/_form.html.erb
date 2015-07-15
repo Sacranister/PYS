@@ -1,7 +1,7 @@
 <%= form_for(@art_prop) do |f| %>
   <% if @art_prop.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@art_prop.errors.count, "error") %> prohibited this art_prop from being saved:</h2>
+      <h2><%= pluralize(@art_prop.errors.count, "error") %> antes de guardar:</h2>
 
       <ul>
       <% @art_prop.errors.full_messages.each do |message| %>

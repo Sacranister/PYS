@@ -8,4 +8,5 @@ class DocumentoDeCompra < ActiveRecord::Base
 	has_many :detalle_documento_de_compras, :dependent => :destroy, foreign_key: 'doc_com_cod' 
 	has_many :historial_estado_dcs, :dependent => :destroy, foreign_key: 'doc_com_cod' 
 	has_many :solicitud_devolucions, :dependent => :destroy, foreign_key: 'doc_com_cod' 
+	validates :est_dc_cod, presence: {message: "es requerido"}, format: {with: /\A[0-9]+\z/, message:"Est dc cod debe ser mayor o igual a 0"}
 end

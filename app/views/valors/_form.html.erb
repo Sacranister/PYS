@@ -1,7 +1,7 @@
 <%= form_for(@valor) do |f| %>
   <% if @valor.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@valor.errors.count, "error") %> prohibited this valor from being saved:</h2>
+      <h2><%= pluralize(@valor.errors.count, "error") %> antes de guardar:</h2>
 
       <ul>
       <% @valor.errors.full_messages.each do |message| %>

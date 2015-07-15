@@ -1,7 +1,7 @@
 <%= form_for(@transicion_estado_art) do |f| %>
   <% if @transicion_estado_art.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@transicion_estado_art.errors.count, "error") %> prohibited this transicion_estado_art from being saved:</h2>
+      <h2><%= pluralize(@transicion_estado_art.errors.count, "error") %> antes de guardar:</h2>
 
       <ul>
       <% @transicion_estado_art.errors.full_messages.each do |message| %>

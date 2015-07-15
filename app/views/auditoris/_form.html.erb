@@ -1,7 +1,7 @@
 <%= form_for(@auditori) do |f| %>
   <% if @auditori.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@auditori.errors.count, "error") %> prohibited this auditori from being saved:</h2>
+      <h2><%= pluralize(@auditori.errors.count, "error") %> antes de guardar:</h2>
 
       <ul>
       <% @auditori.errors.full_messages.each do |message| %>

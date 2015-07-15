@@ -1,7 +1,7 @@
 <%= form_for(@imagen) do |f| %>
   <% if @imagen.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@imagen.errors.count, "error") %> prohibited this imagen from being saved:</h2>
+      <h2><%= pluralize(@imagen.errors.count, "error") %>antes de guardar:</h2>
 
       <ul>
       <% @imagen.errors.full_messages.each do |message| %>

@@ -6,4 +6,5 @@ class Propiedad < ActiveRecord::Base
 	has_many :valors, :through => :propiedad_valors
 	accepts_nested_attributes_for :propiedad_valors, :allow_destroy => true
 	accepts_nested_attributes_for :valors, :allow_destroy => true
+	validates :prop_nom, presence: true, uniqueness: {message: "ya existe"}
 end

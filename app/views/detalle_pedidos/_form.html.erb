@@ -1,7 +1,7 @@
 <%= form_for(@detalle_pedido) do |f| %>
   <% if @detalle_pedido.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@detalle_pedido.errors.count, "error") %> prohibited this detalle_pedido from being saved:</h2>
+      <h2><%= pluralize(@detalle_pedido.errors.count, "error") %> antes de guardar:</h2>
 
       <ul>
       <% @detalle_pedido.errors.full_messages.each do |message| %>
