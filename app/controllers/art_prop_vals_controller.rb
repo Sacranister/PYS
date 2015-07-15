@@ -20,6 +20,11 @@ class ArtPropValsController < ApplicationController
   # GET /art_prop_vals/1/edit
   def edit
   end
+  def copy
+        @source = ArtPropVal.find(params[:id])
+        @artpropval = @source.deep_clone
+        render 'copy'
+  end
 
   # POST /art_prop_vals
   # POST /art_prop_vals.json
