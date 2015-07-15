@@ -69,10 +69,13 @@
     <%= f.label :ins_precio_prov, "Precio de proveedor" %><br>
     <%= f.number_field :ins_precio_prov %>
   </div>
-  <%=f.fields_for @instanci.imagens.build do |im|%>
+  <%=f.fields_for :imagens do |im|%>
   <div class="field">
     <%= im.label :imagen_uri, "Imagen" %>
     <%= im.text_field :imagen_uri %>
+  </div>
+    <div class="field">
+    <%= im.hidden_field :ins_cod_prov, :value =>"" %>
   </div>
   <%end%>
   <div class="actions">

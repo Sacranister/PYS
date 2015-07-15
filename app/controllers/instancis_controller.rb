@@ -16,7 +16,7 @@ class InstancisController < ApplicationController
   def new
     @instanci = Instanci.new
     @instanci.build_articulo.art_prop_vals.build
-    #@instanci.imagens.build
+    @instanci.imagens.build
   end
 
   # GET /instancis/1/edit
@@ -33,9 +33,16 @@ class InstancisController < ApplicationController
   # POST /instancis.json
   def create
     @instanci = Instanci.new(instanci_params)
-
+    if @instanci.imagens[0]!=nil
+      @instanci.imagens[0].ins_cod_prov=@instanci.ins_cod_prov
+    end
     respond_to do |format|
       if @instanci.save
+        if @instanci.imagens[0]!=nil
+          if @instanci.imagens[0].imagen_uri==""
+            @instanci.imagens[0].destroy
+          end
+        end    
         @articulos=[]
         @articulos=Articulo.where(art_nom: @instanci.articulo.art_nom)
         if(@articulos.length>1)
@@ -139,9 +146,10 @@ class InstancisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def instanci_params
-      params.require(:instanci).permit(:ins_cod,:art_cod, :ins_cod_prov, :est_art_cod, :ins_stock, 
+           params.require(:instanci).permit(:ins_cod,:art_cod, :ins_cod_prov, :est_art_cod, :ins_stock, 
         :ins_precio_lista, :ins_precio_prov, :_destroy, 
-        articulo_attributes:[:art_cod, :art_nom, :cat_cod, :_destroy, 
-          art_prop_vals_attributes: [:apv_cod, :val_cod, :prop_cod, :_destroy], imagens_attributes:[:imagen_cod, :imagen_uri]])
+        {articulo_attributes:[:art_cod, :art_nom, :cat_cod, :_destroy, 
+          art_prop_vals_attributes: [:apv_cod, :val_cod, :prop_cod, :_destroy]]},{imagens_attributes: [
+            :imagen_cod, :imagen_uri, :ins_cod_prov]})
     end
 end
