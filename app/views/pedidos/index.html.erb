@@ -35,7 +35,8 @@
                       <%@estped=EstadoPedido.where(estado_ped_cod: pedido.estado_ped_cod).take%>
                       <td><%= @estped.estado_ped_nom %></td>
                       <%if pedido.estado_ped_cod==1%>
-                        <td><%= link_to pedido do %><i class="glyphicon glyphicon-plus"></i><% end %></td>
+                      <td><%= button_to :controller => :detalle_pedidos,:action => 'creardetalle',:val =>  pedido.ped_cod , :method => :post do%>
+                        <span class="glyphicon glyphicon-asterisk"></span><% end %></td>
                       <%else%>
                       <%end%>
 

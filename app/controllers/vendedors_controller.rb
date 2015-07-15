@@ -5,6 +5,18 @@ class VendedorsController < ApplicationController
   # GET /vendedors.json
   def index
     @vendedors = Vendedor.all
+          if current_user
+      if current_user.role=='admin'
+      else
+          respond_to do |format|
+            format.html { redirect_to :root, notice: 'Tu cuenta debe ser de tipo administrador.' }
+          end
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to :root, notice: 'Debes ser administrador.' }
+      end
+    end 
   end
 
   # GET /vendedors/1
@@ -25,9 +37,11 @@ class VendedorsController < ApplicationController
   # POST /vendedors.json
   def create
     @vendedor = Vendedor.new(vendedor_params)
-
     respond_to do |format|
       if @vendedor.save
+        User.create(email:@vendedor.ven_mail,password:'pysdesign',password_confirmation:'pysdesign',cli_nom:@vendedor.ven_nom,role: 'vendedor')
+        @user=User.where(email:@vendedor.ven_mail).take
+        @user.update(role: 'vendedor')
         format.html { redirect_to @vendedor, notice: 'Vendedor was successfully created.' }
         format.json { render :show, status: :created, location: @vendedor }
       else
@@ -54,6 +68,8 @@ class VendedorsController < ApplicationController
   # DELETE /vendedors/1
   # DELETE /vendedors/1.json
   def destroy
+    @user=User.where(email:@vendedor.ven_mail).take
+    @user.destroy
     @vendedor.destroy
     respond_to do |format|
       format.html { redirect_to vendedors_url, notice: 'Vendedor was successfully destroyed.' }

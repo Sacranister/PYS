@@ -1,33 +1,54 @@
- 
-
-<h1>Listing Vendedors</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Ven nom</th>
-      <th>Ven rut</th>
-      <th>Ven mail</th>
-      <th>Ven tel</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @vendedors.each do |vendedor| %>
-      <tr>
-        <td><%= vendedor.ven_nom %></td>
-        <td><%= vendedor.ven_rut %></td>
-        <td><%= vendedor.ven_mail %></td>
-        <td><%= vendedor.ven_tel %></td>
-        <td><%= link_to 'Show', vendedor %></td>
-        <td><%= link_to 'Edit', edit_vendedor_path(vendedor) %></td>
-        <td><%= link_to 'Destroy', vendedor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<div class='box'>
+<h1>Lista Vendedores</h1>
+<div class='tabla'>
+             
+<table class="table table-hover">
+            <colgroup><col width="80">
+          <col width="1">
+          <col width="150">
+          <col width="100">
+          <col width="1">
+          <col width="1">
+          <col width="1">
+              </colgroup>
+              <thead>
+                  <tr bgcolor="d7d7d7">
+                      <th>Nombre</th>
+                      <th>rut</th>
+                      <th>Telefono</th>
+                      <th>correo</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                   </tr>
+              </thead>
+              <tbody bgcolor='ececec'>
+                <%if @vendedors.present?%>
+                 <%@vendedors.each do |vendedor|%>
+                 <tr>
+                <td><%=vendedor.ven_nom %></td>
+                <td><%=vendedor.ven_rut%></td>
+                <td><%=vendedor.ven_tel%></td>
+                <td><%=vendedor.ven_mail%></td>
+                <td><%= link_to vendedor do %><i class="glyphicon glyphicon-eye-open"></i><% end %></td>
+                <td><%= link_to edit_vendedor_path(vendedor) do %><i class="glyphicon glyphicon-pencil"></i><% end %></td>
+                <td><%= link_to vendedor, method: :delete, data: { confirm: '¿Está seguro?' } do %><i class="glyphicon glyphicon-trash"></i><% end %></td>
+                </tr>
+                <%end%>
+            <%else%>
+              <td>No existen vendedores</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            <%end%>
+            </tbody>
+            
+          </table>
 <br>
 
-<%= link_to 'New Vendedor', new_vendedor_path %>
+<div class="boton"><%= button_to new_vendedor_path, {method: :get, class: "btn btn-primary"} do %><i class="glyphicon glyphicon-plus"></i> Agregar Vendedor
+<% end %></div>
+</div>

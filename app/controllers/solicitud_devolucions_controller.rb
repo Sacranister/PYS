@@ -12,7 +12,7 @@ class SolicitudDevolucionsController < ApplicationController
   def show
     if current_user    
       @clientess=Cliente.where(cli_mail: current_user.email).take
-      if ((current_user && current_user.role=='admin') || (current_user && (@clientess.cli_cod == @solicitud_devolucion.cli_cod)))
+      if ((current_user && (current_user.role=='admin' ||current_user.role=='vendedor')) || (current_user && (@clientess.cli_cod == @solicitud_devolucion.cli_cod)))
       else
           respond_to do |format|
             format.html { redirect_to :root, notice: 'No estas autorizado para ver esta pagina' }

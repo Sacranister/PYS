@@ -67,6 +67,7 @@ post 'documento_de_compras/pagar_cuenta'
 post 'solicitud_devolucions/paso2'
 post 'solicitud_devolucions/agregarlinea'
 post 'solicitud_devolucions/terminarcreacion'
+post 'detalle_pedidos/creardetalle'
 get 'agregardetalle', to: 'solicitud_devolucions#agregardetalle'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

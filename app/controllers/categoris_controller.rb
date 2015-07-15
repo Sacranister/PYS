@@ -120,6 +120,10 @@ def add
       respond_to do |format|
         format.html { redirect_to :back, notice: 'Se ha agregado al carro' }
       end
+  else
+    respond_to do |format|
+        format.html { redirect_to :back, notice: 'Nesecitas ser cliente' }
+      end
   end
 end
   # PATCH/PUT /categoris/1

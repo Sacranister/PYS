@@ -7,7 +7,7 @@
 <%
   if current_user
     @clientes=Cliente.where(cli_mail: current_user.email ).take 
-    if (current_user && current_user.role=='admin') || (current_user && @clientes.cli_cod == @documento_de_compra.cli_cod)%>
+    if (current_user && (current_user.role=='admin' || current_user.role=='vendedor') ) || (current_user && @clientes.cli_cod == @documento_de_compra.cli_cod)%>
     <h2>Documento</h2>
         <div class='tabla'>
              

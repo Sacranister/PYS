@@ -20,7 +20,15 @@ class DetallePedidosController < ApplicationController
   # GET /detalle_pedidos/1/edit
   def edit
   end
-
+def creardetalle
+  @val=params[:val]
+  @detped=DetallePedido.where(ped_cod: @val)
+  if @detped.blank
+      respond_to do |format|
+      format.html { redirect_to detalle_pedidos_url, notice: 'Detalle pedido was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
   # POST /detalle_pedidos
   # POST /detalle_pedidos.json
   def create
