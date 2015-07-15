@@ -1,112 +1,114 @@
-<h1>Solicitud de devoluciones</h1>
-<%if current_user
-    if current_user.role=='admin' || current_user.role=='vendedor'%>
-    <div class='tabla'>
-        <table class="table table-hover">
-        <colgroup><col width="1">
-        <col width="1">
-        <col width="80">
-        <col width="150">
-        <col width="100">
-        <col width="1">
-            </colgroup><thead>
-                <tr bgcolor="d7d7d7">
-                    <th>#</th>
-                    <th>Fecha</th>
-                    <th>Nombre Cliente</th>
-                    <th><span class="nobr">Comentario</span></th>
-                    <th>Estado</th>
-                    <th>Accion</th>
-                </tr>
-            </thead>
-            <tbody bgcolor='ececec'>
-                <%@devoluciones=SolicitudDevolucion.all
-                @contador = 1
-                if @devoluciones.present?
-                    @devoluciones.each do |devolucion|%> 
-                    <tr>
-                        <td><%=@contador%></td>
-                        <td><%=devolucion.sol_dev_fecha%></td>
-                        <%@cliente=Cliente.where(cli_cod: devolucion.cli_cod).take%>
-                        <td><%=@cliente.cli_nom%></td>
-                        <td><%=devolucion.sol_dev_comentario%></td>
-                        <td><%=devolucion.sol_dev_est %>
-                        </td>
-                        <td><%= link_to devolucion do %><i class="glyphicon glyphicon-eye-open"></i>
+<div class="box">
+    <h1>Solicitudes de devolución</h1>
+    <%if current_user
+        if current_user.role=='admin' || current_user.role=='vendedor'%>
+        <div class='tabla'>
+            <table class="table table-hover">
+            <colgroup><col width="1">
+            <col width="1">
+            <col width="80">
+            <col width="150">
+            <col width="100">
+            <col width="1">
+                </colgroup><thead>
+                    <tr bgcolor="d7d7d7">
+                        <th>#</th>
+                        <th>Fecha</th>
+                        <th>Nombre Cliente</th>
+                        <th><span class="nobr">Comentario</span></th>
+                        <th>Estado</th>
+                        <th>Accion</th>
+                    </tr>
+                </thead>
+                <tbody bgcolor='ececec'>
+                    <%@devoluciones=SolicitudDevolucion.all
+                    @contador = 1
+                    if @devoluciones.present?
+                        @devoluciones.each do |devolucion|%> 
+                        <tr>
+                            <td><%=@contador%></td>
+                            <td><%=devolucion.sol_dev_fecha%></td>
+                            <%@cliente=Cliente.where(cli_cod: devolucion.cli_cod).take%>
+                            <td><%=@cliente.cli_nom%></td>
+                            <td><%=devolucion.sol_dev_comentario%></td>
+                            <td><%=devolucion.sol_dev_est %>
+                            </td>
+                            <td><%= link_to devolucion do %><i class="glyphicon glyphicon-eye-open"></i>
+                            <% end %>
+                            <%if devolucion.sol_dev_est=='Pendiente'%>
+                            <%= link_to edit_solicitud_devolucion_path(devolucion) do %><i class="glyphicon glyphicon-pencil"></i><% end %>
+    
+                            <%end%></td>
+                            <%@contador+=1%>
+                      </tr>
                         <% end %>
-                        <%if devolucion.sol_dev_est=='Pendiente'%>
-                        <%= link_to edit_solicitud_devolucion_path(devolucion) do %><i class="glyphicon glyphicon-pencil"></i><% end %>
-
-                        <%end%></td>
-                        <%@contador+=1%>
-                  </tr>
-                    <% end %>
-
-                <%else%> 
-                    <td>Ninguna</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                <%end%>
-          </tbody>
-        </table>
-    </div>
-  <br>
-    <%elsif current_user.role=='cliente'%>
-    <div class='tabla'>
-        <table class="table table-hover">
-        <colgroup><col width="1">
-        <col width="1">
-        <col width="80">
-        <col width="150">
-        <col width="100">
-        <col width="1">
-            </colgroup><thead>
-                <tr bgcolor="d7d7d7">
-                    <th>#</th>
-                    <th>Fecha</th>
-                    <th>Nombre Cliente</th>
-                    <th><span class="nobr">Comentario</span></th>
-                    <th>Estado</th>
-                    <th>Accion</th>
-                </tr>
-            </thead>
-            <tbody bgcolor='ececec'>
-                      <%@client=Cliente.where(cli_mail: current_user.email).take
-                      @devoluciones=SolicitudDevolucion.where(cli_cod: @client.cli_cod)
-                      @contador = 1
-                      if @devoluciones.present?
-                          @devoluciones.each do |devolucion|%>
-                          <tr> 
-                              <td><%=@contador%></td>
-                              <td><%=devolucion.sol_dev_fecha%></td>
-                              <%@cliente=Cliente.where(cli_cod: devolucion.cli_cod).take%>
-                              <td><%=@cliente.cli_nom%></td>
-                              <td><%=devolucion.sol_dev_comentario%></td>
-                              <td><%=devolucion.sol_dev_est %>
-                              </td>
-                              <td><%= link_to devolucion do %><i class="glyphicon glyphicon-eye-open"></i>
-                              <% end %></td>
-                              </tr>
-                              <%@contador+=1%>
-                          <% end %>
-
-                      <%else%> 
-                          <td>Ninguna</td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                      <%end%>
-                </tbody>
-              </table>
-          
-
     
-
+                    <%else%> 
+                        <td>Ninguna</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    <%end%>
+              </tbody>
+            </table>
+        </div>
+      <br>
+        <%elsif current_user.role=='cliente'%>
+        <div class='tabla'>
+            <table class="table table-hover">
+            <colgroup><col width="1">
+            <col width="1">
+            <col width="80">
+            <col width="150">
+            <col width="100">
+            <col width="1">
+                </colgroup><thead>
+                    <tr bgcolor="d7d7d7">
+                        <th>#</th>
+                        <th>Fecha</th>
+                        <th>Nombre Cliente</th>
+                        <th><span class="nobr">Comentario</span></th>
+                        <th>Estado</th>
+                        <th>Accion</th>
+                    </tr>
+                </thead>
+                <tbody bgcolor='ececec'>
+                          <%@client=Cliente.where(cli_mail: current_user.email).take
+                          @devoluciones=SolicitudDevolucion.where(cli_cod: @client.cli_cod)
+                          @contador = 1
+                          if @devoluciones.present?
+                              @devoluciones.each do |devolucion|%>
+                              <tr> 
+                                  <td><%=@contador%></td>
+                                  <td><%=devolucion.sol_dev_fecha%></td>
+                                  <%@cliente=Cliente.where(cli_cod: devolucion.cli_cod).take%>
+                                  <td><%=@cliente.cli_nom%></td>
+                                  <td><%=devolucion.sol_dev_comentario%></td>
+                                  <td><%=devolucion.sol_dev_est %>
+                                  </td>
+                                  <td><%= link_to devolucion do %><i class="glyphicon glyphicon-eye-open"></i>
+                                  <% end %></td>
+                                  </tr>
+                                  <%@contador+=1%>
+                              <% end %>
     
+                          <%else%> 
+                              <td>Ninguna</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                          <%end%>
+                    </tbody>
+                  </table>
+              
+    
+        
+    
+        
+        <%end%>
     <%end%>
-<%end%>
+</div>
