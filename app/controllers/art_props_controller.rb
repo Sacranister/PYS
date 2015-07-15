@@ -5,6 +5,18 @@ class ArtPropsController < ApplicationController
   # GET /art_props.json
   def index
     @art_props = ArtProp.all
+        if current_user
+      if current_user.role=='admin'
+      else
+          respond_to do |format|
+            format.html { redirect_to :root, notice: 'Tu cuenta debe ser de tipo administrador.' }
+          end
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to :root, notice: 'Debes ser administrador.' }
+      end
+    end 
   end
 
   # GET /art_props/1

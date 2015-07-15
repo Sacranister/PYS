@@ -1,3 +1,4 @@
+<div class='box'>
 <%= form_for(@pedido) do |f| %>
   <% if @pedido.errors.any? %>
     <div id="error_explanation">
@@ -10,18 +11,22 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
-    <%= f.label :estado_ped_cod %><br>
-    <%= f.number_field :estado_ped_cod %>
-  </div>
-  <div class="field">
-    <%= f.label :guia_desp_ped_cod %><br>
-    <%= f.number_field :guia_desp_ped_cod %>
-  </div>
-  <div class="field">
-    <%= f.label :pro_cod %><br>
-    <%= f.number_field :pro_cod %>
+    <%= f.label 'Proveedor' %><br>
+    <%@proveedors=Proveedor.all
+    @aux=[]
+    @aux1=[]
+    @proveedors.each do |prov|
+      @aux.push(prov.pro_nom)
+      @aux.push(prov.pro_cod)
+      @aux1.push(@aux)
+      @aux=[]
+      end%>
+    <%= f.select(:pro_cod) do %></i>
+  <% @aux1.each do |c| %>
+    <%= content_tag(:option, c.first, value: c.last) %>
+  <% end %>
+<% end %>
   </div>
   <div class="field">
     <%= f.label :ped_fecha %><br>
@@ -31,3 +36,4 @@
     <%= f.submit %>
   </div>
 <% end %>
+</div>

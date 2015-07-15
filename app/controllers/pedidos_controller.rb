@@ -5,6 +5,18 @@ class PedidosController < ApplicationController
   # GET /pedidos.json
   def index
     @pedidos = Pedido.all
+        if current_user
+      if current_user.role=='admin'
+      else
+          respond_to do |format|
+            format.html { redirect_to :root, notice: 'Tu cuenta debe ser de tipo administrador.' }
+          end
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to :root, notice: 'Debes ser administrador.' }
+      end
+    end 
   end
 
   # GET /pedidos/1
@@ -25,10 +37,15 @@ class PedidosController < ApplicationController
   # POST /pedidos.json
   def create
     @pedido = Pedido.new(pedido_params)
+    @pedido.update(estado_ped_cod:1)
+    @pedido.save
+    @guiadesp=GuiaDespachoPedido.create(ped_cod: @pedido.ped_cod)
+    @pedido.update(guia_desp_ped_cod: @guiadesp.guia_desp_ped_cod)
+    @guiadesp.save
 
     respond_to do |format|
       if @pedido.save
-        format.html { redirect_to @pedido, notice: 'Pedido was successfully created.' }
+        format.html { redirect_to pedidos_url, notice: 'Pedido creado' }
         format.json { render :show, status: :created, location: @pedido }
       else
         format.html { render :new }
@@ -42,7 +59,7 @@ class PedidosController < ApplicationController
   def update
     respond_to do |format|
       if @pedido.update(pedido_params)
-        format.html { redirect_to @pedido, notice: 'Pedido was successfully updated.' }
+        format.html { redirect_to @pedido, notice: 'Pedido actualizado' }
         format.json { render :show, status: :ok, location: @pedido }
       else
         format.html { render :edit }
@@ -54,9 +71,11 @@ class PedidosController < ApplicationController
   # DELETE /pedidos/1
   # DELETE /pedidos/1.json
   def destroy
+    @pedido.guia_desp_ped_cod=nil
+    @pedido.save
     @pedido.destroy
     respond_to do |format|
-      format.html { redirect_to pedidos_url, notice: 'Pedido was successfully destroyed.' }
+      format.html { redirect_to pedidos_url, notice: 'Pedido eliminado' }
       format.json { head :no_content }
     end
   end

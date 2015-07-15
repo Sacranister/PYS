@@ -5,6 +5,18 @@ class ProveedorsController < ApplicationController
   # GET /proveedors.json
   def index
     @proveedors = Proveedor.all
+        if current_user
+      if current_user.role=='admin'
+      else
+          respond_to do |format|
+            format.html { redirect_to :root, notice: 'Tu cuenta debe ser de tipo administrador.' }
+          end
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to :root, notice: 'Debes ser administrador.' }
+      end
+    end 
   end
 
   # GET /proveedors/1
@@ -28,7 +40,7 @@ class ProveedorsController < ApplicationController
 
     respond_to do |format|
       if @proveedor.save
-        format.html { redirect_to @proveedor, notice: 'Proveedor was successfully created.' }
+        format.html { redirect_to proveedors_url, notice: 'Proveedor was successfully created.' }
         format.json { render :show, status: :created, location: @proveedor }
       else
         format.html { render :new }
@@ -42,7 +54,7 @@ class ProveedorsController < ApplicationController
   def update
     respond_to do |format|
       if @proveedor.update(proveedor_params)
-        format.html { redirect_to @proveedor, notice: 'Proveedor was successfully updated.' }
+        format.html { redirect_to proveedors_url, notice: 'Proveedor was successfully updated.' }
         format.json { render :show, status: :ok, location: @proveedor }
       else
         format.html { render :edit }

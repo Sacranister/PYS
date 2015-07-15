@@ -5,6 +5,18 @@ class ClientesController < ApplicationController
   # GET /clientes.json
   def index
     @clientes = Cliente.all
+        if current_user
+      if current_user.role=='cliente'
+      else
+          respond_to do |format|
+            format.html { redirect_to :root, notice: 'Tu cuenta debe ser de tipo cliente' }
+          end
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to :root, notice: 'Debes ser cliente.' }
+      end
+    end 
   end
 
   # GET /clientes/1

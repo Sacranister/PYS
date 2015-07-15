@@ -102,7 +102,31 @@
             <% if current_user %>
                 <li><a>Bienvenido, <%=current_user.cli_nom%></a></li>
                 <li> <%= link_to 'Salir', destroy_user_session_path, method: :delete %></li>
-                <li><a href="http://localhost:3000/MiCuenta">Mi Cuenta</a></li>            
+                <%if current_user.role=='cliente'%>
+                  <li><a href="http://localhost:3000/MiCuenta">Mi Cuenta</a></li>
+                <%elsif current_user.role=='admin'%>
+              <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Administrador <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="http://localhost:3000/vendedors">Vendedores</a></li>
+                <li class="divider"></li>
+                <li><a href="http://localhost:3000/categoris">Administrar Categorias</a></li>
+                <li class="divider"></li>
+                <li><a href="http://localhost:3000/propiedads">Administrar Propiedades</a></li>
+                <li class="divider"></li>
+                <li><a href="http://localhost:3000/instancis">Administrar Articulos</a></li>
+                <li class="divider"></li>
+                <li><a href="http://localhost:3000/documento_de_compras">Documentos de compras</a></li>
+                <li class="divider"></li>
+                <li><a href="http://localhost:3000/solicitud_devolucions">Solicitudes de devolucion</a></li>
+                <li class="divider"></li>
+                <li><a href="http://localhost:3000/proveedors">Proveedores</a></li>
+                <li class="divider"></li>
+                <li><a href="http://localhost:3000/pedidos">Pedidos</a></li>
+              </ul>
+            </li>
+                <%else%>
+                <%end%>            
             <% else %>
                 <li><a href="http://localhost:3000/users/sign_up">Registrarse</a></li>
                 <li><%= link_to 'Entrar', new_user_session_path %></li>
