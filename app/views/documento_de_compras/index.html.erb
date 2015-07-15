@@ -1,5 +1,10 @@
+<style>
+.boton{
+  float:right;
+}
+</style>
 <div class="box">
-  <h1>Documento De Compras</h1>
+  <h1>Documentos De Compra</h1>
   <%if current_user
       if current_user.role=='admin' || current_user.role=='vendedor'%>
       <div class='tabla'>
@@ -54,7 +59,6 @@
           </table>
       </div>
     <br>
-    <div class="boton"><%= button_to new_documento_de_compra_path, {method: :get, class: "btn btn-primary"} do %><i class="glyphicon glyphicon-plus"></i>Agregar Documento de compra <% end %></div>
       <%elsif current_user.role=='cliente'%>
          <div class='tabla'>
                 <table class="table table-hover">
