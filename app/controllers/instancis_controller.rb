@@ -36,6 +36,7 @@ class InstancisController < ApplicationController
     if @instanci.imagens[0]!=nil
       @instanci.imagens[0].ins_cod_prov=@instanci.ins_cod_prov
     end
+    @instancias=Instanci.where(ins_cod_prov: @instanci.ins_cod_prov)
     respond_to do |format|
       if @instanci.save
         if @instanci.imagens[0]!=nil
@@ -44,7 +45,9 @@ class InstancisController < ApplicationController
           end
         end    
         @articulos=[]
-        @articulos=Articulo.where(art_nom: @instanci.articulo.art_nom)
+        @instancias.each do |i|
+          @articulos=@articulos+Articulo.where(art_nom: @instanci.articulo.art_nom, art_cod: i.art_cod)
+        end
         if(@articulos.length>1)
           @articulos.each do |articulo|
             if(articulo.art_cod!=@instanci.art_cod)
