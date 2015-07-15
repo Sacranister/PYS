@@ -29,7 +29,7 @@
 	<div id="logo2">
 			<img src="http://localhost:3000/Imagenes/logo-parte2.gif" height="59px" width="145px" alt="">
 	</div>
-  <%if current_user && current_user.role=='cliente'%>
+  <%if current_user && (current_user.role=='cliente' ||current_user.role=='vendedor')%>
   <button id='carrito' type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>  Mi carrito</button>
   <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
     <div class="modal-dialog modal-lg">
