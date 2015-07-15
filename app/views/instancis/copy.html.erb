@@ -20,36 +20,38 @@
   <% end %>
     <%= f.fields_for :articulo do |a| %>
     <div class="field">
-    <%= a.label :art_nom, "Nombre artículo" %><br>
-    <%= a.text_field :art_nom %>
+    <label>Nombre Artículo</label></br>
+    <input placeholder="<%=@instanci.articulo.art_nom%>" disabled>
+    <%= a.hidden_field :art_nom, :value=> @instanci.articulo.art_nom%>
   </div>
     <div class="field">
-    <%= a.label :cat_cod, "Categoría" %><br>
-    <%@categorias=Categori.all
-    @aux=[]
-    @aux1=[["Seleccionar",""]]
-    @categorias.each do |cat|
-      if cat.cat_cat_cod !=nil
-      @aux.push(cat.cat_nom)
-      @aux.push(cat.cat_cod)
-      @aux1.push(@aux)
-      @aux=[]
-    end
-      end%>
-    <%= a.select(:cat_cod) do %></i>
-  <% @aux1.each do |c| %>
-    <%= content_tag(:option, c.first, value: c.last) %>
-  <% end %>
-<% end %></div>
+      <label>Categoria</label></br>
+      <%@categoria=Categori.where(cat_cod: @instanci.articulo.cat_cod).take%>
+      <select disabled><option><%=@categoria.cat_nom%></option></select>
+      <%=a.hidden_field :cat_cod, :value=> @instanci.articulo.cat_cod%>
+    </div>
  <p><strong>Propiedades</strong></p> 
  <%@arrayaux=[]%>
 <div class="propiedades">
   <%= a.fields_for :art_prop_vals do |apv| %>
   <%if @arrayaux.include?(apv.object.prop_cod)==false
     @arrayaux.push(apv.object.prop_cod)
-  %>
-  <%= apv.select(:prop_cod, Propiedad.all.collect {|prop| [ prop.prop_nom, prop.prop_cod ]}, { :include_blank => "Seleccionar" })%>
-    <%= apv.select(:val_cod, Valor.all.collect {|val| [ val.val_nom, val.val_cod ]}, { :include_blank => "Seleccionar" })%></br><%end%>
+    @propiedad=Propiedad.where(prop_cod: apv.object.prop_cod).take
+    if @propiedad.prop_nom=="Talla" || @propiedad.prop_nom=="Color"%>
+  <%= apv.select(:prop_cod, Propiedad.where(prop_cod: @propiedad.prop_cod).collect {|prop| [ prop.prop_nom, prop.prop_cod ]})%>
+     <%@pvs=PropiedadValor.where(prop_cod: @propiedad.prop_cod) 
+    @valores=[]
+    @pvs.each do |pv|
+      @valores=@valores+Valor.where(val_cod: pv.val_cod)
+      end%>
+    <%= apv.select(:val_cod, @valores.collect {|val| [ val.val_nom, val.val_cod ]})%></br>
+    <%else%>
+    <select disabled><option><%=@propiedad.prop_nom%></option></select>
+    <%= apv.hidden_field :prop_cod, :value => apv.object.prop_cod%>
+    <%@valor=Valor.where(val_cod: apv.object.val_cod).take%>
+    <select disabled><option><%=@valor.val_nom%></option></select>
+    <%= apv.hidden_field :val_cod, :value => apv.object.val_cod%></br>
+    <%end%><%end%>
   <%end%></div>
 <% end %>
    <div class="field">
