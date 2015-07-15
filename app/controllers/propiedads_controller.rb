@@ -31,6 +31,7 @@ class PropiedadsController < ApplicationController
 
   # GET /propiedads/1/edit
   def edit
+    #@propiedad.propiedad_valors.build.build_valor
   end
 
   # POST /propiedads
@@ -39,6 +40,23 @@ class PropiedadsController < ApplicationController
     @propiedad = Propiedad.new(propiedad_params)
     respond_to do |format|
     if @propiedad.save
+      @propiedad.propiedad_valors.each do |pv|
+        @valores=[]
+        @valores=Valor.where(val_nom: pv.valor.val_nom)
+        if @valores.length>0
+        @valores.each do |valor|
+          if valor.val_nom==pv.valor.val_nom && valor.val_cod !=pv.val_cod
+            @valborrar=Valor.where(val_cod: pv.val_cod).take
+            @pvnuevo=PropiedadValor.new
+            @pvnuevo.prop_val_cod=pv.prop_val_cod
+            @pvnuevo.prop_cod=pv.prop_cod
+            @pvnuevo.val_cod=valor.val_cod
+            @valborrar.destroy
+            @pvnuevo.save
+            end
+          end
+        end
+      end
         format.html { redirect_to @propiedad, notice: 'Propiedad was successfully created.' }
         format.json { render :show, status: :created, location: @propiedad }
       else
@@ -53,6 +71,15 @@ class PropiedadsController < ApplicationController
   def update
     respond_to do |format|
       if @propiedad.update(propiedad_params)
+        @aux=[]
+        @propiedad.propiedad_valors.each do |pv|
+          if @aux.include?(pv.valor.val_nom)
+            @valor=Valor.where(val_cod: pv.valor.val_cod).take
+            @valor.destroy
+          else
+            @aux.push(pv.valor.val_nom)
+          end
+        end
         format.html { redirect_to @propiedad, notice: 'Propiedad was successfully updated.' }
         format.json { render :show, status: :ok, location: @propiedad }
       else

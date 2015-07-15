@@ -1,7 +1,24 @@
 <div class="box">
 <h1>Editar propiedad</h1>
 
-<%= render 'form' %>
+<%= form_for @propiedad, html: {class: "form-horizontal"} do |f| %>
+  <fieldset id="propidad">
+        <%= f.label :prop_nom, "Nombre propiedad" %> </br>
+        <%= f.text_field :prop_nom %>
+  </fieldset>
+
+  <fieldset id="propval">
+  	<p> <br/>Valores </p>
+    <ol>
+      <%= f.fields_for :propiedad_valors do |pv| %>
+        <%= render 'propiedad_valor_fields', f: pv %>
+      <% end %>
+    </ol>
+    <%= link_to_add_association 'Agregar Valor', f, :propiedad_valors, 'data-association-insertion-node' => "#propval ol", 'data-association-insertion-method' => "append", :wrap_object => Proc.new {|pv| pv.build_valor; pv } %>
+  </fieldset>
+</br>
+  <%= f.submit :value => 'Guardar', :class => 'btn btn-primary'%>
+<% end %>
 
 <%= link_to 'Show', @propiedad %> |
 <%= link_to 'Back', propiedads_path %>
