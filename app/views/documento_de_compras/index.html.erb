@@ -1,113 +1,114 @@
-<h1>Documento De Compras</h1>
-<%if current_user
-    if current_user.role=='admin' || current_user.role=='vendedor'%>
-    <div class='tabla'>
-        <table class="table table-hover">
-        <colgroup><col width="80">
-        <col width="1">
-        <col>
-        <col width="150">
-        <col width="100">
-        <col width="1">
-            </colgroup><thead>
-                <tr bgcolor="d7d7d7">
-                    <th>#</th>
-                    <th>Fecha</th>
-                    <th>Nombre Cliente</th>
-                    <th><span class="nobr">Total</span></th>
-                    <th>Estado</th>
-                    <th>Accion</th>
-                </tr>
-            </thead>
-            <tbody bgcolor='ececec'>
-                <%@compras=DocumentoDeCompra.all
-                @contador = 1
-                if @compras.present?
-                    @compras.each do |compra|%> 
-                    <tr>
-                        <td><%=@contador%></td>
-                        <td><%=compra.doc_com_fecha%></td>
-                        <%@cliente=Cliente.where(cli_cod: compra.cli_cod).take%>
-                        <td><%=@cliente.cli_nom%></td>
-                        <td><%@detalles=DetalleDocumentoDeCompra.where(doc_com_cod: compra.doc_com_cod)
-                            if @detalles.present?%>
-                             <%= number_to_currency(@detalles.sum(:det_doc_com_precio), precision:0)%>
-                            <%else%> 
-                                $0
-                            <%end%>                             
-                        </td>
-                        <td>
-                            <%@estado=EstadoDc.where(est_dc_cod: compra.est_dc_cod).take%>
-                            <%=@estado.est_dc_nom %>
-                        </td>
-                        <td><%= link_to compra do %><i class="glyphicon glyphicon-eye-open"></i>
-                        <% end %></td>
-                        <%@contador+=1%>
+<div class="box">
+  <h1>Documento De Compras</h1>
+  <%if current_user
+      if current_user.role=='admin' || current_user.role=='vendedor'%>
+      <div class='tabla'>
+          <table class="table table-hover">
+          <colgroup><col width="80">
+          <col width="1">
+          <col>
+          <col width="150">
+          <col width="100">
+          <col width="1">
+              </colgroup><thead>
+                  <tr bgcolor="d7d7d7">
+                      <th>#</th>
+                      <th>Fecha</th>
+                      <th>Nombre Cliente</th>
+                      <th><span class="nobr">Total</span></th>
+                      <th>Estado</th>
+                      <th>Accion</th>
                   </tr>
-                    <% end %>
+              </thead>
+              <tbody bgcolor='ececec'>
+                  <%@compras=DocumentoDeCompra.all
+                  @contador = 1
+                  if @compras.present?
+                      @compras.each do |compra|%> 
+                      <tr>
+                          <td><%=@contador%></td>
+                          <td><%=compra.doc_com_fecha%></td>
+                          <%@cliente=Cliente.where(cli_cod: compra.cli_cod).take%>
+                          <td><%=@cliente.cli_nom%></td>
+                          <td><%@detalles=DetalleDocumentoDeCompra.where(doc_com_cod: compra.doc_com_cod)
+                              if @detalles.present?%>
+                               <%= number_to_currency(@detalles.sum(:det_doc_com_precio), precision:0)%>
+                              <%else%> 
+                                  $0
+                              <%end%>                             
+                          </td>
+                          <td>
+                              <%@estado=EstadoDc.where(est_dc_cod: compra.est_dc_cod).take%>
+                              <%=@estado.est_dc_nom %>
+                          </td>
+                          <td><%= link_to compra do %><i class="glyphicon glyphicon-eye-open"></i>
+                          <% end %></td>
+                          <%@contador+=1%>
+                    </tr>
+                      <% end %>
 
-                <%else%> 
-                    <td>Ninguna</td>
-                <%end%>
-          </tbody>
-        </table>
-    </div>
-  <br>
+                  <%else%> 
+                      <td>Ninguna</td>
+                  <%end%>
+            </tbody>
+          </table>
+      </div>
+    <br>
+    <div class="boton"><%= button_to new_documento_de_compra_path, {method: :get, class: "btn btn-primary"} do %><i class="glyphicon glyphicon-plus"></i>Agregar Documento de compra <% end %></div>
+      <%elsif current_user.role=='cliente'%>
+         <div class='tabla'>
+                <table class="table table-hover">
+                <colgroup><col width="80">
+                <col width="1">
+                <col>
+                <col width="150">
+                <col width="100">
+                <col width="1">
+                    </colgroup><thead>
+                        <tr bgcolor="d7d7d7">
+                            <th>#</th>
+                            <th>Fecha</th>
+                            <th>Nombre</th>
+                            <th><span class="nobr">Total</span></th>
+                            <th>Estado</th>
+                            <th>Accion</th>
+                        </tr>
+                    </thead>
+                    <tbody bgcolor='ececec'>
+                        <%@client=Cliente.where(cli_mail: current_user.email).take
+                        @compras=DocumentoDeCompra.where(cli_cod: @client.cli_cod)
+                        @contador = 1
+                        if @compras.present?
+                            @compras.each do |compra|%>
+                            <tr> 
+                                <td><%=@contador%></td>
+                                <td><%=compra.doc_com_fecha%></td>
+                                <td><%=current_user.cli_nom%></td>
+                                <td><%@detalles=DetalleDocumentoDeCompra.where(doc_com_cod: compra.doc_com_cod)
+                                    if @detalles.present?%>
+                                     <%= number_to_currency(@detalles.sum(:det_doc_com_precio), precision:0)%>
+                                    <%else%> 
+                                        $0
+                                    <%end%>                             
+                                </td>
+                                <td>
+                                    <%@estado=EstadoDc.where(est_dc_cod: compra.est_dc_cod).take%>
+                                    <%=@estado.est_dc_nom %>
+                                </td>
+                                <td><%= link_to compra do %><i class="glyphicon glyphicon-eye-open"></i>
+                                <% end %></td>
+                                </tr>
+                                <%@contador+=1%>
+                            <% end %>
 
-  <%= link_to 'New Documento de compra', new_documento_de_compra_path %>
-    <%elsif current_user.role=='cliente'%>
-       <div class='tabla'>
-              <table class="table table-hover">
-              <colgroup><col width="80">
-              <col width="1">
-              <col>
-              <col width="150">
-              <col width="100">
-              <col width="1">
-                  </colgroup><thead>
-                      <tr bgcolor="d7d7d7">
-                          <th>#</th>
-                          <th>Fecha</th>
-                          <th>Nombre</th>
-                          <th><span class="nobr">Total</span></th>
-                          <th>Estado</th>
-                          <th>Accion</th>
-                      </tr>
-                  </thead>
-                  <tbody bgcolor='ececec'>
-                      <%@client=Cliente.where(cli_mail: current_user.email).take
-                      @compras=DocumentoDeCompra.where(cli_cod: @client.cli_cod)
-                      @contador = 1
-                      if @compras.present?
-                          @compras.each do |compra|%>
-                          <tr> 
-                              <td><%=@contador%></td>
-                              <td><%=compra.doc_com_fecha%></td>
-                              <td><%=current_user.cli_nom%></td>
-                              <td><%@detalles=DetalleDocumentoDeCompra.where(doc_com_cod: compra.doc_com_cod)
-                                  if @detalles.present?%>
-                                   <%= number_to_currency(@detalles.sum(:det_doc_com_precio), precision:0)%>
-                                  <%else%> 
-                                      $0
-                                  <%end%>                             
-                              </td>
-                              <td>
-                                  <%@estado=EstadoDc.where(est_dc_cod: compra.est_dc_cod).take%>
-                                  <%=@estado.est_dc_nom %>
-                              </td>
-                              <td><%= link_to compra do %><i class="glyphicon glyphicon-eye-open"></i>
-                              <% end %></td>
-                              </tr>
-                              <%@contador+=1%>
-                          <% end %>
+                        <%else%> 
+                            <td>Ninguna</td>
+                        <%end%>
+                  </tbody>
+                </table>
+            
 
-                      <%else%> 
-                          <td>Ninguna</td>
-                      <%end%>
-                </tbody>
-              </table>
-          
-
-    
-    <%end%>
-<%end%>
+      
+      <%end%>
+  <%end%>
+</div>

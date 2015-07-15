@@ -56,10 +56,10 @@
         <td><%= number_with_delimiter(instanci.ins_precio_lista, :delimiter => '.') %></td>
         <%@estado=EstadoArticulo.where(est_art_cod: instanci.est_art_cod).take%>
         <td><%= @estado.est_art_nom %></td>
-        <td><%= link_to 'Show', instanci %></td>
+        <td><%= link_to 'Ver', instanci %></td>
         <td>imagen</td>
-        <td><%= link_to 'Edit', edit_instanci_path(instanci) %></td>
-        <td><%= link_to 'Destroy', instanci, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Editar', edit_instanci_path(instanci) %></td>
+        <td><%= link_to 'Eliminar', instanci, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
