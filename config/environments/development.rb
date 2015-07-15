@@ -6,11 +6,32 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
+
+
+
+
+
+
+  ## CAMBIAR A FALSE PARA TIRAR LAS PAG DE ERROR
+  config.consider_all_requests_local = true
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   # Do not eager load code on boot.
   config.eager_load = false
 
   # Show full error reports and disable caching.
-  config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
     config.action_mailer.default_url_options = { :host => 'localhost:3000' }
     config.action_mailer.delivery_method = :smtp
