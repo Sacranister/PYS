@@ -35,7 +35,7 @@
                         <td><%= link_to devolucion do %><i class="glyphicon glyphicon-eye-open"></i>
                         <% end %>
                         <%if devolucion.sol_dev_est=='Pendiente'%>
-                        <%= link_to edit_categori_path(devolucion) do %><i class="glyphicon glyphicon-pencil"></i><% end %>
+                        <%= link_to edit_solicitud_devolucion_path(devolucion) do %><i class="glyphicon glyphicon-pencil"></i><% end %>
 
                         <%end%></td>
                         <%@contador+=1%>
@@ -44,6 +44,11 @@
 
                 <%else%> 
                     <td>Ninguna</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                 <%end%>
           </tbody>
         </table>
@@ -90,6 +95,11 @@
 
                       <%else%> 
                           <td>Ninguna</td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
                       <%end%>
                 </tbody>
               </table>

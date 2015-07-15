@@ -1,0 +1,12 @@
+<%= form_for @soldev , :url =>{:controller => 'solicitud_devolucions',:action => 'paso2'},:method=> :post do |f| %>
+  <% if @soldev.errors.any? %>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :doc_com_cod %><br>
+    <%= f.number_field :doc_com_cod %>
+  </div>
+  <div class="actions">
+    <%= f.submit :value => 'Paso 2', :class => 'btn btn-primary'%>
+  </div>
+<% end %>

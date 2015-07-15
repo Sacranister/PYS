@@ -1,0 +1,76 @@
+<div class='box'>        
+          <h2>Detalle Documento</h2>
+        <div class='tabla'>
+             
+          <table class="table table-hover">
+            <colgroup><col width="80">
+          <col width="180">
+          <col width="1">
+          <col width="150">
+          <col width="100">
+          <col width="1">
+              </colgroup>
+              <thead>
+                  <tr bgcolor="d7d7d7">
+                      <th>Linea</th>
+                      <th>Articulo</th>
+                      <th>Cantidad</th>
+                      <th>agregar</th>
+                   </tr>
+              </thead>
+              <tbody bgcolor='ececec'>
+                 <%if @det.present?
+                  @contador=1
+                  @det.each do |linea|%>
+                  <tr>
+                  <td><%=@contador %></td>
+                  <%@instancia=Instanci.where(ins_cod: linea.ins_cod).take
+                    @articulo=Articulo.where(art_cod: @instancia.art_cod).take
+                  %>
+                  <td><%=@articulo.art_nom%></td>
+                  <%@cantidad=@detsol.where(ins_cod: @instancia.ins_cod).take
+                  if @cantidad.blank? %>
+                  	<td><%=linea.det_doc_com_cant%></td>
+                  	<td><%= button_to :controller => :solicitud_devolucions,:action => 'agregarlinea',:val =>  linea.ins_cod , :method => :post do%>
+              		<span class="glyphicon glyphicon-asterisk"></span><% end %></td>
+                  	<%else%>
+                  	<%@ca=linea.det_doc_com_cant-@cantidad.det_sol_dev_cant%>
+                  	<td><%=@ca%></td>
+                  	 <td><%if @ca>0%><%= button_to :controller => :solicitud_devolucions,:action => 'agregarlinea',:val =>  linea.ins_cod , :method => :post do%>
+              		<span class="glyphicon glyphicon-asterisk"></span><% end %><% end %></td>
+                  	<%end%>
+
+                    <%@contador+=1
+                    end%>
+
+                    <%else%>
+                        <td>No existe detalle</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    <% end %>
+            
+            </tbody>
+          
+          </table>
+
+        </div>
+<%= form_for @soldev1 , :url =>{:controller => 'solicitud_devolucions',:action => 'terminarcreacion'},:method=> :post do |f| %>
+
+
+  <div class="field">
+    <%= f.label 'Agrega un comentario' %><br>
+    <%= f.text_field :sol_dev_comentario %>
+  </div>
+  <div class="field">
+    <%= f.date_select :sol_dev_fecha, { :discard_day => true, :discard_month => true, :discard_year => true }	%>
+  </div>
+  <div class="actions">
+    <%= f.submit :value => 'Terminar', :class => 'btn btn-primary'%>
+  </div>
+<%end%>
+<%if @soldev1.present?%>
+<%= link_to @soldev1 , method: :delete, data: { confirm: '¿Está seguro?' } do %><div class="btn btn-primary">Descartar Solicitud</div>
+ <% end %><% end %>
+</div>
