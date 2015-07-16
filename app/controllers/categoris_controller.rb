@@ -59,7 +59,7 @@ def buscarart(cat_id)
   # POST /categoris.json
   def create
     @categori = Categori.new(categori_params)
-
+    @categori.cat_nom=@categori.cat_nom.capitalize
     respond_to do |format|
       if @categori.save
         format.html { redirect_to @categori, notice: 'La categoría se creo correctamente' }

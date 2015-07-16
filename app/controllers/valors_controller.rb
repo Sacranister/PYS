@@ -25,7 +25,6 @@ class ValorsController < ApplicationController
   # POST /valors.json
   def create
     @valor = Valor.new(valor_params)
-
     respond_to do |format|
       if @valor.save
         format.html { redirect_to @valor, notice: 'Valor was successfully created.' }
