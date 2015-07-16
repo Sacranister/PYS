@@ -100,7 +100,7 @@
             </thead>
             <tbody>
                 <%@client=Cliente.where(cli_mail: current_user.email).take
-                @compras=DocumentoDeCompra.where(cli_cod: @client.cli_cod).limit(3)
+                @compras=DocumentoDeCompra.where("cli_cod= ? AND est_dc_cod>?", @client.cli_cod,1).limit(3)
                 @contador = 1
                 if @compras.present?
                     @compras.each do |compra|%>

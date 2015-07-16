@@ -28,7 +28,7 @@
                   <tbody bgcolor='ececec'>
                       <%@client=Cliente.where(cli_mail: current_user.email).take
                       @comprass=DocumentoDeCompra.where(cli_cod: @client.cli_cod)
-                      @compras=@comprass.where('est_dc_cod > 1')
+                      @compras=@comprass.where('est_dc_cod = 5')
                       @contador = 1
                       if @compras.present?
                           @compras.each do |compra|%>
@@ -54,7 +54,8 @@
                           <% end %>
 
                       <%else%> 
-                          <td>Ninguna</td>
+                          <td>No hay compras entregadas</td>
+                          <td colspan="5"></td>
                       <%end%>
                 </tbody>
               </table></div>
