@@ -30676,3 +30676,1691 @@ Started GET "/assets/cocoon.self-05633fd25797688a657c08b26b8d4217031ee589f5ca76f
 
 
 Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2015-07-16 01:55:32 -0400
+
+
+Started GET "/solicitud_devolucions" for 127.0.0.1 at 2015-07-16 02:00:53 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SolicitudDevolucionsController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mSolicitudDevolucion Load (86.5ms)[0m  [1mSELECT "solicitud_devolucions".* FROM "solicitud_devolucions"[0m
+  Rendered solicitud_devolucions/index.html.erb within layouts/application (190.8ms)
+  [1m[35mCategori Load (0.9ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.5ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.5ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.4ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.4ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 1259ms (Views: 1021.5ms | ActiveRecord: 122.6ms)
+
+
+Started GET "/assets/art_prop_vals.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/art_props.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/categoris.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/auditoris.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/clientes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/articulos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/contacto.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/detalle_documento_de_compras.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/documento_de_cobros.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/detalle_pedidos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/detalle_sol_devolucions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/direccions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/documento_de_compras.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/errors.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/estado_articulos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/estado_dcs.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/estado_pedidos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/guia_despacho_compras.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/historial_estado_dcs.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/guia_despacho_pedidos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/historial_estado_pedidos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/imagens.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/ins_apvs.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/instancis.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/nota_creditos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/pedidos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/politicas.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/preguntas_frecuentes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/principal.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/propiedad_valors.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/propiedads.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/proveedors.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/quien_somos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/solicitud_devolucions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/scaffolds.self-6f1aa578b5454d47cb866312dc7fc99849efcd89f08e67b43a6d719d886410cf.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/transicion_estado_arts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/transicion_estado_dcs.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/transicion_estado_pedidos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/valors.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/vendedors.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/art_prop_vals.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/art_props.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/articulos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/auditoris.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/categoris.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/clientes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/contacto.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/detalle_documento_de_compras.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/detalle_pedidos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/detalle_sol_devolucions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/direccions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/documento_de_cobros.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/documento_de_compras.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/errors.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/estado_articulos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/estado_dcs.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/estado_pedidos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/guia_despacho_compras.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/guia_despacho_pedidos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/historial_estado_dcs.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/historial_estado_pedidos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/imagens.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/ins_apvs.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/instancis.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/nota_creditos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/pedidos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/politicas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/preguntas_frecuentes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/principal.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/propiedad_valors.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/propiedads.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/proveedors.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/quien_somos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/solicitud_devolucions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/transicion_estado_arts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:55 -0400
+
+
+Started GET "/assets/transicion_estado_dcs.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:56 -0400
+
+
+Started GET "/assets/transicion_estado_pedidos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:56 -0400
+
+
+Started GET "/assets/valors.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:56 -0400
+
+
+Started GET "/assets/vendedors.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:56 -0400
+
+
+Started GET "/assets/cocoon.self-05633fd25797688a657c08b26b8d4217031ee589f5ca76f0a57c11ac7d0e76ec.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:56 -0400
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2015-07-16 02:00:56 -0400
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2015-07-16 02:03:52 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"vtg3LxwiX2QdwQ58gI+wHCpfvE8md+ZQNjRUMptc7dba5o3YerPex4OTcUgoeKu8JQcInVAN+wzOzChWVLDDAw=="}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 249ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-16 02:03:53 -0400
+Processing by PrincipalController#index as HTML
+  Rendered principal/index.html.erb within layouts/application (5.0ms)
+  [1m[36mCategori Load (0.7ms)[0m  [1mSELECT "categoris".* FROM "categoris"[0m
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 2]]
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 7]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 18]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 15]]
+Completed 200 OK in 476ms (Views: 473.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-07-16 02:03:58 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered users/shared/_links.html.erb (2.4ms)
+  Rendered users/registrations/new.html.erb within layouts/application (85.3ms)
+  [1m[36mCategori Load (0.7ms)[0m  [1mSELECT "categoris".* FROM "categoris"[0m
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 2]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 7]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 18]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (0.4ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 15]]
+Completed 200 OK in 520ms (Views: 516.3ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-07-16 02:04:01 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered users/shared/_links.html.erb (0.7ms)
+  Rendered users/sessions/new.html.erb within layouts/application (54.9ms)
+  [1m[36mCategori Load (0.6ms)[0m  [1mSELECT "categoris".* FROM "categoris"[0m
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 2]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 7]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 18]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 15]]
+Completed 200 OK in 500ms (Views: 496.3ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2015-07-16 02:04:10 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"t0Xn0svhnAgSgiprKnt/basGGqxHZegLQ2J9FbEMkdti2jSVgXipCXIgkLII+ECP/2UkMfX0WSIYyCEoWDKBOw==", "user"=>{"email"=>"camila.marin.g@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Entrar"}
+  [1m[36mUser Load (188.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "camila.marin.g@gmail.com"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (67.1ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = 3[0m  [["last_sign_in_at", "2015-07-15 22:56:11.202753"], ["current_sign_in_at", "2015-07-16 06:04:11.366014"], ["sign_in_count", 4], ["updated_at", "2015-07-16 06:04:11.367688"]]
+  [1m[35m (18.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 617ms (ActiveRecord: 273.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-16 02:04:11 -0400
+Processing by PrincipalController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mCliente Load (1.4ms)[0m  SELECT "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1  [["cli_mail", "camila.marin.g@gmail.com"]]
+  Rendered principal/index.html.erb within layouts/application (45.7ms)
+  [1m[36mCliente Load (0.5ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1[0m  [["cli_mail", "camila.marin.g@gmail.com"]]
+  [1m[35mDocumentoDeCompra Load (0.8ms)[0m  SELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."cli_cod" = $1 AND "documento_de_compras"."est_dc_cod" = $2 LIMIT 1  [["cli_cod", 2], ["est_dc_cod", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1[0m  [["cli_mail", "camila.marin.g@gmail.com"]]
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (84.7ms)[0m  [1mINSERT INTO "documento_de_cobros" DEFAULT VALUES RETURNING "doc_cob_cod"[0m
+  [1m[35m (21.7ms)[0m  COMMIT
+  [1m[36mDetalleDocumentoDeCompra Load (1.3ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" IS NULL[0m
+  Rendered documento_de_compras/_micarrito.html.erb (182.9ms)
+  [1m[35mCategori Load (0.6ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.4ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.4ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 712ms (Views: 590.7ms | ActiveRecord: 119.6ms)
+
+
+Started GET "/categoris/2" for 127.0.0.1 at 2015-07-16 02:04:25 -0400
+Processing by CategorisController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCategori Load (0.6ms)[0m  SELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1  [["cat_cod", 2]]
+  [1m[36mArticulo Load (14.1ms)[0m  [1mSELECT "articulos".* FROM "articulos" WHERE "articulos"."cat_cod" = $1[0m  [["cat_cod", 2]]
+  [1m[35mImagen Load (15.8ms)[0m  SELECT "imagens".* FROM "imagens" WHERE (LENGTH(imagen_uri) > 0)
+  [1m[36mInstanci Load (18.5ms)[0m  [1mSELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2[0m  [["ins_cod_prov", "41562738"], ["art_cod", 7]]
+  [1m[35mCategori Load (0.4ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 2]]
+  [1m[36mArticulo Load (0.5ms)[0m  [1mSELECT "articulos".* FROM "articulos" WHERE "articulos"."cat_cod" = $1[0m  [["cat_cod", 7]]
+  [1m[35mInstanci Load (0.5ms)[0m  SELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2  [["ins_cod_prov", "41562738"], ["art_cod", 4]]
+  [1m[36mCategori Load (0.4ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 7]]
+  [1m[35mArticulo Load (0.4ms)[0m  SELECT "articulos".* FROM "articulos" WHERE "articulos"."cat_cod" = $1  [["cat_cod", 18]]
+  [1m[36mInstanci Load (0.4ms)[0m  [1mSELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2[0m  [["ins_cod_prov", "41562738"], ["art_cod", 5]]
+  [1m[35mInstanci Load (0.5ms)[0m  SELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2  [["ins_cod_prov", "41562738"], ["art_cod", 1]]
+  [1m[36mInstanci Load (0.4ms)[0m  [1mSELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2[0m  [["ins_cod_prov", "41562738"], ["art_cod", 2]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 18]]
+  [1m[36mImagen Load (0.5ms)[0m  [1mSELECT  "imagens"."imagen_uri" FROM "imagens" WHERE "imagens"."ins_cod_prov" = $1 LIMIT 1[0m  [["ins_cod_prov", "41562738"]]
+  [1m[35mArticulo Load (0.4ms)[0m  SELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1  [["art_cod", 7]]
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mPropiedad Load (37.9ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1  [["prop_nom", "Color"]]
+  [1m[36mPropiedadValor Load (0.9ms)[0m  [1mSELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1[0m  [["prop_cod", 1]]
+  [1m[35mValor Load (13.6ms)[0m  SELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1  [["val_cod", 1]]
+  [1m[36mPropiedad Load (0.5ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1[0m  [["prop_nom", "Material"]]
+  [1m[35mPropiedadValor Load (0.4ms)[0m  SELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1  [["prop_cod", 4]]
+  [1m[36mValor Load (0.3ms)[0m  [1mSELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1[0m  [["val_cod", 4]]
+  [1m[35mPropiedad Load (0.4ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1  [["prop_nom", "Marca"]]
+  [1m[36mPropiedadValor Load (0.3ms)[0m  [1mSELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1[0m  [["prop_cod", 7]]
+  [1m[35mValor Load (0.4ms)[0m  SELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1  [["val_cod", 7]]
+  Rendered categoris/show.html.erb within layouts/application (932.9ms)
+  [1m[36mCliente Load (0.6ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1[0m  [["cli_mail", "camila.marin.g@gmail.com"]]
+  [1m[35mDocumentoDeCompra Load (0.6ms)[0m  SELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."cli_cod" = $1 AND "documento_de_compras"."est_dc_cod" = $2 LIMIT 1  [["cli_cod", 2], ["est_dc_cod", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1[0m  [["cli_mail", "camila.marin.g@gmail.com"]]
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "documento_de_cobros" DEFAULT VALUES RETURNING "doc_cob_cod"[0m
+  [1m[35m (446.6ms)[0m  COMMIT
+  [1m[36mDetalleDocumentoDeCompra Load (4.4ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" IS NULL[0m
+  Rendered documento_de_compras/_micarrito.html.erb (463.1ms)
+  [1m[35mCategori Load (0.6ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.4ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.4ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 2618ms (Views: 1969.1ms | ActiveRecord: 574.9ms)
+
+
+Started GET "/categoris/7" for 127.0.0.1 at 2015-07-16 02:04:27 -0400
+Processing by CategorisController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mCategori Load (0.5ms)[0m  SELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1  [["cat_cod", 7]]
+  [1m[36mArticulo Load (0.5ms)[0m  [1mSELECT "articulos".* FROM "articulos" WHERE "articulos"."cat_cod" = $1[0m  [["cat_cod", 7]]
+  [1m[35mImagen Load (0.5ms)[0m  SELECT "imagens".* FROM "imagens" WHERE (LENGTH(imagen_uri) > 0)
+  [1m[36mInstanci Load (0.5ms)[0m  [1mSELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2[0m  [["ins_cod_prov", "41562738"], ["art_cod", 4]]
+  [1m[35mCategori Load (0.4ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mPropiedad Load (0.5ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1[0m  [["prop_nom", "Color"]]
+  [1m[35mPropiedadValor Load (0.4ms)[0m  SELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1  [["prop_cod", 1]]
+  [1m[36mValor Load (0.4ms)[0m  [1mSELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1[0m  [["val_cod", 1]]
+  [1m[35mPropiedad Load (0.2ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1  [["prop_nom", "Material"]]
+  [1m[36mPropiedadValor Load (0.4ms)[0m  [1mSELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1[0m  [["prop_cod", 4]]
+  [1m[35mValor Load (0.3ms)[0m  SELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1  [["val_cod", 4]]
+  [1m[36mPropiedad Load (0.2ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1[0m  [["prop_nom", "Marca"]]
+  [1m[35mPropiedadValor Load (0.3ms)[0m  SELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1  [["prop_cod", 7]]
+  [1m[36mValor Load (0.3ms)[0m  [1mSELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1[0m  [["val_cod", 7]]
+  Rendered categoris/show.html.erb within layouts/application (12.5ms)
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mCliente Load (0.3ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1[0m  [["cli_mail", "camila.marin.g@gmail.com"]]
+  [1m[35mDocumentoDeCompra Load (0.6ms)[0m  SELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."cli_cod" = $1 AND "documento_de_compras"."est_dc_cod" = $2 LIMIT 1  [["cli_cod", 2], ["est_dc_cod", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1[0m  [["cli_mail", "camila.marin.g@gmail.com"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "documento_de_cobros" DEFAULT VALUES RETURNING "doc_cob_cod"[0m
+  [1m[35m (17.5ms)[0m  COMMIT
+  [1m[36mDetalleDocumentoDeCompra Load (0.8ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" IS NULL[0m
+  Rendered documento_de_compras/_micarrito.html.erb (25.9ms)
+  [1m[35mCategori Load (0.4ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 618ms (Views: 583.2ms | ActiveRecord: 27.3ms)
+
+
+Started GET "/categoris/18" for 127.0.0.1 at 2015-07-16 02:04:31 -0400
+Processing by CategorisController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[35mCategori Load (0.4ms)[0m  SELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1  [["cat_cod", 18]]
+  [1m[36mArticulo Load (0.5ms)[0m  [1mSELECT "articulos".* FROM "articulos" WHERE "articulos"."cat_cod" = $1[0m  [["cat_cod", 18]]
+  [1m[35mImagen Load (0.6ms)[0m  SELECT "imagens".* FROM "imagens" WHERE (LENGTH(imagen_uri) > 0)
+  [1m[36mInstanci Load (0.4ms)[0m  [1mSELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2[0m  [["ins_cod_prov", "41562738"], ["art_cod", 5]]
+  [1m[35mInstanci Load (0.4ms)[0m  SELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2  [["ins_cod_prov", "41562738"], ["art_cod", 1]]
+  [1m[36mInstanci Load (0.2ms)[0m  [1mSELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2[0m  [["ins_cod_prov", "41562738"], ["art_cod", 2]]
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 18]]
+  [1m[36mPropiedad Load (0.3ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1[0m  [["prop_nom", "Color"]]
+  [1m[35mPropiedadValor Load (0.2ms)[0m  SELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1  [["prop_cod", 1]]
+  [1m[36mValor Load (0.2ms)[0m  [1mSELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1[0m  [["val_cod", 1]]
+  [1m[35mPropiedad Load (0.1ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1  [["prop_nom", "Material"]]
+  [1m[36mPropiedadValor Load (0.1ms)[0m  [1mSELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1[0m  [["prop_cod", 4]]
+  [1m[35mValor Load (0.2ms)[0m  SELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1  [["val_cod", 4]]
+  [1m[36mPropiedad Load (0.3ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1[0m  [["prop_nom", "Marca"]]
+  [1m[35mPropiedadValor Load (0.3ms)[0m  SELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1  [["prop_cod", 7]]
+  [1m[36mValor Load (0.2ms)[0m  [1mSELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1[0m  [["val_cod", 7]]
+  Rendered categoris/show.html.erb within layouts/application (10.6ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mCliente Load (0.4ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1[0m  [["cli_mail", "camila.marin.g@gmail.com"]]
+  [1m[35mDocumentoDeCompra Load (0.5ms)[0m  SELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."cli_cod" = $1 AND "documento_de_compras"."est_dc_cod" = $2 LIMIT 1  [["cli_cod", 2], ["est_dc_cod", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1[0m  [["cli_mail", "camila.marin.g@gmail.com"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "documento_de_cobros" DEFAULT VALUES RETURNING "doc_cob_cod"[0m
+  [1m[35m (20.1ms)[0m  COMMIT
+  [1m[36mDetalleDocumentoDeCompra Load (0.5ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" IS NULL[0m
+  Rendered documento_de_compras/_micarrito.html.erb (28.4ms)
+  [1m[35mCategori Load (0.4ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 532ms (Views: 493.2ms | ActiveRecord: 28.8ms)
+
+
+Started GET "/categoris/15" for 127.0.0.1 at 2015-07-16 02:04:35 -0400
+Processing by CategorisController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mCategori Load (0.5ms)[0m  SELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1  [["cat_cod", 15]]
+  [1m[36mArticulo Load (0.4ms)[0m  [1mSELECT "articulos".* FROM "articulos" WHERE "articulos"."cat_cod" = $1[0m  [["cat_cod", 15]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 15]]
+  [1m[36mPropiedad Load (0.3ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1[0m  [["prop_nom", "Color"]]
+  [1m[35mPropiedadValor Load (0.3ms)[0m  SELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1  [["prop_cod", 1]]
+  [1m[36mValor Load (0.3ms)[0m  [1mSELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1[0m  [["val_cod", 1]]
+  [1m[35mPropiedad Load (0.3ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1  [["prop_nom", "Material"]]
+  [1m[36mPropiedadValor Load (0.3ms)[0m  [1mSELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1[0m  [["prop_cod", 4]]
+  [1m[35mValor Load (0.3ms)[0m  SELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1  [["val_cod", 4]]
+  [1m[36mPropiedad Load (0.3ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1[0m  [["prop_nom", "Marca"]]
+  [1m[35mPropiedadValor Load (0.3ms)[0m  SELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1  [["prop_cod", 7]]
+  [1m[36mValor Load (0.3ms)[0m  [1mSELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1[0m  [["val_cod", 7]]
+  Rendered categoris/show.html.erb within layouts/application (12.1ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mCliente Load (0.4ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1[0m  [["cli_mail", "camila.marin.g@gmail.com"]]
+  [1m[35mDocumentoDeCompra Load (0.5ms)[0m  SELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."cli_cod" = $1 AND "documento_de_compras"."est_dc_cod" = $2 LIMIT 1  [["cli_cod", 2], ["est_dc_cod", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1[0m  [["cli_mail", "camila.marin.g@gmail.com"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "documento_de_cobros" DEFAULT VALUES RETURNING "doc_cob_cod"[0m
+  [1m[35m (17.3ms)[0m  COMMIT
+  [1m[36mDetalleDocumentoDeCompra Load (0.5ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" IS NULL[0m
+  Rendered documento_de_compras/_micarrito.html.erb (26.9ms)
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 527ms (Views: 497.9ms | ActiveRecord: 25.1ms)
+
+
+Started GET "/categoris/9" for 127.0.0.1 at 2015-07-16 02:04:39 -0400
+Processing by CategorisController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mCategori Load (0.4ms)[0m  SELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1  [["cat_cod", 9]]
+  [1m[36mArticulo Load (0.4ms)[0m  [1mSELECT "articulos".* FROM "articulos" WHERE "articulos"."cat_cod" = $1[0m  [["cat_cod", 9]]
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mPropiedad Load (0.2ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1[0m  [["prop_nom", "Color"]]
+  [1m[35mPropiedadValor Load (0.3ms)[0m  SELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1  [["prop_cod", 1]]
+  [1m[36mValor Load (0.2ms)[0m  [1mSELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1[0m  [["val_cod", 1]]
+  [1m[35mPropiedad Load (0.2ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1  [["prop_nom", "Material"]]
+  [1m[36mPropiedadValor Load (0.1ms)[0m  [1mSELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1[0m  [["prop_cod", 4]]
+  [1m[35mValor Load (0.2ms)[0m  SELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1  [["val_cod", 4]]
+  [1m[36mPropiedad Load (0.2ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1[0m  [["prop_nom", "Marca"]]
+  [1m[35mPropiedadValor Load (0.2ms)[0m  SELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1  [["prop_cod", 7]]
+  [1m[36mValor Load (0.3ms)[0m  [1mSELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1[0m  [["val_cod", 7]]
+  Rendered categoris/show.html.erb within layouts/application (8.9ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mCliente Load (0.4ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1[0m  [["cli_mail", "camila.marin.g@gmail.com"]]
+  [1m[35mDocumentoDeCompra Load (0.4ms)[0m  SELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."cli_cod" = $1 AND "documento_de_compras"."est_dc_cod" = $2 LIMIT 1  [["cli_cod", 2], ["est_dc_cod", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1[0m  [["cli_mail", "camila.marin.g@gmail.com"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "documento_de_cobros" DEFAULT VALUES RETURNING "doc_cob_cod"[0m
+  [1m[35m (23.3ms)[0m  COMMIT
+  [1m[36mDetalleDocumentoDeCompra Load (0.6ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" IS NULL[0m
+  Rendered documento_de_compras/_micarrito.html.erb (32.6ms)
+  [1m[35mCategori Load (0.6ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 535ms (Views: 500.0ms | ActiveRecord: 30.9ms)
+
+
+Started GET "/categoris/2" for 127.0.0.1 at 2015-07-16 02:04:41 -0400
+Processing by CategorisController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCategori Load (0.4ms)[0m  SELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1  [["cat_cod", 2]]
+  [1m[36mArticulo Load (0.4ms)[0m  [1mSELECT "articulos".* FROM "articulos" WHERE "articulos"."cat_cod" = $1[0m  [["cat_cod", 2]]
+  [1m[35mImagen Load (0.6ms)[0m  SELECT "imagens".* FROM "imagens" WHERE (LENGTH(imagen_uri) > 0)
+  [1m[36mInstanci Load (0.2ms)[0m  [1mSELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2[0m  [["ins_cod_prov", "41562738"], ["art_cod", 7]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 2]]
+  [1m[36mArticulo Load (0.2ms)[0m  [1mSELECT "articulos".* FROM "articulos" WHERE "articulos"."cat_cod" = $1[0m  [["cat_cod", 7]]
+  [1m[35mInstanci Load (0.2ms)[0m  SELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2  [["ins_cod_prov", "41562738"], ["art_cod", 4]]
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 7]]
+  [1m[35mArticulo Load (0.2ms)[0m  SELECT "articulos".* FROM "articulos" WHERE "articulos"."cat_cod" = $1  [["cat_cod", 18]]
+  [1m[36mInstanci Load (0.2ms)[0m  [1mSELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2[0m  [["ins_cod_prov", "41562738"], ["art_cod", 5]]
+  [1m[35mInstanci Load (0.2ms)[0m  SELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2  [["ins_cod_prov", "41562738"], ["art_cod", 1]]
+  [1m[36mInstanci Load (0.2ms)[0m  [1mSELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2[0m  [["ins_cod_prov", "41562738"], ["art_cod", 2]]
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 18]]
+  [1m[36mImagen Load (0.5ms)[0m  [1mSELECT  "imagens"."imagen_uri" FROM "imagens" WHERE "imagens"."ins_cod_prov" = $1 LIMIT 1[0m  [["ins_cod_prov", "41562738"]]
+  [1m[35mArticulo Load (0.5ms)[0m  SELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1  [["art_cod", 7]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mPropiedad Load (0.4ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1  [["prop_nom", "Color"]]
+  [1m[36mPropiedadValor Load (0.3ms)[0m  [1mSELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1[0m  [["prop_cod", 1]]
+  [1m[35mValor Load (0.3ms)[0m  SELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1  [["val_cod", 1]]
+  [1m[36mPropiedad Load (0.4ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1[0m  [["prop_nom", "Material"]]
+  [1m[35mPropiedadValor Load (0.4ms)[0m  SELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1  [["prop_cod", 4]]
+  [1m[36mValor Load (0.3ms)[0m  [1mSELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1[0m  [["val_cod", 4]]
+  [1m[35mPropiedad Load (0.3ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1  [["prop_nom", "Marca"]]
+  [1m[36mPropiedadValor Load (0.3ms)[0m  [1mSELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1[0m  [["prop_cod", 7]]
+  [1m[35mValor Load (0.3ms)[0m  SELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1  [["val_cod", 7]]
+  Rendered categoris/show.html.erb within layouts/application (15.8ms)
+  [1m[36mCliente Load (0.5ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1[0m  [["cli_mail", "camila.marin.g@gmail.com"]]
+  [1m[35mDocumentoDeCompra Load (0.4ms)[0m  SELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."cli_cod" = $1 AND "documento_de_compras"."est_dc_cod" = $2 LIMIT 1  [["cli_cod", 2], ["est_dc_cod", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1[0m  [["cli_mail", "camila.marin.g@gmail.com"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "documento_de_cobros" DEFAULT VALUES RETURNING "doc_cob_cod"[0m
+  [1m[35m (19.9ms)[0m  COMMIT
+  [1m[36mDetalleDocumentoDeCompra Load (0.6ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" IS NULL[0m
+  Rendered documento_de_compras/_micarrito.html.erb (34.0ms)
+  [1m[35mCategori Load (0.4ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 555ms (Views: 510.3ms | ActiveRecord: 32.2ms)
+
+
+Started GET "/categoris/ddd" for 127.0.0.1 at 2015-07-16 02:04:42 -0400
+Processing by CategorisController#show as HTML
+  Parameters: {"id"=>"ddd"}
+  [1m[35mCategori Load (0.3ms)[0m  SELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1  [["cat_cod", 0]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.3ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Categori with 'cat_cod'=ddd):
+  app/controllers/categoris_controller.rb:205:in `set_categori'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.0ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (31.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.9ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (25.5ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (51.0ms)
+
+
+Started POST "/categoris/add?method=post&val=237" for 127.0.0.1 at 2015-07-16 02:04:45 -0400
+Processing by CategorisController#add as HTML
+  Parameters: {"authenticity_token"=>"2dicPkNkjBh8C0+iCnb3+mEqbPM4xRknZQS3wjlGh1vl6lITc8bK+YdnwOt67mUtVUm95llwGgtw6/JllSdMiA==", "method"=>"post", "val"=>"237"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mInstanci Load (0.5ms)[0m  SELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1  [["ins_cod", 237]]
+  [1m[36mCliente Load (0.5ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1[0m  [["cli_mail", "camila.marin.g@gmail.com"]]
+  [1m[35mDocumentoDeCompra Load (0.3ms)[0m  SELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."cli_cod" = $1 AND "documento_de_compras"."est_dc_cod" = $2 LIMIT 1  [["cli_cod", 2], ["est_dc_cod", 1]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "documento_de_cobros" DEFAULT VALUES RETURNING "doc_cob_cod"
+  [1m[36m (15.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mCliente Load (0.3ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1  [["cli_mail", "camila.marin.g@gmail.com"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (76.5ms)[0m  INSERT INTO "documento_de_compras" ("est_dc_cod", "cli_cod", "doc_cob_cod") VALUES ($1, $2, $3) RETURNING "doc_com_cod"  [["est_dc_cod", 1], ["cli_cod", 2], ["doc_cob_cod", 16]]
+  [1m[36m (16.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (36.0ms)[0m  [1mUPDATE "documento_de_cobros" SET "doc_com_cod" = $1 WHERE "documento_de_cobros"."doc_cob_cod" = 16[0m  [["doc_com_cod", 26]]
+  [1m[35m (33.1ms)[0m  COMMIT
+  [1m[36mDetalleDocumentoDeCompra Load (0.5ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 26]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (50.0ms)[0m  [1mINSERT INTO "detalle_documento_de_compras" ("doc_com_cod", "det_doc_com_linea", "ins_cod", "det_doc_com_cant", "ins_cod_prov", "det_doc_com_precio", "det_doc_com_precio_uni") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "doc_com_cod","det_doc_com_linea"[0m  [["doc_com_cod", 26], ["det_doc_com_linea", 1], ["ins_cod", 237], ["det_doc_com_cant", 1], ["ins_cod_prov", "41562738"], ["det_doc_com_precio", 59990], ["det_doc_com_precio_uni", 59990]]
+  [1m[35m (18.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/categoris/2
+Completed 302 Found in 320ms (ActiveRecord: 250.1ms)
+
+
+Started GET "/categoris/2" for 127.0.0.1 at 2015-07-16 02:04:45 -0400
+Processing by CategorisController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCategori Load (0.4ms)[0m  [1mSELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1[0m  [["cat_cod", 2]]
+  [1m[35mArticulo Load (0.3ms)[0m  SELECT "articulos".* FROM "articulos" WHERE "articulos"."cat_cod" = $1  [["cat_cod", 2]]
+  [1m[36mImagen Load (0.6ms)[0m  [1mSELECT "imagens".* FROM "imagens" WHERE (LENGTH(imagen_uri) > 0)[0m
+  [1m[35mInstanci Load (0.3ms)[0m  SELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2  [["ins_cod_prov", "41562738"], ["art_cod", 7]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mArticulo Load (0.4ms)[0m  SELECT "articulos".* FROM "articulos" WHERE "articulos"."cat_cod" = $1  [["cat_cod", 7]]
+  [1m[36mInstanci Load (0.2ms)[0m  [1mSELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2[0m  [["ins_cod_prov", "41562738"], ["art_cod", 4]]
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mArticulo Load (0.2ms)[0m  [1mSELECT "articulos".* FROM "articulos" WHERE "articulos"."cat_cod" = $1[0m  [["cat_cod", 18]]
+  [1m[35mInstanci Load (0.2ms)[0m  SELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2  [["ins_cod_prov", "41562738"], ["art_cod", 5]]
+  [1m[36mInstanci Load (0.3ms)[0m  [1mSELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2[0m  [["ins_cod_prov", "41562738"], ["art_cod", 1]]
+  [1m[35mInstanci Load (0.2ms)[0m  SELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2  [["ins_cod_prov", "41562738"], ["art_cod", 2]]
+  [1m[36mCategori Load (0.4ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mImagen Load (0.4ms)[0m  SELECT  "imagens"."imagen_uri" FROM "imagens" WHERE "imagens"."ins_cod_prov" = $1 LIMIT 1  [["ins_cod_prov", "41562738"]]
+  [1m[36mArticulo Load (0.4ms)[0m  [1mSELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1[0m  [["art_cod", 7]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mPropiedad Load (0.3ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1[0m  [["prop_nom", "Color"]]
+  [1m[35mPropiedadValor Load (0.2ms)[0m  SELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1  [["prop_cod", 1]]
+  [1m[36mValor Load (0.3ms)[0m  [1mSELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1[0m  [["val_cod", 1]]
+  [1m[35mPropiedad Load (0.3ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1  [["prop_nom", "Material"]]
+  [1m[36mPropiedadValor Load (0.2ms)[0m  [1mSELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1[0m  [["prop_cod", 4]]
+  [1m[35mValor Load (0.2ms)[0m  SELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1  [["val_cod", 4]]
+  [1m[36mPropiedad Load (0.4ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1[0m  [["prop_nom", "Marca"]]
+  [1m[35mPropiedadValor Load (0.3ms)[0m  SELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1  [["prop_cod", 7]]
+  [1m[36mValor Load (0.2ms)[0m  [1mSELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1[0m  [["val_cod", 7]]
+  Rendered categoris/show.html.erb within layouts/application (21.4ms)
+  [1m[35mCliente Load (0.3ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1  [["cli_mail", "camila.marin.g@gmail.com"]]
+  [1m[36mDocumentoDeCompra Load (0.2ms)[0m  [1mSELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."cli_cod" = $1 AND "documento_de_compras"."est_dc_cod" = $2 LIMIT 1[0m  [["cli_cod", 2], ["est_dc_cod", 1]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.5ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 26]]
+  [1m[36mInstanci Load (0.3ms)[0m  [1mSELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1[0m  [["ins_cod", 237]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1  [["art_cod", 7]]
+  [1m[36m (50.5ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 26]]
+  Rendered documento_de_compras/_micarrito.html.erb (157.6ms)
+  [1m[35mCategori Load (0.4ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 684ms (Views: 607.0ms | ActiveRecord: 60.5ms)
+
+
+Started GET "/categoris/ddd" for 127.0.0.1 at 2015-07-16 02:04:46 -0400
+Processing by CategorisController#show as HTML
+  Parameters: {"id"=>"ddd"}
+  [1m[35mCategori Load (0.4ms)[0m  SELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1  [["cat_cod", 0]]
+Completed 404 Not Found in 3ms (ActiveRecord: 0.4ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Categori with 'cat_cod'=ddd):
+  app/controllers/categoris_controller.rb:205:in `set_categori'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (12.5ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.1ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (38.1ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (26.2ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.1ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (53.3ms)
+
+
+Started GET "/MiCuenta" for 127.0.0.1 at 2015-07-16 02:04:57 -0400
+Processing by ClientesController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mCliente Load (0.5ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1  [["cli_mail", "camila.marin.g@gmail.com"]]
+  [1m[36mDocumentoDeCompra Load (0.7ms)[0m  [1mSELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."cli_cod" = $1 LIMIT 3[0m  [["cli_cod", 2]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.6ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 26]]
+  [1m[36m (0.6ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 26]]
+  [1m[35mEstadoDc Load (0.5ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 1]]
+  [1m[36mSolicitudDevolucion Load (0.8ms)[0m  [1mSELECT  "solicitud_devolucions".* FROM "solicitud_devolucions" WHERE "solicitud_devolucions"."cli_cod" = $1 LIMIT 3[0m  [["cli_cod", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1  [["cli_mail", "camila.marin.g@gmail.com"]]
+  [1m[36mDireccion Load (15.9ms)[0m  [1mSELECT "direccions".* FROM "direccions" WHERE "direccions"."cli_cod" = $1[0m  [["cli_cod", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1  [["cli_mail", "camila.marin.g@gmail.com"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "direccions".* FROM "direccions" WHERE "direccions"."cli_cod" = $1[0m  [["cli_cod", 2]]
+  Rendered clientes/index.html.erb within layouts/application (61.1ms)
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1  [["cli_mail", "camila.marin.g@gmail.com"]]
+  [1m[36mDocumentoDeCompra Load (0.6ms)[0m  [1mSELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."cli_cod" = $1 AND "documento_de_compras"."est_dc_cod" = $2 LIMIT 1[0m  [["cli_cod", 2], ["est_dc_cod", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 26]]
+  [1m[36mInstanci Load (0.6ms)[0m  [1mSELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1[0m  [["ins_cod", 237]]
+  [1m[35mArticulo Load (0.4ms)[0m  SELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1  [["art_cod", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 26]]
+  Rendered documento_de_compras/_micarrito.html.erb (8.5ms)
+  [1m[35mCategori Load (0.7ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.4ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 621ms (Views: 590.4ms | ActiveRecord: 27.8ms)
+
+
+Started GET "/documento_de_compras/26" for 127.0.0.1 at 2015-07-16 02:05:05 -0400
+Processing by DocumentoDeComprasController#show as HTML
+  Parameters: {"id"=>"26"}
+  [1m[35mDocumentoDeCompra Load (0.7ms)[0m  SELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."doc_com_cod" = $1 LIMIT 1  [["doc_com_cod", 26]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mCliente Load (0.3ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1  [["cli_mail", "camila.marin.g@gmail.com"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1[0m  [["cli_mail", "camila.marin.g@gmail.com"]]
+  [1m[35mEstadoDc Load (0.7ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 1]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.5ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 26]]
+  [1m[35mInstanci Load (0.6ms)[0m  SELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1  [["ins_cod", 237]]
+  [1m[36mArticulo Load (0.5ms)[0m  [1mSELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1[0m  [["art_cod", 7]]
+  [1m[35m (0.6ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 26]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 1]]
+  Rendered documento_de_compras/show.html.erb within layouts/application (12.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1  [["cli_mail", "camila.marin.g@gmail.com"]]
+  [1m[36mDocumentoDeCompra Load (0.4ms)[0m  [1mSELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."cli_cod" = $1 AND "documento_de_compras"."est_dc_cod" = $2 LIMIT 1[0m  [["cli_cod", 2], ["est_dc_cod", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 26]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1[0m  [["ins_cod", 237]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1  [["art_cod", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 26]]
+  Rendered documento_de_compras/_micarrito.html.erb (6.9ms)
+  [1m[35mCategori Load (0.5ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.4ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 481ms (Views: 466.3ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/pagar" for 127.0.0.1 at 2015-07-16 02:05:15 -0400
+Processing by DocumentoDeComprasController#pagar as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mCliente Load (0.4ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1[0m  [["cli_mail", "camila.marin.g@gmail.com"]]
+  [1m[35mDocumentoDeCompra Load (0.4ms)[0m  SELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."cli_cod" = $1 AND "documento_de_compras"."est_dc_cod" = $2 LIMIT 1  [["cli_cod", 2], ["est_dc_cod", 1]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.5ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 26]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (144.7ms)[0m  [1mUPDATE "documento_de_compras" SET "doc_com_met_pago" = $1, "doc_com_tipo" = $2 WHERE "documento_de_compras"."doc_com_cod" = 26[0m  [["doc_com_met_pago", "Transferencia bancaria"], ["doc_com_tipo", "Orden de compra"]]
+  [1m[35m (96.0ms)[0m  COMMIT
+  [1m[36m (0.6ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 26]]
+  Rendered documento_de_compras/_formpagar.html.erb (1219.5ms)
+  Rendered documento_de_compras/pagar.html.erb within layouts/application (1262.4ms)
+  [1m[35mCliente Load (0.5ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1  [["cli_mail", "camila.marin.g@gmail.com"]]
+  [1m[36mDocumentoDeCompra Load (0.4ms)[0m  [1mSELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."cli_cod" = $1 AND "documento_de_compras"."est_dc_cod" = $2 LIMIT 1[0m  [["cli_cod", 2], ["est_dc_cod", 1]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.6ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 26]]
+  [1m[36mInstanci Load (0.5ms)[0m  [1mSELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1[0m  [["ins_cod", 237]]
+  [1m[35mArticulo Load (0.5ms)[0m  SELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1  [["art_cod", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 26]]
+  Rendered documento_de_compras/_micarrito.html.erb (9.6ms)
+  [1m[35mCategori Load (0.6ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.4ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 2011ms (Views: 1753.4ms | ActiveRecord: 247.9ms)
+
+
+Started POST "/documento_de_compras/pagar_cuenta" for 127.0.0.1 at 2015-07-16 02:24:33 -0400
+Processing by DocumentoDeComprasController#pagar_cuenta as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"skmPeJPCSpN6ynDBHFB3stSmv/tya8oJznYeM2uuaj6Oe0FVo2AMcoGm/4hsyOVl4MVu7hPeySXbmVuUx8+h7Q==", "documento_de_compra"=>{"doc_com_fecha(1i)"=>"2015", "doc_com_fecha(2i)"=>"7", "doc_com_fecha(3i)"=>"1", "doc_com_met_ent"=>"Retiro en tienda"}, "commit"=>"Pagar"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mCliente Load (0.3ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1[0m  [["cli_mail", "camila.marin.g@gmail.com"]]
+  [1m[35mDocumentoDeCompra Load (0.2ms)[0m  SELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."cli_cod" = $1 AND "documento_de_compras"."est_dc_cod" = $2 LIMIT 1  [["cli_cod", 2], ["est_dc_cod", 1]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (23.6ms)[0m  UPDATE "documento_de_compras" SET "doc_com_met_ent" = $1, "doc_com_fecha" = $2 WHERE "documento_de_compras"."doc_com_cod" = 26  [["doc_com_met_ent", "Retiro en tienda"], ["doc_com_fecha", "2015-07-01"]]
+  [1m[36m (15.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (177.4ms)[0m  [1mUPDATE "documento_de_compras" SET "est_dc_cod" = $1 WHERE "documento_de_compras"."doc_com_cod" = 26[0m  [["est_dc_cod", 2]]
+  [1m[35m (53.6ms)[0m  COMMIT
+  [1m[36mDetalleDocumentoDeCompra Load (0.6ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 26]]
+  [1m[35mInstanci Load (0.7ms)[0m  SELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1  [["ins_cod", 237]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  UPDATE "instancis" SET "ins_stock" = $1 WHERE "instancis"."ins_cod" = 237  [["ins_stock", 9]]
+  [1m[36m (9.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/documento_de_compras/26
+Completed 302 Found in 347ms (ActiveRecord: 283.6ms)
+
+
+Started GET "/documento_de_compras/26" for 127.0.0.1 at 2015-07-16 02:24:33 -0400
+Processing by DocumentoDeComprasController#show as HTML
+  Parameters: {"id"=>"26"}
+  [1m[35mDocumentoDeCompra Load (0.4ms)[0m  SELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."doc_com_cod" = $1 LIMIT 1  [["doc_com_cod", 26]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mCliente Load (0.4ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1  [["cli_mail", "camila.marin.g@gmail.com"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1[0m  [["cli_mail", "camila.marin.g@gmail.com"]]
+  [1m[35mEstadoDc Load (0.7ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.4ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 26]]
+  [1m[35mInstanci Load (0.4ms)[0m  SELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1  [["ins_cod", 237]]
+  [1m[36mArticulo Load (0.3ms)[0m  [1mSELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1[0m  [["art_cod", 7]]
+  [1m[35m (0.9ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 26]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  Rendered documento_de_compras/show.html.erb within layouts/application (19.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1  [["cli_mail", "camila.marin.g@gmail.com"]]
+  [1m[36mDocumentoDeCompra Load (0.6ms)[0m  [1mSELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."cli_cod" = $1 AND "documento_de_compras"."est_dc_cod" = $2 LIMIT 1[0m  [["cli_cod", 2], ["est_dc_cod", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1  [["cli_mail", "camila.marin.g@gmail.com"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "documento_de_cobros" DEFAULT VALUES RETURNING "doc_cob_cod"
+  [1m[36m (33.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mDetalleDocumentoDeCompra Load (0.7ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" IS NULL
+  Rendered documento_de_compras/_micarrito.html.erb (42.6ms)
+  [1m[36mCategori Load (0.5ms)[0m  [1mSELECT "categoris".* FROM "categoris"[0m
+  [1m[35mCategori Load (0.4ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 2]]
+  [1m[36mCategori Load (0.4ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 7]]
+  [1m[35mCategori Load (0.4ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 18]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 15]]
+Completed 200 OK in 619ms (Views: 573.1ms | ActiveRecord: 41.7ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2015-07-16 02:25:12 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"65EemP7XcNuD2XfGJj4L09zjcgOyyyq44hO0tjZeGNbXo9C1znU2Oni1+I9WppkE6ICjFtN+KZT3/PERmj/TBQ=="}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 38ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-16 02:25:12 -0400
+Processing by PrincipalController#index as HTML
+  Rendered principal/index.html.erb within layouts/application (0.8ms)
+  [1m[35mCategori Load (0.6ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 518ms (Views: 515.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-07-16 02:25:16 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered users/shared/_links.html.erb (0.5ms)
+  Rendered users/sessions/new.html.erb within layouts/application (6.0ms)
+  [1m[35mCategori Load (0.6ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 531ms (Views: 526.9ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2015-07-16 02:25:23 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"o6afwvKaEdPM7zRPCGyK+jmAJsA8J8VDSc9k3Q8ha8YCC4SpSiX44Cf/hofiaOeI7OgwkrU9mRMVK2Z/8M9nqQ==", "user"=>{"email"=>"camila.marin@usach.cl", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Entrar"}
+  [1m[35mUser Load (192.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["email", "camila.marin@usach.cl"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (60.7ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = 2  [["last_sign_in_at", "2015-07-15 23:06:30.303952"], ["current_sign_in_at", "2015-07-16 06:25:23.414844"], ["sign_in_count", 12], ["updated_at", "2015-07-16 06:25:23.416500"]]
+  [1m[36m (15.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 417ms (ActiveRecord: 268.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-16 02:25:23 -0400
+Processing by PrincipalController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  Rendered principal/index.html.erb within layouts/application (2.3ms)
+  [1m[36mCategori Load (0.5ms)[0m  [1mSELECT "categoris".* FROM "categoris"[0m
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 2]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 7]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 18]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 15]]
+Completed 200 OK in 455ms (Views: 451.8ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/documento_de_compras" for 127.0.0.1 at 2015-07-16 02:25:29 -0400
+Processing by DocumentoDeComprasController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mDocumentoDeCompra Load (0.3ms)[0m  SELECT "documento_de_compras".* FROM "documento_de_compras"
+  [1m[36mCliente Load (0.3ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 1]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.3ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 6]]
+  [1m[36mEstadoDc Load (0.2ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 4]]
+  [1m[35mDocumentoDeCompra Load (0.7ms)[0m  SELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."doc_com_cod" = $1 LIMIT 1  [["doc_com_cod", 6]]
+  [1m[36mTransicionEstadoDc Load (0.9ms)[0m  [1mSELECT "transicion_estado_dcs".* FROM "transicion_estado_dcs" WHERE "transicion_estado_dcs"."est_est_dc_cod" = $1[0m  [["est_est_dc_cod", 4]]
+  [1m[35mEstadoDc Load (0.4ms)[0m  SELECT "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1  [["est_dc_cod", 5]]
+  Rendered documento_de_compras/_editar_estado.html.erb (39.8ms)
+  [1m[36mCliente Load (0.5ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 2]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.3ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 26]]
+  [1m[36m (0.5ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 26]]
+  [1m[35mEstadoDc Load (0.4ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mDocumentoDeCompra Load (0.6ms)[0m  [1mSELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."doc_com_cod" = $1 LIMIT 1[0m  [["doc_com_cod", 26]]
+  [1m[35mTransicionEstadoDc Load (0.4ms)[0m  SELECT "transicion_estado_dcs".* FROM "transicion_estado_dcs" WHERE "transicion_estado_dcs"."est_est_dc_cod" = $1  [["est_est_dc_cod", 2]]
+  [1m[36mEstadoDc Load (0.4ms)[0m  [1mSELECT "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1[0m  [["est_dc_cod", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1  [["est_dc_cod", 5]]
+  Rendered documento_de_compras/_editar_estado.html.erb (6.6ms)
+  Rendered documento_de_compras/index.html.erb within layouts/application (107.6ms)
+  [1m[36mCategori Load (0.5ms)[0m  [1mSELECT "categoris".* FROM "categoris"[0m
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 2]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 7]]
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 18]]
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 15]]
+Completed 200 OK in 519ms (Views: 507.2ms | ActiveRecord: 10.3ms)
+
+
+Started PATCH "/documento_de_compras/26" for 127.0.0.1 at 2015-07-16 02:25:42 -0400
+Processing by DocumentoDeComprasController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BWYdNSiDYhfFchJtp+qQS+DQCxd1p7kHarLUoajqrCc1WWFgVlImRWn7WpSBjcfNBBAHY0Nn70vE26jJJJHotQ==", "documento_de_compra"=>{"est_dc_cod"=>"entregada"}, "commit"=>"Update Documento de compra", "id"=>"26"}
+  [1m[36mDocumentoDeCompra Load (0.6ms)[0m  [1mSELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."doc_com_cod" = $1 LIMIT 1[0m  [["doc_com_cod", 26]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (261.7ms)[0m  [1mUPDATE "documento_de_compras" SET "est_dc_cod" = $1 WHERE "documento_de_compras"."doc_com_cod" = 26[0m  [["est_dc_cod", 0]]
+PG::ForeignKeyViolation: ERROR:  insert or update on table "documento_de_compras" violates foreign key constraint "fk_document_relations_estado_d"
+DETAIL:  Key (est_dc_cod)=(0) is not present in table "estado_dcs".
+: UPDATE "documento_de_compras" SET "est_dc_cod" = $1 WHERE "documento_de_compras"."doc_com_cod" = 26
+  [1m[35m (0.3ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 269ms (ActiveRecord: 262.7ms)
+
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  insert or update on table "documento_de_compras" violates foreign key constraint "fk_document_relations_estado_d"
+DETAIL:  Key (est_dc_cod)=(0) is not present in table "estado_dcs".
+: UPDATE "documento_de_compras" SET "est_dc_cod" = $1 WHERE "documento_de_compras"."doc_com_cod" = 26):
+  app/controllers/documento_de_compras_controller.rb:132:in `block in update'
+  app/controllers/documento_de_compras_controller.rb:131:in `update'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (15.9ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (35.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (17.0ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.1ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (42.7ms)
+
+
+Started PATCH "/documento_de_compras/26" for 127.0.0.1 at 2015-07-16 02:26:40 -0400
+Processing by DocumentoDeComprasController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BWYdNSiDYhfFchJtp+qQS+DQCxd1p7kHarLUoajqrCc1WWFgVlImRWn7WpSBjcfNBBAHY0Nn70vE26jJJJHotQ==", "documento_de_compra"=>{"est_dc_cod"=>"entregada"}, "commit"=>"Update Documento de compra", "id"=>"26"}
+  [1m[36mDocumentoDeCompra Load (2.4ms)[0m  [1mSELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."doc_com_cod" = $1 LIMIT 1[0m  [["doc_com_cod", 26]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (2.9ms)[0m  [1mUPDATE "documento_de_compras" SET "est_dc_cod" = $1 WHERE "documento_de_compras"."doc_com_cod" = 26[0m  [["est_dc_cod", 0]]
+PG::ForeignKeyViolation: ERROR:  insert or update on table "documento_de_compras" violates foreign key constraint "fk_document_relations_estado_d"
+DETAIL:  Key (est_dc_cod)=(0) is not present in table "estado_dcs".
+: UPDATE "documento_de_compras" SET "est_dc_cod" = $1 WHERE "documento_de_compras"."doc_com_cod" = 26
+  [1m[35m (0.2ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 5.7ms)
+
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  insert or update on table "documento_de_compras" violates foreign key constraint "fk_document_relations_estado_d"
+DETAIL:  Key (est_dc_cod)=(0) is not present in table "estado_dcs".
+: UPDATE "documento_de_compras" SET "est_dc_cod" = $1 WHERE "documento_de_compras"."doc_com_cod" = 26):
+  app/controllers/documento_de_compras_controller.rb:132:in `block in update'
+  app/controllers/documento_de_compras_controller.rb:131:in `update'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.6ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (25.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (15.1ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (30.0ms)
+
+
+Started PATCH "/documento_de_compras/26" for 127.0.0.1 at 2015-07-16 02:26:47 -0400
+Processing by DocumentoDeComprasController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BWYdNSiDYhfFchJtp+qQS+DQCxd1p7kHarLUoajqrCc1WWFgVlImRWn7WpSBjcfNBBAHY0Nn70vE26jJJJHotQ==", "documento_de_compra"=>{"est_dc_cod"=>"entregada"}, "commit"=>"Update Documento de compra", "id"=>"26"}
+  [1m[36mDocumentoDeCompra Load (0.4ms)[0m  [1mSELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."doc_com_cod" = $1 LIMIT 1[0m  [["doc_com_cod", 26]]
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (3.6ms)[0m  [1mUPDATE "documento_de_compras" SET "est_dc_cod" = $1 WHERE "documento_de_compras"."doc_com_cod" = 26[0m  [["est_dc_cod", 0]]
+PG::ForeignKeyViolation: ERROR:  insert or update on table "documento_de_compras" violates foreign key constraint "fk_document_relations_estado_d"
+DETAIL:  Key (est_dc_cod)=(0) is not present in table "estado_dcs".
+: UPDATE "documento_de_compras" SET "est_dc_cod" = $1 WHERE "documento_de_compras"."doc_com_cod" = 26
+  [1m[35m (0.2ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 4.6ms)
+
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  insert or update on table "documento_de_compras" violates foreign key constraint "fk_document_relations_estado_d"
+DETAIL:  Key (est_dc_cod)=(0) is not present in table "estado_dcs".
+: UPDATE "documento_de_compras" SET "est_dc_cod" = $1 WHERE "documento_de_compras"."doc_com_cod" = 26):
+  app/controllers/documento_de_compras_controller.rb:132:in `block in update'
+  app/controllers/documento_de_compras_controller.rb:131:in `update'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.6ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (26.5ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (13.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.9ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (29.7ms)
+
+
+Started PATCH "/documento_de_compras/26" for 127.0.0.1 at 2015-07-16 02:27:24 -0400
+Processing by DocumentoDeComprasController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BWYdNSiDYhfFchJtp+qQS+DQCxd1p7kHarLUoajqrCc1WWFgVlImRWn7WpSBjcfNBBAHY0Nn70vE26jJJJHotQ==", "documento_de_compra"=>{"est_dc_cod"=>"entregada"}, "commit"=>"Update Documento de compra", "id"=>"26"}
+  [1m[36mDocumentoDeCompra Load (0.5ms)[0m  [1mSELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."doc_com_cod" = $1 LIMIT 1[0m  [["doc_com_cod", 26]]
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (2.3ms)[0m  [1mUPDATE "documento_de_compras" SET "est_dc_cod" = $1 WHERE "documento_de_compras"."doc_com_cod" = 26[0m  [["est_dc_cod", 0]]
+PG::ForeignKeyViolation: ERROR:  insert or update on table "documento_de_compras" violates foreign key constraint "fk_document_relations_estado_d"
+DETAIL:  Key (est_dc_cod)=(0) is not present in table "estado_dcs".
+: UPDATE "documento_de_compras" SET "est_dc_cod" = $1 WHERE "documento_de_compras"."doc_com_cod" = 26
+  [1m[35m (0.2ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 3.3ms)
+
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  insert or update on table "documento_de_compras" violates foreign key constraint "fk_document_relations_estado_d"
+DETAIL:  Key (est_dc_cod)=(0) is not present in table "estado_dcs".
+: UPDATE "documento_de_compras" SET "est_dc_cod" = $1 WHERE "documento_de_compras"."doc_com_cod" = 26):
+  app/controllers/documento_de_compras_controller.rb:132:in `block in update'
+  app/controllers/documento_de_compras_controller.rb:131:in `update'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.9ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.2ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (30.7ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (14.1ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (29.8ms)
+
+
+Started PATCH "/documento_de_compras/26" for 127.0.0.1 at 2015-07-16 02:28:01 -0400
+Processing by DocumentoDeComprasController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BWYdNSiDYhfFchJtp+qQS+DQCxd1p7kHarLUoajqrCc1WWFgVlImRWn7WpSBjcfNBBAHY0Nn70vE26jJJJHotQ==", "documento_de_compra"=>{"est_dc_cod"=>"entregada"}, "commit"=>"Update Documento de compra", "id"=>"26"}
+  [1m[36mDocumentoDeCompra Load (0.4ms)[0m  [1mSELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."doc_com_cod" = $1 LIMIT 1[0m  [["doc_com_cod", 26]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (2.7ms)[0m  [1mUPDATE "documento_de_compras" SET "est_dc_cod" = $1 WHERE "documento_de_compras"."doc_com_cod" = 26[0m  [["est_dc_cod", 0]]
+PG::ForeignKeyViolation: ERROR:  insert or update on table "documento_de_compras" violates foreign key constraint "fk_document_relations_estado_d"
+DETAIL:  Key (est_dc_cod)=(0) is not present in table "estado_dcs".
+: UPDATE "documento_de_compras" SET "est_dc_cod" = $1 WHERE "documento_de_compras"."doc_com_cod" = 26
+  [1m[35m (0.2ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 3.4ms)
+
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  insert or update on table "documento_de_compras" violates foreign key constraint "fk_document_relations_estado_d"
+DETAIL:  Key (est_dc_cod)=(0) is not present in table "estado_dcs".
+: UPDATE "documento_de_compras" SET "est_dc_cod" = $1 WHERE "documento_de_compras"."doc_com_cod" = 26):
+  app/controllers/documento_de_compras_controller.rb:132:in `block in update'
+  app/controllers/documento_de_compras_controller.rb:131:in `update'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.5ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (26.0ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (16.9ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (32.5ms)
+
+
+Started PATCH "/documento_de_compras/26" for 127.0.0.1 at 2015-07-16 02:29:26 -0400
+Processing by DocumentoDeComprasController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BWYdNSiDYhfFchJtp+qQS+DQCxd1p7kHarLUoajqrCc1WWFgVlImRWn7WpSBjcfNBBAHY0Nn70vE26jJJJHotQ==", "documento_de_compra"=>{"est_dc_cod"=>"entregada"}, "commit"=>"Update Documento de compra", "id"=>"26"}
+  [1m[36mDocumentoDeCompra Load (0.3ms)[0m  [1mSELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."doc_com_cod" = $1 LIMIT 1[0m  [["doc_com_cod", 26]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.4ms)[0m  [1mUPDATE "documento_de_compras" SET "est_dc_cod" = $1 WHERE "documento_de_compras"."doc_com_cod" = 26[0m  [["est_dc_cod", 0]]
+PG::ForeignKeyViolation: ERROR:  insert or update on table "documento_de_compras" violates foreign key constraint "fk_document_relations_estado_d"
+DETAIL:  Key (est_dc_cod)=(0) is not present in table "estado_dcs".
+: UPDATE "documento_de_compras" SET "est_dc_cod" = $1 WHERE "documento_de_compras"."doc_com_cod" = 26
+  [1m[35m (0.3ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 2.2ms)
+
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  insert or update on table "documento_de_compras" violates foreign key constraint "fk_document_relations_estado_d"
+DETAIL:  Key (est_dc_cod)=(0) is not present in table "estado_dcs".
+: UPDATE "documento_de_compras" SET "est_dc_cod" = $1 WHERE "documento_de_compras"."doc_com_cod" = 26):
+  app/controllers/documento_de_compras_controller.rb:132:in `block in update'
+  app/controllers/documento_de_compras_controller.rb:131:in `update'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.5ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (26.1ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (14.1ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (29.8ms)
+
+
+Started PATCH "/documento_de_compras/26" for 127.0.0.1 at 2015-07-16 02:36:12 -0400
+Processing by DocumentoDeComprasController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BWYdNSiDYhfFchJtp+qQS+DQCxd1p7kHarLUoajqrCc1WWFgVlImRWn7WpSBjcfNBBAHY0Nn70vE26jJJJHotQ==", "documento_de_compra"=>{"est_dc_cod"=>"entregada"}, "commit"=>"Update Documento de compra", "id"=>"26"}
+  [1m[36mDocumentoDeCompra Load (50.4ms)[0m  [1mSELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."doc_com_cod" = $1 LIMIT 1[0m  [["doc_com_cod", 26]]
+  [1m[35m (22.9ms)[0m  BEGIN
+  [1m[36mSQL (315.2ms)[0m  [1mUPDATE "documento_de_compras" SET "est_dc_cod" = $1 WHERE "documento_de_compras"."doc_com_cod" = 26[0m  [["est_dc_cod", 0]]
+PG::ForeignKeyViolation: ERROR:  insert or update on table "documento_de_compras" violates foreign key constraint "fk_document_relations_estado_d"
+DETAIL:  Key (est_dc_cod)=(0) is not present in table "estado_dcs".
+: UPDATE "documento_de_compras" SET "est_dc_cod" = $1 WHERE "documento_de_compras"."doc_com_cod" = 26
+  [1m[35m (0.2ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 703ms (ActiveRecord: 388.7ms)
+
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  insert or update on table "documento_de_compras" violates foreign key constraint "fk_document_relations_estado_d"
+DETAIL:  Key (est_dc_cod)=(0) is not present in table "estado_dcs".
+: UPDATE "documento_de_compras" SET "est_dc_cod" = $1 WHERE "documento_de_compras"."doc_com_cod" = 26):
+  app/controllers/documento_de_compras_controller.rb:132:in `block in update'
+  app/controllers/documento_de_compras_controller.rb:131:in `update'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (16.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.7ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (82.5ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (28.0ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.7ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (57.9ms)
+
+
+Started PATCH "/documento_de_compras/26" for 127.0.0.1 at 2015-07-16 02:36:59 -0400
+Processing by DocumentoDeComprasController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BWYdNSiDYhfFchJtp+qQS+DQCxd1p7kHarLUoajqrCc1WWFgVlImRWn7WpSBjcfNBBAHY0Nn70vE26jJJJHotQ==", "documento_de_compra"=>{"est_dc_cod"=>"entregada"}, "commit"=>"Update Documento de compra", "id"=>"26"}
+  [1m[36mDocumentoDeCompra Load (32.0ms)[0m  [1mSELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."doc_com_cod" = $1 LIMIT 1[0m  [["doc_com_cod", 26]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (5.6ms)[0m  [1mUPDATE "documento_de_compras" SET "est_dc_cod" = $1 WHERE "documento_de_compras"."doc_com_cod" = 26[0m  [["est_dc_cod", 0]]
+PG::ForeignKeyViolation: ERROR:  insert or update on table "documento_de_compras" violates foreign key constraint "fk_document_relations_estado_d"
+DETAIL:  Key (est_dc_cod)=(0) is not present in table "estado_dcs".
+: UPDATE "documento_de_compras" SET "est_dc_cod" = $1 WHERE "documento_de_compras"."doc_com_cod" = 26
+  [1m[35m (0.2ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 37.9ms)
+
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  insert or update on table "documento_de_compras" violates foreign key constraint "fk_document_relations_estado_d"
+DETAIL:  Key (est_dc_cod)=(0) is not present in table "estado_dcs".
+: UPDATE "documento_de_compras" SET "est_dc_cod" = $1 WHERE "documento_de_compras"."doc_com_cod" = 26):
+  app/controllers/documento_de_compras_controller.rb:132:in `block in update'
+  app/controllers/documento_de_compras_controller.rb:131:in `update'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.1ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (30.9ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (15.0ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (32.1ms)
+
+
+Started PATCH "/documento_de_compras/26" for 127.0.0.1 at 2015-07-16 02:38:02 -0400
+Processing by DocumentoDeComprasController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BWYdNSiDYhfFchJtp+qQS+DQCxd1p7kHarLUoajqrCc1WWFgVlImRWn7WpSBjcfNBBAHY0Nn70vE26jJJJHotQ==", "documento_de_compra"=>{"est_dc_cod"=>"entregada"}, "commit"=>"Update Documento de compra", "id"=>"26"}
+  [1m[36mDocumentoDeCompra Load (0.4ms)[0m  [1mSELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."doc_com_cod" = $1 LIMIT 1[0m  [["doc_com_cod", 26]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.9ms)[0m  [1mUPDATE "documento_de_compras" SET "est_dc_cod" = $1 WHERE "documento_de_compras"."doc_com_cod" = 26[0m  [["est_dc_cod", 0]]
+PG::ForeignKeyViolation: ERROR:  insert or update on table "documento_de_compras" violates foreign key constraint "fk_document_relations_estado_d"
+DETAIL:  Key (est_dc_cod)=(0) is not present in table "estado_dcs".
+: UPDATE "documento_de_compras" SET "est_dc_cod" = $1 WHERE "documento_de_compras"."doc_com_cod" = 26
+  [1m[35m (0.2ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 2.6ms)
+
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  insert or update on table "documento_de_compras" violates foreign key constraint "fk_document_relations_estado_d"
+DETAIL:  Key (est_dc_cod)=(0) is not present in table "estado_dcs".
+: UPDATE "documento_de_compras" SET "est_dc_cod" = $1 WHERE "documento_de_compras"."doc_com_cod" = 26):
+  app/controllers/documento_de_compras_controller.rb:132:in `block in update'
+  app/controllers/documento_de_compras_controller.rb:131:in `update'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.6ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (26.9ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (14.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (5.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (95.2ms)
+
+
+Started GET "/documento_de_compras/26" for 127.0.0.1 at 2015-07-16 02:39:34 -0400
+Processing by DocumentoDeComprasController#show as HTML
+  Parameters: {"id"=>"26"}
+  [1m[36mDocumentoDeCompra Load (0.4ms)[0m  [1mSELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."doc_com_cod" = $1 LIMIT 1[0m  [["doc_com_cod", 26]]
+  [1m[35mUser Load (31.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mCliente Load (18.3ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1[0m  [["cli_mail", "camila.marin@usach.cl"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1  [["cli_mail", "camila.marin@usach.cl"]]
+  [1m[36mEstadoDc Load (42.3ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.3ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 26]]
+  [1m[36mInstanci Load (0.3ms)[0m  [1mSELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1[0m  [["ins_cod", 237]]
+  [1m[35mArticulo Load (0.4ms)[0m  SELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1  [["art_cod", 7]]
+  [1m[36m (0.6ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 26]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  Rendered documento_de_compras/show.html.erb within layouts/application (125.5ms)
+  [1m[36mCategori Load (52.1ms)[0m  [1mSELECT "categoris".* FROM "categoris"[0m
+  [1m[35mCategori Load (0.4ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 2]]
+  [1m[36mCategori Load (0.4ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 7]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 18]]
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 15]]
+Completed 200 OK in 2448ms (Views: 2292.3ms | ActiveRecord: 148.1ms)
+
+
+Started GET "/documento_de_compras" for 127.0.0.1 at 2015-07-16 02:39:47 -0400
+Processing by DocumentoDeComprasController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mDocumentoDeCompra Load (0.6ms)[0m  SELECT "documento_de_compras".* FROM "documento_de_compras"
+  [1m[36mCliente Load (0.5ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 1]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.3ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 6]]
+  [1m[36mEstadoDc Load (0.3ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 4]]
+  [1m[35mDocumentoDeCompra Load (0.4ms)[0m  SELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."doc_com_cod" = $1 LIMIT 1  [["doc_com_cod", 6]]
+  [1m[36mTransicionEstadoDc Load (0.6ms)[0m  [1mSELECT "transicion_estado_dcs".* FROM "transicion_estado_dcs" WHERE "transicion_estado_dcs"."est_est_dc_cod" = $1[0m  [["est_est_dc_cod", 4]]
+  Rendered documento_de_compras/_editar_estado.html.erb (5.9ms)
+  [1m[35mCliente Load (0.6ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 2]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.3ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 26]]
+  [1m[35m (0.3ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 26]]
+  [1m[36mEstadoDc Load (0.3ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mDocumentoDeCompra Load (0.6ms)[0m  SELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."doc_com_cod" = $1 LIMIT 1  [["doc_com_cod", 26]]
+  [1m[36mTransicionEstadoDc Load (0.5ms)[0m  [1mSELECT "transicion_estado_dcs".* FROM "transicion_estado_dcs" WHERE "transicion_estado_dcs"."est_est_dc_cod" = $1[0m  [["est_est_dc_cod", 2]]
+  Rendered documento_de_compras/_editar_estado.html.erb (4.9ms)
+  Rendered documento_de_compras/index.html.erb within layouts/application (25.5ms)
+  [1m[35mCategori Load (0.6ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.4ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 679ms (Views: 670.0ms | ActiveRecord: 8.1ms)
+
+
+Started PATCH "/documento_de_compras/26" for 127.0.0.1 at 2015-07-16 02:40:00 -0400
+Processing by DocumentoDeComprasController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DgHxVauvvzO7glX443fn+aSrQy+K7En0fv9y3zy++xA+Po0A1X77YRcLHQHFELB/QGtPW7wsH7jQlg63sMW/gg==", "documento_de_compra"=>{"est_dc_cod"=>"5"}, "commit"=>"Update Documento de compra", "id"=>"26"}
+  [1m[35mDocumentoDeCompra Load (0.4ms)[0m  SELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."doc_com_cod" = $1 LIMIT 1  [["doc_com_cod", 26]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (22.5ms)[0m  UPDATE "documento_de_compras" SET "est_dc_cod" = $1 WHERE "documento_de_compras"."doc_com_cod" = 26  [["est_dc_cod", 5]]
+  [1m[36m (21.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/documento_de_compras
+Completed 302 Found in 53ms (ActiveRecord: 44.9ms)
+
+
+Started GET "/documento_de_compras" for 127.0.0.1 at 2015-07-16 02:40:00 -0400
+Processing by DocumentoDeComprasController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mDocumentoDeCompra Load (0.5ms)[0m  [1mSELECT "documento_de_compras".* FROM "documento_de_compras"[0m
+  [1m[35mCliente Load (0.5ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 1]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.3ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 6]]
+  [1m[35mEstadoDc Load (0.3ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 4]]
+  [1m[36mDocumentoDeCompra Load (0.3ms)[0m  [1mSELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."doc_com_cod" = $1 LIMIT 1[0m  [["doc_com_cod", 6]]
+  [1m[35mTransicionEstadoDc Load (0.5ms)[0m  SELECT "transicion_estado_dcs".* FROM "transicion_estado_dcs" WHERE "transicion_estado_dcs"."est_est_dc_cod" = $1  [["est_est_dc_cod", 4]]
+  Rendered documento_de_compras/_editar_estado.html.erb (5.8ms)
+  [1m[36mCliente Load (0.4ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 2]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.3ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 26]]
+  [1m[36m (0.2ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 26]]
+  [1m[35mEstadoDc Load (0.3ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 5]]
+  [1m[36mDocumentoDeCompra Load (0.3ms)[0m  [1mSELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."doc_com_cod" = $1 LIMIT 1[0m  [["doc_com_cod", 26]]
+  [1m[35mTransicionEstadoDc Load (0.4ms)[0m  SELECT "transicion_estado_dcs".* FROM "transicion_estado_dcs" WHERE "transicion_estado_dcs"."est_est_dc_cod" = $1  [["est_est_dc_cod", 5]]
+  Rendered documento_de_compras/_editar_estado.html.erb (4.8ms)
+  Rendered documento_de_compras/index.html.erb within layouts/application (32.7ms)
+  [1m[36mCategori Load (0.5ms)[0m  [1mSELECT "categoris".* FROM "categoris"[0m
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 2]]
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 7]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 18]]
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 15]]
+Completed 200 OK in 602ms (Views: 595.2ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/documento_de_compras" for 127.0.0.1 at 2015-07-16 02:40:43 -0400
+Processing by DocumentoDeComprasController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mDocumentoDeCompra Load (0.4ms)[0m  SELECT "documento_de_compras".* FROM "documento_de_compras"
+  [1m[36mCliente Load (0.2ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 1]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.2ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 6]]
+  [1m[36mEstadoDc Load (0.2ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 4]]
+  Rendered documento_de_compras/_editar_estado.html.erb (41.8ms)
+  Rendered documento_de_compras/index.html.erb within layouts/application (50.9ms)
+Completed 500 Internal Server Error in 54ms (ActiveRecord: 1.5ms)
+
+SyntaxError (/home/camila/Escritorio/PBD-Fase construccion/PYS/app/views/documento_de_compras/_editar_estado.html.erb:19: syntax error, unexpected tIDENTIFIER, expecting ']'
+..._dc_cod: es.est_dc_cod).take es.est_dc_cod]}, { :include_bla...
+...                               ^
+/home/camila/Escritorio/PBD-Fase construccion/PYS/app/views/documento_de_compras/_editar_estado.html.erb:19: syntax error, unexpected ']', expecting '}'
+...est_dc_cod).take es.est_dc_cod]}, { :include_blank => "Selec...
+...                               ^
+/home/camila/Escritorio/PBD-Fase construccion/PYS/app/views/documento_de_compras/_editar_estado.html.erb:19: syntax error, unexpected ')', expecting '}'
+...clude_blank => "Seleccionar" }));@output_buffer.safe_append='
+...                               ^
+/home/camila/Escritorio/PBD-Fase construccion/PYS/app/views/documento_de_compras/_editar_estado.html.erb:24: syntax error, unexpected keyword_end, expecting '}'
+'.freeze; end 
+             ^
+/home/camila/Escritorio/PBD-Fase construccion/PYS/app/views/documento_de_compras/_editar_estado.html.erb:26: syntax error, unexpected keyword_ensure, expecting '}'
+/home/camila/Escritorio/PBD-Fase construccion/PYS/app/views/documento_de_compras/_editar_estado.html.erb:28: syntax error, unexpected keyword_end, expecting '}'):
+  app/views/documento_de_compras/_editar_estado.html.erb:19: syntax error, unexpected tIDENTIFIER, expecting ']'
+  app/views/documento_de_compras/_editar_estado.html.erb:19: syntax error, unexpected ']', expecting '}'
+  app/views/documento_de_compras/_editar_estado.html.erb:19: syntax error, unexpected ')', expecting '}'
+  app/views/documento_de_compras/_editar_estado.html.erb:24: syntax error, unexpected keyword_end, expecting '}'
+  app/views/documento_de_compras/_editar_estado.html.erb:26: syntax error, unexpected keyword_ensure, expecting '}'
+  app/views/documento_de_compras/_editar_estado.html.erb:28: syntax error, unexpected keyword_end, expecting '}'
+  app/views/documento_de_compras/index.html.erb:51:in `block in _app_views_documento_de_compras_index_html_erb___3393717265421282961_69892543780220'
+  app/views/documento_de_compras/index.html.erb:27:in `_app_views_documento_de_compras_index_html_erb___3393717265421282961_69892543780220'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.1ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.9ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (26.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (13.7ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (29.2ms)
+
+
+Started GET "/documento_de_compras" for 127.0.0.1 at 2015-07-16 02:46:07 -0400
+Processing by DocumentoDeComprasController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mDocumentoDeCompra Load (23.9ms)[0m  [1mSELECT "documento_de_compras".* FROM "documento_de_compras"[0m
+  [1m[35mCliente Load (0.2ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 1]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.1ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 6]]
+  [1m[35mEstadoDc Load (0.1ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 4]]
+  [1m[36mDocumentoDeCompra Load (0.2ms)[0m  [1mSELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."doc_com_cod" = $1 LIMIT 1[0m  [["doc_com_cod", 6]]
+  [1m[35mTransicionEstadoDc Load (0.2ms)[0m  SELECT "transicion_estado_dcs".* FROM "transicion_estado_dcs" WHERE "transicion_estado_dcs"."est_est_dc_cod" = $1  [["est_est_dc_cod", 4]]
+  Rendered documento_de_compras/_editar_estado.html.erb (5.1ms)
+  [1m[36mCliente Load (0.3ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 2]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.3ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 26]]
+  [1m[36m (0.3ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 26]]
+  [1m[35mEstadoDc Load (0.3ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 5]]
+  [1m[36mDocumentoDeCompra Load (0.3ms)[0m  [1mSELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."doc_com_cod" = $1 LIMIT 1[0m  [["doc_com_cod", 26]]
+  [1m[35mTransicionEstadoDc Load (0.3ms)[0m  SELECT "transicion_estado_dcs".* FROM "transicion_estado_dcs" WHERE "transicion_estado_dcs"."est_est_dc_cod" = $1  [["est_est_dc_cod", 5]]
+  Rendered documento_de_compras/_editar_estado.html.erb (4.2ms)
+  Rendered documento_de_compras/index.html.erb within layouts/application (46.4ms)
+  [1m[36mCategori Load (0.4ms)[0m  [1mSELECT "categoris".* FROM "categoris"[0m
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 2]]
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 7]]
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 18]]
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 15]]
+Completed 200 OK in 681ms (Views: 650.7ms | ActiveRecord: 28.5ms)
+
+
+Started GET "/assets/art_prop_vals.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/articulos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/categoris.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/auditoris.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/art_props.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/clientes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/contacto.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/detalle_documento_de_compras.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/detalle_sol_devolucions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/direccions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/documento_de_cobros.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/documento_de_compras.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/detalle_pedidos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/estado_articulos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/errors.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/estado_dcs.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/guia_despacho_compras.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/estado_pedidos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/guia_despacho_pedidos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/historial_estado_dcs.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/historial_estado_pedidos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/imagens.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/ins_apvs.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/instancis.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/nota_creditos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/pedidos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/politicas.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/preguntas_frecuentes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/quien_somos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/proveedors.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/propiedad_valors.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/principal.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/propiedads.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/scaffolds.self-6f1aa578b5454d47cb866312dc7fc99849efcd89f08e67b43a6d719d886410cf.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/solicitud_devolucions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/transicion_estado_arts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/transicion_estado_dcs.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/transicion_estado_pedidos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/valors.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/vendedors.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/art_props.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/articulos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/art_prop_vals.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/auditoris.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/categoris.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/clientes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/contacto.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/detalle_documento_de_compras.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/detalle_pedidos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/detalle_sol_devolucions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/direccions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/documento_de_cobros.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/documento_de_compras.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/errors.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/estado_articulos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/estado_dcs.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/estado_pedidos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/guia_despacho_compras.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/guia_despacho_pedidos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/historial_estado_dcs.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/historial_estado_pedidos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/imagens.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/ins_apvs.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/instancis.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/nota_creditos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/pedidos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/politicas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/preguntas_frecuentes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/principal.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/propiedad_valors.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/propiedads.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/proveedors.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/quien_somos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/solicitud_devolucions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/transicion_estado_arts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:08 -0400
+
+
+Started GET "/assets/transicion_estado_dcs.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:09 -0400
+
+
+Started GET "/assets/transicion_estado_pedidos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:09 -0400
+
+
+Started GET "/assets/valors.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:09 -0400
+
+
+Started GET "/assets/vendedors.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:09 -0400
+
+
+Started GET "/assets/cocoon.self-05633fd25797688a657c08b26b8d4217031ee589f5ca76f0a57c11ac7d0e76ec.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:09 -0400
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2015-07-16 02:46:09 -0400
+
+
+Started PATCH "/documento_de_compras/6" for 127.0.0.1 at 2015-07-16 02:46:17 -0400
+Processing by DocumentoDeComprasController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S26MlZDN4jhvh4VwXnTHwFvGwNukShHRdIaX8k2/kgZ7UfDA7hymasMOzYl4E5BGvwbMr5KKR53a7+uawcTWlA==", "documento_de_compra"=>{"est_dc_cod"=>"5"}, "commit"=>"Update Documento de compra", "id"=>"6"}
+  [1m[36mDocumentoDeCompra Load (0.5ms)[0m  [1mSELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."doc_com_cod" = $1 LIMIT 1[0m  [["doc_com_cod", 6]]
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (1.3ms)[0m  [1mUPDATE "documento_de_compras" SET "est_dc_cod" = $1 WHERE "documento_de_compras"."doc_com_cod" = 6[0m  [["est_dc_cod", 5]]
+  [1m[35m (20.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/documento_de_compras
+Completed 302 Found in 79ms (ActiveRecord: 22.5ms)
+
+
+Started GET "/documento_de_compras" for 127.0.0.1 at 2015-07-16 02:46:17 -0400
+Processing by DocumentoDeComprasController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mDocumentoDeCompra Load (0.5ms)[0m  SELECT "documento_de_compras".* FROM "documento_de_compras"
+  [1m[36mCliente Load (0.4ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 2]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.3ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 26]]
+  [1m[36m (0.3ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 26]]
+  [1m[35mEstadoDc Load (0.3ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 5]]
+  [1m[36mDocumentoDeCompra Load (0.3ms)[0m  [1mSELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."doc_com_cod" = $1 LIMIT 1[0m  [["doc_com_cod", 26]]
+  [1m[35mTransicionEstadoDc Load (0.4ms)[0m  SELECT "transicion_estado_dcs".* FROM "transicion_estado_dcs" WHERE "transicion_estado_dcs"."est_est_dc_cod" = $1  [["est_est_dc_cod", 5]]
+  Rendered documento_de_compras/_editar_estado.html.erb (4.6ms)
+  [1m[36mCliente Load (0.4ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 1]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.4ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 5]]
+  [1m[35mDocumentoDeCompra Load (0.4ms)[0m  SELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."doc_com_cod" = $1 LIMIT 1  [["doc_com_cod", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "transicion_estado_dcs".* FROM "transicion_estado_dcs" WHERE "transicion_estado_dcs"."est_est_dc_cod" = $1[0m  [["est_est_dc_cod", 5]]
+  Rendered documento_de_compras/_editar_estado.html.erb (5.0ms)
+  Rendered documento_de_compras/index.html.erb within layouts/application (24.9ms)
+  [1m[35mCategori Load (0.5ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 488ms (Views: 480.8ms | ActiveRecord: 5.6ms)
