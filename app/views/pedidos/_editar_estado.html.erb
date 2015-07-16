@@ -1,0 +1,24 @@
+<%@pedido=Pedido.where(ped_cod: c.ped_cod).take%>
+<%= form_for(@pedido) do |f| %>
+  <% if @pedido.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pedido.errors.count, "error") %> antes de guardar:</h2>
+
+      <ul>
+      <% @pedido.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+
+    <%= f.label :estado_ped_cod %><br>
+   
+    <%= f.select(:estado_ped_cod, TransicionEstadoPedido.where(est_estado_ped_cod: c.estado_ped_cod).collect {|es| [ es.estado_ped_cod]}, { :include_blank => "Seleccionar" })%>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
