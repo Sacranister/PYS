@@ -130,7 +130,7 @@ end
   def update
     respond_to do |format|
       if @documento_de_compra.update(documento_de_compra_params)
-        format.html { redirect_to @documento_de_compra, notice: '' }
+        format.html { redirect_to  documento_de_compras_path, notice: '' }
         format.json { render :show, status: :ok, location: @documento_de_compra }
       else
         format.html { render :edit }
