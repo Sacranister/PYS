@@ -4,12 +4,24 @@ class InstancisController < ApplicationController
   # GET /instancis
   # GET /instancis.json
   def index
-    @instancis = Instanci.all
+        if current_user && current_user.role=='admin'
+          @instancis = Instanci.all
+    else
+      respond_to do |format|
+        format.html { redirect_to :root, notice: 'Debes ser administrador.' }
+      end
+    end
   end
 
   # GET /instancis/1
   # GET /instancis/1.json
   def show
+    if current_user && current_user.role=='admin'
+    else
+      respond_to do |format|
+        format.html { redirect_to :root, notice: 'Debes ser administrador.' }
+      end
+    end
   end
 
   # GET /instancis/new
@@ -21,12 +33,24 @@ class InstancisController < ApplicationController
 
   # GET /instancis/1/edit
   def edit
+        if current_user && current_user.role=='admin'
+    else
+      respond_to do |format|
+        format.html { redirect_to :root, notice: 'Debes ser administrador.' }
+      end
+    end
   end
 
   def copy
+    if current_user && current_user.role=='admin'
         @source = Instanci.find(params[:id])
         @instanci = @source.dup
         render 'copy'
+    else
+      respond_to do |format|
+        format.html { redirect_to :root, notice: 'Debes ser administrador.' }
+      end
+    end
   end
 
   # POST /instancis

@@ -5,7 +5,6 @@
   padding-right: 20%;
 }
 </style>
-
 <%= form_for(@instanci) do |f| %>
   <% if @instanci.errors.any? %>
     <div id="error_explanation">
@@ -83,6 +82,5 @@
   <div class="actions">
     <%= f.submit :value => 'Guardar', :class => 'btn btn-primary'%> <%= link_to 'Atrás', instancis_path %>
   </div>
-<% end %>
-
+<% end %>    
 </div>

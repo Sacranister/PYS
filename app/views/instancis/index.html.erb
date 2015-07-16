@@ -55,20 +55,20 @@
         <td><%= number_with_delimiter(instanci.ins_precio_lista, :delimiter => '.') %></td>
         <%@estado=EstadoArticulo.where(est_art_cod: instanci.est_art_cod).take%>
         <td><%= @estado.est_art_nom %>
-         <a data-toggle="modal" data-target="#<%=instanci.ins_cod%>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+         <a data-toggle="modal" data-target="#<%=instanci.ins_cod%>estado"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
           <!-- Modal -->
-          <div class="modal fade bs-example-modal-sm" id="<%=instanci.ins_cod%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal fade bs-example-modal-sm" id="<%=instanci.ins_cod%>estado" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
               <div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body" align="center">
               <%= render 'editar_estado', c: instanci%>
             </div></div></div></div></td>
         <td><%= link_to instanci do %><i class="glyphicon glyphicon-eye-open"></i>
 <% end %></td>
-        <td><a data-toggle="modal" data-target="#<%=instanci.ins_cod%>"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+        <td><a data-toggle="modal" data-target="#<%=instanci.ins_cod%>imagen"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
 </a>
 
 <!-- Modal -->
-<div class="modal fade bs-example-modal-sm" id="<%=instanci.ins_cod%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade bs-example-modal-sm" id="<%=instanci.ins_cod%>imagen" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
