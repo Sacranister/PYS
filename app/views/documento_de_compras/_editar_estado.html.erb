@@ -15,7 +15,8 @@
   <div class="field">
 
     <%= f.label :est_dc_cod %><br>
-    <%= f.select(:est_dc_cod, EstadoDc.all.collect {|es| [ es.est_dc_nom, es.est_dc_cod ]}, { :include_blank => "Seleccionar" })%>
+   
+    <%= f.select(:est_dc_cod, TransicionEstadoDc.where(est_est_dc_cod: c.est_dc_cod).collect {|es| EstadoDc.where(est_dc_cod: es.est_dc_cod).collect {|is| is.est_dc_nom}}, { :include_blank => "Seleccionar" })%>
   </div>
   <div class="actions">
     <%= f.submit %>
