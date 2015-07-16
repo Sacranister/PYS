@@ -1,4 +1,4 @@
-<div class="box"><h1>New Instanci</h1>
+<div class="box"><h1>Nueva Instancia</h1>
 <style>
 .propiedades{
   float:top;
@@ -9,7 +9,7 @@
 <%= form_for(@instanci) do |f| %>
   <% if @instanci.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@instanci.errors.count, "error") %> prohibited this instanci from being saved:</h2>
+      <h2><%= pluralize(@instanci.errors.count, "error") %> antes de guardar:</h2>
 
       <ul>
       <% @instanci.errors.full_messages.each do |message| %>
@@ -81,7 +81,7 @@
     <input placeholder="<%=@imagen.imagen_uri%>" disabled>
   </div>
   <div class="actions">
-    <%= f.submit :value => 'Guardar', :class => 'btn btn-primary'%> <%= link_to 'Back', instancis_path %>
+    <%= f.submit :value => 'Guardar', :class => 'btn btn-primary'%> <%= link_to 'Atrás', instancis_path %>
   </div>
 <% end %>
 

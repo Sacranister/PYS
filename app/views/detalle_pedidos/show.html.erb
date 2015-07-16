@@ -1,34 +1,34 @@
- 
+<div class="box">
+  <p>
+    <strong>Ped cod:</strong>
+    <%= @detalle_pedido.ped_cod %>
+  </p>
 
-<p>
-  <strong>Ped cod:</strong>
-  <%= @detalle_pedido.ped_cod %>
-</p>
+  <p>
+    <strong>Det ped linea:</strong>
+    <%= @detalle_pedido.det_ped_linea %>
+  </p>
 
-<p>
-  <strong>Det ped linea:</strong>
-  <%= @detalle_pedido.det_ped_linea %>
-</p>
+  <p>
+    <strong>Ins cod:</strong>
+    <%= @detalle_pedido.ins_cod %>
+  </p>
 
-<p>
-  <strong>Ins cod:</strong>
-  <%= @detalle_pedido.ins_cod %>
-</p>
+  <p>
+    <strong>Ins cod prov:</strong>
+    <%= @detalle_pedido.ins_cod_prov %>
+  </p>
 
-<p>
-  <strong>Ins cod prov:</strong>
-  <%= @detalle_pedido.ins_cod_prov %>
-</p>
+  <p>
+    <strong>Det ped cant:</strong>
+    <%= @detalle_pedido.det_ped_cant %>
+  </p>
 
-<p>
-  <strong>Det ped cant:</strong>
-  <%= @detalle_pedido.det_ped_cant %>
-</p>
+  <p>
+    <strong>Det ped precio:</strong>
+    <%= @detalle_pedido.det_ped_precio %>
+  </p>
 
-<p>
-  <strong>Det ped precio:</strong>
-  <%= @detalle_pedido.det_ped_precio %>
-</p>
-
-<%= link_to 'Edit', edit_detalle_pedido_path(@detalle_pedido) %> |
-<%= link_to 'Back', detalle_pedidos_path %>
+  <%= link_to 'Editar', edit_detalle_pedido_path(@detalle_pedido) %> |
+  <%= link_to 'Atrás', detalle_pedidos_path %>
+</div>

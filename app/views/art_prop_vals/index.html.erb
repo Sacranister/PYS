@@ -16,9 +16,9 @@ h1>Listing Art Prop Vals</h1>
         <td><%= art_prop_val.val_cod %></td>
         <td><%= art_prop_val.art_cod %></td>
         <td><%= art_prop_val.prop_cod %></td>
-        <td><%= link_to 'Show', art_prop_val %></td>
-        <td><%= link_to 'Edit', edit_art_prop_val_path(art_prop_val) %></td>
-        <td><%= link_to 'Destroy', art_prop_val, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', art_prop_val %></td>
+        <td><%= link_to 'Editar', edit_art_prop_val_path(art_prop_val) %></td>
+        <td><%= link_to 'Eliminar', art_prop_val, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@ h1>Listing Art Prop Vals</h1>
 
 <br>
 
-<%= link_to 'New Art prop val', new_art_prop_val_path %>
+<%= link_to 'Nuevo Art prop val', new_art_prop_val_path %>

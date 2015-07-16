@@ -1,0 +1,23 @@
+ <%@documento_de_compra=DocumentoDeCompra.where(doc_com_cod: c.doc_com_cod).take%>
+<%= form_for(@documento_de_compra) do |f| %>
+  <% if @documento_de_compra.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@documento_de_compra.errors.count, "error") %> antes de guardar:</h2>
+
+      <ul>
+      <% @documento_de_compra.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+
+    <%= f.label :est_dc_cod %><br>
+    <%= f.select(:est_dc_cod, EstadoDc.all.collect {|es| [ es.est_dc_nom, es.est_dc_cod ]}, { :include_blank => "Seleccionar" })%>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
