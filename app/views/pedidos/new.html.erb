@@ -1,5 +1,49 @@
-<h1>New Pedido</h1>
+<div class="box"><h1>New Pedido</h1>
 
-<%= render 'form' %>
+<%= form_for(@pedido) do |f| %>
+  <% if @pedido.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pedido.errors.count, "error") %> antes de guardar:</h2>
 
-<%= link_to 'Back', pedidos_path %>
+      <ul>
+      <% @pedido.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<table>
+  <thead>
+    <tr>
+      <th><%= f.label :pro_cod, "Proveedor" %></th>
+      <th><%= f.label :ped_fecha %></th>
+      <th><%= f.label :estado_ped_cod, "Estado" %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td><%= f.select(:pro_cod, Proveedor.all.collect {|pro| [ pro.pro_nom, pro.pro_cod ]}, { :include_blank => "Seleccionar" })%></td>
+        <td><%= f.date_select :ped_fecha %></td>
+        <td><%= f.select(:estado_ped_cod, EstadoPedido.all.collect {|est| [ est.estado_ped_nom, est.estado_ped_cod ]}, { :include_blank => "Seleccionar" })%></td>
+      </tr>
+  </tbody>
+</table>
+
+  <fieldset id="detalle">
+    <ol>
+      <%@contador=1%>
+      <%= f.fields_for :detalle_pedidos do |dp| %>
+        <%= render partial: "detalle_pedido_fields", :locals => {:f => dp, :contador => @contador}%>
+        <%@contado=@contador+1%>
+      <% end %>
+    </ol>
+    <%= link_to_add_association 'Agregar detalle', f, :detalle_pedidos, 'data-association-insertion-node' => "#detalle ol"%>
+  </fieldset>
+
+  <div class="actions">
+    <%= f.submit :value => 'Guardar', :class => 'btn btn-primary'%>
+  </div>
+<% end %>
+
+<%= link_to 'Back', pedidos_path %></div>

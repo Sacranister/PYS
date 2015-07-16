@@ -1,23 +1,50 @@
+ <style>
+.tabla{
+  background-color: #ececec; 
+}
+</style>
 <div class="box">
 	<p>
-	  <strong>Estado ped cod:</strong>
-	  <%= @pedido.estado_ped_cod %>
+	  <strong>Estado pedido:</strong>
+	  <%@estado=EstadoPedido.where(estado_ped_cod: @pedido.estado_ped_cod).take%>
+	  <%=@estado.estado_ped_nom  %>
 	</p>
 
 	<p>
-	  <strong>Guia desp ped cod:</strong>
-	  <%= @pedido.guia_desp_ped_cod %>
+	  <strong>Proveedor:</strong>
+	  <%@proveedor=Proveedor.where(pro_cod: @pedido.pro_cod).take%>
+	  <%=@proveedor.pro_nom  %>
 	</p>
 
 	<p>
-	  <strong>Pro cod:</strong>
-	  <%= @pedido.pro_cod %>
-	</p>
-
-	<p>
-	  <strong>Ped fecha:</strong>
+	  <strong>Fecha pedido:</strong>
 	  <%= @pedido.ped_fecha %>
 	</p>
+<div class="tabla">
+<table class="table table-hover">
+  <thead>
+    <tr bgcolor="d7d7d7">
+      <th>Linea</th>
+      <th>Codigo articulo</th>
+      <th>Codigo proveedor</th>
+      <th>Cantidad</th>
+      <th>Precio<th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pedido.detalle_pedidos.each do |detalle_pedido| %>
+      <tr>
+          <td><%= detalle_pedido.det_ped_linea %></td>
+          <td><%= detalle_pedido.ins_cod %></td>
+          <td><%= detalle_pedido.ins_cod_prov %></td>
+          <td><%= detalle_pedido.det_ped_cant %></td>
+          <td><%= number_with_delimiter(detalle_pedido.det_ped_precio, :delimiter => '.') %></td>
+          <td></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table></div>
 
 	<%= link_to 'Editar', edit_pedido_path(@pedido) %> |
 	<%= link_to 'Atrás', pedidos_path %>

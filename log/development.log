@@ -33832,3 +33832,41 @@ Processing by InstancisController#index as HTML
   [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
   [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
 Completed 200 OK in 466ms (Views: 455.3ms | ActiveRecord: 9.6ms)
+
+
+Started GET "/documento_de_compras" for 127.0.0.1 at 2015-07-16 04:10:45 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by DocumentoDeComprasController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mDocumentoDeCompra Load (1.1ms)[0m  [1mSELECT "documento_de_compras".* FROM "documento_de_compras"[0m
+  [1m[35mCliente Load (0.8ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 1]]
+  [1m[36mDetalleDocumentoDeCompra Load (1.0ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 8]]
+  [1m[35m (0.5ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 8]]
+  [1m[36mEstadoDc Load (0.4ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mDocumentoDeCompra Load (0.4ms)[0m  SELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."doc_com_cod" = $1 LIMIT 1  [["doc_com_cod", 8]]
+  [1m[36mTransicionEstadoDc Load (0.4ms)[0m  [1mSELECT "transicion_estado_dcs".* FROM "transicion_estado_dcs" WHERE "transicion_estado_dcs"."est_est_dc_cod" = $1[0m  [["est_est_dc_cod", 2]]
+  Rendered documento_de_compras/_editar_estado.html.erb (17.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 1]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.3ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 10]]
+  [1m[35m (0.3ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 10]]
+  [1m[36mEstadoDc Load (0.3ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 3]]
+  [1m[35mDocumentoDeCompra Load (0.4ms)[0m  SELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."doc_com_cod" = $1 LIMIT 1  [["doc_com_cod", 10]]
+  [1m[36mTransicionEstadoDc Load (0.3ms)[0m  [1mSELECT "transicion_estado_dcs".* FROM "transicion_estado_dcs" WHERE "transicion_estado_dcs"."est_est_dc_cod" = $1[0m  [["est_est_dc_cod", 3]]
+  Rendered documento_de_compras/_editar_estado.html.erb (3.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 1]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.3ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 25]]
+  [1m[35m (0.2ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 25]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mDocumentoDeCompra Load (0.3ms)[0m  SELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."doc_com_cod" = $1 LIMIT 1  [["doc_com_cod", 25]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "transicion_estado_dcs".* FROM "transicion_estado_dcs" WHERE "transicion_estado_dcs"."est_est_dc_cod" = $1[0m  [["est_est_dc_cod", 2]]
+  Rendered documento_de_compras/_editar_estado.html.erb (2.6ms)
+  Rendered documento_de_compras/index.html.erb within layouts/application (113.3ms)
+  [1m[35mCategori Load (1.1ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.5ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.4ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.4ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.4ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 22]]
+  [1m[36mCategori Load (0.4ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (0.5ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 21]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 690ms (Views: 644.6ms | ActiveRecord: 22.9ms)

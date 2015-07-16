@@ -65,6 +65,6 @@
     <%= f.select(:sol_dev_est,options_for_select([['Aprobada','Aprobada'],['Rechazada','Rechazada']],1))%>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :value => 'Guardar', :class => 'btn btn-primary'%>
   </div>
 <% end %>

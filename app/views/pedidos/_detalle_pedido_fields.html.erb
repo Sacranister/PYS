@@ -1,0 +1,23 @@
+ <li class="control-group nested-fields">
+  <div class="controls">
+    <table>
+  <thead>
+    <tr>
+      <th></th>
+      <th><%= f.label :ins_cod, "Codigo articulo" %></th>
+      <th><%= f.label :det_ped_cant ,"Cantidad"%></th>
+      <th> </th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td></td>
+        <td><%= f.number_field :ins_cod %></td>
+        <td><%= f.number_field :det_ped_cant %></td>
+        <td><%= link_to_remove_association "Eliminar", f %></td>
+      </tr>
+  </tbody>
+</table>    
+  </div>
+</li>

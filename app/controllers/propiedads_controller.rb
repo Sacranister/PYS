@@ -38,6 +38,10 @@ class PropiedadsController < ApplicationController
   # POST /propiedads.json
   def create
     @propiedad = Propiedad.new(propiedad_params)
+    @propiedad.prop_nom=@propiedad.prop_nom.capitalize
+    @propiedad.propiedad_valors.length.times do |i|
+      @propiedad.propiedad_valors[i].valor.val_nom=@propiedad.propiedad_valors[i].valor.val_nom.capitalize
+    end
     respond_to do |format|
     if @propiedad.save
       @propiedad.propiedad_valors.each do |pv|

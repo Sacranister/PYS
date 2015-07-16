@@ -12,22 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :pro_nom %><br>
+    <%= f.label :pro_nom, "Nombre proveedor" %><br>
     <%= f.text_field :pro_nom %>
   </div>
   <div class="field">
-    <%= f.label :pro_mail %><br>
+    <%= f.label :pro_mail, "Email" %><br>
     <%= f.text_field :pro_mail %>
   </div>
   <div class="field">
-    <%= f.label :pro_desc %><br>
+    <%= f.label :pro_desc, "Descripción" %><br>
     <%= f.text_area :pro_desc %>
   </div>
   <div class="field">
-    <%= f.label :pro_web %><br>
+    <%= f.label :pro_web, "Web"%><br>
     <%= f.text_field :pro_web %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :value => 'Guardar', :class => 'btn btn-primary'%>
   </div>
 <% end %>
