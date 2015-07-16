@@ -23,6 +23,7 @@
   </div>
     <%end%>
   </div>
+  <%if current_user && current_user.role=='vendedor'%>
     <div class="field">
     <%= f.label 'Cliente' %><br>
     <%@cs=Cliente.all
@@ -40,6 +41,7 @@
   <% end %>
 <% end %>
   </div>
+  <% end %>
   <div class="actions">
     <%= f.submit :value => 'Pagar', :class => 'btn btn-primary'%>
   </div>

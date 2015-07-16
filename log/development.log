@@ -8796,3 +8796,1440 @@ Processing by PrincipalController#index as HTML
   [1m[36mCategori Load (5.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
   [1m[35mCategori Load (0.4ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 15]]
 Completed 200 OK in 691ms (Views: 684.5ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-07-15 20:13:02 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered users/shared/_links.html.erb (0.3ms)
+  Rendered users/sessions/new.html.erb within layouts/application (10.5ms)
+  [1m[36mCategori Load (1.7ms)[0m  [1mSELECT "categoris".* FROM "categoris"[0m
+  [1m[35mCategori Load (2.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 2]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 7]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 18]]
+  [1m[36mCategori Load (0.6ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 15]]
+Completed 200 OK in 411ms (Views: 405.4ms | ActiveRecord: 5.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2015-07-15 20:13:12 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4jwu4ShPwV+4S8qF8gbxQfjzJ2NzgzKXvBbhtC4Mai5EZxID5HhmvCiQSBQH2KtfcsBCjGbywNEI3bXTtUN87A==", "user"=>{"email"=>"PYS@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Entrar"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "pys@gmail.com"]]
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = 2[0m  [["last_sign_in_at", "2015-07-15 22:38:02.814226"], ["current_sign_in_at", "2015-07-15 23:13:12.694074"], ["sign_in_count", 20], ["updated_at", "2015-07-15 23:13:12.694967"]]
+  [1m[35m (1.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 192ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-15 20:13:12 -0300
+Processing by PrincipalController#index as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  Rendered principal/index.html.erb within layouts/application (2.3ms)
+  [1m[35mCategori Load (1.3ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (2.7ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (4.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 622ms (Views: 611.0ms | ActiveRecord: 10.4ms)
+
+
+Started GET "/instancis" for 127.0.0.1 at 2015-07-15 20:13:17 -0300
+Processing by InstancisController#index as HTML
+  [1m[35mInstanci Load (0.2ms)[0m  SELECT "instancis".* FROM "instancis"
+  [1m[36mArticulo Load (0.1ms)[0m  [1mSELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1[0m  [["art_cod", 4]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1  [["cat_cod", 7]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1[0m  [["cat_cod", 2]]
+  [1m[35mInsApv Load (1.1ms)[0m  SELECT "ins_apvs".* FROM "ins_apvs" WHERE "ins_apvs"."ins_cod" = $1  [["ins_cod", 10]]
+  [1m[36mEstadoArticulo Load (2.8ms)[0m  [1mSELECT  "estado_articulos".* FROM "estado_articulos" WHERE "estado_articulos"."est_art_cod" = $1 LIMIT 1[0m  [["est_art_cod", 1]]
+  [1m[35mImagen Load (0.2ms)[0m  SELECT  "imagens".* FROM "imagens" WHERE "imagens"."ins_cod_prov" = $1 LIMIT 1  [["ins_cod_prov", "tyuh"]]
+  [1m[36mArticulo Load (2.1ms)[0m  [1mSELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1[0m  [["art_cod", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1  [["cat_cod", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1[0m  [["cat_cod", 2]]
+  [1m[35mInsApv Load (2.0ms)[0m  SELECT "ins_apvs".* FROM "ins_apvs" WHERE "ins_apvs"."ins_cod" = $1  [["ins_cod", 7]]
+  [1m[36mArtPropVal Load (0.9ms)[0m  [1mSELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1[0m  [["apv_cod", 1]]
+  [1m[35mPropiedad Load (1.1ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1  [["prop_cod", 1], ["prop_nom", "Talla"]]
+  [1m[36mArtPropVal Load (0.1ms)[0m  [1mSELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1[0m  [["apv_cod", 3]]
+  [1m[35mPropiedad Load (0.2ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1  [["prop_cod", 2], ["prop_nom", "Talla"]]
+  [1m[36mArtPropVal Load (0.4ms)[0m  [1mSELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1[0m  [["apv_cod", 5]]
+  [1m[35mPropiedad Load (7.1ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1  [["prop_cod", 3], ["prop_nom", "Talla"]]
+  [1m[36mArtPropVal Load (0.1ms)[0m  [1mSELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1[0m  [["apv_cod", 7]]
+  [1m[35mPropiedad Load (0.1ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1  [["prop_cod", 5], ["prop_nom", "Talla"]]
+  [1m[36mArtPropVal Load (0.1ms)[0m  [1mSELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1[0m  [["apv_cod", 8]]
+  [1m[35mPropiedad Load (0.1ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1  [["prop_cod", 6], ["prop_nom", "Talla"]]
+  [1m[36mValor Load (0.1ms)[0m  [1mSELECT  "valors".* FROM "valors" WHERE "valors"."val_cod" = $1 LIMIT 1[0m  [["val_cod", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_articulos".* FROM "estado_articulos" WHERE "estado_articulos"."est_art_cod" = $1 LIMIT 1  [["est_art_cod", 1]]
+  [1m[36mImagen Load (0.2ms)[0m  [1mSELECT  "imagens".* FROM "imagens" WHERE "imagens"."ins_cod_prov" = $1 LIMIT 1[0m  [["ins_cod_prov", "1234"]]
+  [1m[35mArticulo Load (3.2ms)[0m  SELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1  [["art_cod", 2]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1[0m  [["cat_cod", 15]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1  [["cat_cod", 3]]
+  [1m[36mInsApv Load (0.1ms)[0m  [1mSELECT "ins_apvs".* FROM "ins_apvs" WHERE "ins_apvs"."ins_cod" = $1[0m  [["ins_cod", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_articulos".* FROM "estado_articulos" WHERE "estado_articulos"."est_art_cod" = $1 LIMIT 1  [["est_art_cod", 1]]
+  [1m[36mImagen Load (0.1ms)[0m  [1mSELECT  "imagens".* FROM "imagens" WHERE "imagens"."ins_cod_prov" = $1 LIMIT 1[0m  [["ins_cod_prov", "adcd"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1  [["art_cod", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1[0m  [["cat_cod", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1  [["cat_cod", 2]]
+  [1m[36mInsApv Load (0.1ms)[0m  [1mSELECT "ins_apvs".* FROM "ins_apvs" WHERE "ins_apvs"."ins_cod" = $1[0m  [["ins_cod", 15]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1  [["apv_cod", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1[0m  [["prop_cod", 1], ["prop_nom", "Talla"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1  [["apv_cod", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1[0m  [["prop_cod", 2], ["prop_nom", "Talla"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1  [["apv_cod", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1[0m  [["prop_cod", 3], ["prop_nom", "Talla"]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1  [["apv_cod", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1[0m  [["prop_cod", 5], ["prop_nom", "Talla"]]
+  [1m[35mArtPropVal Load (5.0ms)[0m  SELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1  [["apv_cod", 9]]
+  [1m[36mPropiedad Load (0.2ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1[0m  [["prop_cod", 7], ["prop_nom", "Talla"]]
+  [1m[35mArtPropVal Load (0.1ms)[0m  SELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1  [["apv_cod", 10]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1[0m  [["prop_cod", 6], ["prop_nom", "Talla"]]
+  [1m[35mValor Load (0.1ms)[0m  SELECT  "valors".* FROM "valors" WHERE "valors"."val_cod" = $1 LIMIT 1  [["val_cod", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_articulos".* FROM "estado_articulos" WHERE "estado_articulos"."est_art_cod" = $1 LIMIT 1[0m  [["est_art_cod", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "imagens".* FROM "imagens" WHERE "imagens"."ins_cod_prov" = $1 LIMIT 1  [["ins_cod_prov", "1234"]]
+  [1m[36mArticulo Load (0.9ms)[0m  [1mSELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1[0m  [["art_cod", 5]]
+  [1m[35mCategori Load (0.7ms)[0m  SELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1  [["cat_cod", 18]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1[0m  [["cat_cod", 2]]
+  [1m[35mInsApv Load (0.2ms)[0m  SELECT "ins_apvs".* FROM "ins_apvs" WHERE "ins_apvs"."ins_cod" = $1  [["ins_cod", 14]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_articulos".* FROM "estado_articulos" WHERE "estado_articulos"."est_art_cod" = $1 LIMIT 1[0m  [["est_art_cod", 1]]
+  [1m[35mImagen Load (0.2ms)[0m  SELECT  "imagens".* FROM "imagens" WHERE "imagens"."ins_cod_prov" = $1 LIMIT 1  [["ins_cod_prov", "abcd"]]
+  Rendered instancis/index.html.erb within layouts/application (86.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 382ms (Views: 350.3ms | ActiveRecord: 31.3ms)
+
+
+Started GET "/instancis/10" for 127.0.0.1 at 2015-07-15 20:13:21 -0300
+Processing by InstancisController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mInstanci Load (0.2ms)[0m  SELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1  [["ins_cod", 10]]
+  [1m[36mArticulo Load (0.3ms)[0m  [1mSELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1[0m  [["art_cod", 4]]
+  [1m[35mImagen Load (0.2ms)[0m  SELECT  "imagens".* FROM "imagens" WHERE "imagens"."ins_cod_prov" = $1 LIMIT 1  [["ins_cod_prov", "tyuh"]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1[0m  [["cat_cod", 7]]
+  [1m[35mEstadoArticulo Load (0.1ms)[0m  SELECT  "estado_articulos".* FROM "estado_articulos" WHERE "estado_articulos"."est_art_cod" = $1 LIMIT 1  [["est_art_cod", 1]]
+  [1m[36mInsApv Load (0.1ms)[0m  [1mSELECT "ins_apvs".* FROM "ins_apvs" WHERE "ins_apvs"."ins_cod" = $1[0m  [["ins_cod", 10]]
+  Rendered instancis/show.html.erb within layouts/application (4.9ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris"[0m
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 2]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 7]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 18]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 15]]
+Completed 200 OK in 259ms (Views: 257.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/categoris/2" for 127.0.0.1 at 2015-07-15 20:15:06 -0300
+Processing by CategorisController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1[0m  [["cat_cod", 2]]
+  [1m[35mArticulo Load (0.1ms)[0m  SELECT "articulos".* FROM "articulos" WHERE "articulos"."cat_cod" = $1  [["cat_cod", 2]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mArticulo Load (0.1ms)[0m  SELECT "articulos".* FROM "articulos" WHERE "articulos"."cat_cod" = $1  [["cat_cod", 7]]
+  [1m[36mImagen Load (0.2ms)[0m  [1mSELECT "imagens".* FROM "imagens" WHERE (LENGTH(imagen_uri) > 0)[0m
+  [1m[35mInstanci Load (0.1ms)[0m  SELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2  [["ins_cod_prov", "1234"], ["art_cod", 1]]
+  [1m[36mInstanci Load (0.2ms)[0m  [1mSELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2[0m  [["ins_cod_prov", "adcd"], ["art_cod", 1]]
+  [1m[35mInstanci Load (1.7ms)[0m  SELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2  [["ins_cod_prov", "tyuh"], ["art_cod", 1]]
+  [1m[36mInstanci Load (0.3ms)[0m  [1mSELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2[0m  [["ins_cod_prov", "abcd"], ["art_cod", 1]]
+  [1m[35mInstanci Load (0.2ms)[0m  SELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2  [["ins_cod_prov", "1234"], ["art_cod", 4]]
+  [1m[36mInstanci Load (6.8ms)[0m  [1mSELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2[0m  [["ins_cod_prov", "adcd"], ["art_cod", 4]]
+  [1m[35mInstanci Load (0.5ms)[0m  SELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2  [["ins_cod_prov", "tyuh"], ["art_cod", 4]]
+  [1m[36mInstanci Load (0.2ms)[0m  [1mSELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2[0m  [["ins_cod_prov", "abcd"], ["art_cod", 4]]
+  [1m[35mCategori Load (1.2ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mArticulo Load (1.1ms)[0m  [1mSELECT "articulos".* FROM "articulos" WHERE "articulos"."cat_cod" = $1[0m  [["cat_cod", 18]]
+  [1m[35mInstanci Load (0.2ms)[0m  SELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2  [["ins_cod_prov", "1234"], ["art_cod", 5]]
+  [1m[36mInstanci Load (0.1ms)[0m  [1mSELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2[0m  [["ins_cod_prov", "adcd"], ["art_cod", 5]]
+  [1m[35mInstanci Load (1.3ms)[0m  SELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2  [["ins_cod_prov", "tyuh"], ["art_cod", 5]]
+  [1m[36mInstanci Load (0.2ms)[0m  [1mSELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2[0m  [["ins_cod_prov", "abcd"], ["art_cod", 5]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 18]]
+  [1m[36mImagen Load (3.0ms)[0m  [1mSELECT  "imagens"."imagen_uri" FROM "imagens" WHERE "imagens"."ins_cod_prov" = $1 LIMIT 1[0m  [["ins_cod_prov", "1234"]]
+  [1m[35mArticulo Load (0.1ms)[0m  SELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1  [["art_cod", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mImagen Load (0.1ms)[0m  SELECT  "imagens"."imagen_uri" FROM "imagens" WHERE "imagens"."ins_cod_prov" = $1 LIMIT 1  [["ins_cod_prov", "tyuh"]]
+  [1m[36mArticulo Load (1.6ms)[0m  [1mSELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1[0m  [["art_cod", 4]]
+  [1m[35mImagen Load (0.1ms)[0m  SELECT  "imagens"."imagen_uri" FROM "imagens" WHERE "imagens"."ins_cod_prov" = $1 LIMIT 1  [["ins_cod_prov", "abcd"]]
+  [1m[36mArticulo Load (0.1ms)[0m  [1mSELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1[0m  [["art_cod", 5]]
+  [1m[35mPropiedad Load (6.0ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1  [["prop_nom", "Color"]]
+  [1m[36mPropiedadValor Load (0.2ms)[0m  [1mSELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1[0m  [["prop_cod", 1]]
+  [1m[35mValor Load (0.1ms)[0m  SELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1  [["val_cod", 1]]
+  [1m[36mPropiedad Load (0.1ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1[0m  [["prop_nom", "Material"]]
+  [1m[35mPropiedadValor Load (0.1ms)[0m  SELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1  [["prop_cod", 8]]
+  [1m[36mValor Load (0.1ms)[0m  [1mSELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1[0m  [["val_cod", 10]]
+  [1m[35mValor Load (0.1ms)[0m  SELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1  [["val_cod", 4]]
+  [1m[36mPropiedad Load (0.1ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1[0m  [["prop_nom", "Marca"]]
+  [1m[35mPropiedadValor Load (0.1ms)[0m  SELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1  [["prop_cod", 7]]
+  [1m[36mValor Load (0.1ms)[0m  [1mSELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1[0m  [["val_cod", 7]]
+  Rendered categoris/show.html.erb within layouts/application (20.9ms)
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (2.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 416ms (Views: 361.5ms | ActiveRecord: 29.6ms)
+
+
+Started GET "/categoris/2" for 127.0.0.1 at 2015-07-15 20:15:18 -0300
+Processing by CategorisController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCategori Load (0.2ms)[0m  SELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1  [["cat_cod", 2]]
+  [1m[36mArticulo Load (0.1ms)[0m  [1mSELECT "articulos".* FROM "articulos" WHERE "articulos"."cat_cod" = $1[0m  [["cat_cod", 2]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 2]]
+  [1m[36mArticulo Load (0.1ms)[0m  [1mSELECT "articulos".* FROM "articulos" WHERE "articulos"."cat_cod" = $1[0m  [["cat_cod", 7]]
+  [1m[35mImagen Load (0.4ms)[0m  SELECT "imagens".* FROM "imagens" WHERE (LENGTH(imagen_uri) > 0)
+  [1m[36mInstanci Load (0.1ms)[0m  [1mSELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2[0m  [["ins_cod_prov", "1234"], ["art_cod", 1]]
+  [1m[35mInstanci Load (0.1ms)[0m  SELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2  [["ins_cod_prov", "adcd"], ["art_cod", 1]]
+  [1m[36mInstanci Load (0.1ms)[0m  [1mSELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2[0m  [["ins_cod_prov", "tyuh"], ["art_cod", 1]]
+  [1m[35mInstanci Load (0.1ms)[0m  SELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2  [["ins_cod_prov", "abcd"], ["art_cod", 1]]
+  [1m[36mInstanci Load (0.1ms)[0m  [1mSELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2[0m  [["ins_cod_prov", "1234"], ["art_cod", 4]]
+  [1m[35mInstanci Load (0.1ms)[0m  SELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2  [["ins_cod_prov", "adcd"], ["art_cod", 4]]
+  [1m[36mInstanci Load (0.5ms)[0m  [1mSELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2[0m  [["ins_cod_prov", "tyuh"], ["art_cod", 4]]
+  [1m[35mInstanci Load (0.8ms)[0m  SELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2  [["ins_cod_prov", "abcd"], ["art_cod", 4]]
+  [1m[36mCategori Load (0.4ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 7]]
+  [1m[35mArticulo Load (1.1ms)[0m  SELECT "articulos".* FROM "articulos" WHERE "articulos"."cat_cod" = $1  [["cat_cod", 18]]
+  [1m[36mInstanci Load (0.2ms)[0m  [1mSELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2[0m  [["ins_cod_prov", "1234"], ["art_cod", 5]]
+  [1m[35mInstanci Load (1.8ms)[0m  SELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2  [["ins_cod_prov", "adcd"], ["art_cod", 5]]
+  [1m[36mInstanci Load (0.0ms)[0m  [1mSELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2[0m  [["ins_cod_prov", "tyuh"], ["art_cod", 5]]
+  [1m[35mInstanci Load (0.1ms)[0m  SELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2  [["ins_cod_prov", "abcd"], ["art_cod", 5]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mImagen Load (0.1ms)[0m  SELECT  "imagens"."imagen_uri" FROM "imagens" WHERE "imagens"."ins_cod_prov" = $1 LIMIT 1  [["ins_cod_prov", "1234"]]
+  [1m[36mArticulo Load (1.2ms)[0m  [1mSELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1[0m  [["art_cod", 1]]
+  [1m[35mUser Load (1.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mImagen Load (0.7ms)[0m  [1mSELECT  "imagens"."imagen_uri" FROM "imagens" WHERE "imagens"."ins_cod_prov" = $1 LIMIT 1[0m  [["ins_cod_prov", "tyuh"]]
+  [1m[35mArticulo Load (1.9ms)[0m  SELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1  [["art_cod", 4]]
+  [1m[36mImagen Load (0.2ms)[0m  [1mSELECT  "imagens"."imagen_uri" FROM "imagens" WHERE "imagens"."ins_cod_prov" = $1 LIMIT 1[0m  [["ins_cod_prov", "abcd"]]
+  [1m[35mArticulo Load (4.0ms)[0m  SELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1  [["art_cod", 5]]
+  [1m[36mPropiedad Load (0.6ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1[0m  [["prop_nom", "Color"]]
+  [1m[35mPropiedadValor Load (0.2ms)[0m  SELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1  [["prop_cod", 1]]
+  [1m[36mValor Load (0.1ms)[0m  [1mSELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1[0m  [["val_cod", 1]]
+  [1m[35mPropiedad Load (0.1ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1  [["prop_nom", "Material"]]
+  [1m[36mPropiedadValor Load (0.6ms)[0m  [1mSELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1[0m  [["prop_cod", 8]]
+  [1m[35mValor Load (0.1ms)[0m  SELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1  [["val_cod", 10]]
+  [1m[36mValor Load (0.2ms)[0m  [1mSELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1[0m  [["val_cod", 4]]
+  [1m[35mPropiedad Load (1.9ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1  [["prop_nom", "Marca"]]
+  [1m[36mPropiedadValor Load (0.1ms)[0m  [1mSELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1[0m  [["prop_cod", 7]]
+  [1m[35mValor Load (0.1ms)[0m  SELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1  [["val_cod", 7]]
+  Rendered categoris/show.html.erb within layouts/application (24.7ms)
+  [1m[36mCategori Load (5.2ms)[0m  [1mSELECT "categoris".* FROM "categoris"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 18]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (2.4ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 15]]
+Completed 200 OK in 555ms (Views: 508.1ms | ActiveRecord: 28.0ms)
+
+
+Started GET "/categoris/15" for 127.0.0.1 at 2015-07-15 20:15:24 -0300
+Processing by CategorisController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1[0m  [["cat_cod", 15]]
+  [1m[35mArticulo Load (0.3ms)[0m  SELECT "articulos".* FROM "articulos" WHERE "articulos"."cat_cod" = $1  [["cat_cod", 15]]
+  [1m[36mImagen Load (3.0ms)[0m  [1mSELECT "imagens".* FROM "imagens" WHERE (LENGTH(imagen_uri) > 0)[0m
+  [1m[35mInstanci Load (0.1ms)[0m  SELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2  [["ins_cod_prov", "1234"], ["art_cod", 2]]
+  [1m[36mInstanci Load (0.1ms)[0m  [1mSELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2[0m  [["ins_cod_prov", "adcd"], ["art_cod", 2]]
+  [1m[35mInstanci Load (0.1ms)[0m  SELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2  [["ins_cod_prov", "tyuh"], ["art_cod", 2]]
+  [1m[36mInstanci Load (0.1ms)[0m  [1mSELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2[0m  [["ins_cod_prov", "abcd"], ["art_cod", 2]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 15]]
+  [1m[36mImagen Load (0.2ms)[0m  [1mSELECT  "imagens"."imagen_uri" FROM "imagens" WHERE "imagens"."ins_cod_prov" = $1 LIMIT 1[0m  [["ins_cod_prov", "adcd"]]
+  [1m[35mArticulo Load (1.9ms)[0m  SELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1  [["art_cod", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mPropiedad Load (1.8ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1  [["prop_nom", "Color"]]
+  [1m[36mPropiedadValor Load (0.1ms)[0m  [1mSELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1[0m  [["prop_cod", 1]]
+  [1m[35mValor Load (0.1ms)[0m  SELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1  [["val_cod", 1]]
+  [1m[36mPropiedad Load (0.2ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1[0m  [["prop_nom", "Material"]]
+  [1m[35mPropiedadValor Load (0.1ms)[0m  SELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1  [["prop_cod", 8]]
+  [1m[36mValor Load (0.1ms)[0m  [1mSELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1[0m  [["val_cod", 10]]
+  [1m[35mValor Load (0.5ms)[0m  SELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1  [["val_cod", 4]]
+  [1m[36mPropiedad Load (0.3ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1[0m  [["prop_nom", "Marca"]]
+  [1m[35mPropiedadValor Load (0.1ms)[0m  SELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1  [["prop_cod", 7]]
+  [1m[36mValor Load (0.1ms)[0m  [1mSELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1[0m  [["val_cod", 7]]
+  Rendered categoris/show.html.erb within layouts/application (20.4ms)
+  [1m[35mCategori Load (7.1ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 586ms (Views: 565.5ms | ActiveRecord: 17.1ms)
+
+
+Started GET "/categoris/7" for 127.0.0.1 at 2015-07-15 20:15:28 -0300
+Processing by CategorisController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mCategori Load (0.2ms)[0m  SELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1  [["cat_cod", 7]]
+  [1m[36mArticulo Load (0.2ms)[0m  [1mSELECT "articulos".* FROM "articulos" WHERE "articulos"."cat_cod" = $1[0m  [["cat_cod", 7]]
+  [1m[35mImagen Load (0.2ms)[0m  SELECT "imagens".* FROM "imagens" WHERE (LENGTH(imagen_uri) > 0)
+  [1m[36mInstanci Load (0.1ms)[0m  [1mSELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2[0m  [["ins_cod_prov", "1234"], ["art_cod", 1]]
+  [1m[35mInstanci Load (0.1ms)[0m  SELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2  [["ins_cod_prov", "adcd"], ["art_cod", 1]]
+  [1m[36mInstanci Load (0.1ms)[0m  [1mSELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2[0m  [["ins_cod_prov", "tyuh"], ["art_cod", 1]]
+  [1m[35mInstanci Load (0.1ms)[0m  SELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2  [["ins_cod_prov", "abcd"], ["art_cod", 1]]
+  [1m[36mInstanci Load (0.5ms)[0m  [1mSELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2[0m  [["ins_cod_prov", "1234"], ["art_cod", 4]]
+  [1m[35mInstanci Load (1.1ms)[0m  SELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2  [["ins_cod_prov", "adcd"], ["art_cod", 4]]
+  [1m[36mInstanci Load (1.1ms)[0m  [1mSELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2[0m  [["ins_cod_prov", "tyuh"], ["art_cod", 4]]
+  [1m[35mInstanci Load (2.5ms)[0m  SELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2  [["ins_cod_prov", "abcd"], ["art_cod", 4]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 7]]
+  [1m[35mImagen Load (0.2ms)[0m  SELECT  "imagens"."imagen_uri" FROM "imagens" WHERE "imagens"."ins_cod_prov" = $1 LIMIT 1  [["ins_cod_prov", "1234"]]
+  [1m[36mArticulo Load (0.1ms)[0m  [1mSELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1[0m  [["art_cod", 1]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mImagen Load (2.3ms)[0m  [1mSELECT  "imagens"."imagen_uri" FROM "imagens" WHERE "imagens"."ins_cod_prov" = $1 LIMIT 1[0m  [["ins_cod_prov", "tyuh"]]
+  [1m[35mArticulo Load (0.2ms)[0m  SELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1  [["art_cod", 4]]
+  [1m[36mPropiedad Load (0.2ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1[0m  [["prop_nom", "Color"]]
+  [1m[35mPropiedadValor Load (0.1ms)[0m  SELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1  [["prop_cod", 1]]
+  [1m[36mValor Load (0.1ms)[0m  [1mSELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1[0m  [["val_cod", 1]]
+  [1m[35mPropiedad Load (0.1ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1  [["prop_nom", "Material"]]
+  [1m[36mPropiedadValor Load (3.7ms)[0m  [1mSELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1[0m  [["prop_cod", 8]]
+  [1m[35mValor Load (0.2ms)[0m  SELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1  [["val_cod", 10]]
+  [1m[36mValor Load (0.1ms)[0m  [1mSELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1[0m  [["val_cod", 4]]
+  [1m[35mPropiedad Load (0.1ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1  [["prop_nom", "Marca"]]
+  [1m[36mPropiedadValor Load (0.2ms)[0m  [1mSELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1[0m  [["prop_cod", 7]]
+  [1m[35mValor Load (0.1ms)[0m  SELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1  [["val_cod", 7]]
+  Rendered categoris/show.html.erb within layouts/application (19.7ms)
+  [1m[36mCategori Load (3.4ms)[0m  [1mSELECT "categoris".* FROM "categoris"[0m
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 7]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 18]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 15]]
+Completed 200 OK in 586ms (Views: 560.3ms | ActiveRecord: 18.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-15 20:15:34 -0300
+Processing by PrincipalController#index as HTML
+  [1m[36mUser Load (2.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  Rendered principal/index.html.erb within layouts/application (3.8ms)
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 402ms (Views: 397.9ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/categoris/15" for 127.0.0.1 at 2015-07-15 20:15:43 -0300
+Processing by CategorisController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mCategori Load (0.2ms)[0m  SELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1  [["cat_cod", 15]]
+  [1m[36mArticulo Load (2.3ms)[0m  [1mSELECT "articulos".* FROM "articulos" WHERE "articulos"."cat_cod" = $1[0m  [["cat_cod", 15]]
+  [1m[35mImagen Load (0.2ms)[0m  SELECT "imagens".* FROM "imagens" WHERE (LENGTH(imagen_uri) > 0)
+  [1m[36mInstanci Load (0.1ms)[0m  [1mSELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2[0m  [["ins_cod_prov", "1234"], ["art_cod", 2]]
+  [1m[35mInstanci Load (0.1ms)[0m  SELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2  [["ins_cod_prov", "adcd"], ["art_cod", 2]]
+  [1m[36mInstanci Load (2.0ms)[0m  [1mSELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2[0m  [["ins_cod_prov", "tyuh"], ["art_cod", 2]]
+  [1m[35mInstanci Load (0.1ms)[0m  SELECT "instancis".* FROM "instancis" WHERE "instancis"."ins_cod_prov" = $1 AND "instancis"."art_cod" = $2  [["ins_cod_prov", "abcd"], ["art_cod", 2]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+  [1m[35mImagen Load (0.2ms)[0m  SELECT  "imagens"."imagen_uri" FROM "imagens" WHERE "imagens"."ins_cod_prov" = $1 LIMIT 1  [["ins_cod_prov", "adcd"]]
+  [1m[36mArticulo Load (0.2ms)[0m  [1mSELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1[0m  [["art_cod", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mPropiedad Load (0.1ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1[0m  [["prop_nom", "Color"]]
+  [1m[35mPropiedadValor Load (1.2ms)[0m  SELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1  [["prop_cod", 1]]
+  [1m[36mValor Load (0.1ms)[0m  [1mSELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1[0m  [["val_cod", 1]]
+  [1m[35mPropiedad Load (3.8ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1  [["prop_nom", "Material"]]
+  [1m[36mPropiedadValor Load (0.1ms)[0m  [1mSELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1[0m  [["prop_cod", 8]]
+  [1m[35mValor Load (0.1ms)[0m  SELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1  [["val_cod", 10]]
+  [1m[36mValor Load (0.1ms)[0m  [1mSELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1[0m  [["val_cod", 4]]
+  [1m[35mPropiedad Load (0.1ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1  [["prop_nom", "Marca"]]
+  [1m[36mPropiedadValor Load (0.1ms)[0m  [1mSELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1[0m  [["prop_cod", 7]]
+  [1m[35mValor Load (0.5ms)[0m  SELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1  [["val_cod", 7]]
+  Rendered categoris/show.html.erb within layouts/application (18.0ms)
+  [1m[36mCategori Load (1.7ms)[0m  [1mSELECT "categoris".* FROM "categoris"[0m
+  [1m[35mCategori Load (0.8ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 2]]
+  [1m[36mCategori Load (2.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 7]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 18]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 15]]
+Completed 200 OK in 630ms (Views: 608.7ms | ActiveRecord: 16.6ms)
+
+
+Started GET "/proveedors" for 127.0.0.1 at 2015-07-15 20:16:07 -0300
+Processing by ProveedorsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mProveedor Load (0.1ms)[0m  SELECT "proveedors".* FROM "proveedors"
+  Rendered proveedors/index.html.erb within layouts/application (4.5ms)
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris"[0m
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 2]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 7]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 18]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 15]]
+Completed 200 OK in 403ms (Views: 400.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/pedidos" for 127.0.0.1 at 2015-07-15 20:16:10 -0300
+Processing by PedidosController#index as HTML
+  [1m[36mUser Load (3.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mPedido Load (0.8ms)[0m  SELECT "pedidos".* FROM "pedidos"
+  [1m[36mProveedor Load (1.4ms)[0m  [1mSELECT  "proveedors".* FROM "proveedors" WHERE "proveedors"."pro_cod" = $1 LIMIT 1[0m  [["pro_cod", 1]]
+  [1m[35mEstadoPedido Load (1.4ms)[0m  SELECT  "estado_pedidos".* FROM "estado_pedidos" WHERE "estado_pedidos"."estado_ped_cod" = $1 LIMIT 1  [["estado_ped_cod", 1]]
+  Rendered pedidos/index.html.erb within layouts/application (7.1ms)
+  [1m[36mCategori Load (1.7ms)[0m  [1mSELECT "categoris".* FROM "categoris"[0m
+  [1m[35mCategori Load (3.7ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 2]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 7]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 18]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 15]]
+Completed 200 OK in 516ms (Views: 502.3ms | ActiveRecord: 12.9ms)
+
+
+Started GET "/categoris" for 127.0.0.1 at 2015-07-15 20:16:13 -0300
+Processing by CategorisController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1[0m  [["cat_cod", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1  [["cat_cod", 1]]
+  [1m[36mCategori Load (0.0ms)[0m  [1mSELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1[0m  [["cat_cod", 3]]
+  [1m[35mCategori Load (4.1ms)[0m  SELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1  [["cat_cod", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1[0m  [["cat_cod", 2]]
+  Rendered categoris/index.html.erb within layouts/application (17.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.7ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (1.9ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.9ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 612ms (Views: 601.4ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/vendedors" for 127.0.0.1 at 2015-07-15 20:16:15 -0300
+Processing by VendedorsController#index as HTML
+  [1m[35mUser Load (5.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mVendedor Load (1.0ms)[0m  [1mSELECT "vendedors".* FROM "vendedors"[0m
+  Rendered vendedors/index.html.erb within layouts/application (4.8ms)
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.0ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 388ms (Views: 379.1ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/documento_de_compras" for 127.0.0.1 at 2015-07-15 20:58:04 -0300
+Processing by DocumentoDeComprasController#index as HTML
+  [1m[35mUser Load (4.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mDocumentoDeCompra Load (2.1ms)[0m  [1mSELECT "documento_de_compras".* FROM "documento_de_compras"[0m
+  [1m[35mCliente Load (3.9ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 10]]
+  [1m[36mDetalleDocumentoDeCompra Load (2.2ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 1]]
+  [1m[35m (0.1ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 1]]
+  [1m[36mEstadoDc Load (0.1ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 10]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.2ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 44]]
+  [1m[35m (7.7ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 44]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mCliente Load (0.1ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 11]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.1ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 45]]
+  [1m[35m (0.1ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 45]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 11]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.1ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 3]]
+  [1m[35mEstadoDc Load (0.1ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 10]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.1ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 9]]
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 10]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.1ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 10]]
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 10]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 10]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.7ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 11]]
+  [1m[36m (0.5ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 10]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.2ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 12]]
+  [1m[36m (5.4ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 10]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.1ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 10]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.1ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 14]]
+  [1m[35m (0.1ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 14]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 10]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.1ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 15]]
+  [1m[35m (0.9ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 10]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.2ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 16]]
+  [1m[35m (0.7ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 10]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.2ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 17]]
+  [1m[35m (0.1ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 17]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 10]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.8ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 18]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 10]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.2ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 19]]
+  [1m[36m (0.6ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 19]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 10]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.2ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 39]]
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 39]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 11]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.1ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 40]]
+  [1m[36m (0.6ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 40]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 10]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.1ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 41]]
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 41]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 11]]
+  [1m[35mDetalleDocumentoDeCompra Load (2.3ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 42]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 10]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.6ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 43]]
+  [1m[35m (2.6ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 43]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  Rendered documento_de_compras/index.html.erb within layouts/application (98.5ms)
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (1.6ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.5ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 640ms (Views: 597.0ms | ActiveRecord: 42.5ms)
+
+
+Started GET "/documento_de_compras/1" for 127.0.0.1 at 2015-07-15 20:58:08 -0300
+Processing by DocumentoDeComprasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mDocumentoDeCompra Load (0.1ms)[0m  SELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."doc_com_cod" = $1 LIMIT 1  [["doc_com_cod", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mCliente Load (0.1ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1  [["cli_mail", "pys@gmail.com"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1[0m  [["cli_mail", "pys@gmail.com"]]
+  [1m[35mEstadoDc Load (0.1ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.0ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 1]]
+  [1m[35mInstanci Load (0.1ms)[0m  SELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1  [["ins_cod", 7]]
+  [1m[36mArticulo Load (0.0ms)[0m  [1mSELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1[0m  [["art_cod", 1]]
+  [1m[35mInstanci Load (0.1ms)[0m  SELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1  [["ins_cod", 8]]
+  [1m[36mArticulo Load (0.1ms)[0m  [1mSELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1[0m  [["art_cod", 2]]
+  [1m[35m (0.1ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  Rendered documento_de_compras/show.html.erb within layouts/application (6.3ms)
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 272ms (Views: 267.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/documento_de_compras" for 127.0.0.1 at 2015-07-15 20:58:40 -0300
+Processing by DocumentoDeComprasController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mDocumentoDeCompra Load (0.2ms)[0m  [1mSELECT "documento_de_compras".* FROM "documento_de_compras"[0m
+  [1m[35mCliente Load (0.1ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 10]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.1ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 1]]
+  [1m[35m (0.1ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 1]]
+  [1m[36mEstadoDc Load (0.1ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 10]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.2ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 44]]
+  [1m[35m (0.1ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 44]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mCliente Load (0.1ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 11]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.1ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 45]]
+  [1m[35m (0.1ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 45]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 11]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.1ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 3]]
+  [1m[35mEstadoDc Load (0.1ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 10]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.1ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 9]]
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 10]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.1ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 10]]
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 10]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 10]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.1ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 11]]
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 10]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.9ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 12]]
+  [1m[36m (5.7ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 10]]
+  [1m[35mDetalleDocumentoDeCompra Load (5.2ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 10]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.2ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 14]]
+  [1m[35m (0.1ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 14]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 10]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.2ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 15]]
+  [1m[35m (0.0ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 10]]
+  [1m[36mDetalleDocumentoDeCompra Load (1.6ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 16]]
+  [1m[35m (3.9ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 16]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 10]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.2ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 17]]
+  [1m[35m (0.1ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 17]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 10]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.2ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 18]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 10]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.2ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 19]]
+  [1m[36m (0.2ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 19]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 10]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.2ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 39]]
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 39]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 11]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.1ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 40]]
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 40]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 10]]
+  [1m[35mDetalleDocumentoDeCompra Load (6.0ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 41]]
+  [1m[36m (0.2ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 41]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 11]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.1ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 42]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 10]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.4ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 43]]
+  [1m[35m (0.1ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 43]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  Rendered documento_de_compras/index.html.erb within layouts/application (101.5ms)
+  [1m[35mCategori Load (0.4ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.5ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 533ms (Views: 501.6ms | ActiveRecord: 30.0ms)
+
+
+Started GET "/documento_de_compras/1" for 127.0.0.1 at 2015-07-15 20:59:24 -0300
+Processing by DocumentoDeComprasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mDocumentoDeCompra Load (0.0ms)[0m  SELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."doc_com_cod" = $1 LIMIT 1  [["doc_com_cod", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mCliente Load (0.1ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1  [["cli_mail", "pys@gmail.com"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1[0m  [["cli_mail", "pys@gmail.com"]]
+  [1m[35mEstadoDc Load (0.1ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.1ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 1]]
+  [1m[35mInstanci Load (0.1ms)[0m  SELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1  [["ins_cod", 7]]
+  [1m[36mArticulo Load (0.1ms)[0m  [1mSELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1[0m  [["art_cod", 1]]
+  [1m[35mInstanci Load (0.1ms)[0m  SELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1  [["ins_cod", 8]]
+  [1m[36mArticulo Load (0.1ms)[0m  [1mSELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1[0m  [["art_cod", 2]]
+  [1m[35m (1.4ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  Rendered documento_de_compras/show.html.erb within layouts/application (6.8ms)
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 256ms (Views: 250.9ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/solicitud_devolucions" for 127.0.0.1 at 2015-07-15 20:59:31 -0300
+Processing by SolicitudDevolucionsController#index as HTML
+  [1m[35mUser Load (3.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mSolicitudDevolucion Load (5.9ms)[0m  [1mSELECT "solicitud_devolucions".* FROM "solicitud_devolucions"[0m
+  [1m[35mCliente Load (0.1ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 10]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 10]]
+  Rendered solicitud_devolucions/index.html.erb within layouts/application (16.5ms)
+  [1m[35mCategori Load (2.5ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (1.6ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 391ms (Views: 367.4ms | ActiveRecord: 14.2ms)
+
+
+Started GET "/solicitud_devolucions/59" for 127.0.0.1 at 2015-07-15 20:59:35 -0300
+Processing by SolicitudDevolucionsController#show as HTML
+  Parameters: {"id"=>"59"}
+  [1m[35mSolicitudDevolucion Load (0.2ms)[0m  SELECT  "solicitud_devolucions".* FROM "solicitud_devolucions" WHERE "solicitud_devolucions"."sol_dev_cod" = $1 LIMIT 1  [["sol_dev_cod", 59]]
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mCliente Load (1.8ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1  [["cli_mail", "pys@gmail.com"]]
+  [1m[36mDetalleSolDevolucion Load (0.5ms)[0m  [1mSELECT "detalle_sol_devolucions".* FROM "detalle_sol_devolucions" WHERE "detalle_sol_devolucions"."sol_dev_cod" = $1[0m  [["sol_dev_cod", 59]]
+  [1m[35mInstanci Load (8.8ms)[0m  SELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1  [["ins_cod", 7]]
+  [1m[36mArticulo Load (0.2ms)[0m  [1mSELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1[0m  [["art_cod", 1]]
+  [1m[35mInstanci Load (0.1ms)[0m  SELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1  [["ins_cod", 8]]
+  [1m[36mArticulo Load (0.1ms)[0m  [1mSELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1[0m  [["art_cod", 2]]
+  [1m[35m (0.2ms)[0m  SELECT SUM("detalle_sol_devolucions"."det_sol_dev_precio") FROM "detalle_sol_devolucions" WHERE "detalle_sol_devolucions"."sol_dev_cod" = $1  [["sol_dev_cod", 59]]
+  Rendered solicitud_devolucions/show.html.erb within layouts/application (39.8ms)
+  [1m[36mCategori Load (0.4ms)[0m  [1mSELECT "categoris".* FROM "categoris"[0m
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 2]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 7]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 18]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 15]]
+Completed 200 OK in 418ms (Views: 399.6ms | ActiveRecord: 15.2ms)
+
+
+Started GET "/solicitud_devolucions" for 127.0.0.1 at 2015-07-15 20:59:54 -0300
+Processing by SolicitudDevolucionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mSolicitudDevolucion Load (0.2ms)[0m  SELECT "solicitud_devolucions".* FROM "solicitud_devolucions"
+  [1m[36mCliente Load (0.1ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 10]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 10]]
+  Rendered solicitud_devolucions/index.html.erb within layouts/application (3.4ms)
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris"[0m
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 2]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 7]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 18]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 15]]
+Completed 200 OK in 257ms (Views: 255.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/documento_de_compras" for 127.0.0.1 at 2015-07-15 21:00:03 -0300
+Processing by DocumentoDeComprasController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mDocumentoDeCompra Load (0.4ms)[0m  SELECT "documento_de_compras".* FROM "documento_de_compras"
+  [1m[36mCliente Load (0.1ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 10]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.1ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 1]]
+  [1m[36m (0.5ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 1]]
+  [1m[35mEstadoDc Load (1.9ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 10]]
+  [1m[35mDetalleDocumentoDeCompra Load (4.2ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 44]]
+  [1m[36m (0.3ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 44]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mCliente Load (0.7ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 11]]
+  [1m[35mDetalleDocumentoDeCompra Load (4.5ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 45]]
+  [1m[36m (0.2ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 45]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 11]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.1ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 3]]
+  [1m[36mEstadoDc Load (0.1ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 10]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.1ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 9]]
+  [1m[35m (0.1ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 10]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.1ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 10]]
+  [1m[35m (0.1ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 10]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 10]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.1ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 11]]
+  [1m[35m (5.4ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 10]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.1ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 12]]
+  [1m[35m (0.1ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 10]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.1ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 10]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.1ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 14]]
+  [1m[36m (2.7ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 14]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 10]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.1ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 15]]
+  [1m[36m (2.1ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 15]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 10]]
+  [1m[35mDetalleDocumentoDeCompra Load (4.9ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 16]]
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 16]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 10]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.1ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 17]]
+  [1m[36m (0.2ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 17]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 10]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.1ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 18]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 10]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.2ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 19]]
+  [1m[35m (0.1ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 19]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 10]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.1ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 39]]
+  [1m[35m (0.1ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 39]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 11]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.1ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 40]]
+  [1m[35m (0.1ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 40]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 10]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.9ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 41]]
+  [1m[35m (0.0ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 41]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 11]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.1ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 42]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 10]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.1ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 43]]
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 43]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  Rendered documento_de_compras/index.html.erb within layouts/application (112.8ms)
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris"[0m
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 2]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 7]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 18]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (2.7ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 15]]
+Completed 200 OK in 601ms (Views: 565.0ms | ActiveRecord: 35.8ms)
+
+
+Started GET "/documento_de_compras/1" for 127.0.0.1 at 2015-07-15 21:00:20 -0300
+Processing by DocumentoDeComprasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDocumentoDeCompra Load (0.1ms)[0m  [1mSELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."doc_com_cod" = $1 LIMIT 1[0m  [["doc_com_cod", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mCliente Load (0.1ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1[0m  [["cli_mail", "pys@gmail.com"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1  [["cli_mail", "pys@gmail.com"]]
+  [1m[36mEstadoDc Load (0.2ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.1ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 1]]
+  [1m[36mInstanci Load (1.4ms)[0m  [1mSELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1[0m  [["ins_cod", 7]]
+  [1m[35mArticulo Load (0.1ms)[0m  SELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1  [["art_cod", 1]]
+  [1m[36mInstanci Load (0.2ms)[0m  [1mSELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1[0m  [["ins_cod", 8]]
+  [1m[35mArticulo Load (0.1ms)[0m  SELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1  [["art_cod", 2]]
+  [1m[36m (2.8ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  Rendered documento_de_compras/show.html.erb within layouts/application (12.2ms)
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris"[0m
+  [1m[35mCategori Load (1.6ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 2]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 7]]
+  [1m[35mCategori Load (2.7ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 18]]
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 15]]
+Completed 200 OK in 511ms (Views: 495.3ms | ActiveRecord: 10.4ms)
+
+
+Started GET "/solicitud_devolucions" for 127.0.0.1 at 2015-07-15 21:00:25 -0300
+Processing by SolicitudDevolucionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mSolicitudDevolucion Load (1.4ms)[0m  SELECT "solicitud_devolucions".* FROM "solicitud_devolucions"
+  [1m[36mCliente Load (0.2ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 10]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 10]]
+  Rendered solicitud_devolucions/index.html.erb within layouts/application (10.7ms)
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris"[0m
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 2]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 7]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 18]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 15]]
+Completed 200 OK in 645ms (Views: 641.8ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/solicitud_devolucions/59" for 127.0.0.1 at 2015-07-15 21:00:29 -0300
+Processing by SolicitudDevolucionsController#show as HTML
+  Parameters: {"id"=>"59"}
+  [1m[36mSolicitudDevolucion Load (0.4ms)[0m  [1mSELECT  "solicitud_devolucions".* FROM "solicitud_devolucions" WHERE "solicitud_devolucions"."sol_dev_cod" = $1 LIMIT 1[0m  [["sol_dev_cod", 59]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mCliente Load (2.4ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1[0m  [["cli_mail", "pys@gmail.com"]]
+  [1m[35mDetalleSolDevolucion Load (0.4ms)[0m  SELECT "detalle_sol_devolucions".* FROM "detalle_sol_devolucions" WHERE "detalle_sol_devolucions"."sol_dev_cod" = $1  [["sol_dev_cod", 59]]
+  [1m[36mInstanci Load (0.2ms)[0m  [1mSELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1[0m  [["ins_cod", 7]]
+  [1m[35mArticulo Load (0.1ms)[0m  SELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1  [["art_cod", 1]]
+  [1m[36mInstanci Load (4.3ms)[0m  [1mSELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1[0m  [["ins_cod", 8]]
+  [1m[35mArticulo Load (0.1ms)[0m  SELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1  [["art_cod", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM("detalle_sol_devolucions"."det_sol_dev_precio") FROM "detalle_sol_devolucions" WHERE "detalle_sol_devolucions"."sol_dev_cod" = $1[0m  [["sol_dev_cod", 59]]
+  Rendered solicitud_devolucions/show.html.erb within layouts/application (9.5ms)
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 356ms (Views: 343.5ms | ActiveRecord: 8.9ms)
+
+
+Started GET "/documento_de_compras" for 127.0.0.1 at 2015-07-15 23:02:29 -0300
+Processing by DocumentoDeComprasController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mDocumentoDeCompra Load (0.3ms)[0m  [1mSELECT "documento_de_compras".* FROM "documento_de_compras"[0m
+  [1m[35mCliente Load (0.8ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 10]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.1ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 1]]
+  [1m[35m (0.4ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 1]]
+  [1m[36mEstadoDc Load (0.6ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 10]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.2ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 44]]
+  [1m[35m (0.1ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 44]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mCliente Load (0.4ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 11]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.1ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 45]]
+  [1m[35m (4.2ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 45]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 11]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.1ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 3]]
+  [1m[35mEstadoDc Load (0.1ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 10]]
+  [1m[35mDetalleDocumentoDeCompra Load (4.2ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 9]]
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 10]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.1ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 10]]
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 10]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 10]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.1ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 11]]
+  [1m[36m (5.3ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 10]]
+  [1m[35mDetalleDocumentoDeCompra Load (4.3ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 12]]
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 10]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.1ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 10]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.1ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 14]]
+  [1m[35m (0.1ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 14]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 10]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.1ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 15]]
+  [1m[35m (0.1ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 10]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.1ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 16]]
+  [1m[35m (2.6ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 10]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.1ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 17]]
+  [1m[35m (0.1ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 17]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 10]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.2ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 18]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 10]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.1ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 19]]
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 19]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 10]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.1ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 39]]
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 39]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 11]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.0ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 40]]
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 40]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 10]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.1ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 41]]
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 41]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 11]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.2ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 42]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 10]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.1ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 43]]
+  [1m[35m (0.3ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 43]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  Rendered documento_de_compras/index.html.erb within layouts/application (105.6ms)
+  [1m[35mCategori Load (1.5ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (4.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 538ms (Views: 503.6ms | ActiveRecord: 33.7ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2015-07-15 23:07:41 -0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"M0vuGcqPXJZsQZOsi20XSSIJayw+im6v54JLSOwdi9+NE7WDSExmXtKwdlb1iNajWd1ui0aMTNr551IY7xBOsg=="}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-15 23:07:41 -0300
+Processing by PrincipalController#index as HTML
+  Rendered principal/index.html.erb within layouts/application (0.3ms)
+  [1m[36mCategori Load (2.0ms)[0m  [1mSELECT "categoris".* FROM "categoris"[0m
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 2]]
+  [1m[36mCategori Load (1.6ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 7]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 18]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 15]]
+Completed 200 OK in 572ms (Views: 567.9ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-07-15 23:07:44 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered users/shared/_links.html.erb (0.3ms)
+  Rendered users/sessions/new.html.erb within layouts/application (7.6ms)
+  [1m[36mCategori Load (5.2ms)[0m  [1mSELECT "categoris".* FROM "categoris"[0m
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 2]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 7]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 18]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (0.5ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 15]]
+Completed 200 OK in 607ms (Views: 599.9ms | ActiveRecord: 6.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2015-07-15 23:07:51 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TanHGJqs7GctDMwNQZMHooRZM4SEXB67dEhsBmCWT1ztnfa4GRor6cuPl8sJRlqfGkwh93TWO5ef/xWmV1ihMQ==", "user"=>{"email"=>"PYS@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Entrar"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "pys@gmail.com"]]
+Completed 401 Unauthorized in 185ms (ActiveRecord: 0.2ms)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TanHGJqs7GctDMwNQZMHooRZM4SEXB67dEhsBmCWT1ztnfa4GRor6cuPl8sJRlqfGkwh93TWO5ef/xWmV1ihMQ==", "user"=>{"email"=>"PYS@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Entrar"}
+  Rendered users/shared/_links.html.erb (3.3ms)
+  Rendered users/sessions/new.html.erb within layouts/application (5.9ms)
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (1.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 797ms (Views: 638.8ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2015-07-15 23:07:56 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Miz7W+64pAt+ZB19O8BiRbpR1FlYQbEOzHqCtaEEzruSGMr7bQ5jhZjnRrtzFT94JETGKqjLlCInzfsVlsog1g==", "user"=>{"email"=>"PYS@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Entrar"}
+  [1m[35mUser Load (5.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["email", "pys@gmail.com"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = 2  [["last_sign_in_at", "2015-07-15 23:13:12.694074"], ["current_sign_in_at", "2015-07-16 02:07:56.857780"], ["sign_in_count", 21], ["updated_at", "2015-07-16 02:07:56.862436"]]
+  [1m[36m (25.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 226ms (ActiveRecord: 31.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-15 23:07:56 -0300
+Processing by PrincipalController#index as HTML
+  [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  Rendered principal/index.html.erb within layouts/application (1.9ms)
+  [1m[36mCategori Load (4.5ms)[0m  [1mSELECT "categoris".* FROM "categoris"[0m
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 2]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 7]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 18]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 15]]
+Completed 200 OK in 585ms (Views: 578.6ms | ActiveRecord: 6.2ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2015-07-15 23:08:17 -0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"jHNv7Aouwy/WA91tmKSkjXlGR+8jzZMvpCMhUe53kkf4s8TmznYXWiOEPX/m+QYBAKygzZ8h1QhIihf0mEuhgA=="}
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35m (6.8ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 13ms (ActiveRecord: 8.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-15 23:08:17 -0300
+Processing by PrincipalController#index as HTML
+  Rendered principal/index.html.erb within layouts/application (0.6ms)
+  [1m[35mCategori Load (0.5ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (1.6ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (3.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 658ms (Views: 651.6ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-07-15 23:08:22 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered users/shared/_links.html.erb (0.4ms)
+  Rendered users/sessions/new.html.erb within layouts/application (8.6ms)
+  [1m[35mCategori Load (0.6ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 630ms (Views: 627.8ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2015-07-15 23:08:30 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rJWPhMd/54Byp0Nv+iMh7phy7RO4zxTxKznzhYs/sbpOnTI/HAaKLjUoG+/0O2zmfxtq8NKuYAaF2CtfuSir7A==", "user"=>{"email"=>"alexis.casanueva@usach.cl", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Entrar"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["email", "alexis.casanueva@usach.cl"]]
+  [1m[36m (2.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = 5  [["last_sign_in_at", "2015-07-15 21:55:23.931770"], ["current_sign_in_at", "2015-07-16 02:08:30.727582"], ["sign_in_count", 23], ["updated_at", "2015-07-16 02:08:30.730773"]]
+  [1m[36m (18.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 215ms (ActiveRecord: 21.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-15 23:08:30 -0300
+Processing by PrincipalController#index as HTML
+  [1m[35mUser Load (4.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mCliente Load (0.2ms)[0m  [1mSELECT "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1[0m  [["cli_mail", "alexis.casanueva@usach.cl"]]
+  Rendered principal/index.html.erb within layouts/application (6.4ms)
+  [1m[35mCliente Load (0.7ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1  [["cli_mail", "alexis.casanueva@usach.cl"]]
+  [1m[36mDocumentoDeCompra Load (0.6ms)[0m  [1mSELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."cli_cod" = $1 AND "documento_de_compras"."est_dc_cod" = $2 LIMIT 1[0m  [["cli_cod", 10], ["est_dc_cod", 1]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.1ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 39]]
+  [1m[36mInstanci Load (1.3ms)[0m  [1mSELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1[0m  [["ins_cod", 14]]
+  [1m[35mArticulo Load (5.3ms)[0m  SELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1  [["art_cod", 5]]
+  [1m[36m (0.2ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 39]]
+  Rendered documento_de_compras/_micarrito.html.erb (20.7ms)
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (1.4ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 630ms (Views: 614.5ms | ActiveRecord: 14.9ms)
+
+
+Started GET "/pagar" for 127.0.0.1 at 2015-07-15 23:08:35 -0300
+Processing by DocumentoDeComprasController#pagar as HTML
+  [1m[35mUser Load (2.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mCliente Load (0.1ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1[0m  [["cli_mail", "alexis.casanueva@usach.cl"]]
+  [1m[35mDocumentoDeCompra Load (0.2ms)[0m  SELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."cli_cod" = $1 AND "documento_de_compras"."est_dc_cod" = $2 LIMIT 1  [["cli_cod", 10], ["est_dc_cod", 1]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.9ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 39]]
+  [1m[35m (2.9ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "documento_de_compras" SET "doc_com_met_pago" = $1, "doc_com_tipo" = $2 WHERE "documento_de_compras"."doc_com_cod" = 39[0m  [["doc_com_met_pago", "Transferencia bancaria"], ["doc_com_tipo", "Orden de compra"]]
+  [1m[35m (21.9ms)[0m  COMMIT
+  [1m[36m (3.4ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 39]]
+  [1m[35mCliente Load (1.5ms)[0m  SELECT "clientes".* FROM "clientes"
+  Rendered documento_de_compras/_formpagar.html.erb (10.1ms)
+  Rendered documento_de_compras/pagar.html.erb within layouts/application (11.0ms)
+  [1m[36mCliente Load (0.2ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1[0m  [["cli_mail", "alexis.casanueva@usach.cl"]]
+  [1m[35mDocumentoDeCompra Load (0.1ms)[0m  SELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."cli_cod" = $1 AND "documento_de_compras"."est_dc_cod" = $2 LIMIT 1  [["cli_cod", 10], ["est_dc_cod", 1]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.1ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 39]]
+  [1m[35mInstanci Load (0.1ms)[0m  SELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1  [["ins_cod", 14]]
+  [1m[36mArticulo Load (0.1ms)[0m  [1mSELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1[0m  [["art_cod", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 39]]
+  Rendered documento_de_compras/_micarrito.html.erb (5.0ms)
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris"[0m
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 2]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 7]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 18]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 15]]
+Completed 200 OK in 452ms (Views: 410.2ms | ActiveRecord: 35.3ms)
+
+
+Started GET "/pagar" for 127.0.0.1 at 2015-07-15 23:11:15 -0300
+Processing by DocumentoDeComprasController#pagar as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mCliente Load (0.2ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1  [["cli_mail", "alexis.casanueva@usach.cl"]]
+  [1m[36mDocumentoDeCompra Load (1.5ms)[0m  [1mSELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."cli_cod" = $1 AND "documento_de_compras"."est_dc_cod" = $2 LIMIT 1[0m  [["cli_cod", 10], ["est_dc_cod", 1]]
+  [1m[35mDetalleDocumentoDeCompra Load (3.3ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 39]]
+  [1m[36m (1.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  Rendered documento_de_compras/_formpagar.html.erb (4.1ms)
+  Rendered documento_de_compras/pagar.html.erb within layouts/application (14.0ms)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 6.8ms)
+
+SyntaxError (/home/alexis/PYS/app/views/documento_de_compras/_formpagar.html.erb:49: syntax error, unexpected keyword_ensure, expecting keyword_end
+/home/alexis/PYS/app/views/documento_de_compras/_formpagar.html.erb:51: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/views/documento_de_compras/_formpagar.html.erb:49: syntax error, unexpected keyword_ensure, expecting keyword_end
+  app/views/documento_de_compras/_formpagar.html.erb:51: syntax error, unexpected end-of-input, expecting keyword_end
+  app/views/documento_de_compras/pagar.html.erb:4:in `_app_views_documento_de_compras_pagar_html_erb___3538103177209260790_70199161779400'
+
+
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.6ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.5ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (52.5ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (35.9ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.8ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (67.0ms)
+
+
+Started GET "/pagar" for 127.0.0.1 at 2015-07-15 23:11:24 -0300
+Processing by DocumentoDeComprasController#pagar as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mCliente Load (1.6ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1  [["cli_mail", "alexis.casanueva@usach.cl"]]
+  [1m[36mDocumentoDeCompra Load (5.5ms)[0m  [1mSELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."cli_cod" = $1 AND "documento_de_compras"."est_dc_cod" = $2 LIMIT 1[0m  [["cli_cod", 10], ["est_dc_cod", 1]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.2ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 39]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 39]]
+  [1m[35mCliente Load (0.2ms)[0m  SELECT "clientes".* FROM "clientes"
+  Rendered documento_de_compras/_formpagar.html.erb (18.3ms)
+  Rendered documento_de_compras/pagar.html.erb within layouts/application (22.1ms)
+  [1m[36mVendedor Load (0.2ms)[0m  [1mSELECT  "vendedors".* FROM "vendedors" WHERE "vendedors"."ven_mail" = $1 LIMIT 1[0m  [["ven_mail", "alexis.casanueva@usach.cl"]]
+  Rendered documento_de_compras/_micarrito.html.erb (4.7ms)
+Completed 500 Internal Server Error in 628ms (ActiveRecord: 9.2ms)
+
+ActionView::Template::Error (undefined method `ven_cod' for nil:NilClass):
+     97: 	  </thead>
+     98: 	  <tbody bgcolor='ececec'>
+     99: 	  	<% @vendedors=Vendedor.where(ven_mail: current_user.email ).take
+    100: 	  	@documento_de_compra=DocumentoDeCompra.where(ven_cod: @vendedors.ven_cod, est_dc_cod: 1).take
+    101: 	  	if(@documento_de_compra.blank?)
+    102: 	  		@dcob=DocumentoDeCobro.create()
+    103: 	  		@dcob.save
+  app/views/documento_de_compras/_micarrito.html.erb:100:in `_app_views_documento_de_compras__micarrito_html_erb__96578549421847817_70199195174580'
+  app/views/layouts/application.html.erb:37:in `_app_views_layouts_application_html_erb__390410515656115721_70199198002440'
+
+
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (12.4ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (42.0ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (28.8ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.9ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (72.0ms)
+
+
+Started GET "/pagar" for 127.0.0.1 at 2015-07-15 23:12:38 -0300
+Processing by DocumentoDeComprasController#pagar as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mCliente Load (0.1ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1[0m  [["cli_mail", "alexis.casanueva@usach.cl"]]
+  [1m[35mDocumentoDeCompra Load (1.6ms)[0m  SELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."cli_cod" = $1 AND "documento_de_compras"."est_dc_cod" = $2 LIMIT 1  [["cli_cod", 10], ["est_dc_cod", 1]]
+  [1m[36mDetalleDocumentoDeCompra Load (1.5ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 39]]
+  [1m[35m (1.8ms)[0m  BEGIN
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (6.9ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 39]]
+  [1m[36mCliente Load (3.4ms)[0m  [1mSELECT "clientes".* FROM "clientes"[0m
+  Rendered documento_de_compras/_formpagar.html.erb (31.3ms)
+  Rendered documento_de_compras/pagar.html.erb within layouts/application (31.7ms)
+  [1m[35mVendedor Load (0.4ms)[0m  SELECT  "vendedors".* FROM "vendedors" WHERE "vendedors"."ven_mail" = $1 LIMIT 1  [["ven_mail", "alexis.casanueva@usach.cl"]]
+  Rendered documento_de_compras/_micarrito.html.erb (10.2ms)
+Completed 500 Internal Server Error in 639ms (ActiveRecord: 16.9ms)
+
+ActionView::Template::Error (undefined method `ven_cod' for nil:NilClass):
+     97: 	  </thead>
+     98: 	  <tbody bgcolor='ececec'>
+     99: 	  	<% @vendedors=Vendedor.where(ven_mail: current_user.email ).take
+    100: 	  	@documento_de_compra=DocumentoDeCompra.where(ven_cod: @vendedors.ven_cod, est_dc_cod: 1).take
+    101: 	  	if(@documento_de_compra.blank?)
+    102: 	  		@dcob=DocumentoDeCobro.create()
+    103: 	  		@dcob.save
+  app/views/documento_de_compras/_micarrito.html.erb:100:in `_app_views_documento_de_compras__micarrito_html_erb__96578549421847817_70199195174580'
+  app/views/layouts/application.html.erb:37:in `_app_views_layouts_application_html_erb__390410515656115721_70199198002440'
+
+
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.4ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (8.1ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (54.7ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (29.7ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (64.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-15 23:13:16 -0300
+Processing by PrincipalController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mCliente Load (9.1ms)[0m  SELECT "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1  [["cli_mail", "alexis.casanueva@usach.cl"]]
+  Rendered principal/index.html.erb within layouts/application (17.5ms)
+  [1m[36mCliente Load (0.2ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1[0m  [["cli_mail", "alexis.casanueva@usach.cl"]]
+  [1m[35mDocumentoDeCompra Load (3.9ms)[0m  SELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."cli_cod" = $1 AND "documento_de_compras"."est_dc_cod" = $2 LIMIT 1  [["cli_cod", 10], ["est_dc_cod", 1]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.0ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 39]]
+  [1m[35mInstanci Load (0.1ms)[0m  SELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1  [["ins_cod", 14]]
+  [1m[36mArticulo Load (0.1ms)[0m  [1mSELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1[0m  [["art_cod", 5]]
+  [1m[35m (0.3ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 39]]
+  Rendered documento_de_compras/_micarrito.html.erb (8.4ms)
+  [1m[36mCategori Load (0.4ms)[0m  [1mSELECT "categoris".* FROM "categoris"[0m
+  [1m[35mCategori Load (1.9ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 2]]
+  [1m[36mCategori Load (1.7ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 7]]
+  [1m[35mCategori Load (2.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 18]]
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (6.8ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 15]]
+Completed 200 OK in 688ms (Views: 660.3ms | ActiveRecord: 27.2ms)
+
+
+Started GET "/pagar" for 127.0.0.1 at 2015-07-15 23:13:20 -0300
+Processing by DocumentoDeComprasController#pagar as HTML
+  [1m[36mUser Load (2.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mCliente Load (0.1ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1  [["cli_mail", "alexis.casanueva@usach.cl"]]
+  [1m[36mDocumentoDeCompra Load (3.2ms)[0m  [1mSELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."cli_cod" = $1 AND "documento_de_compras"."est_dc_cod" = $2 LIMIT 1[0m  [["cli_cod", 10], ["est_dc_cod", 1]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.1ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 39]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 39]]
+  [1m[35mCliente Load (3.8ms)[0m  SELECT "clientes".* FROM "clientes"
+  Rendered documento_de_compras/_formpagar.html.erb (44.2ms)
+  Rendered documento_de_compras/pagar.html.erb within layouts/application (50.4ms)
+  [1m[36mVendedor Load (0.3ms)[0m  [1mSELECT  "vendedors".* FROM "vendedors" WHERE "vendedors"."ven_mail" = $1 LIMIT 1[0m  [["ven_mail", "alexis.casanueva@usach.cl"]]
+  Rendered documento_de_compras/_micarrito.html.erb (2.8ms)
+Completed 500 Internal Server Error in 390ms (ActiveRecord: 10.3ms)
+
+ActionView::Template::Error (undefined method `ven_cod' for nil:NilClass):
+     97: 	  </thead>
+     98: 	  <tbody bgcolor='ececec'>
+     99: 	  	<% @vendedors=Vendedor.where(ven_mail: current_user.email ).take
+    100: 	  	@documento_de_compra=DocumentoDeCompra.where(ven_cod: @vendedors.ven_cod, est_dc_cod: 1).take
+    101: 	  	if(@documento_de_compra.blank?)
+    102: 	  		@dcob=DocumentoDeCobro.create()
+    103: 	  		@dcob.save
+  app/views/documento_de_compras/_micarrito.html.erb:100:in `_app_views_documento_de_compras__micarrito_html_erb__96578549421847817_70199220703720'
+  app/views/layouts/application.html.erb:37:in `_app_views_layouts_application_html_erb__390410515656115721_70199198002440'
+
+
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.3ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (22.2ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (15.1ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (30.7ms)
+
+
+Started GET "/pagar" for 127.0.0.1 at 2015-07-15 23:13:20 -0300
+Processing by DocumentoDeComprasController#pagar as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mCliente Load (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1[0m  [["cli_mail", "alexis.casanueva@usach.cl"]]
+  [1m[35mDocumentoDeCompra Load (0.1ms)[0m  SELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."cli_cod" = $1 AND "documento_de_compras"."est_dc_cod" = $2 LIMIT 1  [["cli_cod", 10], ["est_dc_cod", 1]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.1ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 39]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 39]]
+  [1m[36mCliente Load (0.2ms)[0m  [1mSELECT "clientes".* FROM "clientes"[0m
+  Rendered documento_de_compras/_formpagar.html.erb (4.6ms)
+  Rendered documento_de_compras/pagar.html.erb within layouts/application (5.9ms)
+  [1m[35mVendedor Load (5.3ms)[0m  SELECT  "vendedors".* FROM "vendedors" WHERE "vendedors"."ven_mail" = $1 LIMIT 1  [["ven_mail", "alexis.casanueva@usach.cl"]]
+  Rendered documento_de_compras/_micarrito.html.erb (7.1ms)
+Completed 500 Internal Server Error in 596ms (ActiveRecord: 6.2ms)
+
+ActionView::Template::Error (undefined method `ven_cod' for nil:NilClass):
+     97: 	  </thead>
+     98: 	  <tbody bgcolor='ececec'>
+     99: 	  	<% @vendedors=Vendedor.where(ven_mail: current_user.email ).take
+    100: 	  	@documento_de_compra=DocumentoDeCompra.where(ven_cod: @vendedors.ven_cod, est_dc_cod: 1).take
+    101: 	  	if(@documento_de_compra.blank?)
+    102: 	  		@dcob=DocumentoDeCobro.create()
+    103: 	  		@dcob.save
+  app/views/documento_de_compras/_micarrito.html.erb:100:in `_app_views_documento_de_compras__micarrito_html_erb__96578549421847817_70199195174580'
+  app/views/layouts/application.html.erb:37:in `_app_views_layouts_application_html_erb__390410515656115721_70199198002440'
+
+
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.6ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.9ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (58.6ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (5.7ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (38.5ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (3.2ms)
+  Rendered /home/alexis/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (75.6ms)
+
+
+Started GET "/pagar" for 127.0.0.1 at 2015-07-15 23:14:12 -0300
+Processing by DocumentoDeComprasController#pagar as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mCliente Load (1.6ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1  [["cli_mail", "alexis.casanueva@usach.cl"]]
+  [1m[36mDocumentoDeCompra Load (1.8ms)[0m  [1mSELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."cli_cod" = $1 AND "documento_de_compras"."est_dc_cod" = $2 LIMIT 1[0m  [["cli_cod", 10], ["est_dc_cod", 1]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.5ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 39]]
+  [1m[36m (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  COMMIT
+  [1m[36m (2.8ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 39]]
+  Rendered documento_de_compras/_formpagar.html.erb (13.2ms)
+  Rendered documento_de_compras/pagar.html.erb within layouts/application (22.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1  [["cli_mail", "alexis.casanueva@usach.cl"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."cli_cod" = $1 AND "documento_de_compras"."est_dc_cod" = $2 LIMIT 1[0m  [["cli_cod", 10], ["est_dc_cod", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 39]]
+  [1m[36mInstanci Load (0.3ms)[0m  [1mSELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1[0m  [["ins_cod", 14]]
+  [1m[35mArticulo Load (1.5ms)[0m  SELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1  [["art_cod", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 39]]
+  Rendered documento_de_compras/_micarrito.html.erb (10.7ms)
+  [1m[35mCategori Load (1.2ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (2.7ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (2.4ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.4ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.6ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 773ms (Views: 748.3ms | ActiveRecord: 17.3ms)
+
+
+Started GET "/pagar" for 127.0.0.1 at 2015-07-15 23:14:54 -0300
+Processing by DocumentoDeComprasController#pagar as HTML
+  [1m[35mUser Load (2.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mCliente Load (0.2ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1[0m  [["cli_mail", "alexis.casanueva@usach.cl"]]
+  [1m[35mDocumentoDeCompra Load (1.6ms)[0m  SELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."cli_cod" = $1 AND "documento_de_compras"."est_dc_cod" = $2 LIMIT 1  [["cli_cod", 10], ["est_dc_cod", 1]]
+  [1m[36mDetalleDocumentoDeCompra Load (1.1ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 39]]
+  [1m[35m (0.6ms)[0m  BEGIN
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (3.0ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 39]]
+  Rendered documento_de_compras/_formpagar.html.erb (21.2ms)
+  Rendered documento_de_compras/pagar.html.erb within layouts/application (25.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1[0m  [["cli_mail", "alexis.casanueva@usach.cl"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."cli_cod" = $1 AND "documento_de_compras"."est_dc_cod" = $2 LIMIT 1  [["cli_cod", 10], ["est_dc_cod", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 39]]
+  [1m[35mInstanci Load (0.3ms)[0m  SELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1  [["ins_cod", 14]]
+  [1m[36mArticulo Load (0.1ms)[0m  [1mSELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1[0m  [["art_cod", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 39]]
+  Rendered documento_de_compras/_micarrito.html.erb (9.1ms)
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris"[0m
+  [1m[35mCategori Load (3.4ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 2]]
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 7]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 18]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 15]]
+Completed 200 OK in 621ms (Views: 599.6ms | ActiveRecord: 14.9ms)
+
+
+Started POST "/documento_de_compras/pagar_cuenta" for 127.0.0.1 at 2015-07-15 23:14:58 -0300
+Processing by DocumentoDeComprasController#pagar_cuenta as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7Z2x2SeXkv0NuQ6EHM/3/+vFvHLQUwPonhhqPCp/6KLdjuA8VcD3VrafA4gyPC/uBGtJsZaY6tXssZZ7MM8ceg==", "documento_de_compra"=>{"doc_com_fecha(1i)"=>"2015", "doc_com_fecha(2i)"=>"7", "doc_com_fecha(3i)"=>"1", "doc_com_met_ent"=>"Retiro en tienda"}, "commit"=>"Pagar"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mCliente Load (1.7ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1  [["cli_mail", "alexis.casanueva@usach.cl"]]
+  [1m[36mDocumentoDeCompra Load (1.9ms)[0m  [1mSELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."cli_cod" = $1 AND "documento_de_compras"."est_dc_cod" = $2 LIMIT 1[0m  [["cli_cod", 10], ["est_dc_cod", 1]]
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mSQL (1.4ms)[0m  [1mUPDATE "documento_de_compras" SET "doc_com_met_ent" = $1, "doc_com_fecha" = $2 WHERE "documento_de_compras"."doc_com_cod" = 39[0m  [["doc_com_met_ent", "Retiro en tienda"], ["doc_com_fecha", "2015-07-01"]]
+  [1m[35m (3.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "documento_de_compras" SET "est_dc_cod" = $1 WHERE "documento_de_compras"."doc_com_cod" = 39  [["est_dc_cod", 2]]
+  [1m[36m (1.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mDetalleDocumentoDeCompra Load (0.2ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 39]]
+  [1m[36mInstanci Load (0.1ms)[0m  [1mSELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1[0m  [["ins_cod", 14]]
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (2.5ms)[0m  [1mUPDATE "instancis" SET "ins_stock" = $1 WHERE "instancis"."ins_cod" = 14[0m  [["ins_stock", 22]]
+  [1m[35m (9.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/documento_de_compras/39
+Completed 302 Found in 42ms (ActiveRecord: 22.8ms)
+
+
+Started GET "/documento_de_compras/39" for 127.0.0.1 at 2015-07-15 23:14:58 -0300
+Processing by DocumentoDeComprasController#show as HTML
+  Parameters: {"id"=>"39"}
+  [1m[36mDocumentoDeCompra Load (0.2ms)[0m  [1mSELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."doc_com_cod" = $1 LIMIT 1[0m  [["doc_com_cod", 39]]
+  [1m[35mUser Load (1.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mCliente Load (0.1ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1[0m  [["cli_mail", "alexis.casanueva@usach.cl"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1  [["cli_mail", "alexis.casanueva@usach.cl"]]
+  [1m[36mEstadoDc Load (0.3ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.6ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 39]]
+  [1m[36mInstanci Load (1.8ms)[0m  [1mSELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1[0m  [["ins_cod", 14]]
+  [1m[35mArticulo Load (0.2ms)[0m  SELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1  [["art_cod", 5]]
+  [1m[36m (5.1ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 39]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  Rendered documento_de_compras/show.html.erb within layouts/application (13.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1[0m  [["cli_mail", "alexis.casanueva@usach.cl"]]
+  [1m[35mDocumentoDeCompra Load (0.2ms)[0m  SELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."cli_cod" = $1 AND "documento_de_compras"."est_dc_cod" = $2 LIMIT 1  [["cli_cod", 10], ["est_dc_cod", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_mail" = $1 LIMIT 1[0m  [["cli_mail", "alexis.casanueva@usach.cl"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "documento_de_cobros" DEFAULT VALUES RETURNING "doc_cob_cod"[0m
+  [1m[35m (2.9ms)[0m  COMMIT
+  [1m[36mDetalleDocumentoDeCompra Load (0.1ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" IS NULL[0m
+  Rendered documento_de_compras/_micarrito.html.erb (14.1ms)
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 609ms (Views: 592.7ms | ActiveRecord: 14.0ms)
