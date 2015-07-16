@@ -15,10 +15,15 @@
   <div class="field">
 
     <%= f.label :estado_ped_cod %><br>
+       <%@transiciones=TransicionEstadoPedido.where(est_estado_ped_cod: c.estado_ped_cod)
+   @estados=[]
+   @transiciones.each do |t|
+    @estados=@estados+EstadoPedido.where(estado_ped_cod: t.estado_ped_cod)
+   end%>
    
-    <%= f.select(:estado_ped_cod, TransicionEstadoPedido.where(est_estado_ped_cod: c.estado_ped_cod).collect {|es| [ es.estado_ped_cod]}, { :include_blank => "Seleccionar" })%>
+    <%= f.select(:estado_ped_cod, @estados.collect {|es| [es.estado_ped_nom, es.estado_ped_cod]}, { :include_blank => "Seleccionar" })%>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :value => 'Guardar', :class => 'btn btn-primary'%>
   </div>
 <% end %>

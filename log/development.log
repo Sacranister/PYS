@@ -34544,3 +34544,893 @@ Processing by DocumentoDeComprasController#index as HTML
   [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
 Completed 200 OK in 690ms (Views: 644.6ms | ActiveRecord: 22.9ms)
 >>>>>>> 0c8b9e1538d54d3ab8e9dd38b0a7654d24fcb82d
+
+
+Started GET "/documento_de_compras" for 127.0.0.1 at 2015-07-16 04:33:43 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by DocumentoDeComprasController#index as HTML
+  [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mDocumentoDeCompra Load (1.1ms)[0m  [1mSELECT "documento_de_compras".* FROM "documento_de_compras"[0m
+  [1m[35mCliente Load (0.4ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 1]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.4ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 8]]
+  [1m[35m (0.3ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 8]]
+  [1m[36mEstadoDc Load (0.3ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 2]]
+  [1m[35mDocumentoDeCompra Load (0.5ms)[0m  SELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."doc_com_cod" = $1 LIMIT 1  [["doc_com_cod", 8]]
+  [1m[36mTransicionEstadoDc Load (0.4ms)[0m  [1mSELECT "transicion_estado_dcs".* FROM "transicion_estado_dcs" WHERE "transicion_estado_dcs"."est_est_dc_cod" = $1[0m  [["est_est_dc_cod", 2]]
+  [1m[35mEstadoDc Load (0.2ms)[0m  SELECT "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1  [["est_dc_cod", 3]]
+  [1m[36mEstadoDc Load (0.2ms)[0m  [1mSELECT "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1[0m  [["est_dc_cod", 5]]
+  Rendered documento_de_compras/_editar_estado.html.erb (20.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1  [["cli_cod", 1]]
+  [1m[36mDetalleDocumentoDeCompra Load (0.3ms)[0m  [1mSELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 10]]
+  [1m[35m (0.3ms)[0m  SELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 10]]
+  [1m[36mEstadoDc Load (0.2ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 3]]
+  [1m[35mDocumentoDeCompra Load (0.2ms)[0m  SELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."doc_com_cod" = $1 LIMIT 1  [["doc_com_cod", 10]]
+  [1m[36mTransicionEstadoDc Load (0.2ms)[0m  [1mSELECT "transicion_estado_dcs".* FROM "transicion_estado_dcs" WHERE "transicion_estado_dcs"."est_est_dc_cod" = $1[0m  [["est_est_dc_cod", 3]]
+  [1m[35mEstadoDc Load (0.2ms)[0m  SELECT "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1  [["est_dc_cod", 4]]
+  Rendered documento_de_compras/_editar_estado.html.erb (3.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 1]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.2ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 25]]
+  [1m[36m (0.2ms)[0m  [1mSELECT SUM("detalle_documento_de_compras"."det_doc_com_precio") FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1[0m  [["doc_com_cod", 25]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1  [["est_dc_cod", 2]]
+  [1m[36mDocumentoDeCompra Load (0.3ms)[0m  [1mSELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."doc_com_cod" = $1 LIMIT 1[0m  [["doc_com_cod", 25]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "transicion_estado_dcs".* FROM "transicion_estado_dcs" WHERE "transicion_estado_dcs"."est_est_dc_cod" = $1  [["est_est_dc_cod", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1[0m  [["est_dc_cod", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1  [["est_dc_cod", 5]]
+  Rendered documento_de_compras/_editar_estado.html.erb (4.1ms)
+  [1m[36mCliente Load (0.3ms)[0m  [1mSELECT  "clientes".* FROM "clientes" WHERE "clientes"."cli_cod" = $1 LIMIT 1[0m  [["cli_cod", 2]]
+  [1m[35mDetalleDocumentoDeCompra Load (0.2ms)[0m  SELECT "detalle_documento_de_compras".* FROM "detalle_documento_de_compras" WHERE "detalle_documento_de_compras"."doc_com_cod" = $1  [["doc_com_cod", 26]]
+  [1m[36mEstadoDc Load (0.2ms)[0m  [1mSELECT  "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_dc_cod" = $1 LIMIT 1[0m  [["est_dc_cod", 5]]
+  [1m[35mDocumentoDeCompra Load (0.2ms)[0m  SELECT  "documento_de_compras".* FROM "documento_de_compras" WHERE "documento_de_compras"."doc_com_cod" = $1 LIMIT 1  [["doc_com_cod", 26]]
+  [1m[36mTransicionEstadoDc Load (0.2ms)[0m  [1mSELECT "transicion_estado_dcs".* FROM "transicion_estado_dcs" WHERE "transicion_estado_dcs"."est_est_dc_cod" = $1[0m  [["est_est_dc_cod", 5]]
+  Rendered documento_de_compras/_editar_estado.html.erb (2.9ms)
+  Rendered documento_de_compras/index.html.erb within layouts/application (118.4ms)
+  [1m[35mCategori Load (0.5ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 22]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 21]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 679ms (Views: 641.1ms | ActiveRecord: 18.9ms)
+
+
+Started GET "/articulos" for 127.0.0.1 at 2015-07-16 04:33:48 -0300
+Processing by ArticulosController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mArticulo Load (0.4ms)[0m  [1mSELECT "articulos".* FROM "articulos"[0m
+  Rendered articulos/index.html.erb within layouts/application (6.8ms)
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 22]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 21]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 352ms (Views: 342.1ms | ActiveRecord: 2.5ms)
+
+
+Started DELETE "/articulos/4" for 127.0.0.1 at 2015-07-16 04:33:52 -0300
+Processing by ArticulosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Y5k1R+vn8aBOeTtfYnJVMQyCAQ0p6uQBEbZONwaNcMiDxxSJBXdlGIFfhWv2FXlBkYl/p5MCXAvmnLjEcx2ZOA==", "id"=>"4"}
+  [1m[35mArticulo Load (0.3ms)[0m  SELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1  [["art_cod", 4]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mArtProp Load (0.4ms)[0m  SELECT "art_props".* FROM "art_props" WHERE "art_props"."art_cod" = $1  [["art_cod", 4]]
+  [1m[36mInstanci Load (0.4ms)[0m  [1mSELECT "instancis".* FROM "instancis" WHERE "instancis"."art_cod" = $1[0m  [["art_cod", 4]]
+  [1m[35mArtPropVal Load (0.4ms)[0m  SELECT "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."art_cod" = $1  [["art_cod", 4]]
+  [1m[36mSQL (0.6ms)[0m  [1mDELETE FROM "articulos" WHERE "articulos"."art_cod" = $1[0m  [["art_cod", 4]]
+  [1m[35m (10.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/articulos
+Completed 302 Found in 47ms (ActiveRecord: 15.4ms)
+
+
+Started GET "/articulos" for 127.0.0.1 at 2015-07-16 04:33:52 -0300
+Processing by ArticulosController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mArticulo Load (0.4ms)[0m  SELECT "articulos".* FROM "articulos"
+  Rendered articulos/index.html.erb within layouts/application (3.0ms)
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris"[0m
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 2]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 7]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 18]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 22]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 21]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 15]]
+Completed 200 OK in 329ms (Views: 325.6ms | ActiveRecord: 1.9ms)
+
+
+Started DELETE "/articulos/5" for 127.0.0.1 at 2015-07-16 04:33:58 -0300
+Processing by ArticulosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"8TFzo+/K06ydgrW0uUpGWUqmRt1vZc1aRByS+WVUEzkRb1JtAVpHFFKkC4AtLWop1604d9WNdVCzNmQKEMT6yQ==", "id"=>"5"}
+  [1m[36mArticulo Load (0.6ms)[0m  [1mSELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1[0m  [["art_cod", 5]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mArtProp Load (0.4ms)[0m  [1mSELECT "art_props".* FROM "art_props" WHERE "art_props"."art_cod" = $1[0m  [["art_cod", 5]]
+  [1m[35mInstanci Load (0.4ms)[0m  SELECT "instancis".* FROM "instancis" WHERE "instancis"."art_cod" = $1  [["art_cod", 5]]
+  [1m[36mImagen Load (0.8ms)[0m  [1mSELECT "imagens".* FROM "imagens" WHERE "imagens"."ins_cod" = $1[0m  [["ins_cod", 14]]
+  [1m[35mInsApv Load (0.4ms)[0m  SELECT "ins_apvs".* FROM "ins_apvs" WHERE "ins_apvs"."ins_cod" = $1  [["ins_cod", 14]]
+  [1m[36mSQL (1.4ms)[0m  [1mDELETE FROM "instancis" WHERE "instancis"."ins_cod" = $1[0m  [["ins_cod", 14]]
+  [1m[35mArtPropVal Load (0.2ms)[0m  SELECT "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."art_cod" = $1  [["art_cod", 5]]
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "articulos" WHERE "articulos"."art_cod" = $1[0m  [["art_cod", 5]]
+  [1m[35m (14.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/articulos
+Completed 302 Found in 43ms (ActiveRecord: 20.3ms)
+
+
+Started GET "/articulos" for 127.0.0.1 at 2015-07-16 04:33:58 -0300
+Processing by ArticulosController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mArticulo Load (0.2ms)[0m  SELECT "articulos".* FROM "articulos"
+  Rendered articulos/index.html.erb within layouts/application (2.0ms)
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris"[0m
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 2]]
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 7]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 18]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 22]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 21]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 15]]
+Completed 200 OK in 344ms (Views: 340.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/categoris/15" for 127.0.0.1 at 2015-07-16 04:34:03 -0300
+Processing by CategorisController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mCategori Load (0.4ms)[0m  [1mSELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1[0m  [["cat_cod", 15]]
+  [1m[35mArticulo Load (0.4ms)[0m  SELECT "articulos".* FROM "articulos" WHERE "articulos"."cat_cod" = $1  [["cat_cod", 15]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+  [1m[35mPropiedad Load (0.7ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1  [["prop_nom", "Color"]]
+  [1m[36mPropiedadValor Load (0.4ms)[0m  [1mSELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1[0m  [["prop_cod", 1]]
+  [1m[35mValor Load (0.3ms)[0m  SELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1  [["val_cod", 1]]
+  [1m[36mValor Load (0.3ms)[0m  [1mSELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1[0m  [["val_cod", 117]]
+  [1m[35mValor Load (0.2ms)[0m  SELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1  [["val_cod", 118]]
+  [1m[36mPropiedad Load (0.3ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1[0m  [["prop_nom", "Material"]]
+  [1m[35mPropiedadValor Load (0.2ms)[0m  SELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1  [["prop_cod", 4]]
+  [1m[36mValor Load (0.2ms)[0m  [1mSELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1[0m  [["val_cod", 4]]
+  [1m[35mPropiedad Load (0.2ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_nom" = $1 LIMIT 1  [["prop_nom", "Marca"]]
+  [1m[36mPropiedadValor Load (0.2ms)[0m  [1mSELECT "propiedad_valors".* FROM "propiedad_valors" WHERE "propiedad_valors"."prop_cod" = $1[0m  [["prop_cod", 7]]
+  [1m[35mValor Load (0.2ms)[0m  SELECT "valors".* FROM "valors" WHERE "valors"."val_cod" = $1  [["val_cod", 7]]
+  Rendered categoris/show.html.erb within layouts/application (44.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 22]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 21]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 408ms (Views: 393.3ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/insa" for 127.0.0.1 at 2015-07-16 04:34:17 -0300
+
+ActionController::RoutingError (No route matches [GET] "/insa"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (15.6ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.9ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (121.9ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (14.6ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (28.5ms)
+
+
+Started GET "/instancis" for 127.0.0.1 at 2015-07-16 04:34:21 -0300
+Processing by InstancisController#index as HTML
+  [1m[35mInstanci Load (0.6ms)[0m  SELECT "instancis".* FROM "instancis"
+  [1m[36mArticulo Load (0.3ms)[0m  [1mSELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1[0m  [["art_cod", 7]]
+  [1m[35mCategori Load (0.4ms)[0m  SELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1  [["cat_cod", 2]]
+  [1m[36mCategori Load (0.4ms)[0m  [1mSELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1[0m  [["cat_cod", 1]]
+  [1m[35mInsApv Load (0.2ms)[0m  SELECT "ins_apvs".* FROM "ins_apvs" WHERE "ins_apvs"."ins_cod" = $1  [["ins_cod", 237]]
+  [1m[36mArtPropVal Load (0.3ms)[0m  [1mSELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1[0m  [["apv_cod", 12]]
+  [1m[35mPropiedad Load (0.4ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1  [["prop_cod", 1], ["prop_nom", "Talla"]]
+  [1m[36mEstadoArticulo Load (0.4ms)[0m  [1mSELECT  "estado_articulos".* FROM "estado_articulos" WHERE "estado_articulos"."est_art_cod" = $1 LIMIT 1[0m  [["est_art_cod", 6]]
+  [1m[35mInstanci Load (0.2ms)[0m  SELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1  [["ins_cod", 237]]
+  [1m[36mTransicionEstadoArt Load (0.3ms)[0m  [1mSELECT "transicion_estado_arts".* FROM "transicion_estado_arts" WHERE "transicion_estado_arts"."est_est_art_cod" = $1[0m  [["est_est_art_cod", 6]]
+  Rendered instancis/_editar_estado.html.erb (11.7ms)
+  [1m[35mImagen Load (0.5ms)[0m  SELECT  "imagens".* FROM "imagens" WHERE "imagens"."ins_cod_prov" = $1 LIMIT 1  [["ins_cod_prov", "41562738"]]
+  [1m[36mArticulo Load (0.5ms)[0m  [1mSELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1[0m  [["art_cod", 193]]
+  [1m[35mCategori Load (0.4ms)[0m  SELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1  [["cat_cod", 18]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1[0m  [["cat_cod", 2]]
+  [1m[35mInsApv Load (0.5ms)[0m  SELECT "ins_apvs".* FROM "ins_apvs" WHERE "ins_apvs"."ins_cod" = $1  [["ins_cod", 227]]
+  [1m[36mArtPropVal Load (0.4ms)[0m  [1mSELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1[0m  [["apv_cod", 268]]
+  [1m[35mPropiedad Load (0.4ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1  [["prop_cod", 6], ["prop_nom", "Talla"]]
+  [1m[36mValor Load (0.2ms)[0m  [1mSELECT  "valors".* FROM "valors" WHERE "valors"."val_cod" = $1 LIMIT 1[0m  [["val_cod", 6]]
+  [1m[35mEstadoArticulo Load (0.3ms)[0m  SELECT  "estado_articulos".* FROM "estado_articulos" WHERE "estado_articulos"."est_art_cod" = $1 LIMIT 1  [["est_art_cod", 1]]
+  [1m[36mInstanci Load (0.3ms)[0m  [1mSELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1[0m  [["ins_cod", 227]]
+  [1m[35mTransicionEstadoArt Load (0.5ms)[0m  SELECT "transicion_estado_arts".* FROM "transicion_estado_arts" WHERE "transicion_estado_arts"."est_est_art_cod" = $1  [["est_est_art_cod", 1]]
+  Rendered instancis/_editar_estado.html.erb (4.2ms)
+  [1m[36mImagen Load (0.3ms)[0m  [1mSELECT  "imagens".* FROM "imagens" WHERE "imagens"."ins_cod_prov" = $1 LIMIT 1[0m  [["ins_cod_prov", "5678"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1  [["art_cod", 193]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1[0m  [["cat_cod", 18]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1  [["cat_cod", 2]]
+  [1m[36mInsApv Load (0.3ms)[0m  [1mSELECT "ins_apvs".* FROM "ins_apvs" WHERE "ins_apvs"."ins_cod" = $1[0m  [["ins_cod", 236]]
+  [1m[35mArtPropVal Load (0.2ms)[0m  SELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1  [["apv_cod", 293]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1[0m  [["prop_cod", 6], ["prop_nom", "Talla"]]
+  [1m[35mValor Load (0.2ms)[0m  SELECT  "valors".* FROM "valors" WHERE "valors"."val_cod" = $1 LIMIT 1  [["val_cod", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_articulos".* FROM "estado_articulos" WHERE "estado_articulos"."est_art_cod" = $1 LIMIT 1[0m  [["est_art_cod", 1]]
+  [1m[35mInstanci Load (0.3ms)[0m  SELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1  [["ins_cod", 236]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "transicion_estado_arts".* FROM "transicion_estado_arts" WHERE "transicion_estado_arts"."est_est_art_cod" = $1[0m  [["est_est_art_cod", 1]]
+  Rendered instancis/_editar_estado.html.erb (2.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "imagens".* FROM "imagens" WHERE "imagens"."ins_cod_prov" = $1 LIMIT 1  [["ins_cod_prov", "5678"]]
+  [1m[36mArticulo Load (0.4ms)[0m  [1mSELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1[0m  [["art_cod", 1]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1  [["cat_cod", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1[0m  [["cat_cod", 2]]
+  [1m[35mInsApv Load (0.3ms)[0m  SELECT "ins_apvs".* FROM "ins_apvs" WHERE "ins_apvs"."ins_cod" = $1  [["ins_cod", 15]]
+  [1m[36mArtPropVal Load (0.3ms)[0m  [1mSELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1[0m  [["apv_cod", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1  [["prop_cod", 1], ["prop_nom", "Talla"]]
+  [1m[36mArtPropVal Load (0.2ms)[0m  [1mSELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1[0m  [["apv_cod", 3]]
+  [1m[35mPropiedad Load (0.2ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1  [["prop_cod", 2], ["prop_nom", "Talla"]]
+  [1m[36mArtPropVal Load (0.2ms)[0m  [1mSELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1[0m  [["apv_cod", 5]]
+  [1m[35mPropiedad Load (0.2ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1  [["prop_cod", 3], ["prop_nom", "Talla"]]
+  [1m[36mArtPropVal Load (0.1ms)[0m  [1mSELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1[0m  [["apv_cod", 6]]
+  [1m[35mPropiedad Load (0.2ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1  [["prop_cod", 4], ["prop_nom", "Talla"]]
+  [1m[36mArtPropVal Load (0.1ms)[0m  [1mSELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1[0m  [["apv_cod", 7]]
+  [1m[35mPropiedad Load (0.2ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1  [["prop_cod", 5], ["prop_nom", "Talla"]]
+  [1m[36mArtPropVal Load (0.1ms)[0m  [1mSELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1[0m  [["apv_cod", 9]]
+  [1m[35mPropiedad Load (0.1ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1  [["prop_cod", 7], ["prop_nom", "Talla"]]
+  [1m[36mArtPropVal Load (0.1ms)[0m  [1mSELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1[0m  [["apv_cod", 10]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1  [["prop_cod", 6], ["prop_nom", "Talla"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "valors".* FROM "valors" WHERE "valors"."val_cod" = $1 LIMIT 1[0m  [["val_cod", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_articulos".* FROM "estado_articulos" WHERE "estado_articulos"."est_art_cod" = $1 LIMIT 1  [["est_art_cod", 1]]
+  [1m[36mInstanci Load (0.3ms)[0m  [1mSELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1[0m  [["ins_cod", 15]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "transicion_estado_arts".* FROM "transicion_estado_arts" WHERE "transicion_estado_arts"."est_est_art_cod" = $1  [["est_est_art_cod", 1]]
+  Rendered instancis/_editar_estado.html.erb (2.7ms)
+  [1m[36mImagen Load (0.2ms)[0m  [1mSELECT  "imagens".* FROM "imagens" WHERE "imagens"."ins_cod_prov" = $1 LIMIT 1[0m  [["ins_cod_prov", "1234"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1  [["art_cod", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1[0m  [["cat_cod", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1  [["cat_cod", 2]]
+  [1m[36mInsApv Load (0.3ms)[0m  [1mSELECT "ins_apvs".* FROM "ins_apvs" WHERE "ins_apvs"."ins_cod" = $1[0m  [["ins_cod", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1  [["apv_cod", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1[0m  [["prop_cod", 1], ["prop_nom", "Talla"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1  [["apv_cod", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1[0m  [["prop_cod", 2], ["prop_nom", "Talla"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1  [["apv_cod", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1[0m  [["prop_cod", 3], ["prop_nom", "Talla"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1  [["apv_cod", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1[0m  [["prop_cod", 4], ["prop_nom", "Talla"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1  [["apv_cod", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1[0m  [["prop_cod", 5], ["prop_nom", "Talla"]]
+  [1m[35mArtPropVal Load (0.3ms)[0m  SELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1  [["apv_cod", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1[0m  [["prop_cod", 6], ["prop_nom", "Talla"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "valors".* FROM "valors" WHERE "valors"."val_cod" = $1 LIMIT 1  [["val_cod", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_articulos".* FROM "estado_articulos" WHERE "estado_articulos"."est_art_cod" = $1 LIMIT 1[0m  [["est_art_cod", 1]]
+  [1m[35mInstanci Load (0.2ms)[0m  SELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1  [["ins_cod", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "transicion_estado_arts".* FROM "transicion_estado_arts" WHERE "transicion_estado_arts"."est_est_art_cod" = $1[0m  [["est_est_art_cod", 1]]
+  Rendered instancis/_editar_estado.html.erb (2.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "imagens".* FROM "imagens" WHERE "imagens"."ins_cod_prov" = $1 LIMIT 1  [["ins_cod_prov", "1234"]]
+  Rendered instancis/index.html.erb within layouts/application (109.5ms)
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategori Load (0.5ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.4ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 22]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 21]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 460ms (Views: 439.4ms | ActiveRecord: 19.2ms)
+
+
+Started GET "/instancis/237" for 127.0.0.1 at 2015-07-16 04:34:40 -0300
+Processing by InstancisController#show as HTML
+  Parameters: {"id"=>"237"}
+  [1m[35mInstanci Load (0.7ms)[0m  SELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1  [["ins_cod", 237]]
+  [1m[36mArticulo Load (0.6ms)[0m  [1mSELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1[0m  [["art_cod", 7]]
+  [1m[35mImagen Load (0.5ms)[0m  SELECT  "imagens".* FROM "imagens" WHERE "imagens"."ins_cod_prov" = $1 LIMIT 1  [["ins_cod_prov", "41562738"]]
+  [1m[36mCategori Load (0.5ms)[0m  [1mSELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1[0m  [["cat_cod", 2]]
+  [1m[35mEstadoArticulo Load (0.6ms)[0m  SELECT  "estado_articulos".* FROM "estado_articulos" WHERE "estado_articulos"."est_art_cod" = $1 LIMIT 1  [["est_art_cod", 6]]
+  [1m[36mInsApv Load (0.3ms)[0m  [1mSELECT "ins_apvs".* FROM "ins_apvs" WHERE "ins_apvs"."ins_cod" = $1[0m  [["ins_cod", 237]]
+  [1m[35mArtPropVal Load (0.5ms)[0m  SELECT "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1  [["apv_cod", 12]]
+  [1m[36mPropiedad Load (0.5ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 LIMIT 1[0m  [["prop_cod", 1]]
+  [1m[35mValor Load (0.6ms)[0m  SELECT  "valors".* FROM "valors" WHERE "valors"."val_cod" = $1 LIMIT 1  [["val_cod", 1]]
+  Rendered instancis/show.html.erb within layouts/application (16.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategori Load (0.6ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.4ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.4ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.4ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 22]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 21]]
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 376ms (Views: 365.1ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/ddd" for 127.0.0.1 at 2015-07-16 04:34:41 -0300
+
+ActionController::RoutingError (No route matches [GET] "/ddd"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (15.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (118.6ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (15.6ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (31.3ms)
+
+
+Started GET "/instancis/ddd" for 127.0.0.1 at 2015-07-16 04:34:41 -0300
+Processing by InstancisController#show as HTML
+  Parameters: {"id"=>"ddd"}
+  [1m[35mInstanci Load (0.2ms)[0m  SELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1  [["ins_cod", 0]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Instanci with 'ins_cod'=ddd):
+  app/controllers/instancis_controller.rb:147:in `set_instanci'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (21.5ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (14.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (28.8ms)
+
+
+Started GET "/articulos" for 127.0.0.1 at 2015-07-16 04:35:18 -0300
+Processing by ArticulosController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mArticulo Load (0.3ms)[0m  SELECT "articulos".* FROM "articulos"
+  Rendered articulos/index.html.erb within layouts/application (2.4ms)
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris"[0m
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 2]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 7]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 18]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 22]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 21]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 15]]
+Completed 200 OK in 340ms (Views: 336.3ms | ActiveRecord: 1.7ms)
+
+
+Started DELETE "/articulos/2" for 127.0.0.1 at 2015-07-16 04:35:23 -0300
+Processing by ArticulosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"RVkvMKJ7l6f+ZvR97JqrUgiQY1d72hXh6AKnpPaY1gClBw7+TOsDHzFASkl4/YcilZsd/cEyresfKFFXgwg/8A==", "id"=>"2"}
+  [1m[36mArticulo Load (0.3ms)[0m  [1mSELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1[0m  [["art_cod", 2]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mArtProp Load (0.9ms)[0m  [1mSELECT "art_props".* FROM "art_props" WHERE "art_props"."art_cod" = $1[0m  [["art_cod", 2]]
+  [1m[35mInstanci Load (0.4ms)[0m  SELECT "instancis".* FROM "instancis" WHERE "instancis"."art_cod" = $1  [["art_cod", 2]]
+  [1m[36mArtPropVal Load (0.3ms)[0m  [1mSELECT "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."art_cod" = $1[0m  [["art_cod", 2]]
+  [1m[35mSQL (0.6ms)[0m  DELETE FROM "articulos" WHERE "articulos"."art_cod" = $1  [["art_cod", 2]]
+  [1m[36m (12.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/articulos
+Completed 302 Found in 22ms (ActiveRecord: 14.6ms)
+
+
+Started GET "/articulos" for 127.0.0.1 at 2015-07-16 04:35:23 -0300
+Processing by ArticulosController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mArticulo Load (0.5ms)[0m  [1mSELECT "articulos".* FROM "articulos"[0m
+  Rendered articulos/index.html.erb within layouts/application (1.9ms)
+  [1m[35mCategori Load (0.6ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 22]]
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 21]]
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 337ms (Views: 332.5ms | ActiveRecord: 3.0ms)
+
+
+Started DELETE "/articulos/7" for 127.0.0.1 at 2015-07-16 04:35:26 -0300
+Processing by ArticulosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"rm4sCPtL1w2/ZR3ScfZsFtq8zHAOxZEJwXa1Dy0OhQROMA3GFdtDtXBDo+blkUBmR7ey2rQtKQM2XEP8WJ5s9A==", "id"=>"7"}
+  [1m[35mArticulo Load (0.3ms)[0m  SELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1  [["art_cod", 7]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mArtProp Load (0.3ms)[0m  SELECT "art_props".* FROM "art_props" WHERE "art_props"."art_cod" = $1  [["art_cod", 7]]
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "art_props" WHERE "art_props"."art_prop_cod" = $1[0m  [["art_prop_cod", 11]]
+  [1m[35mInstanci Load (0.5ms)[0m  SELECT "instancis".* FROM "instancis" WHERE "instancis"."art_cod" = $1  [["art_cod", 7]]
+  [1m[36mImagen Load (0.3ms)[0m  [1mSELECT "imagens".* FROM "imagens" WHERE "imagens"."ins_cod" = $1[0m  [["ins_cod", 237]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "imagens" WHERE "imagens"."imagen_cod" = $1  [["imagen_cod", 17]]
+  [1m[36mInsApv Load (0.2ms)[0m  [1mSELECT "ins_apvs".* FROM "ins_apvs" WHERE "ins_apvs"."ins_cod" = $1[0m  [["ins_cod", 237]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "ins_apvs" WHERE "ins_apvs"."ins_apvs_cod" = $1  [["ins_apvs_cod", 19]]
+  [1m[36mSQL (0.7ms)[0m  [1mDELETE FROM "instancis" WHERE "instancis"."ins_cod" = $1[0m  [["ins_cod", 237]]
+  [1m[35mArtPropVal Load (0.2ms)[0m  SELECT "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."art_cod" = $1  [["art_cod", 7]]
+  [1m[36mInsApv Load (0.2ms)[0m  [1mSELECT "ins_apvs".* FROM "ins_apvs" WHERE "ins_apvs"."apv_cod" = $1[0m  [["apv_cod", 12]]
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1  [["apv_cod", 12]]
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "articulos" WHERE "articulos"."art_cod" = $1[0m  [["art_cod", 7]]
+  [1m[35m (46.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/articulos
+Completed 302 Found in 71ms (ActiveRecord: 50.4ms)
+
+
+Started GET "/articulos" for 127.0.0.1 at 2015-07-16 04:35:26 -0300
+Processing by ArticulosController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mArticulo Load (0.3ms)[0m  SELECT "articulos".* FROM "articulos"
+  Rendered articulos/index.html.erb within layouts/application (1.8ms)
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris"[0m
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 2]]
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 7]]
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 18]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 22]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 21]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 15]]
+Completed 200 OK in 342ms (Views: 338.0ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-07-16 04:35:30 -0300
+Processing by PrincipalController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered principal/index.html.erb within layouts/application (4.5ms)
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 22]]
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 21]]
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 346ms (Views: 342.9ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/instancis" for 127.0.0.1 at 2015-07-16 04:36:15 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by InstancisController#index as HTML
+  [1m[35mInstanci Load (0.7ms)[0m  SELECT "instancis".* FROM "instancis"
+  [1m[36mArticulo Load (0.3ms)[0m  [1mSELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1[0m  [["art_cod", 193]]
+  [1m[35mCategori Load (0.4ms)[0m  SELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1  [["cat_cod", 18]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1[0m  [["cat_cod", 2]]
+  [1m[35mInsApv Load (0.4ms)[0m  SELECT "ins_apvs".* FROM "ins_apvs" WHERE "ins_apvs"."ins_cod" = $1  [["ins_cod", 227]]
+  [1m[36mArtPropVal Load (0.5ms)[0m  [1mSELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1[0m  [["apv_cod", 268]]
+  [1m[35mPropiedad Load (0.4ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1  [["prop_cod", 6], ["prop_nom", "Talla"]]
+  [1m[36mValor Load (0.4ms)[0m  [1mSELECT  "valors".* FROM "valors" WHERE "valors"."val_cod" = $1 LIMIT 1[0m  [["val_cod", 6]]
+  [1m[35mEstadoArticulo Load (0.3ms)[0m  SELECT  "estado_articulos".* FROM "estado_articulos" WHERE "estado_articulos"."est_art_cod" = $1 LIMIT 1  [["est_art_cod", 1]]
+  [1m[36mInstanci Load (0.2ms)[0m  [1mSELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1[0m  [["ins_cod", 227]]
+  [1m[35mTransicionEstadoArt Load (0.9ms)[0m  SELECT "transicion_estado_arts".* FROM "transicion_estado_arts" WHERE "transicion_estado_arts"."est_est_art_cod" = $1  [["est_est_art_cod", 1]]
+  Rendered instancis/_editar_estado.html.erb (19.9ms)
+  [1m[36mImagen Load (0.8ms)[0m  [1mSELECT  "imagens".* FROM "imagens" WHERE "imagens"."ins_cod_prov" = $1 LIMIT 1[0m  [["ins_cod_prov", "5678"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1  [["art_cod", 193]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1[0m  [["cat_cod", 18]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1  [["cat_cod", 2]]
+  [1m[36mInsApv Load (0.7ms)[0m  [1mSELECT "ins_apvs".* FROM "ins_apvs" WHERE "ins_apvs"."ins_cod" = $1[0m  [["ins_cod", 236]]
+  [1m[35mArtPropVal Load (0.6ms)[0m  SELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1  [["apv_cod", 293]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1[0m  [["prop_cod", 6], ["prop_nom", "Talla"]]
+  [1m[35mValor Load (0.4ms)[0m  SELECT  "valors".* FROM "valors" WHERE "valors"."val_cod" = $1 LIMIT 1  [["val_cod", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_articulos".* FROM "estado_articulos" WHERE "estado_articulos"."est_art_cod" = $1 LIMIT 1[0m  [["est_art_cod", 1]]
+  [1m[35mInstanci Load (0.4ms)[0m  SELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1  [["ins_cod", 236]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "transicion_estado_arts".* FROM "transicion_estado_arts" WHERE "transicion_estado_arts"."est_est_art_cod" = $1[0m  [["est_est_art_cod", 1]]
+  Rendered instancis/_editar_estado.html.erb (3.8ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "imagens".* FROM "imagens" WHERE "imagens"."ins_cod_prov" = $1 LIMIT 1  [["ins_cod_prov", "5678"]]
+  [1m[36mArticulo Load (0.5ms)[0m  [1mSELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1[0m  [["art_cod", 1]]
+  [1m[35mCategori Load (0.4ms)[0m  SELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1  [["cat_cod", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1[0m  [["cat_cod", 2]]
+  [1m[35mInsApv Load (0.4ms)[0m  SELECT "ins_apvs".* FROM "ins_apvs" WHERE "ins_apvs"."ins_cod" = $1  [["ins_cod", 15]]
+  [1m[36mArtPropVal Load (0.4ms)[0m  [1mSELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1[0m  [["apv_cod", 1]]
+  [1m[35mPropiedad Load (0.3ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1  [["prop_cod", 1], ["prop_nom", "Talla"]]
+  [1m[36mArtPropVal Load (0.3ms)[0m  [1mSELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1[0m  [["apv_cod", 3]]
+  [1m[35mPropiedad Load (0.2ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1  [["prop_cod", 2], ["prop_nom", "Talla"]]
+  [1m[36mArtPropVal Load (0.2ms)[0m  [1mSELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1[0m  [["apv_cod", 5]]
+  [1m[35mPropiedad Load (0.2ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1  [["prop_cod", 3], ["prop_nom", "Talla"]]
+  [1m[36mArtPropVal Load (0.3ms)[0m  [1mSELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1[0m  [["apv_cod", 6]]
+  [1m[35mPropiedad Load (0.2ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1  [["prop_cod", 4], ["prop_nom", "Talla"]]
+  [1m[36mArtPropVal Load (0.2ms)[0m  [1mSELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1[0m  [["apv_cod", 7]]
+  [1m[35mPropiedad Load (0.1ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1  [["prop_cod", 5], ["prop_nom", "Talla"]]
+  [1m[36mArtPropVal Load (0.1ms)[0m  [1mSELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1[0m  [["apv_cod", 9]]
+  [1m[35mPropiedad Load (0.1ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1  [["prop_cod", 7], ["prop_nom", "Talla"]]
+  [1m[36mArtPropVal Load (0.1ms)[0m  [1mSELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1[0m  [["apv_cod", 10]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1  [["prop_cod", 6], ["prop_nom", "Talla"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "valors".* FROM "valors" WHERE "valors"."val_cod" = $1 LIMIT 1[0m  [["val_cod", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_articulos".* FROM "estado_articulos" WHERE "estado_articulos"."est_art_cod" = $1 LIMIT 1  [["est_art_cod", 1]]
+  [1m[36mInstanci Load (0.4ms)[0m  [1mSELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1[0m  [["ins_cod", 15]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "transicion_estado_arts".* FROM "transicion_estado_arts" WHERE "transicion_estado_arts"."est_est_art_cod" = $1  [["est_est_art_cod", 1]]
+  Rendered instancis/_editar_estado.html.erb (3.6ms)
+  [1m[36mImagen Load (0.3ms)[0m  [1mSELECT  "imagens".* FROM "imagens" WHERE "imagens"."ins_cod_prov" = $1 LIMIT 1[0m  [["ins_cod_prov", "1234"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1  [["art_cod", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1[0m  [["cat_cod", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1  [["cat_cod", 2]]
+  [1m[36mInsApv Load (0.3ms)[0m  [1mSELECT "ins_apvs".* FROM "ins_apvs" WHERE "ins_apvs"."ins_cod" = $1[0m  [["ins_cod", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1  [["apv_cod", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1[0m  [["prop_cod", 1], ["prop_nom", "Talla"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1  [["apv_cod", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1[0m  [["prop_cod", 2], ["prop_nom", "Talla"]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1  [["apv_cod", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1[0m  [["prop_cod", 3], ["prop_nom", "Talla"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1  [["apv_cod", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1[0m  [["prop_cod", 4], ["prop_nom", "Talla"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1  [["apv_cod", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1[0m  [["prop_cod", 5], ["prop_nom", "Talla"]]
+  [1m[35mArtPropVal Load (0.3ms)[0m  SELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1  [["apv_cod", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1[0m  [["prop_cod", 6], ["prop_nom", "Talla"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "valors".* FROM "valors" WHERE "valors"."val_cod" = $1 LIMIT 1  [["val_cod", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_articulos".* FROM "estado_articulos" WHERE "estado_articulos"."est_art_cod" = $1 LIMIT 1[0m  [["est_art_cod", 1]]
+  [1m[35mInstanci Load (0.4ms)[0m  SELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1  [["ins_cod", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "transicion_estado_arts".* FROM "transicion_estado_arts" WHERE "transicion_estado_arts"."est_est_art_cod" = $1[0m  [["est_est_art_cod", 1]]
+  Rendered instancis/_editar_estado.html.erb (4.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "imagens".* FROM "imagens" WHERE "imagens"."ins_cod_prov" = $1 LIMIT 1  [["ins_cod_prov", "1234"]]
+  Rendered instancis/index.html.erb within layouts/application (164.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategori Load (0.7ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.5ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 22]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 21]]
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 786ms (Views: 733.5ms | ActiveRecord: 32.3ms)
+
+
+Started GET "/pedidos" for 127.0.0.1 at 2015-07-16 04:36:45 -0300
+Processing by PedidosController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mPedido Load (0.6ms)[0m  [1mSELECT "pedidos".* FROM "pedidos"[0m
+  [1m[35mProveedor Load (0.4ms)[0m  SELECT  "proveedors".* FROM "proveedors" WHERE "proveedors"."pro_cod" = $1 LIMIT 1  [["pro_cod", 1]]
+  [1m[36mEstadoPedido Load (0.3ms)[0m  [1mSELECT  "estado_pedidos".* FROM "estado_pedidos" WHERE "estado_pedidos"."estado_ped_cod" = $1 LIMIT 1[0m  [["estado_ped_cod", 1]]
+  [1m[35mPedido Load (0.4ms)[0m  SELECT  "pedidos".* FROM "pedidos" WHERE "pedidos"."ped_cod" = $1 LIMIT 1  [["ped_cod", 9]]
+  [1m[36mTransicionEstadoPedido Load (0.4ms)[0m  [1mSELECT "transicion_estado_pedidos".* FROM "transicion_estado_pedidos" WHERE "transicion_estado_pedidos"."est_estado_ped_cod" = $1[0m  [["est_estado_ped_cod", 1]]
+  Rendered pedidos/_editar_estado.html.erb (12.1ms)
+  Rendered pedidos/index.html.erb within layouts/application (44.2ms)
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 22]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 21]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 391ms (Views: 371.4ms | ActiveRecord: 7.6ms)
+
+
+Started PATCH "/pedidos/9" for 127.0.0.1 at 2015-07-16 04:36:50 -0300
+Processing by PedidosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Sh16bSHn+aaWtIlC1aPMy0YAiYZJJxsIRZvPmjpPdmmqQ1ujz3dtHlmSN3ZBxOC72wv3LPPPowKysTlpT9+fmQ==", "pedido"=>{"estado_ped_cod"=>""}, "commit"=>"Update Pedido", "id"=>"9"}
+  [1m[35mPedido Load (0.4ms)[0m  SELECT  "pedidos".* FROM "pedidos" WHERE "pedidos"."ped_cod" = $1 LIMIT 1  [["ped_cod", 9]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  Rendered pedidos/_form.html.erb (0.2ms)
+  Rendered pedidos/edit.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategori Load (0.6ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 22]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 21]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 333ms (Views: 320.7ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/pedidos" for 127.0.0.1 at 2015-07-16 04:41:27 -0300
+Processing by PedidosController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mPedido Load (0.4ms)[0m  [1mSELECT "pedidos".* FROM "pedidos"[0m
+  [1m[35mProveedor Load (0.3ms)[0m  SELECT  "proveedors".* FROM "proveedors" WHERE "proveedors"."pro_cod" = $1 LIMIT 1  [["pro_cod", 1]]
+  [1m[36mEstadoPedido Load (0.3ms)[0m  [1mSELECT  "estado_pedidos".* FROM "estado_pedidos" WHERE "estado_pedidos"."estado_ped_cod" = $1 LIMIT 1[0m  [["estado_ped_cod", 1]]
+  [1m[35mPedido Load (0.3ms)[0m  SELECT  "pedidos".* FROM "pedidos" WHERE "pedidos"."ped_cod" = $1 LIMIT 1  [["ped_cod", 9]]
+  [1m[36mTransicionEstadoPedido Load (0.3ms)[0m  [1mSELECT "transicion_estado_pedidos".* FROM "transicion_estado_pedidos" WHERE "transicion_estado_pedidos"."est_estado_ped_cod" = $1[0m  [["est_estado_ped_cod", 1]]
+  [1m[35mEstadoPedido Load (0.2ms)[0m  SELECT "estado_pedidos".* FROM "estado_pedidos" WHERE "estado_pedidos"."estado_ped_cod" = $1  [["estado_ped_cod", 2]]
+  Rendered pedidos/_editar_estado.html.erb (7.2ms)
+  Rendered pedidos/index.html.erb within layouts/application (15.8ms)
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris"[0m
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 2]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 7]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 18]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 22]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 9]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 21]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 15]]
+Completed 200 OK in 356ms (Views: 349.9ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/instancis" for 127.0.0.1 at 2015-07-16 04:44:41 -0300
+Processing by InstancisController#index as HTML
+  [1m[36mInstanci Load (0.7ms)[0m  [1mSELECT "instancis".* FROM "instancis"[0m
+  [1m[35mArticulo Load (0.5ms)[0m  SELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1  [["art_cod", 193]]
+  [1m[36mCategori Load (0.5ms)[0m  [1mSELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1[0m  [["cat_cod", 18]]
+  [1m[35mCategori Load (0.5ms)[0m  SELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1  [["cat_cod", 2]]
+  [1m[36mInsApv Load (0.6ms)[0m  [1mSELECT "ins_apvs".* FROM "ins_apvs" WHERE "ins_apvs"."ins_cod" = $1[0m  [["ins_cod", 227]]
+  [1m[35mArtPropVal Load (0.4ms)[0m  SELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1  [["apv_cod", 268]]
+  [1m[36mPropiedad Load (0.4ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1[0m  [["prop_cod", 6], ["prop_nom", "Talla"]]
+  [1m[35mValor Load (0.6ms)[0m  SELECT  "valors".* FROM "valors" WHERE "valors"."val_cod" = $1 LIMIT 1  [["val_cod", 6]]
+  [1m[36mEstadoArticulo Load (0.4ms)[0m  [1mSELECT  "estado_articulos".* FROM "estado_articulos" WHERE "estado_articulos"."est_art_cod" = $1 LIMIT 1[0m  [["est_art_cod", 1]]
+  [1m[35mInstanci Load (0.7ms)[0m  SELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1  [["ins_cod", 227]]
+  [1m[36mTransicionEstadoArt Load (0.5ms)[0m  [1mSELECT "transicion_estado_arts".* FROM "transicion_estado_arts" WHERE "transicion_estado_arts"."est_est_art_cod" = $1[0m  [["est_est_art_cod", 1]]
+  [1m[35mEstadoDc Load (1.9ms)[0m  SELECT "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_art_cod" = 4
+PG::UndefinedColumn: ERROR:  no existe la columna estado_dcs.est_art_cod
+LINE 1: SELECT "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."...
+                                                      ^
+: SELECT "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_art_cod" = 4
+  Rendered instancis/_editar_estado.html.erb (22.7ms)
+  Rendered instancis/index.html.erb within layouts/application (42.1ms)
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 9.5ms)
+
+ActionView::Template::Error (PG::UndefinedColumn: ERROR:  no existe la columna estado_dcs.est_art_cod
+LINE 1: SELECT "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."...
+                                                      ^
+: SELECT "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_art_cod" = 4):
+    18:      <%@transiciones=TransicionEstadoArt.where(est_est_art_cod: c.est_art_cod)
+    19:    @estados=[]
+    20:    @transiciones.each do |t|
+    21:     @estados=@estados+EstadoDc.where(est_art_cod: t.est_art_cod)
+    22:    end%>
+    23:     <%= f.select(:est_dc_cod, @estados.collect {|es| [es.est_art_nom, es.est_art_cod]}, { :include_blank => "Seleccionar" })%>
+    24:   </div>
+  app/views/instancis/_editar_estado.html.erb:21:in `block (2 levels) in _app_views_instancis__editar_estado_html_erb___4189769923773327365_70192764019460'
+  app/views/instancis/_editar_estado.html.erb:20:in `block in _app_views_instancis__editar_estado_html_erb___4189769923773327365_70192764019460'
+  app/views/instancis/_editar_estado.html.erb:2:in `_app_views_instancis__editar_estado_html_erb___4189769923773327365_70192764019460'
+  app/views/instancis/index.html.erb:63:in `block in _app_views_instancis_index_html_erb__1049855933194664458_70192764567940'
+  app/views/instancis/index.html.erb:31:in `_app_views_instancis_index_html_erb__1049855933194664458_70192764567940'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (15.9ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (31.9ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (13.9ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (27.2ms)
+
+
+Started GET "/instancis" for 127.0.0.1 at 2015-07-16 04:44:42 -0300
+Processing by InstancisController#index as HTML
+  [1m[36mInstanci Load (0.4ms)[0m  [1mSELECT "instancis".* FROM "instancis"[0m
+  [1m[35mArticulo Load (0.3ms)[0m  SELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1  [["art_cod", 193]]
+  [1m[36mCategori Load (0.5ms)[0m  [1mSELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1[0m  [["cat_cod", 18]]
+  [1m[35mCategori Load (0.2ms)[0m  SELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1  [["cat_cod", 2]]
+  [1m[36mInsApv Load (0.3ms)[0m  [1mSELECT "ins_apvs".* FROM "ins_apvs" WHERE "ins_apvs"."ins_cod" = $1[0m  [["ins_cod", 227]]
+  [1m[35mArtPropVal Load (0.1ms)[0m  SELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1  [["apv_cod", 268]]
+  [1m[36mPropiedad Load (0.1ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1[0m  [["prop_cod", 6], ["prop_nom", "Talla"]]
+  [1m[35mValor Load (0.3ms)[0m  SELECT  "valors".* FROM "valors" WHERE "valors"."val_cod" = $1 LIMIT 1  [["val_cod", 6]]
+  [1m[36mEstadoArticulo Load (0.3ms)[0m  [1mSELECT  "estado_articulos".* FROM "estado_articulos" WHERE "estado_articulos"."est_art_cod" = $1 LIMIT 1[0m  [["est_art_cod", 1]]
+  [1m[35mInstanci Load (0.4ms)[0m  SELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1  [["ins_cod", 227]]
+  [1m[36mTransicionEstadoArt Load (0.3ms)[0m  [1mSELECT "transicion_estado_arts".* FROM "transicion_estado_arts" WHERE "transicion_estado_arts"."est_est_art_cod" = $1[0m  [["est_est_art_cod", 1]]
+  [1m[35mEstadoDc Load (1.0ms)[0m  SELECT "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_art_cod" = 4
+PG::UndefinedColumn: ERROR:  no existe la columna estado_dcs.est_art_cod
+LINE 1: SELECT "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."...
+                                                      ^
+: SELECT "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_art_cod" = 4
+  Rendered instancis/_editar_estado.html.erb (8.4ms)
+  Rendered instancis/index.html.erb within layouts/application (21.3ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 4.2ms)
+
+ActionView::Template::Error (PG::UndefinedColumn: ERROR:  no existe la columna estado_dcs.est_art_cod
+LINE 1: SELECT "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."...
+                                                      ^
+: SELECT "estado_dcs".* FROM "estado_dcs" WHERE "estado_dcs"."est_art_cod" = 4):
+    18:      <%@transiciones=TransicionEstadoArt.where(est_est_art_cod: c.est_art_cod)
+    19:    @estados=[]
+    20:    @transiciones.each do |t|
+    21:     @estados=@estados+EstadoDc.where(est_art_cod: t.est_art_cod)
+    22:    end%>
+    23:     <%= f.select(:est_dc_cod, @estados.collect {|es| [es.est_art_nom, es.est_art_cod]}, { :include_blank => "Seleccionar" })%>
+    24:   </div>
+  app/views/instancis/_editar_estado.html.erb:21:in `block (2 levels) in _app_views_instancis__editar_estado_html_erb___4189769923773327365_70192598581040'
+  app/views/instancis/_editar_estado.html.erb:20:in `block in _app_views_instancis__editar_estado_html_erb___4189769923773327365_70192598581040'
+  app/views/instancis/_editar_estado.html.erb:2:in `_app_views_instancis__editar_estado_html_erb___4189769923773327365_70192598581040'
+  app/views/instancis/index.html.erb:63:in `block in _app_views_instancis_index_html_erb__1049855933194664458_70192586705880'
+  app/views/instancis/index.html.erb:31:in `_app_views_instancis_index_html_erb__1049855933194664458_70192586705880'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (26.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (14.1ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (28.7ms)
+
+
+Started GET "/instancis" for 127.0.0.1 at 2015-07-16 04:45:06 -0300
+Processing by InstancisController#index as HTML
+  [1m[36mInstanci Load (0.3ms)[0m  [1mSELECT "instancis".* FROM "instancis"[0m
+  [1m[35mArticulo Load (0.3ms)[0m  SELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1  [["art_cod", 193]]
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1[0m  [["cat_cod", 18]]
+  [1m[35mCategori Load (0.4ms)[0m  SELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1  [["cat_cod", 2]]
+  [1m[36mInsApv Load (0.2ms)[0m  [1mSELECT "ins_apvs".* FROM "ins_apvs" WHERE "ins_apvs"."ins_cod" = $1[0m  [["ins_cod", 227]]
+  [1m[35mArtPropVal Load (0.2ms)[0m  SELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1  [["apv_cod", 268]]
+  [1m[36mPropiedad Load (0.2ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1[0m  [["prop_cod", 6], ["prop_nom", "Talla"]]
+  [1m[35mValor Load (0.2ms)[0m  SELECT  "valors".* FROM "valors" WHERE "valors"."val_cod" = $1 LIMIT 1  [["val_cod", 6]]
+  [1m[36mEstadoArticulo Load (0.2ms)[0m  [1mSELECT  "estado_articulos".* FROM "estado_articulos" WHERE "estado_articulos"."est_art_cod" = $1 LIMIT 1[0m  [["est_art_cod", 1]]
+  [1m[35mInstanci Load (0.2ms)[0m  SELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1  [["ins_cod", 227]]
+  [1m[36mTransicionEstadoArt Load (0.2ms)[0m  [1mSELECT "transicion_estado_arts".* FROM "transicion_estado_arts" WHERE "transicion_estado_arts"."est_est_art_cod" = $1[0m  [["est_est_art_cod", 1]]
+  [1m[35mEstadoArticulo Load (0.2ms)[0m  SELECT "estado_articulos".* FROM "estado_articulos" WHERE "estado_articulos"."est_art_cod" = $1  [["est_art_cod", 4]]
+  [1m[36mEstadoArticulo Load (0.2ms)[0m  [1mSELECT "estado_articulos".* FROM "estado_articulos" WHERE "estado_articulos"."est_art_cod" = $1[0m  [["est_art_cod", 6]]
+  Rendered instancis/_editar_estado.html.erb (6.6ms)
+  Rendered instancis/index.html.erb within layouts/application (16.6ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 2.9ms)
+
+ActionView::Template::Error (undefined method `est_dc_cod' for #<Instanci:0x007fadf85bfab0>):
+    20:    @transiciones.each do |t|
+    21:     @estados=@estados+EstadoArticulo.where(est_art_cod: t.est_art_cod)
+    22:    end%>
+    23:     <%= f.select(:est_dc_cod, @estados.collect {|es| [es.est_art_nom, es.est_art_cod]}, { :include_blank => "Seleccionar" })%>
+    24:   </div>
+    25:   <div class="actions">
+    26:     <%= f.submit %>
+  app/views/instancis/_editar_estado.html.erb:23:in `block in _app_views_instancis__editar_estado_html_erb___4189769923773327365_70192586557120'
+  app/views/instancis/_editar_estado.html.erb:2:in `_app_views_instancis__editar_estado_html_erb___4189769923773327365_70192586557120'
+  app/views/instancis/index.html.erb:63:in `block in _app_views_instancis_index_html_erb__1049855933194664458_70192586705880'
+  app/views/instancis/index.html.erb:31:in `_app_views_instancis_index_html_erb__1049855933194664458_70192586705880'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (25.0ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (15.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.2.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (29.1ms)
+
+
+Started GET "/instancis" for 127.0.0.1 at 2015-07-16 04:45:35 -0300
+Processing by InstancisController#index as HTML
+  [1m[35mInstanci Load (0.3ms)[0m  SELECT "instancis".* FROM "instancis"
+  [1m[36mArticulo Load (0.3ms)[0m  [1mSELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1[0m  [["art_cod", 193]]
+  [1m[35mCategori Load (0.2ms)[0m  SELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1  [["cat_cod", 18]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1[0m  [["cat_cod", 2]]
+  [1m[35mInsApv Load (0.1ms)[0m  SELECT "ins_apvs".* FROM "ins_apvs" WHERE "ins_apvs"."ins_cod" = $1  [["ins_cod", 227]]
+  [1m[36mArtPropVal Load (0.2ms)[0m  [1mSELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1[0m  [["apv_cod", 268]]
+  [1m[35mPropiedad Load (0.2ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1  [["prop_cod", 6], ["prop_nom", "Talla"]]
+  [1m[36mValor Load (0.2ms)[0m  [1mSELECT  "valors".* FROM "valors" WHERE "valors"."val_cod" = $1 LIMIT 1[0m  [["val_cod", 6]]
+  [1m[35mEstadoArticulo Load (0.2ms)[0m  SELECT  "estado_articulos".* FROM "estado_articulos" WHERE "estado_articulos"."est_art_cod" = $1 LIMIT 1  [["est_art_cod", 1]]
+  [1m[36mInstanci Load (0.1ms)[0m  [1mSELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1[0m  [["ins_cod", 227]]
+  [1m[35mTransicionEstadoArt Load (0.2ms)[0m  SELECT "transicion_estado_arts".* FROM "transicion_estado_arts" WHERE "transicion_estado_arts"."est_est_art_cod" = $1  [["est_est_art_cod", 1]]
+  [1m[36mEstadoArticulo Load (0.1ms)[0m  [1mSELECT "estado_articulos".* FROM "estado_articulos" WHERE "estado_articulos"."est_art_cod" = $1[0m  [["est_art_cod", 4]]
+  [1m[35mEstadoArticulo Load (0.1ms)[0m  SELECT "estado_articulos".* FROM "estado_articulos" WHERE "estado_articulos"."est_art_cod" = $1  [["est_art_cod", 6]]
+  Rendered instancis/_editar_estado.html.erb (5.1ms)
+  [1m[36mImagen Load (0.2ms)[0m  [1mSELECT  "imagens".* FROM "imagens" WHERE "imagens"."ins_cod_prov" = $1 LIMIT 1[0m  [["ins_cod_prov", "5678"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1  [["art_cod", 193]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1[0m  [["cat_cod", 18]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1  [["cat_cod", 2]]
+  [1m[36mInsApv Load (0.2ms)[0m  [1mSELECT "ins_apvs".* FROM "ins_apvs" WHERE "ins_apvs"."ins_cod" = $1[0m  [["ins_cod", 236]]
+  [1m[35mArtPropVal Load (0.2ms)[0m  SELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1  [["apv_cod", 293]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1[0m  [["prop_cod", 6], ["prop_nom", "Talla"]]
+  [1m[35mValor Load (0.2ms)[0m  SELECT  "valors".* FROM "valors" WHERE "valors"."val_cod" = $1 LIMIT 1  [["val_cod", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_articulos".* FROM "estado_articulos" WHERE "estado_articulos"."est_art_cod" = $1 LIMIT 1[0m  [["est_art_cod", 1]]
+  [1m[35mInstanci Load (0.2ms)[0m  SELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1  [["ins_cod", 236]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "transicion_estado_arts".* FROM "transicion_estado_arts" WHERE "transicion_estado_arts"."est_est_art_cod" = $1[0m  [["est_est_art_cod", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "estado_articulos".* FROM "estado_articulos" WHERE "estado_articulos"."est_art_cod" = $1  [["est_art_cod", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "estado_articulos".* FROM "estado_articulos" WHERE "estado_articulos"."est_art_cod" = $1[0m  [["est_art_cod", 6]]
+  Rendered instancis/_editar_estado.html.erb (3.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "imagens".* FROM "imagens" WHERE "imagens"."ins_cod_prov" = $1 LIMIT 1  [["ins_cod_prov", "5678"]]
+  [1m[36mArticulo Load (0.2ms)[0m  [1mSELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1[0m  [["art_cod", 1]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1  [["cat_cod", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1[0m  [["cat_cod", 2]]
+  [1m[35mInsApv Load (0.1ms)[0m  SELECT "ins_apvs".* FROM "ins_apvs" WHERE "ins_apvs"."ins_cod" = $1  [["ins_cod", 15]]
+  [1m[36mArtPropVal Load (0.1ms)[0m  [1mSELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1[0m  [["apv_cod", 1]]
+  [1m[35mPropiedad Load (0.1ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1  [["prop_cod", 1], ["prop_nom", "Talla"]]
+  [1m[36mArtPropVal Load (0.1ms)[0m  [1mSELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1[0m  [["apv_cod", 3]]
+  [1m[35mPropiedad Load (0.1ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1  [["prop_cod", 2], ["prop_nom", "Talla"]]
+  [1m[36mArtPropVal Load (0.1ms)[0m  [1mSELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1[0m  [["apv_cod", 5]]
+  [1m[35mPropiedad Load (0.1ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1  [["prop_cod", 3], ["prop_nom", "Talla"]]
+  [1m[36mArtPropVal Load (0.1ms)[0m  [1mSELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1[0m  [["apv_cod", 6]]
+  [1m[35mPropiedad Load (0.1ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1  [["prop_cod", 4], ["prop_nom", "Talla"]]
+  [1m[36mArtPropVal Load (0.2ms)[0m  [1mSELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1[0m  [["apv_cod", 7]]
+  [1m[35mPropiedad Load (0.1ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1  [["prop_cod", 5], ["prop_nom", "Talla"]]
+  [1m[36mArtPropVal Load (0.1ms)[0m  [1mSELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1[0m  [["apv_cod", 9]]
+  [1m[35mPropiedad Load (0.1ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1  [["prop_cod", 7], ["prop_nom", "Talla"]]
+  [1m[36mArtPropVal Load (0.1ms)[0m  [1mSELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1[0m  [["apv_cod", 10]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1  [["prop_cod", 6], ["prop_nom", "Talla"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "valors".* FROM "valors" WHERE "valors"."val_cod" = $1 LIMIT 1[0m  [["val_cod", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "estado_articulos".* FROM "estado_articulos" WHERE "estado_articulos"."est_art_cod" = $1 LIMIT 1  [["est_art_cod", 1]]
+  [1m[36mInstanci Load (0.2ms)[0m  [1mSELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1[0m  [["ins_cod", 15]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "transicion_estado_arts".* FROM "transicion_estado_arts" WHERE "transicion_estado_arts"."est_est_art_cod" = $1  [["est_est_art_cod", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "estado_articulos".* FROM "estado_articulos" WHERE "estado_articulos"."est_art_cod" = $1[0m  [["est_art_cod", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "estado_articulos".* FROM "estado_articulos" WHERE "estado_articulos"."est_art_cod" = $1  [["est_art_cod", 6]]
+  Rendered instancis/_editar_estado.html.erb (3.3ms)
+  [1m[36mImagen Load (0.3ms)[0m  [1mSELECT  "imagens".* FROM "imagens" WHERE "imagens"."ins_cod_prov" = $1 LIMIT 1[0m  [["ins_cod_prov", "1234"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "articulos".* FROM "articulos" WHERE "articulos"."art_cod" = $1 LIMIT 1  [["art_cod", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1[0m  [["cat_cod", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "categoris".* FROM "categoris" WHERE "categoris"."cat_cod" = $1 LIMIT 1  [["cat_cod", 2]]
+  [1m[36mInsApv Load (0.2ms)[0m  [1mSELECT "ins_apvs".* FROM "ins_apvs" WHERE "ins_apvs"."ins_cod" = $1[0m  [["ins_cod", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1  [["apv_cod", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1[0m  [["prop_cod", 1], ["prop_nom", "Talla"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1  [["apv_cod", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1[0m  [["prop_cod", 2], ["prop_nom", "Talla"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1  [["apv_cod", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1[0m  [["prop_cod", 3], ["prop_nom", "Talla"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1  [["apv_cod", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1[0m  [["prop_cod", 4], ["prop_nom", "Talla"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1  [["apv_cod", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1[0m  [["prop_cod", 5], ["prop_nom", "Talla"]]
+  [1m[35mArtPropVal Load (0.3ms)[0m  SELECT  "art_prop_vals".* FROM "art_prop_vals" WHERE "art_prop_vals"."apv_cod" = $1 LIMIT 1  [["apv_cod", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "propiedads".* FROM "propiedads" WHERE "propiedads"."prop_cod" = $1 AND "propiedads"."prop_nom" = $2 LIMIT 1[0m  [["prop_cod", 6], ["prop_nom", "Talla"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "valors".* FROM "valors" WHERE "valors"."val_cod" = $1 LIMIT 1  [["val_cod", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "estado_articulos".* FROM "estado_articulos" WHERE "estado_articulos"."est_art_cod" = $1 LIMIT 1[0m  [["est_art_cod", 1]]
+  [1m[35mInstanci Load (0.3ms)[0m  SELECT  "instancis".* FROM "instancis" WHERE "instancis"."ins_cod" = $1 LIMIT 1  [["ins_cod", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "transicion_estado_arts".* FROM "transicion_estado_arts" WHERE "transicion_estado_arts"."est_est_art_cod" = $1[0m  [["est_est_art_cod", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "estado_articulos".* FROM "estado_articulos" WHERE "estado_articulos"."est_art_cod" = $1  [["est_art_cod", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "estado_articulos".* FROM "estado_articulos" WHERE "estado_articulos"."est_art_cod" = $1[0m  [["est_art_cod", 6]]
+  Rendered instancis/_editar_estado.html.erb (3.8ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "imagens".* FROM "imagens" WHERE "imagens"."ins_cod_prov" = $1 LIMIT 1  [["ins_cod_prov", "1234"]]
+  Rendered instancis/index.html.erb within layouts/application (60.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategori Load (0.2ms)[0m  SELECT "categoris".* FROM "categoris"
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 2]]
+  [1m[35mCategori Load (0.3ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 7]]
+  [1m[36mCategori Load (0.3ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 18]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 22]]
+  [1m[36mCategori Load (0.1ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 9]]
+  [1m[35mCategori Load (0.1ms)[0m  SELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1  [["cat_cat_cod", 21]]
+  [1m[36mCategori Load (0.2ms)[0m  [1mSELECT "categoris".* FROM "categoris" WHERE "categoris"."cat_cat_cod" = $1[0m  [["cat_cat_cod", 15]]
+Completed 200 OK in 390ms (Views: 380.4ms | ActiveRecord: 9.0ms)

@@ -15,8 +15,12 @@
   <div class="field">
 
     <%= f.label :est_dc_cod %><br>
-   
-    <%= f.select(:est_dc_cod, TransicionEstadoDc.where(est_est_dc_cod: c.est_dc_cod).collect {|es| [ es.est_dc_cod]}, { :include_blank => "Seleccionar" })%>
+   <%@transiciones=TransicionEstadoDc.where(est_est_dc_cod: c.est_dc_cod)
+   @estados=[]
+   @transiciones.each do |t|
+    @estados=@estados+EstadoDc.where(est_dc_cod: t.est_dc_cod)
+   end%>
+    <%= f.select(:est_dc_cod, @estados.collect {|es| [es.est_dc_nom, es.est_dc_cod]}, { :include_blank => "Seleccionar" })%>
   </div>
   <div class="actions">
     <%= f.submit :value => 'Guardar', :class => 'btn btn-primary'%>
