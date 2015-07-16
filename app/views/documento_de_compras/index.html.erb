@@ -25,7 +25,7 @@
                   @contador = 1
                   if @compras.present?
                       @compras.each do |compra|%> 
-                      <%if compra.cli_cod != nil%>
+                      <%if compra.cli_cod != nil && compra.est_dc_cod!=1%>
                       <tr>
                           <td><%=@contador%></td>
                           <td><%=compra.doc_com_fecha%></td>

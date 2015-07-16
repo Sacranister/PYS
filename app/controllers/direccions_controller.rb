@@ -3,22 +3,62 @@ class DireccionsController < ApplicationController
 
   # GET /direccions
   # GET /direccions.json
-  def index
-    @direccions = Direccion.all
+  def index  
+           if current_user
+      if current_user.role=='cliente'
+        @direccions = Direccion.all
+      else
+          respond_to do |format|
+            format.html { redirect_to :root}
+          end
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to :root }
+      end
+    end
   end
 
   # GET /direccions/1
   # GET /direccions/1.json
   def show
+    respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /direccions/new
   def new
-    @direccion = Direccion.new
+    
+               if current_user
+      if current_user.role=='cliente'
+        @direccion = Direccion.new
+      else
+          respond_to do |format|
+            format.html { redirect_to :root}
+          end
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to :root }
+      end
+    end
   end
 
   # GET /direccions/1/edit
   def edit
+               if current_user
+      if current_user.role=='cliente'
+      else
+          respond_to do |format|
+            format.html { redirect_to :root}
+          end
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to :root }
+      end
+    end
   end
 
   # POST /direccions

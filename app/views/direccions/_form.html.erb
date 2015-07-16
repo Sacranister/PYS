@@ -12,22 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :dir_calle %><br>
+    <%= f.label :dir_calle, "Calle" %><br>
     <%= f.text_field :dir_calle %>
   </div>
   <div class="field">
-    <%= f.label :dir_numero %><br>
+    <%= f.label :dir_numero, "Número" %><br>
     <%= f.number_field :dir_numero %>
   </div>
   <div class="field">
-    <%= f.label :dir_comuna %><br>
+    <%= f.label :dir_comuna, "Comuna" %><br>
     <%= f.text_field :dir_comuna %>
   </div>
   <div class="field">
-    <%= f.label :dir_ciudad %><br>
+    <%= f.label :dir_ciudad, "Ciudad" %><br>
     <%= f.text_field :dir_ciudad %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :value => 'Guardar', :class => 'btn btn-primary'%>
   </div>
 <% end %>
