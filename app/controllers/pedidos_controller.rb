@@ -19,6 +19,26 @@ class PedidosController < ApplicationController
     end 
   end
 
+    def editar
+    if current_user
+      if current_user.role=='admin'
+        @source = Pedido.find(params[:id])
+        @pedido = @source.deep_clone(:include => :detalle_pedidos)
+        render 'edit'
+        $ped_cod=@source.ped_cod
+        $mensaje="Pedido editado"
+      else
+          respond_to do |format|
+            format.html { redirect_to :root, notice: 'Tu cuenta debe ser de tipo administrador.' }
+          end
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to :root, notice: 'Debes ser administrador.' }
+      end
+    end
+  end
+
   # GET /pedidos/1
   # GET /pedidos/1.json
   def show
@@ -42,6 +62,8 @@ class PedidosController < ApplicationController
             if current_user
       if current_user.role=='admin'
         @pedido = Pedido.new
+        $ped_cod=@pedido.ped_cod
+        $mensaje="Pedido creado"
       else
           respond_to do |format|
             format.html { redirect_to :root, notice: 'Tu cuenta debe ser de tipo administrador.' }
@@ -58,6 +80,7 @@ class PedidosController < ApplicationController
   def edit
             if current_user
       if current_user.role=='admin'
+        #@pedido.detalle_pedidos.build
       else
           respond_to do |format|
             format.html { redirect_to :root, notice: 'Tu cuenta debe ser de tipo administrador.' }
@@ -74,8 +97,12 @@ class PedidosController < ApplicationController
   # POST /pedidos.json
   def create
     @pedido = Pedido.new(pedido_params)
-    #@pedido.update(estado_ped_cod:1)
-    #@pedido.save
+    @pediant=Pedido.where(ped_cod: $ped_cod).take
+    if @pediant!=nil
+      @pediant.destroy
+    end
+    @pedido.ped_cod=$ped_cod
+    @pedido.estado_ped_cod=1
     @pedido.detalle_pedidos.length.times do |i|
       @instancia=Instanci.where(ins_cod: @pedido.detalle_pedidos[i].ins_cod).take
       @pedido.detalle_pedidos[i].ins_cod_prov=@instancia.ins_cod_prov
@@ -88,7 +115,7 @@ class PedidosController < ApplicationController
 
     respond_to do |format|
       if @pedido.save
-        format.html { redirect_to pedidos_url, notice: 'Pedido creado' }
+        format.html { redirect_to pedidos_url, notice: $mensaje }
         format.json { render :show, status: :created, location: @pedido }
       else
         format.html { render :new }
@@ -109,7 +136,7 @@ class PedidosController < ApplicationController
     #   @pedido.detalle_pedidos[i].save
     # end
       if @pedido.update(pedido_params)
-        format.html { redirect_to @pedido, notice: 'Pedido actualizado' }
+        format.html { redirect_to pedidos_path, notice: 'Pedido actualizado' }
         format.json { render :show, status: :ok, location: @pedido }
       else
         format.html { render :edit }

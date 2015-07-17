@@ -51,8 +51,8 @@ end
   def update
     respond_to do |format|
       if @detalle_pedido.update(detalle_pedido_params)
-        format.html { redirect_to @detalle_pedido, notice: 'Detalle pedido was successfully updated.' }
-        format.json { render :show, status: :ok, location: @detalle_pedido }
+        format.html { redirect_to detalle_pedido, notice: 'Detalle pedido was successfully updated.' }
+        format.json { render :show, status: :ok, location: @detalle_pedido}
       else
         format.html { render :edit }
         format.json { render json: @detalle_pedido.errors, status: :unprocessable_entity }

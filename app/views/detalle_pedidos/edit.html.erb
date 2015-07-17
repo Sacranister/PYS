@@ -1,8 +1,24 @@
-<div class="box">
-	<h1>Editar Detalle Pedido</h1>
+<%@detalle_pedido=DetallePedido.where(ped_cod: d.ped_cod, det_ped_linea: d.det_ped_linea).take%>
+<%= form_for(@detalle_pedido) do |dp| %>
+    <table>
+  <thead>
+    <tr>
+      <th></th>
+      <th><%= dp.label :ins_cod, "Codigo articulo" %></th>
+      <th><%= dp.label :ins_cod_prov, "Codigo proveedor" %></th>
+      <th><%= dp.label :det_ped_cant ,"Cantidad"%></th>
+      <th> </th>
+    </tr>
+  </thead>
 
-	<%= render 'form' %>
-
-	<%= link_to 'Ver', @detalle_pedido %> |
-	<%= link_to 'Atrás', detalle_pedidos_path %>
-</div>
+  <tbody>
+      <tr>
+        <td></td>
+        <td><%= dp.number_field :ins_cod %></td>
+        <td><%= dp.number_field :ins_cod_prov %></td>
+        <td><%= dp.number_field :det_ped_cant %></td>
+      </tr>
+  </tbody>
+</table> 
+<%= dp.submit %>
+<%end%>

@@ -28,24 +28,44 @@
       <th>Codigo articulo</th>
       <th>Codigo proveedor</th>
       <th>Cantidad</th>
-      <th>Precio<th>
+      <th>Precio</th>
     </tr>
   </thead>
 
   <tbody>
+    <%@contador=0%>
+    <%if @pedido.detalle_pedidos.present?%>
     <% @pedido.detalle_pedidos.each do |detalle_pedido| %>
+    <%@contador=@contador+detalle_pedido.det_ped_precio%>
       <tr>
           <td><%= detalle_pedido.det_ped_linea %></td>
           <td><%= detalle_pedido.ins_cod %></td>
           <td><%= detalle_pedido.ins_cod_prov %></td>
           <td><%= detalle_pedido.det_ped_cant %></td>
           <td><%= number_with_delimiter(detalle_pedido.det_ped_precio, :delimiter => '.') %></td>
-          <td></td>
+          
       </tr>
     <% end %>
+          <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><%= number_with_delimiter(@contador, :delimiter => '.') %></td>
+      </tr>
+      <%else%>
+      <tr>
+          <td>No hay detalle</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <%end%>
   </tbody>
 </table></div>
-
-	<%= link_to 'Editar', edit_pedido_path(@pedido) %> |
+<%if @pedido.estado_ped_cod==1%>
+	<%= link_to 'Editar', editar_pedido_path(params[:id]) %> |
+<%end%>
 	<%= link_to 'Atrás', pedidos_path %>
 </div>

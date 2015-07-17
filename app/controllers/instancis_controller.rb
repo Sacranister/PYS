@@ -185,7 +185,7 @@ class InstancisController < ApplicationController
         format.html { redirect_to instancis_path, notice: 'Instanci was successfully updated.' }
         format.json { render :show, status: :ok, location: @instanci }
       else
-        format.html { render :edit }
+        format.html { redirect_to instancis_path }
         format.json { render json: @instanci.errors, status: :unprocessable_entity }
       end
     end

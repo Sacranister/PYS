@@ -133,7 +133,7 @@ end
         format.html { redirect_to  documento_de_compras_path, notice: '' }
         format.json { render :show, status: :ok, location: @documento_de_compra }
       else
-        format.html { render :edit }
+        format.html { redirect_to  documento_de_compras_path }
         format.json { render json: @documento_de_compra.errors, status: :unprocessable_entity }
       end
     end

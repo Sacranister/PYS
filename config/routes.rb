@@ -68,6 +68,12 @@ resources :instancis do
       get 'copy'
     end
   end
+
+  resources :pedidos do
+    member do
+      get 'editar'
+    end
+  end
 post 'categoris/add'
 post 'documento_de_compras/pagar_cuenta'
 post 'solicitud_devolucions/paso2'

@@ -1,4 +1,4 @@
-<div class="box"><h1>New Pedido</h1>
+<div class="box"><h1>Nuevo Pedido</h1>
 
 <%= form_for(@pedido) do |f| %>
   <% if @pedido.errors.any? %>
@@ -17,7 +17,6 @@
     <tr>
       <th><%= f.label :pro_cod, "Proveedor" %></th>
       <th><%= f.label :ped_fecha %></th>
-      <th><%= f.label :estado_ped_cod, "Estado" %></th>
     </tr>
   </thead>
 
@@ -25,7 +24,6 @@
       <tr>
         <td><%= f.select(:pro_cod, Proveedor.all.collect {|pro| [ pro.pro_nom, pro.pro_cod ]}, { :include_blank => "Seleccionar" })%></td>
         <td><%= f.date_select :ped_fecha %></td>
-        <td><%= f.select(:estado_ped_cod, EstadoPedido.all.collect {|est| [ est.estado_ped_nom, est.estado_ped_cod ]}, { :include_blank => "Seleccionar" })%></td>
       </tr>
   </tbody>
 </table>
