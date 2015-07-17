@@ -225,7 +225,7 @@ class PedidosController < ApplicationController
         format.html { redirect_to pedidos_path, notice: 'Pedido actualizado' }
         format.json { render :show, status: :ok, location: @pedido }
       else
-        format.html { render :edit }
+        format.html { redirect_to pedidos_path }
         format.json { render json: @pedido.errors, status: :unprocessable_entity }
       end
     end
