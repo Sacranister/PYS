@@ -82,6 +82,27 @@ def pagar_cuenta
     @detalles.each do |linea|
       @instancia=Instanci.where(ins_cod: linea.ins_cod).take
       @instancia.update(ins_stock: @instancia.ins_stock-linea.det_doc_com_cant)
+      if @instancia.ins_stock==0
+        @detpeds=DetallePedido.where(ins_cod: @instancia.ins_cod)
+        if @detpeds.blank?
+          @instancia.update(est_art_cod: 4)
+        else
+          @contador=0
+          @detpeds.each do |dp|
+            @pedidos=Pedido.where(ped_cod: dp.ped_cod)
+            @pedidos.each do |p|
+              if p.estado_ped_cod==2 && p.estado_ped_cod==3
+                @contador=@contador+1
+              end
+            end 
+          end
+          if @contador==0
+            @instancia.update(est_art_cod: 5)
+          else
+            @instancia.update(est_art_cod: 7)
+          end
+        end
+      end
     end
     respond_to do |format|
         format.html { redirect_to @documento_de_comprass, notice: '' }
