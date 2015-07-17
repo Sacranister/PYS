@@ -76,8 +76,9 @@
   </div>
      <div class="field">
     <label>Imagen</label></br>
-    <%@imagen=Imagen.where(ins_cod_prov: @instanci.ins_cod_prov).take%>
-    <input placeholder="<%=@imagen.imagen_uri%>" disabled>
+    <%@imagen=Imagen.where(ins_cod_prov: @instanci.ins_cod_prov).take
+    if @imagen!=nil%>
+    <input placeholder="<%=@imagen.imagen_uri%>" disabled><%end%>
   </div>
   <div class="actions">
     <%= f.submit :value => 'Guardar', :class => 'btn btn-primary'%> <%= link_to 'Atrás', instancis_path %>

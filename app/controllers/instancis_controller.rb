@@ -116,6 +116,7 @@ class InstancisController < ApplicationController
             @articulos=@articulos+Articulo.where(art_nom: @instanci.articulo.art_nom, art_cod: i.art_cod)
           end
           if(@articulos.length>1)
+            @temp1=0
             @articulos.each do |articulo|
               if(articulo.art_cod!=@instanci.art_cod)
                 @instancia=Instanci.new
@@ -130,42 +131,34 @@ class InstancisController < ApplicationController
                 @instanciaux=Instanci.where(ins_cod: @instanci.ins_cod).take
                 @instanciaux.destroy
                 @instancia_cod=@instanci.ins_cod
-                @instancia_cod_prov=@instancia.ins_cod_prov        
+                @instancia_cod_prov=@instanci.ins_cod_prov        
                 @instancia.save
                 @artpropvals=ArtPropVal.where(art_cod: @auxart)
                 @artpropvals.each do |apvs|
-                  @temp=0
-                  @apv=ArtPropVal.new
-                  @apv.apv_cod=apvs.apv_cod
-                  @apv.art_cod=articulo.art_cod
-                  @apv.prop_cod=apvs.prop_cod
-                  @apv.val_cod=apvs.val_cod
-                  @otrapvs=ArtPropVal.where(art_cod: articulo.art_cod)
-                  @otrapvs.each do |oapv|
-                    if oapv.prop_cod==apvs.prop_cod && oapv.val_cod==apvs.val_cod
-                      if @temp==0
-                        @apv.apv_cod=oapv.apv_cod
-                        @temp=1
-                      end
-                    end
+                  @apv=ArtPropVal.where(apv_cod: apvs.apv_cod).take
+                  @otrapv=ArtPropVal.where(art_cod: articulo.art_cod, prop_cod:apvs.prop_cod, val_cod: apvs.val_cod).take
+                  if @otrapv==nil
+                    @insapv=InsApv.new
+                    @insapv.ins_cod=@instancia_cod
+                    @insapv.ins_cod_prov=@instancia_cod_prov
+                    @insapv.apv_cod=@apv.apv_cod
+                    @insapv.save  
+                    @apv.update(art_cod: articulo.art_cod)
+                  else
+                    @insapv=InsApv.new
+                    @insapv.ins_cod=@instancia_cod
+                    @insapv.ins_cod_prov=@instancia_cod_prov
+                    @insapv.apv_cod=@otrapv.apv_cod
+                    @insapv.save
+                    @apv.destroy
                   end
-                  @artpv_cod=@apv.apv_cod
-                  @auxapv=ArtPropVal.where(apv_cod: apvs.apv_cod).take
-                  @auxapv.destroy
-                  if @temp==0
-                    @apv.save
-                  end
-                  @insapv=InsApv.new
-                  @insapv.ins_cod=@instancia_cod
-                  @insapv.ins_cod_prov=@instancia_cod_prov
-                  @insapv.apv_cod=@artpv_cod
-                  @insapv.save
                 end
               end
             end
             @art=Articulo.where(art_cod: @auxart).take
             @art.destroy
           else
+            @temp1=1
             @ins_cod_prov=@instanci.ins_cod_prov
             @ins_cod=@instanci.ins_cod
             @instanci.articulo.art_prop_vals.each do |apv|
@@ -181,7 +174,11 @@ class InstancisController < ApplicationController
             end
           end
           format.html { redirect_to instancis_path, notice: 'Instancia creada correctamente' }
-          format.json { render :show, status: :created, location: @instanci }
+          if @temp1==0
+            format.json { render :show, status: :created, location: @instancia }
+          else
+            format.json { render :show, status: :created, location: @instanci }
+          end
         else
           format.html { render :new }
           format.json { render json: @instanci.errors, status: :unprocessable_entity }
