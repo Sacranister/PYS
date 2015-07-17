@@ -8,5 +8,5 @@ class Pedido < ActiveRecord::Base
 	accepts_nested_attributes_for :detalle_pedidos, :reject_if => :all_blank, :allow_destroy => true
 	validates :pro_cod, presence: {message: "es requerido"}, format: {with: /\A[0-9]+\z/, message:"debe ser mayor o igual a 0"}
 	validates :ped_fecha, presence: {message: "es requerido"}
-	#validates :estado_pedido, presence: {message: "es requerido"}
+	validates :estado_pedido, presence: {message: "es requerido"}
 end
