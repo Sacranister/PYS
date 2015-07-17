@@ -73,59 +73,97 @@ end
 
 def pagar_cuenta
   if (current_user && current_user.role=='cliente')
-  @cliente=Cliente.where(cli_mail: current_user.email).take
-  @documento_de_comprass=DocumentoDeCompra.where(cli_cod: @cliente.cli_cod, est_dc_cod:1).take
-  @documento_de_comprass.update(documento_de_compra_params)
-  @documento_de_comprass.est_dc_cod=2
-  if @documento_de_comprass.save
-    @detalles=DetalleDocumentoDeCompra.where(doc_com_cod: @documento_de_comprass.doc_com_cod)
-    @detalles.each do |linea|
-      @instancia=Instanci.where(ins_cod: linea.ins_cod).take
-      @instancia.update(ins_stock: @instancia.ins_stock-linea.det_doc_com_cant)
-      if @instancia.ins_stock==0
-        @detpeds=DetallePedido.where(ins_cod: @instancia.ins_cod)
-        if @detpeds.blank?
-          @instancia.update(est_art_cod: 4)
-        else
-          @contador=0
-          @detpeds.each do |dp|
-            @pedidos=Pedido.where(ped_cod: dp.ped_cod)
-            @pedidos.each do |p|
-              if p.estado_ped_cod==2 && p.estado_ped_cod==3
-                @contador=@contador+1
+    DocumentoDeCompra.transaction do
+      @cliente=Cliente.where(cli_mail: current_user.email).take
+      @documento_de_comprass=DocumentoDeCompra.where(cli_cod: @cliente.cli_cod, est_dc_cod:1).take
+      @detalles=DetalleDocumentoDeCompra.where(doc_com_cod: @documento_de_comprass.doc_com_cod)
+      @contadorstock=0
+      @instanciaagotada
+      @detalles.each do |linea|
+        @instancia=Instanci.where(ins_cod: linea.ins_cod).take
+        if (@instancia.ins_stock-linea.det_doc_com_cant<0)
+          @contadorstock+=1
+          @instanciaagotada=@instancia
+        end
+      end
+      if @contadorstock>0
+        @articuloagotado=Articulo.where(art_cod: @instanciaagotada.art_cod).take
+        respond_to do |format|
+          format.html { redirect_to :root, notice: "Lo sentimos, ya no disponemos del stock de #{@articuloagotado.art_nom} necesarios" }
+        end
+      else
+        @documento_de_comprass.update(documento_de_compra_params)
+        @documento_de_comprass.est_dc_cod=2
+        if @documento_de_comprass.save
+          @detalles=DetalleDocumentoDeCompra.where(doc_com_cod: @documento_de_comprass.doc_com_cod)
+          @detalles.each do |linea|
+            @instancia=Instanci.where(ins_cod: linea.ins_cod).take
+            @instancia.update(ins_stock: @instancia.ins_stock-linea.det_doc_com_cant)
+            if @instancia.ins_stock==0
+              @detpeds=DetallePedido.where(ins_cod: @instancia.ins_cod)
+              if @detpeds.blank?
+                @instancia.update(est_art_cod: 4)
+              else
+                @contador=0
+                @detpeds.each do |dp|
+                  @pedidos=Pedido.where(ped_cod: dp.ped_cod)
+                  @pedidos.each do |p|
+                    if p.estado_ped_cod==2 && p.estado_ped_cod==3
+                      @contador=@contador+1
+                    end
+                  end 
+                end
+                if @contador==0
+                  @instancia.update(est_art_cod: 5)
+                else
+                  @instancia.update(est_art_cod: 7)
+                end
               end
-            end 
+            end
           end
-          if @contador==0
-            @instancia.update(est_art_cod: 5)
-          else
-            @instancia.update(est_art_cod: 7)
+          respond_to do |format|
+              format.html { redirect_to @documento_de_comprass, notice: '' }
           end
         end
       end
-    end
-    respond_to do |format|
-        format.html { redirect_to @documento_de_comprass, notice: '' }
-    end
-  end
+    end 
 
 elsif (current_user && current_user.role=='vendedor')
-  @vendedor=Vendedor.where(ven_mail: current_user.email).take
-  @documento_de_comprass=DocumentoDeCompra.where(ven_cod: @vendedor.ven_cod, est_dc_cod:1).take
-  @documento_de_comprass.update(documento_de_compra_params)
-  @documento_de_comprass.est_dc_cod=2
-
-  if @documento_de_comprass.save
+  DocumentoDeCompra.transaction do
+    @vendedor=Vendedor.where(ven_mail: current_user.email).take
+    @documento_de_comprass=DocumentoDeCompra.where(ven_cod: @vendedor.ven_cod, est_dc_cod:1).take
     @detalles=DetalleDocumentoDeCompra.where(doc_com_cod: @documento_de_comprass.doc_com_cod)
-    @docpago=DocumentoDeCobro.where(doc_com_cod: @documento_de_comprass.doc_com_cod).take
-    @docpago.update(doc_cob_tipo: 'Boleta')
+    @contadorstock=0
+    @instanciaagotada
     @detalles.each do |linea|
       @instancia=Instanci.where(ins_cod: linea.ins_cod).take
-      @instancia.update(ins_stock: @instancia.ins_stock-linea.det_doc_com_cant)
-    end
-    respond_to do |format|
-        format.html { redirect_to @documento_de_comprass, notice: '' }
+      if (@instancia.ins_stock-linea.det_doc_com_cant<0)
+        @contadorstock+=1
+        @instanciaagotada=@instancia
       end
+    end
+    if @contadorstock>0
+      @articuloagotado=Articulo.where(art_cod: @instanciaagotada.art_cod).take
+      respond_to do |format|
+        format.html { redirect_to :root, notice: "Lo sentimos, ya no disponemos del stock de #{@articuloagotado.art_nom} necesarios" }
+      end
+    else
+      @documento_de_comprass.update(documento_de_compra_params)
+      @documento_de_comprass.est_dc_cod=2
+
+      if @documento_de_comprass.save
+        @detalles=DetalleDocumentoDeCompra.where(doc_com_cod: @documento_de_comprass.doc_com_cod)
+        @docpago=DocumentoDeCobro.where(doc_com_cod: @documento_de_comprass.doc_com_cod).take
+        @docpago.update(doc_cob_tipo: 'Boleta')
+        @detalles.each do |linea|
+          @instancia=Instanci.where(ins_cod: linea.ins_cod).take
+          @instancia.update(ins_stock: @instancia.ins_stock-linea.det_doc_com_cant)
+        end
+        respond_to do |format|
+            format.html { redirect_to @documento_de_comprass, notice: '' }
+        end
+      end
+    end
   end
 else
   end
