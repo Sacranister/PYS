@@ -96,46 +96,48 @@ class PedidosController < ApplicationController
   # POST /pedidos
   # POST /pedidos.json
   def create
-    @pedido = Pedido.new(pedido_params)
-    @pediant=Pedido.where(ped_cod: $ped_cod).take
-    if @pediant!=nil
-      @pediant.destroy
-    end
-    @pedido.ped_cod=$ped_cod
-    @pedido.estado_ped_cod=1
-    @pedido.detalle_pedidos.length.times do |i|
-      @instancia=Instanci.where(ins_cod: @pedido.detalle_pedidos[i].ins_cod).take
-      @pedido.detalle_pedidos[i].ins_cod_prov=@instancia.ins_cod_prov
-      @pedido.detalle_pedidos[i].det_ped_linea=i+1
-      @pedido.detalle_pedidos[i].det_ped_precio=@instancia.ins_precio_prov*@pedido.detalle_pedidos[i].det_ped_cant
-      if @instancia.est_art_cod==1
-        @instancia.update(est_art_cod: 6)
-      elsif @instancia.est_art_cod==2
-        @instancia.update(est_art_cod: 2)
-      elsif @instancia.est_art_cod==3
-        @instancia.update(est_art_cod: 3)
-      elsif @instancia.est_art_cod==4
-        @instancia.update(est_art_cod: 5)
-      elsif @instancia.est_art_cod==5
-        @instancia.update(est_art_cod: 5)
-      elsif @instancia.est_art_cod==6
-        @instancia.update(est_art_cod: 6)
-      elsif @instancia.est_art_cod==7
-        @instancia.update(est_art_cod: 7)
-      elsif @instancia.est_art_cod==8
-        @instancia.update(est_art_cod: 8)
+    Pedido.transaction do
+      @pedido = Pedido.new(pedido_params)
+      @pediant=Pedido.where(ped_cod: $ped_cod).take
+      if @pediant!=nil
+        @pediant.destroy
       end
-    end
-    #@guiadesp=GuiaDespachoPedido.create(ped_cod: @pedido.ped_cod)
-    #@pedido.update(guia_desp_ped_cod: @guiadesp.guia_desp_ped_cod)
-    #@guiadesp.save
-    respond_to do |format|
-      if @pedido.save
-        format.html { redirect_to pedidos_url, notice: $mensaje }
-        format.json { render :show, status: :created, location: @pedido }
-      else
-        format.html { render :new }
-        format.json { render json: @pedido.errors, status: :unprocessable_entity }
+      @pedido.ped_cod=$ped_cod
+      @pedido.estado_ped_cod=1
+      @pedido.detalle_pedidos.length.times do |i|
+        @instancia=Instanci.where(ins_cod: @pedido.detalle_pedidos[i].ins_cod).take
+        @pedido.detalle_pedidos[i].ins_cod_prov=@instancia.ins_cod_prov
+        @pedido.detalle_pedidos[i].det_ped_linea=i+1
+        @pedido.detalle_pedidos[i].det_ped_precio=@instancia.ins_precio_prov*@pedido.detalle_pedidos[i].det_ped_cant
+        if @instancia.est_art_cod==1
+          @instancia.update(est_art_cod: 6)
+        elsif @instancia.est_art_cod==2
+          @instancia.update(est_art_cod: 2)
+        elsif @instancia.est_art_cod==3
+          @instancia.update(est_art_cod: 3)
+        elsif @instancia.est_art_cod==4
+          @instancia.update(est_art_cod: 5)
+        elsif @instancia.est_art_cod==5
+          @instancia.update(est_art_cod: 5)
+        elsif @instancia.est_art_cod==6
+          @instancia.update(est_art_cod: 6)
+        elsif @instancia.est_art_cod==7
+          @instancia.update(est_art_cod: 7)
+        elsif @instancia.est_art_cod==8
+          @instancia.update(est_art_cod: 8)
+        end
+      end
+      #@guiadesp=GuiaDespachoPedido.create(ped_cod: @pedido.ped_cod)
+      #@pedido.update(guia_desp_ped_cod: @guiadesp.guia_desp_ped_cod)
+      #@guiadesp.save
+      respond_to do |format|
+        if @pedido.save
+          format.html { redirect_to pedidos_url, notice: $mensaje }
+          format.json { render :show, status: :created, location: @pedido }
+        else
+          format.html { render :new }
+          format.json { render json: @pedido.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -143,90 +145,91 @@ class PedidosController < ApplicationController
   # PATCH/PUT /pedidos/1
   # PATCH/PUT /pedidos/1.json
   def update
-
-    respond_to do |format|
-      if @pedido.update(pedido_params)  
-      @pedido.detalle_pedidos.length.times do |i|
-        @instancia=Instanci.where(ins_cod: @pedido.detalle_pedidos[i].ins_cod).take
-        if @instancia.est_art_cod==1 #en tienda
-          if @pedido.estado_ped_cod==2 #en tramite
-            @instancia.update(est_art_cod: 8)
-          elsif @pedido.estado_ped_cod==3 #despachado
-            @instancia.update(est_art_cod: 8)
-          elsif @pedido.estado_ped_cod==4 #recibido
-            @instancia.update(est_art_cod: 1)
-            @instancia.update(ins_stock: @instancia.ins_stock+@pedido.detalle_pedidos[i].det_ped_cant)
-          end
-        elsif @instancia.est_art_cod==2 #cotizado
-          if @pedido.estado_ped_cod==2 #en tramite
-            @instancia.update(est_art_cod: 3)
-          elsif @pedido.estado_ped_cod==3 #despachado
-            @instancia.update(est_art_cod: 3)
-          elsif @pedido.estado_ped_cod==4 #recibido
-            @instancia.update(est_art_cod: 1)
-            @instancia.update(ins_stock: @instancia.ins_stock+@pedido.detalle_pedidos[i].det_ped_cant)
-          end
-        elsif @instancia.est_art_cod==3 #pedido
-          if @pedido.estado_ped_cod==2 #en tramite
-            @instancia.update(est_art_cod: 3)
-          elsif @pedido.estado_ped_cod==3 #despachado
-            @instancia.update(est_art_cod: 3)
-          elsif @pedido.estado_ped_cod==4 #recibido
-            @instancia.update(est_art_cod: 1)
-            @instancia.update(ins_stock: @instancia.ins_stock+@pedido.detalle_pedidos[i].det_ped_cant)
-          end
-        elsif @instancia.est_art_cod==4 #agotado
-          if @pedido.estado_ped_cod==2 #en tramite
-            @instancia.update(est_art_cod: 7)
-          elsif @pedido.estado_ped_cod==3 #despachado
-            @instancia.update(est_art_cod: 7)
-          elsif @pedido.estado_ped_cod==4 #recibido
-            @instancia.update(est_art_cod: 1)
-            @instancia.update(ins_stock: @instancia.ins_stock+@pedido.detalle_pedidos[i].det_ped_cant)
-          end
-        elsif @instancia.est_art_cod==5 #agotado-cotizado
-          if @pedido.estado_ped_cod==2 #en tramite
-            @instancia.update(est_art_cod: 7)
-          elsif @pedido.estado_ped_cod==3 #despachado
-            @instancia.update(est_art_cod: 7)
-          elsif @pedido.estado_ped_cod==4 #recibido
-            @instancia.update(est_art_cod: 1)
-            @instancia.update(ins_stock: @instancia.ins_stock+@pedido.detalle_pedidos[i].det_ped_cant)
-          end
-        elsif @instancia.est_art_cod==6 #en tienda-cotizado
-          if @pedido.estado_ped_cod==2 #en tramite
-            @instancia.update(est_art_cod: 8)
-          elsif @pedido.estado_ped_cod==3 #despachado
-            @instancia.update(est_art_cod: 8)
-          elsif @pedido.estado_ped_cod==4 #recibido
-            @instancia.update(est_art_cod: 1)
-            @instancia.update(ins_stock: @instancia.ins_stock+@pedido.detalle_pedidos[i].det_ped_cant)
-          end
-        elsif @instancia.est_art_cod==7 #agotado-pedido
-          if @pedido.estado_ped_cod==2 #en tramite
-            @instancia.update(est_art_cod: 7)
-          elsif @pedido.estado_ped_cod==3 #despachado
-            @instancia.update(est_art_cod: 7)
-          elsif @pedido.estado_ped_cod==4 #recibido
-            @instancia.update(est_art_cod: 1)
-            @instancia.update(ins_stock: @instancia.ins_stock+@pedido.detalle_pedidos[i].det_ped_cant)
-          end
-        elsif @instancia.est_art_cod==8 #en tienda-pedido
-          if @pedido.estado_ped_cod==2 #en tramite
-            @instancia.update(est_art_cod: 8)
-          elsif @pedido.estado_ped_cod==3 #despachado
-            @instancia.update(est_art_cod: 8)
-          elsif @pedido.estado_ped_cod==4 #recibido
-            @instancia.update(est_art_cod: 1)
-            @instancia.update(ins_stock: @instancia.ins_stock+@pedido.detalle_pedidos[i].det_ped_cant)
+    Pedido.transaction do 
+      respond_to do |format|
+        if @pedido.update(pedido_params)  
+        @pedido.detalle_pedidos.length.times do |i|
+          @instancia=Instanci.where(ins_cod: @pedido.detalle_pedidos[i].ins_cod).take
+          if @instancia.est_art_cod==1 #en tienda
+            if @pedido.estado_ped_cod==2 #en tramite
+              @instancia.update(est_art_cod: 8)
+            elsif @pedido.estado_ped_cod==3 #despachado
+              @instancia.update(est_art_cod: 8)
+            elsif @pedido.estado_ped_cod==4 #recibido
+              @instancia.update(est_art_cod: 1)
+              @instancia.update(ins_stock: @instancia.ins_stock+@pedido.detalle_pedidos[i].det_ped_cant)
+            end
+          elsif @instancia.est_art_cod==2 #cotizado
+            if @pedido.estado_ped_cod==2 #en tramite
+              @instancia.update(est_art_cod: 3)
+            elsif @pedido.estado_ped_cod==3 #despachado
+              @instancia.update(est_art_cod: 3)
+            elsif @pedido.estado_ped_cod==4 #recibido
+              @instancia.update(est_art_cod: 1)
+              @instancia.update(ins_stock: @instancia.ins_stock+@pedido.detalle_pedidos[i].det_ped_cant)
+            end
+          elsif @instancia.est_art_cod==3 #pedido
+            if @pedido.estado_ped_cod==2 #en tramite
+              @instancia.update(est_art_cod: 3)
+            elsif @pedido.estado_ped_cod==3 #despachado
+              @instancia.update(est_art_cod: 3)
+            elsif @pedido.estado_ped_cod==4 #recibido
+              @instancia.update(est_art_cod: 1)
+              @instancia.update(ins_stock: @instancia.ins_stock+@pedido.detalle_pedidos[i].det_ped_cant)
+            end
+          elsif @instancia.est_art_cod==4 #agotado
+            if @pedido.estado_ped_cod==2 #en tramite
+              @instancia.update(est_art_cod: 7)
+            elsif @pedido.estado_ped_cod==3 #despachado
+              @instancia.update(est_art_cod: 7)
+            elsif @pedido.estado_ped_cod==4 #recibido
+              @instancia.update(est_art_cod: 1)
+              @instancia.update(ins_stock: @instancia.ins_stock+@pedido.detalle_pedidos[i].det_ped_cant)
+            end
+          elsif @instancia.est_art_cod==5 #agotado-cotizado
+            if @pedido.estado_ped_cod==2 #en tramite
+              @instancia.update(est_art_cod: 7)
+            elsif @pedido.estado_ped_cod==3 #despachado
+              @instancia.update(est_art_cod: 7)
+            elsif @pedido.estado_ped_cod==4 #recibido
+              @instancia.update(est_art_cod: 1)
+              @instancia.update(ins_stock: @instancia.ins_stock+@pedido.detalle_pedidos[i].det_ped_cant)
+            end
+          elsif @instancia.est_art_cod==6 #en tienda-cotizado
+            if @pedido.estado_ped_cod==2 #en tramite
+              @instancia.update(est_art_cod: 8)
+            elsif @pedido.estado_ped_cod==3 #despachado
+              @instancia.update(est_art_cod: 8)
+            elsif @pedido.estado_ped_cod==4 #recibido
+              @instancia.update(est_art_cod: 1)
+              @instancia.update(ins_stock: @instancia.ins_stock+@pedido.detalle_pedidos[i].det_ped_cant)
+            end
+          elsif @instancia.est_art_cod==7 #agotado-pedido
+            if @pedido.estado_ped_cod==2 #en tramite
+              @instancia.update(est_art_cod: 7)
+            elsif @pedido.estado_ped_cod==3 #despachado
+              @instancia.update(est_art_cod: 7)
+            elsif @pedido.estado_ped_cod==4 #recibido
+              @instancia.update(est_art_cod: 1)
+              @instancia.update(ins_stock: @instancia.ins_stock+@pedido.detalle_pedidos[i].det_ped_cant)
+            end
+          elsif @instancia.est_art_cod==8 #en tienda-pedido
+            if @pedido.estado_ped_cod==2 #en tramite
+              @instancia.update(est_art_cod: 8)
+            elsif @pedido.estado_ped_cod==3 #despachado
+              @instancia.update(est_art_cod: 8)
+            elsif @pedido.estado_ped_cod==4 #recibido
+              @instancia.update(est_art_cod: 1)
+              @instancia.update(ins_stock: @instancia.ins_stock+@pedido.detalle_pedidos[i].det_ped_cant)
+            end
           end
         end
-      end
-        format.html { redirect_to pedidos_path, notice: 'Pedido actualizado' }
-        format.json { render :show, status: :ok, location: @pedido }
-      else
-        format.html { redirect_to pedidos_path }
-        format.json { render json: @pedido.errors, status: :unprocessable_entity }
+          format.html { redirect_to pedidos_path, notice: 'Pedido actualizado' }
+          format.json { render :show, status: :ok, location: @pedido }
+        else
+          format.html { redirect_to pedidos_path }
+          format.json { render json: @pedido.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -234,18 +237,20 @@ class PedidosController < ApplicationController
   # DELETE /pedidos/1
   # DELETE /pedidos/1.json
   def destroy
-    @pedido.detalle_pedidos.length.times do |i|
-      @instancia=Instanci.where(ins_cod: @pedido.detalle_pedidos[i].ins_cod).take
-      if @instancia.est_art_cod==5
-        @instancia.update(est_art_cod: 4)
-      elsif @instancia.est_art_cod==6
-        @instancia.update(est_art_cod: 1)
+    Pedido.transaction do
+      @pedido.detalle_pedidos.length.times do |i|
+        @instancia=Instanci.where(ins_cod: @pedido.detalle_pedidos[i].ins_cod).take
+        if @instancia.est_art_cod==5
+          @instancia.update(est_art_cod: 4)
+        elsif @instancia.est_art_cod==6
+          @instancia.update(est_art_cod: 1)
+        end
       end
-    end
-    @pedido.destroy
-    respond_to do |format|
-      format.html { redirect_to pedidos_url, notice: 'Pedido eliminado' }
-      format.json { head :no_content }
+      @pedido.destroy
+      respond_to do |format|
+        format.html { redirect_to pedidos_url, notice: 'Pedido eliminado' }
+        format.json { head :no_content }
+      end
     end
   end
 

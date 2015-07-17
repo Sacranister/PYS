@@ -76,34 +76,36 @@ def agregardetalle
 end
 
 def agregarlinea
-  @val = params[:val]
-  @cliente3=Cliente.where(cli_mail: current_user.email).take
-  @soldev1=SolicitudDevolucion.where(cli_cod: @cliente3.cli_cod,sol_dev_est: nil).take
-  @det=DetalleDocumentoDeCompra.where(doc_com_cod: @soldev1.doc_com_cod)
-  @precio=@det.where(ins_cod: @val).take
-  @detsol=DetalleSolDevolucion.where(sol_dev_cod: @soldev1.sol_dev_cod)
-  @instancia=Instanci.where(ins_cod: @val).take
-  if @detsol.blank?
-    flash[:notice]='Agregado'
-    @detsol=DetalleSolDevolucion.new(sol_dev_cod:@soldev1.sol_dev_cod,det_sol_dev_linea:1,ins_cod:@val,ins_cod_prov: @instancia.ins_cod_prov,det_sol_dev_cant:1,det_sol_dev_precio:@precio.det_doc_com_precio_uni )
-    @detsol.save
-  else
-    #si existe
-    @valors=@detsol.where(ins_cod: @val).take
-    if @valors.blank?
-      @detlin=@detsol.order(det_sol_dev_linea: :desc).take
-      @detsol=DetalleSolDevolucion.new(sol_dev_cod:@soldev1.sol_dev_cod,det_sol_dev_linea:(@detlin.det_sol_dev_linea + 1),ins_cod:@val,ins_cod_prov: @instancia.ins_cod_prov,det_sol_dev_cant:1,det_sol_dev_precio:@precio.det_doc_com_precio_uni )
+  SolicitudDevolucion.transaction do
+    @val = params[:val]
+    @cliente3=Cliente.where(cli_mail: current_user.email).take
+    @soldev1=SolicitudDevolucion.where(cli_cod: @cliente3.cli_cod,sol_dev_est: nil).take
+    @det=DetalleDocumentoDeCompra.where(doc_com_cod: @soldev1.doc_com_cod)
+    @precio=@det.where(ins_cod: @val).take
+    @detsol=DetalleSolDevolucion.where(sol_dev_cod: @soldev1.sol_dev_cod)
+    @instancia=Instanci.where(ins_cod: @val).take
+    if @detsol.blank?
+      flash[:notice]='Agregado'
+      @detsol=DetalleSolDevolucion.new(sol_dev_cod:@soldev1.sol_dev_cod,det_sol_dev_linea:1,ins_cod:@val,ins_cod_prov: @instancia.ins_cod_prov,det_sol_dev_cant:1,det_sol_dev_precio:@precio.det_doc_com_precio_uni )
       @detsol.save
     else
-      @detlin=@detsol.order(det_sol_dev_linea: :desc).take
-      @valors.update(det_sol_dev_cant:@valors.det_sol_dev_cant+1,det_sol_dev_precio:@valors.det_sol_dev_precio+@precio.det_doc_com_precio_uni )
-    end
-
-  end
-    respond_to do |format| 
-      format.html {redirect_to action: "agregardetalle"}
-        #format.html { render :controller=> 'solicitud_devolucions',:action => "agregardetalle" }
+      #si existe
+      @valors=@detsol.where(ins_cod: @val).take
+      if @valors.blank?
+        @detlin=@detsol.order(det_sol_dev_linea: :desc).take
+        @detsol=DetalleSolDevolucion.new(sol_dev_cod:@soldev1.sol_dev_cod,det_sol_dev_linea:(@detlin.det_sol_dev_linea + 1),ins_cod:@val,ins_cod_prov: @instancia.ins_cod_prov,det_sol_dev_cant:1,det_sol_dev_precio:@precio.det_doc_com_precio_uni )
+        @detsol.save
+      else
+        @detlin=@detsol.order(det_sol_dev_linea: :desc).take
+        @valors.update(det_sol_dev_cant:@valors.det_sol_dev_cant+1,det_sol_dev_precio:@valors.det_sol_dev_precio+@precio.det_doc_com_precio_uni )
       end
+
+    end
+      respond_to do |format| 
+        format.html {redirect_to action: "agregardetalle"}
+          #format.html { render :controller=> 'solicitud_devolucions',:action => "agregardetalle" }
+      end
+  end
 end
 def terminarcreacion
     @cliente3=Cliente.where(cli_mail: current_user.email).take
