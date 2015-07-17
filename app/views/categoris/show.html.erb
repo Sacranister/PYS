@@ -55,7 +55,12 @@
    if  @aux.include?(instanci.ins_cod_prov)==false
      @aux.push(instanci.ins_cod_prov)%> <div class ="articulo">
     <% @imagen=Imagen.select("imagen_uri").where(ins_cod_prov: instanci.ins_cod_prov).take %>
-     <a href="http://localhost:3000/articulos/<%=instanci.art_cod%>"><img src="<%=@imagen.imagen_uri%>" height="200px" width="124px">
+     <a href="http://localhost:3000/articulos/<%=instanci.art_cod%>">
+      <%if @imagen==nil%>
+      <p>Codigo proveedor: <%=instanci.ins_cod_prov%></p>
+      <%else%>
+      <img src="<%=@imagen.imagen_uri%>" height="200px" width="124px">
+      <%end%>
        <% @articulo=Articulo.where(art_cod: instanci.art_cod).take%>
        <p><font color="black"><%=@articulo.art_nom%></font></p>
        <p><font color="black">$<%=number_with_delimiter(instanci.ins_precio_lista, :delimiter => '.')%></font></p></a>
@@ -78,7 +83,7 @@
   <div class="filtros"><h4>Filtrar por:</h4>
   <p>Color</p>
   <form id="fcolor">
-    <p><select class="form-control input-sm" name="topping" onChange="fcolor()">
+    <p><select class="form-control input-sm" name="topping" onChange="">
       <option value="todos" selected="selected">Todos
       <% @colorid=Propiedad.where(prop_nom: "Color").take
       @valores=PropiedadValor.where(prop_cod: @colorid.prop_cod)

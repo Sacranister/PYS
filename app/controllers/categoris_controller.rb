@@ -28,7 +28,11 @@ def buscarart(cat_id)
       @articulos = Articulo.where(cat_cod: cat.cat_cod)
       @articulos.each do |articulo|    
         @imagenes.each do |imagen|
+                  if current_user && current_user.role=='vendedor'
+          @instancis=@instancis+(Instanci.where(art_cod: articulo.art_cod))
+        else
           @instancis=@instancis+(Instanci.where(ins_cod_prov: imagen.ins_cod_prov, art_cod: articulo.art_cod))
+        end
         end
       end
       buscarart(cat.cat_cod)
@@ -40,7 +44,11 @@ def buscarart(cat_id)
     @imagenes=Imagen.where("LENGTH(imagen_uri) > ?",0)
     @articulos.each do |articulo|    
       @imagenes.each do |imagen|
-        @instancis=@instancis+(Instanci.where(ins_cod_prov: imagen.ins_cod_prov, art_cod: articulo.art_cod))
+        if current_user && current_user.role=='vendedor'
+          @instancis=@instancis+(Instanci.where(art_cod: articulo.art_cod))
+        else
+          @instancis=@instancis+(Instanci.where(ins_cod_prov: imagen.ins_cod_prov, art_cod: articulo.art_cod))
+        end
       end
     end
     buscarart(@categori.id)
