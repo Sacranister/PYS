@@ -54,34 +54,32 @@
         <td><%= instanci.ins_stock %></td>
         <td><%= number_with_delimiter(instanci.ins_precio_lista, :delimiter => '.') %></td>
         <%@estado=EstadoArticulo.where(est_art_cod: instanci.est_art_cod).take%>
-        <td><%= @estado.est_art_nom %>
-         <a data-toggle="modal" data-target="#<%=instanci.ins_cod%>estado"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-          <!-- Modal -->
-          <div class="modal fade bs-example-modal-sm" id="<%=instanci.ins_cod%>estado" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body" align="center">
-              <%= render 'editar_estado', c: instanci%>
-            </div></div></div></div></td>
+        <td><%= @estado.est_art_nom %></td>
         <td><%= link_to instanci do %><i class="glyphicon glyphicon-eye-open"></i>
-<% end %></td>
-        <td><a data-toggle="modal" data-target="#<%=instanci.ins_cod%>imagen"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+<% end %></td><%@imagen=Imagen.where(ins_cod_prov: instanci.ins_cod_prov).take
+        if @imagen!=nil%>
+        <td><a data-toggle="modal" data-target="#<%=instanci.ins_cod%>"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
 </a>
 
 <!-- Modal -->
-<div class="modal fade bs-example-modal-sm" id="<%=instanci.ins_cod%>imagen" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade bs-example-modal-sm" id="<%=instanci.ins_cod%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
       <div class="modal-body" align="center">
-        <%@imagen=Imagen.where(ins_cod_prov: instanci.ins_cod_prov).take%>
-
+        <img id="imagen"src="<%=@imagen.imagen_uri%>"height="474px" width="316px">
       </div>
     </div>
   </div>
 </div></td>
-        <td><%= link_to edit_instanci_path(instanci) do %><i class="glyphicon glyphicon-pencil"></i>
+<%else%>
+<td></td>
+<%end%>
+<%@instancia=Instanci.where(ins_cod: instanci.ins_cod).take%>
+        <td><%= link_to copy_instanci_path(@instancia) do %><i class="glyphicon glyphicon-duplicate"></i>
+
 <% end %></td>
         <td><%= link_to instanci, method: :delete, data: { confirm: '¿Está seguro que desea eliminar el artículo con código '+instanci.ins_cod.to_s+'?' } do %><i class="glyphicon glyphicon-trash"></i>
 <% end %></td>

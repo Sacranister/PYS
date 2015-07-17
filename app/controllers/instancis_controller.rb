@@ -93,6 +93,12 @@ class InstancisController < ApplicationController
   # POST /instancis.json
   def create
     @instanci = Instanci.new(instanci_params)
+    if @instanci.ins_stock==0
+      @instanci.est_art_cod=4
+    end
+    if @instanci.est_art_cod==4
+      @instanci.ins_stock=0
+    end
     if @instanci.imagens[0]!=nil
       @instanci.imagens[0].ins_cod_prov=@instanci.ins_cod_prov
     end
@@ -120,7 +126,10 @@ class InstancisController < ApplicationController
               @instancia.ins_precio_lista=@instanci.ins_precio_lista
               @instancia.ins_precio_prov=@instanci.ins_precio_prov
               @auxart=@instanci.art_cod
-              @instanci.destroy         
+              @instanciaux=Instanci.where(ins_cod: @instanci.ins_cod).take
+              @instanciaux.destroy
+              @instancia_cod=@instanci.ins_cod
+              @instancia_cod_prov=@instancia.ins_cod_prov        
               @instancia.save
               @artpropvals=ArtPropVal.where(art_cod: @auxart)
               @artpropvals.each do |apvs|
@@ -133,20 +142,22 @@ class InstancisController < ApplicationController
                 @otrapvs=ArtPropVal.where(art_cod: articulo.art_cod)
                 @otrapvs.each do |oapv|
                   if oapv.prop_cod==apvs.prop_cod && oapv.val_cod==apvs.val_cod
-                    @apv.apv_cod=oapv.apv_cod
-                    @temp=1
-                    break
+                    if @temp==0
+                      @apv.apv_cod=oapv.apv_cod
+                      @temp=1
+                    end
                   end
                 end
-                @insapv=InsApv.new
-                @insapv.ins_cod=@instancia.ins_cod
-                @insapv.ins_cod_prov=@instancia.ins_cod_prov
-                @insapv.apv_cod=@apv.apv_cod
+                @artpv_cod=@apv.apv_cod
                 @auxapv=ArtPropVal.where(apv_cod: apvs.apv_cod).take
                 @auxapv.destroy
                 if @temp==0
                   @apv.save
                 end
+                @insapv=InsApv.new
+                @insapv.ins_cod=@instancia_cod
+                @insapv.ins_cod_prov=@instancia_cod_prov
+                @insapv.apv_cod=@artpv_cod
                 @insapv.save
               end
             end

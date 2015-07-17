@@ -5,5 +5,6 @@ class DetallePedido < ActiveRecord::Base
 	#validates :ped_cod, presence: {message: "es requerido"}
 	validates :det_ped_linea, presence: {message: "es requerido"}
 	validates :ins_cod, presence: {message: "es requerido"}
+	validates :det_ped_cant, presence: {message: "es requerido"}
 	#validates :ins_cod_prov, presence: {message: "es requerido"}
 end

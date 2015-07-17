@@ -1,0 +1,44 @@
+  <%@arti=Articulo.where(art_cod: i.art_cod).take%>
+  <h3><%=@articulo.art_nom%></h3>
+
+<%@apvs=ArtPropVal.where(art_cod: @articulo.art_cod)
+@array=[]
+@apvs.each do |apv|
+	@array.push(apv.prop_cod)
+end
+@array1=@array.group_by {|e| e}.map { |e| e[0] if e[1][1]}.compact%>
+<table class="table table-hover">
+  <thead>
+    <tr bgcolor="d7d7d7">
+      <th>Nombre</th>
+      <%@array1.each do |arr|
+      	@prop=Propiedad.where(prop_cod: arr).take%>
+      <th><%=@prop.prop_nom%></th><%end%>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @arti.instancis.each do |instanci|
+    	if instanci.est_art_cod==1 || instanci.est_art_cod==6 || instanci.est_art_cod==8 %>
+      <tr>
+        <% @articulo=Articulo.where(art_cod: instanci.art_cod).take %>
+        <td><%=@articulo.art_nom%></td>
+        <%@iapvs=InsApv.where(ins_cod: instanci.ins_cod)
+        @iapvs.each do |iapv|
+          @apv=ArtPropVal.where(apv_cod: iapv.apv_cod).take
+          @array1.each do |arr|
+          	if @apv.prop_cod==arr
+            @propiedad=Propiedad.where(prop_cod: @apv.prop_cod).take
+             @valor=Valor.where(val_cod: @apv.val_cod).take%>
+             <td><%=@valor.val_nom%></td>
+            <%end%>
+            <%end%>
+        <%end%>
+        <td><%= button_to :controller => :categoris,
+      :action => 'add',:val =>  instanci.ins_cod , :method => :post do%><span class="glyphicon glyphicon-shopping-cart"></span> Agregar al carro<% end %></td>
+      </tr>
+      <%end%>
+    <% end %>
+  </tbody>
+</table>

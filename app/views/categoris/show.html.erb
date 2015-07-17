@@ -47,11 +47,11 @@
   }
 </style>
 <div class="box">
-<article>
 <h1><%= @categori.cat_nom%></h1><p>
 <div id="demo">        
  <div><% @aux=[]
- @instancis.each do |instanci|
+ @instancis.each do |instanci|%> <div><%
+  if instanci.est_art_cod==1 || instanci.est_art_cod==6 || instanci.est_art_cod==8
    if  @aux.include?(instanci.ins_cod_prov)==false
      @aux.push(instanci.ins_cod_prov)%> <div class ="articulo">
     <% @imagen=Imagen.select("imagen_uri").where(ins_cod_prov: instanci.ins_cod_prov).take %>
@@ -60,8 +60,16 @@
        <p><font color="black"><%=@articulo.art_nom%></font></p>
        <p><font color="black">$<%=number_with_delimiter(instanci.ins_precio_lista, :delimiter => '.')%></font></p></a>
           <%if current_user && current_user.role!='admin'%> 
-          <%= button_to :controller => :categoris,
-      :action => 'add',:val =>  instanci.ins_cod , :method => :post do%><div class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span> Agregar al carro</div><% end %>
+          <button id='elegir ins' type="button" class="btn btn-primary" data-toggle="modal" data-target="#<%=instanci.ins_cod%>"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>  Agregar al carrito</button>
+<div class="modal fade bs-example-modal-sm" id="<%=instanci.ins_cod%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body" align="center">
+                            <%= render "elegir_ins", i: instanci%>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <%end%>
       <% end %>
    </div>
    <% end %>
@@ -114,6 +122,5 @@
       </select></p>
   </form>
   </div>
-</article>
 </div>
 

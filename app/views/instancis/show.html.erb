@@ -19,8 +19,9 @@
  <div class="box">
   <%@articulo=Articulo.where(art_cod: @instanci.art_cod).take%>
  <h1><%=@articulo.art_nom%></h1>
-<%@imagen=Imagen.where(ins_cod_prov: @instanci.ins_cod_prov).take%>
-<img id="imagen"src="<%=@imagen.imagen_uri%>"height="474px" width="316px">
+<%@imagen=Imagen.where(ins_cod_prov: @instanci.ins_cod_prov).take
+if @imagen!=nil%>
+<img id="imagen"src="<%=@imagen.imagen_uri%>"height="474px" width="316px"><%end%>
 <div class="descripcion">
 <p>
   <strong>Categoría:</strong>
