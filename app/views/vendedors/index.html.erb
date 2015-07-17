@@ -36,8 +36,13 @@
                 <td><%=vendedor.ven_tel%></td>
                 <td><%=vendedor.ven_mail%></td>
                 <td><%= link_to vendedor do %><i class="glyphicon glyphicon-eye-open"></i><% end %></td>
-                <td><%= link_to edit_vendedor_path(vendedor) do %><i class="glyphicon glyphicon-pencil"></i><% end %></td>
-                <td><%= link_to vendedor, method: :delete, data: { confirm: '¿Está seguro?' } do %><i class="glyphicon glyphicon-trash"></i><% end %></td>
+                <td>
+                  <%if User.where(email: vendedor.ven_mail).present?%>
+                <%= link_to edit_vendedor_path(vendedor) do %><i class="glyphicon glyphicon-pencil"></i><% end %>
+                <% end %></td>
+                <td><%if User.where(email: vendedor.ven_mail).present?%>
+                  <%= link_to vendedor, method: :delete, data: { confirm: '¿Está seguro?' } do %><i class="glyphicon glyphicon-trash"></i><%end%><%end%>
+                </td>
                 </tr>
                 <%end%>
             <%else%>

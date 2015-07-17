@@ -141,10 +141,12 @@ end
     respond_to do |format|
       if @solicitud_devolucion.update(solicitud_devolucion_params)
         if @solicitud_devolucion.sol_dev_est=='Aprobada'
-          @documentocobro=DocumentoDeCobro.where(doc_com_cod:@solicitud_devolucion.doc_com_cod).take
-          @detalles=DetalleSolDevolucion.where(sol_dev_cod: @solicitud_devolucion.sol_dev_cod)
-          @notacredito=NotaCredito.new(sol_dev_cod:@solicitud_devolucion.sol_dev_cod,doc_cob_cod: @documentocobro.doc_cob_cod,not_cre_monto: @detalles.sum(:det_sol_dev_precio))
-          @notacredito.save
+          SolicitudDevolucion.transaction do
+            @documentocobro=DocumentoDeCobro.where(doc_com_cod:@solicitud_devolucion.doc_com_cod).take
+            @detalles=DetalleSolDevolucion.where(sol_dev_cod: @solicitud_devolucion.sol_dev_cod)
+            @notacredito=NotaCredito.new(sol_dev_cod:@solicitud_devolucion.sol_dev_cod,doc_cob_cod: @documentocobro.doc_cob_cod,not_cre_monto: @detalles.sum(:det_sol_dev_precio))
+            @notacredito.save
+          end
         end
         format.html { redirect_to @solicitud_devolucion, notice: 'Solicitud de devolucion actualizada' }
         format.json { render :show, status: :ok, location: @solicitud_devolucion }
