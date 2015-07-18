@@ -13,7 +13,7 @@ Rails.application.configure do
 
 
   ## CAMBIAR A FALSE PARA TIRAR LAS PAG DE ERROR
-  config.consider_all_requests_local = true
+  config.consider_all_requests_local = false
 
 
 

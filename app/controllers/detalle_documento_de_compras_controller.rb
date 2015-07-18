@@ -5,20 +5,32 @@ class DetalleDocumentoDeComprasController < ApplicationController
   # GET /detalle_documento_de_compras.json
   def index
     @detalle_documento_de_compras = DetalleDocumentoDeCompra.all
+              respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /detalle_documento_de_compras/1
   # GET /detalle_documento_de_compras/1.json
   def show
+      respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /detalle_documento_de_compras/new
   def new
     @detalle_documento_de_compra = DetalleDocumentoDeCompra.new
+          respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /detalle_documento_de_compras/1/edit
   def edit
+              respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # POST /detalle_documento_de_compras

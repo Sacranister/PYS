@@ -4,7 +4,14 @@ class SolicitudDevolucionsController < ApplicationController
   # GET /solicitud_devolucions
   # GET /solicitud_devolucions.json
   def index
-    @solicitud_devolucions = SolicitudDevolucion.all
+    if current_user
+      @solicitud_devolucions = SolicitudDevolucion.all
+    else
+      respond_to do |format|
+        format.html { redirect_to :root, notice: 'No estas autorizado para ver esta pagina.' }
+      end
+    end
+
   end
 
   # GET /solicitud_devolucions/1

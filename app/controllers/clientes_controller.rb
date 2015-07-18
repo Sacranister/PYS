@@ -4,33 +4,36 @@ class ClientesController < ApplicationController
   # GET /clientes
   # GET /clientes.json
   def index
-    @clientes = Cliente.all
-        if current_user
-      if current_user.role=='cliente'
-      else
-          respond_to do |format|
-            format.html { redirect_to :root, notice: 'Tu cuenta debe ser de tipo cliente' }
-          end
-      end
+    if current_user
+      @clientes = Cliente.all
     else
       respond_to do |format|
-        format.html { redirect_to :root, notice: 'Debes ser cliente.' }
+        format.html { redirect_to :root }
       end
-    end 
+    end
   end
 
   # GET /clientes/1
   # GET /clientes/1.json
   def show
+      respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /clientes/new
   def new
     @cliente = Cliente.new
+          respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /clientes/1/edit
   def edit
+              respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # POST /clientes

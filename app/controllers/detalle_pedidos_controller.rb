@@ -5,20 +5,32 @@ class DetallePedidosController < ApplicationController
   # GET /detalle_pedidos.json
   def index
     @detalle_pedidos = DetallePedido.all
+              respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /detalle_pedidos/1
   # GET /detalle_pedidos/1.json
   def show
+              respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /detalle_pedidos/new
   def new
     @detalle_pedido = DetallePedido.new
+              respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /detalle_pedidos/1/edit
   def edit
+              respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 def creardetalle
   @val=params[:val]

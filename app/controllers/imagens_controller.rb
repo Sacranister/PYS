@@ -5,32 +5,32 @@ class ImagensController < ApplicationController
   # GET /imagens.json
   def index
     @imagens = Imagen.all
-        if current_user
-      if current_user.role=='admin'
-      else
-          respond_to do |format|
-            format.html { redirect_to :root, notice: 'Tu cuenta debe ser de tipo administrador.' }
-          end
-      end
-    else
-      respond_to do |format|
-        format.html { redirect_to :root, notice: 'Debes ser administrador.' }
-      end
-    end 
+           respond_to do |format|
+        format.html { redirect_to :root }
+      end 
   end
 
   # GET /imagens/1
   # GET /imagens/1.json
   def show
+               respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /imagens/new
   def new
     @imagen = Imagen.new
+               respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /imagens/1/edit
   def edit
+               respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # POST /imagens

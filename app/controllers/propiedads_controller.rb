@@ -22,15 +22,51 @@ class PropiedadsController < ApplicationController
   # GET /propiedads/1
   # GET /propiedads/1.json
   def show
+            if current_user
+      if current_user.role=='admin'
+      else
+          respond_to do |format|
+            format.html { redirect_to :root, notice: 'Tu cuenta debe ser de tipo administrador.' }
+          end
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to :root, notice: 'Debes ser administrador.' }
+      end
+    end 
   end
 
   # GET /propiedads/new
   def new
     @propiedad = Propiedad.new
+            if current_user
+      if current_user.role=='admin'
+      else
+          respond_to do |format|
+            format.html { redirect_to :root, notice: 'Tu cuenta debe ser de tipo administrador.' }
+          end
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to :root, notice: 'Debes ser administrador.' }
+      end
+    end 
   end
 
   # GET /propiedads/1/edit
   def edit
+            if current_user
+      if current_user.role=='admin'
+      else
+          respond_to do |format|
+            format.html { redirect_to :root, notice: 'Tu cuenta debe ser de tipo administrador.' }
+          end
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to :root, notice: 'Debes ser administrador.' }
+      end
+    end 
     #@propiedad.propiedad_valors.build.build_valor
   end
 

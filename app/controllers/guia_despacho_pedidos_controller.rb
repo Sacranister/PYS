@@ -5,20 +5,32 @@ class GuiaDespachoPedidosController < ApplicationController
   # GET /guia_despacho_pedidos.json
   def index
     @guia_despacho_pedidos = GuiaDespachoPedido.all
+               respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /guia_despacho_pedidos/1
   # GET /guia_despacho_pedidos/1.json
   def show
+               respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /guia_despacho_pedidos/new
   def new
     @guia_despacho_pedido = GuiaDespachoPedido.new
+               respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /guia_despacho_pedidos/1/edit
   def edit
+               respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # POST /guia_despacho_pedidos

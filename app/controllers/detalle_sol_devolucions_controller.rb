@@ -5,20 +5,32 @@ class DetalleSolDevolucionsController < ApplicationController
   # GET /detalle_sol_devolucions.json
   def index
     @detalle_sol_devolucions = DetalleSolDevolucion.all
+              respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /detalle_sol_devolucions/1
   # GET /detalle_sol_devolucions/1.json
   def show
+              respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /detalle_sol_devolucions/new
   def new
     @detalle_sol_devolucion = DetalleSolDevolucion.new
+              respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /detalle_sol_devolucions/1/edit
   def edit
+              respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # POST /detalle_sol_devolucions

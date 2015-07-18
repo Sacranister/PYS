@@ -5,20 +5,32 @@ class TransicionEstadoPedidosController < ApplicationController
   # GET /transicion_estado_pedidos.json
   def index
     @transicion_estado_pedidos = TransicionEstadoPedido.all
+     respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /transicion_estado_pedidos/1
   # GET /transicion_estado_pedidos/1.json
   def show
+     respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /transicion_estado_pedidos/new
   def new
     @transicion_estado_pedido = TransicionEstadoPedido.new
+     respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /transicion_estado_pedidos/1/edit
   def edit
+     respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # POST /transicion_estado_pedidos

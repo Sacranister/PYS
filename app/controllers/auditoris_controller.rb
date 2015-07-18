@@ -5,32 +5,32 @@ class AuditorisController < ApplicationController
   # GET /auditoris.json
   def index
     @auditoris = Auditori.all
-        if current_user
-      if current_user.role=='admin'
-      else
-          respond_to do |format|
-            format.html { redirect_to :root, notice: 'Tu cuenta debe ser de tipo administrador.' }
-          end
+   respond_to do |format|
+        format.html { redirect_to :root }
       end
-    else
-      respond_to do |format|
-        format.html { redirect_to :root, notice: 'Debes ser administrador.' }
-      end
-    end 
   end
 
   # GET /auditoris/1
   # GET /auditoris/1.json
   def show
+       respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /auditoris/new
   def new
     @auditori = Auditori.new
+       respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /auditoris/1/edit
   def edit
+       respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # POST /auditoris

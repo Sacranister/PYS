@@ -5,20 +5,32 @@ class DocumentoDeCobrosController < ApplicationController
   # GET /documento_de_cobros.json
   def index
     @documento_de_cobros = DocumentoDeCobro.all
+              respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /documento_de_cobros/1
   # GET /documento_de_cobros/1.json
   def show
+              respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /documento_de_cobros/new
   def new
     @documento_de_cobro = DocumentoDeCobro.new
+              respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /documento_de_cobros/1/edit
   def edit
+              respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # POST /documento_de_cobros

@@ -5,20 +5,32 @@ class HistorialEstadoDcsController < ApplicationController
   # GET /historial_estado_dcs.json
   def index
     @historial_estado_dcs = HistorialEstadoDc.all
+               respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /historial_estado_dcs/1
   # GET /historial_estado_dcs/1.json
   def show
+               respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /historial_estado_dcs/new
   def new
     @historial_estado_dc = HistorialEstadoDc.new
+               respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /historial_estado_dcs/1/edit
   def edit
+               respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # POST /historial_estado_dcs

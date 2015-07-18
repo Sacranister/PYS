@@ -1,24 +1,25 @@
  
-
+<div class="box">
 <p>
-  <strong>Ven nom:</strong>
+  <strong>Nombre:</strong>
   <%= @vendedor.ven_nom %>
 </p>
 
 <p>
-  <strong>Ven rut:</strong>
+  <strong>Rut:</strong>
   <%= @vendedor.ven_rut %>
 </p>
 
 <p>
-  <strong>Ven mail:</strong>
+  <strong>Email:</strong>
   <%= @vendedor.ven_mail %>
 </p>
 
 <p>
-  <strong>Ven tel:</strong>
+  <strong>Teléfono:</strong>
   <%= @vendedor.ven_tel %>
 </p>
 
-<%= link_to 'Edit', edit_vendedor_path(@vendedor) %> |
-<%= link_to 'Back', vendedors_path %>
+<%= link_to 'Editar', edit_vendedor_path(@vendedor) %> |
+<%= link_to 'Atras', vendedors_path %>
+</div>

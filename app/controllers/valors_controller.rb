@@ -5,20 +5,32 @@ class ValorsController < ApplicationController
   # GET /valors.json
   def index
     @valors = Valor.all
+     respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /valors/1
   # GET /valors/1.json
   def show
+     respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /valors/new
   def new
     @valor = Valor.new
+     respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /valors/1/edit
   def edit
+     respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # POST /valors

@@ -5,20 +5,32 @@ class TransicionEstadoDcsController < ApplicationController
   # GET /transicion_estado_dcs.json
   def index
     @transicion_estado_dcs = TransicionEstadoDc.all
+     respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /transicion_estado_dcs/1
   # GET /transicion_estado_dcs/1.json
   def show
+     respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /transicion_estado_dcs/new
   def new
     @transicion_estado_dc = TransicionEstadoDc.new
+     respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /transicion_estado_dcs/1/edit
   def edit
+     respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # POST /transicion_estado_dcs

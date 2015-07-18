@@ -4,38 +4,37 @@ class ArtPropValsController < ApplicationController
   # GET /art_prop_vals
   # GET /art_prop_vals.json
   def index
-    @art_prop_vals = ArtPropVal.all
-        if current_user
-      if current_user.role=='admin'
-      else
-          respond_to do |format|
-            format.html { redirect_to :root, notice: 'Tu cuenta debe ser de tipo administrador.' }
-          end
-      end
-    else
-      respond_to do |format|
-        format.html { redirect_to :root, notice: 'Debes ser administrador.' }
-      end
+respond_to do |format|
+        format.html { redirect_to :root }
     end 
   end
 
   # GET /art_prop_vals/1
   # GET /art_prop_vals/1.json
   def show
+       respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /art_prop_vals/new
   def new
     @art_prop_val = ArtPropVal.new
+    respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /art_prop_vals/1/edit
   def edit
+       respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
   def copy
-        @source = ArtPropVal.find(params[:id])
-        @artpropval = @source.deep_clone
-        render 'copy'
+   respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # POST /art_prop_vals

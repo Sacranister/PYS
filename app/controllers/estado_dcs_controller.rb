@@ -5,20 +5,32 @@ class EstadoDcsController < ApplicationController
   # GET /estado_dcs.json
   def index
     @estado_dcs = EstadoDc.all
+              respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /estado_dcs/1
   # GET /estado_dcs/1.json
   def show
+              respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /estado_dcs/new
   def new
     @estado_dc = EstadoDc.new
+              respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /estado_dcs/1/edit
   def edit
+              respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # POST /estado_dcs

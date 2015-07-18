@@ -5,6 +5,12 @@ class DocumentoDeComprasController < ApplicationController
   # GET /documento_de_compras.json
   def index
     @documento_de_compras = DocumentoDeCompra.all
+    if current_user
+    else
+              respond_to do |format|
+        format.html { redirect_to :root }
+      end
+    end
   end
 
   # GET /documento_de_compras/1
@@ -64,10 +70,16 @@ end
   # GET /documento_de_compras/new
   def new
     @documento_de_compra = DocumentoDeCompra.new
+              respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /documento_de_compras/1/edit
   def edit
+              respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
 

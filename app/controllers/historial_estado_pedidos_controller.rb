@@ -5,20 +5,32 @@ class HistorialEstadoPedidosController < ApplicationController
   # GET /historial_estado_pedidos.json
   def index
     @historial_estado_pedidos = HistorialEstadoPedido.all
+               respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /historial_estado_pedidos/1
   # GET /historial_estado_pedidos/1.json
   def show
+               respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /historial_estado_pedidos/new
   def new
     @historial_estado_pedido = HistorialEstadoPedido.new
+               respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /historial_estado_pedidos/1/edit
   def edit
+               respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # POST /historial_estado_pedidos

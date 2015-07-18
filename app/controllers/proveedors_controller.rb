@@ -22,15 +22,51 @@ class ProveedorsController < ApplicationController
   # GET /proveedors/1
   # GET /proveedors/1.json
   def show
+    if current_user
+          if current_user.role=='admin'
+      else
+          respond_to do |format|
+            format.html { redirect_to :root, notice: 'Tu cuenta debe ser de tipo administrador.' }
+          end
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to :root, notice: 'Debes ser administrador.' }
+      end
+    end 
   end
 
   # GET /proveedors/new
   def new
     @proveedor = Proveedor.new
+    if current_user
+          if current_user.role=='admin'
+      else
+          respond_to do |format|
+            format.html { redirect_to :root, notice: 'Tu cuenta debe ser de tipo administrador.' }
+          end
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to :root, notice: 'Debes ser administrador.' }
+      end
+    end 
   end
 
   # GET /proveedors/1/edit
   def edit
+    if current_user
+          if current_user.role=='admin'
+      else
+          respond_to do |format|
+            format.html { redirect_to :root, notice: 'Tu cuenta debe ser de tipo administrador.' }
+          end
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to :root, notice: 'Debes ser administrador.' }
+      end
+    end 
   end
 
   # POST /proveedors

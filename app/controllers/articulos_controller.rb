@@ -27,10 +27,16 @@ class ArticulosController < ApplicationController
   # GET /articulos/new
   def new
     @articulo = Articulo.new
+       respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /articulos/1/edit
   def edit
+       respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # POST /articulos

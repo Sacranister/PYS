@@ -5,20 +5,32 @@ class TransicionEstadoArtsController < ApplicationController
   # GET /transicion_estado_arts.json
   def index
     @transicion_estado_arts = TransicionEstadoArt.all
+    respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /transicion_estado_arts/1
   # GET /transicion_estado_arts/1.json
   def show
+     respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /transicion_estado_arts/new
   def new
     @transicion_estado_art = TransicionEstadoArt.new
+     respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /transicion_estado_arts/1/edit
   def edit
+     respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # POST /transicion_estado_arts

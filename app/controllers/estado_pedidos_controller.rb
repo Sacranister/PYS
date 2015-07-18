@@ -5,20 +5,32 @@ class EstadoPedidosController < ApplicationController
   # GET /estado_pedidos.json
   def index
     @estado_pedidos = EstadoPedido.all
+               respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /estado_pedidos/1
   # GET /estado_pedidos/1.json
   def show
+               respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /estado_pedidos/new
   def new
     @estado_pedido = EstadoPedido.new
+               respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /estado_pedidos/1/edit
   def edit
+               respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # POST /estado_pedidos

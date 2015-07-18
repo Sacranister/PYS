@@ -57,10 +57,34 @@ def buscarart(cat_id)
   # GET /categoris/new
   def new
     @categori = Categori.new
+        if current_user
+      if current_user.role=='admin'
+      else
+          respond_to do |format|
+            format.html { redirect_to :root, notice: 'Tu cuenta debe ser de tipo administrador.' }
+          end
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to :root, notice: 'Debes ser administrador.' }
+      end
+    end 
   end
 
   # GET /categoris/1/edit
   def edit
+        if current_user
+      if current_user.role=='admin'
+      else
+          respond_to do |format|
+            format.html { redirect_to :root, notice: 'Tu cuenta debe ser de tipo administrador.' }
+          end
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to :root, notice: 'Debes ser administrador.' }
+      end
+    end 
   end
 
   # POST /categoris

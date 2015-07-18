@@ -22,15 +22,51 @@ class VendedorsController < ApplicationController
   # GET /vendedors/1
   # GET /vendedors/1.json
   def show
+              if current_user
+      if current_user.role=='admin'
+      else
+          respond_to do |format|
+            format.html { redirect_to :root, notice: 'Tu cuenta debe ser de tipo administrador.' }
+          end
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to :root, notice: 'Debes ser administrador.' }
+      end
+    end 
   end
 
   # GET /vendedors/new
   def new
     @vendedor = Vendedor.new
+              if current_user
+      if current_user.role=='admin'
+      else
+          respond_to do |format|
+            format.html { redirect_to :root, notice: 'Tu cuenta debe ser de tipo administrador.' }
+          end
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to :root, notice: 'Debes ser administrador.' }
+      end
+    end 
   end
 
   # GET /vendedors/1/edit
   def edit
+              if current_user
+      if current_user.role=='admin'
+      else
+          respond_to do |format|
+            format.html { redirect_to :root, notice: 'Tu cuenta debe ser de tipo administrador.' }
+          end
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to :root, notice: 'Debes ser administrador.' }
+      end
+    end 
   end
 
   # POST /vendedors

@@ -5,20 +5,32 @@ class NotaCreditosController < ApplicationController
   # GET /nota_creditos.json
   def index
     @nota_creditos = NotaCredito.all
+               respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /nota_creditos/1
   # GET /nota_creditos/1.json
   def show
+               respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /nota_creditos/new
   def new
     @nota_credito = NotaCredito.new
+               respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # GET /nota_creditos/1/edit
   def edit
+               respond_to do |format|
+        format.html { redirect_to :root }
+      end
   end
 
   # POST /nota_creditos
